@@ -1,0 +1,1321 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="description" content="programmazione, team, lavoro, linguaggio, OOP, NET, C, VBasic">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Regole per una programmazione ben formata</title>
+</head>
+
+<body>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100" valign="bottom" bgcolor="#FF9933">&nbsp;</td>
+    <td bgcolor="#FF9933">
+      <p align="center"><b><font face="Arial" size="5" color="#FFFFFF">Regole 
+		per una programmazione ben formata</font></b></td>
+    <td width="100" valign="bottom" bgcolor="#FF9933">&nbsp;</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>&nbsp;<p>
+											<span class="830055807-21052007">
+											<font face="Arial">Membri efficaci 
+	non rendono l'intero team efficiente, senza uno stile comune. Ogni progetto 
+	open source è sempre accompagnato da regole di stile.</font></span></p>
+	<p>
+											<span class="830055807-21052007">
+											<font face="Arial">Segue un primo 
+	estratto di stile comune, frutto di anni di esperienza di programmazione con 
+	diversi linguaggi. </font>
+											</span>
+											</p>
+	<hr>
+	<div class="moz-text-html" lang="x-western">
+		<form id="aspnetForm" name="aspnetForm" onsubmit="javascript:return WebForm_OnSubmit();" method="post" action="http://jigen/seltris/Knowledge%20base/programmazione.aspx">
+			<table class="ms-main" id="table8" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
+				<tr height="100%">
+					<td>
+					<table id="table9" cellpadding="0" cellspacing="0" height="100%" width="100%">
+						<tr>
+							<td class="ms-bodyareacell" valign="top">
+							<table class="ms-propertysheet" id="table10" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
+								<tr>
+									<td class="ms-bodyareaframe" height="100%" valign="top">
+									<div class="ms-wikicontent">
+										<div class="ExternalClassCCDCB966649846FD84EA23CC3FE9805C">
+											<p>&nbsp;</p>
+											<div class="ExternalClassEF06D39CFF3B4129BD677AD7C93B5EBC">
+												<ul>
+													<li>
+													<b>
+											<span class="830055807-21052007">
+													<font face="Arial">Nomi di 
+													funzioni/procedure</font></span></b></li>
+												</ul>
+												<p>
+											<span class="830055807-21052007">
+												<font face="Arial">
+												<font color="#008000"><i><b># Un 
+												commento che descrive il motivo 
+												per cui esiste la funzione</b></i></font><br>
+												(tipo) Cosa fa la funzione 
+												(parametri)&nbsp; (tipo)<br>
+												{<br>
+												&nbsp;&nbsp; ... Come la funzione fa 
+												quello che dice che fa.&nbsp; <b>
+												<i><font color="#008000"># 
+												codice ben formato necessita di 
+												pochi o nessun commento</font></i></b><br>
+												} <b><i><font color="#008000"># 
+												nome della funzione</font></i></b>
+												</font>
+											</span>
+												</p>
+												<ul>
+													<li>
+													<span class="830055807-21052007">
+													<b><font face="Arial">
+													Commenti</font></b></span></li>
+												</ul>
+												<p>
+												<span class="830055807-21052007">
+												<font face="Arial">Noia e pena 
+												per la maggior parte dei 
+												programmatori, un tag 
+												semplicemente composto da</font></span></p>
+												<blockquote>
+													<p>
+													<span class="830055807-21052007">
+													<b><font face="Arial">t:YYMMDD.HHMM\f.lname: 
+													comment</font></b></span></p>
+												</blockquote>
+												<p>
+												<span class="830055807-21052007">
+												<font face="Arial">è allo stesso 
+												tempo cronologia (changelog) e 
+												un sistema identificabile da un 
+												parser automatico. La data può 
+												essere richiamata nel codice la 
+												dove non si faccia uso di 
+												strumenti come SVN o GIT.<br>
+												Un esempio si trova nei video
+												<a href="https://www.youtube.com/watch?v=MBP_jCdrCDc">
+												https://www.youtube.com/watch?v=MBP_jCdrCDc</a> 
+												e
+												<a href="https://www.youtube.com/watch?v=hCIbzP47_0c">
+												https://www.youtube.com/watch?v=hCIbzP47_0c</a>.</font></span></p>
+												<ul>
+													<li>
+													<b>
+													<span class="830055807-21052007">
+													<font face="Arial">I parametri opzionali è 
+													bene usarli solo in funzioni 
+													generalizzate, atomiche
+													</font>
+											</span>
+													</b> 
+													</li>
+													<li>
+													<b>
+											<span class="830055807-21052007">
+													<font face="Arial">Ciò che si può dedurre è 
+													bene non fornire come 
+													parametro </font>
+											</span>
+													</b> 
+													</li>
+												</ul>
+											</div>
+											<p>
+											<span class="830055807-21052007">
+											<font face="Arial">I parametri opzionali servono in 
+											genere per far assumere alla 
+											funzione un comportamento 
+											leggermente diverso. Questo dipende 
+											dallo stato di qualcosa d'altro.<br>
+											In un sistema (grafico), questo 
+											qualcosa d'altro è deducibile ed è 
+											bene usare questa deduzione in virtù 
+											del fatto che mantiene i 
+											comportamenti collegati.</font></span></p>
+											<div class="ExternalClassBCC18E88DD9A4D208E1A44BD958932AD">
+												<ul>
+													<li>
+													<b>
+											<span class="830055807-21052007">
+													<font face="Arial">Condurre le espressioni 
+													all'interno di variabili 
+													booleane </font>
+											</span>
+													</b> 
+													</li>
+												</ul>
+											</div>
+											<p>
+											<span class="830055807-21052007">
+											<font face="Arial">Il padre della programmazione, 
+											Charles Babbage, disse che ogni 
+											problema può essere scomposto in 
+											sotto problemi che necessitano solo 
+											due risultati: Vero o Falso<br>
+											Questo metodo, mantiene un codice 
+											pulito, ordinato e autoesplicante</font></span></p>
+											<blockquote class="ExternalClass143EFD6F82A94E7EBCF49E2A8B1C7F12">
+												<p>
+											<span class="830055807-21052007">
+												<font face="Arial">significato_condizione
+												= 
+												operazioni_matematiche_e_logiche<br>
+												if
+												(significato_condizione) then print
+												&quot;semplice 
+												e chiaro&quot;</font></span></p>
+											</blockquote>
+											<p>
+											<span class="830055807-21052007">
+											<font face="Arial">Viene mantenuta una discreta 
+											flessibilità in cui un elemento può 
+											essere originato da un contenuto, da 
+											un riferimento e diventare in futuro 
+											una regola:</font></span></p>
+											<blockquote>
+												<p>
+											<span class="830055807-21052007">
+												<font face="Arial">means = 
+												table.bool_field&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												// today<br>
+												means = 
+												(table.field.value
+												= &quot;XX&quot;)&nbsp;
+												// 
+												tomorrow</font></span></p>
+												<p>
+											<span class="830055807-21052007">
+												<font face="Arial">if (means) then ...</font></span></p>
+											</blockquote>
+											<p>
+											<span class="830055807-21052007">
+											<font face="Arial">Questo sistema rende anche le 
+											valutazioni sempre positive e quindi 
+											riduce i dubbi di scelta del flusso 
+											del codice. E' bene comunque 
+											scegliere un unico modo per 
+											facilitare la lettura.</font></span></p>
+											<div class="ExternalClass143EFD6F82A94E7EBCF49E2A8B1C7F12">
+												<ul>
+													<li>
+													<b>
+											<span class="830055807-21052007">
+													<font face="Arial">Tre parametri possono 
+													bastare </font>
+											</span>
+													</b> 
+													</li>
+												</ul>
+											</div>
+											<p>
+											<span class="830055807-21052007">
+											<font face="Arial">Una mente ben 
+											allenata riesce a gestire al massimo 
+											5+/-2 gruppi di informazioni online. 
+											&quot;Noi&quot; comuni mortali dobbiamo 
+											accontentarci di 3 o meno 
+											informazioni o gruppi.</font></span></p>
+											<div class="ExternalClassBC8225E5797C49F0B1778041EEB1C5A2">
+												<ul>
+													<li>
+													<b>
+											<span class="830055807-21052007">
+													<font face="Arial">Condurre a operazioni e 
+													confronti con interi e array
+													</font>
+											</span>
+													</b> 
+													</li>
+												</ul>
+											</div>
+											<p>
+											<span class="830055807-21052007">
+											<font face="Arial">La CPU lavora fondamentalmente con 
+											registri numerici e sono ottimizzate 
+											per fare calcoli matematici più che 
+											per spostamenti di memoria. Le 
+											operazioni sulle stringhe sono 
+											lente.<br>
+											Le Qt Libraries ad esempio usano il 
+											sistema di calcolo hash anche per la 
+											comparazione tra stringhe. Questo 
+											significa che può o è più veloce 
+											scandire la stringa A ed ottenere un 
+											valore VA, scandire la stringa B e 
+											ottenere un valore VB e confrontare 
+											VA e VB per decidere, anziché 
+											scandire contemporaneamente le 
+											stringhe e operare un confronto tra 
+											i singoli caratteri.<br>
+											Effettivamente l'operazione 
+											computazionale per A e B stringhe di 
+											10 caratteri è:</font></span></p>
+											<blockquote class="ExternalClassEEBA660C046C4FD0912C5EE6516FCDEA">
+												<p>
+											<span class="830055807-21052007">
+												<font face="Arial">caso 
+												1: 10 x (load[A] + load[B] + 
+												compare)<br>
+												case 2:&nbsp; 1 x [hash[A], hash[B]] 
+												+ compare</font></span></p>
+											</blockquote>
+											<p>
+											<span class="830055807-21052007">
+											<font face="Arial">Le moderne CPU riescono ad eseguire 
+											le 2 pre-moltiplicazioni anche 
+											parallelamente.</font></span></p>
+											<div class="ExternalClassEEBA660C046C4FD0912C5EE6516FCDEA">
+												<ul>
+													<li>
+													<b>
+											<span class="830055807-21052007">
+													<font face="Arial">Rendere quanto più 
+													possibile funzionale il 
+													codice </font>
+											</span>
+													</b> 
+													</li>
+												</ul>
+											</div>
+											<p>
+											<span class="830055807-21052007">
+											<font face="Arial">Al crescere della 
+											complessità, il codice cresce, si 
+											espande fino a doversi dividere in 
+											chunks (moduli o funzioni). Ogni 
+											chunks ripeterà lo stesso ciclo di 
+											crescita.<br>
+											Iniziare subito con codice diviso 
+											come gli strumenti visuali moderni 
+											impongono di fare, porta ad una 
+											precoce frammentazione del 
+											significato d'insieme, non 
+											funzionale alla crescita.<br>
+											La suddivisione del codice è spesso 
+											legata al tipo di evento (clic, 
+											select, etc.). In realtà l'evento 
+											clic è spesso legato al comando o 
+											macroevento &quot;SAVE&quot;, che può essere 
+											azionato da vari controlli (menù, 
+											toolbutton). <br>
+											Questo è a mio avviso uno dei 
+											maggiori problemi introdotti dal 
+											piacere psicologico che da 
+											l'esposizione dell'OOP. La 
+											programmazione asincrona moderna sta 
+											contrastando infatti tale 
+											organizzazione del codice.</font></span></p>
+											<div class="ExternalClass3457141B410840D995CCB0C9F42EA6A2">
+												<ul>
+													<li><b>
+											<span class="830055807-21052007">
+													<font face="Arial">Anzichè usare booleani, 
+													usare enumeratori espliciti
+													</font>
+											</span>
+													</b> 
+													</li>
+												</ul>
+											</div>
+											<p>
+											<span class="830055807-21052007">
+											<font face="Arial">Particolarmente come parametri viene 
+											usata per specializzare il 
+											comportamento della funzione:</font></span></p>
+											<blockquote class="ExternalClassBBE1568293F74A1E938AC9438AC28E18">
+												<p>
+											<span class="830055807-21052007">
+												<font face="Arial">function get_date_sql_format(<br>
+												&nbsp;&nbsp;&nbsp; value,
+												<br>
+												&nbsp;&nbsp;&nbsp; optional 
+												before_midnight as
+												boolean=false<br>
+												&nbsp;&nbsp;&nbsp; ) as string</font></span></p>
+											</blockquote>
+											<p>
+											<span class="830055807-21052007">
+											<font face="Arial">Restituisce una stringa in questo 
+											formato: &quot;#yyyy/mm/dd hh:nn:ss#&quot; ove 
+											in caso di mancanza del tempo 
+											diviene: &quot;#yyyy/mm/dd 00:00:00#&quot; 
+											mentre specificando il parametro 
+											opzionale diviene: &quot;#yyyy/mm/dd 
+											23:59:59#&quot;.</font></span></p>
+											<p>
+											<span class="830055807-21052007">
+											<font face="Arial">Essendo il booleano di fatto un 
+											intero, in previsione di espansioni 
+											future, una dichiarazione più 
+											elastiche è:</font></span></p>
+											<blockquote class="ExternalClassBBE1568293F74A1E938AC9438AC28E18">
+												<p>
+											<span class="830055807-21052007">
+												<font face="Arial">enum
+												time_bound as (midnight=false, 
+												before_midnight=true)<br>
+												function get_date_sql_format(<br>
+												&nbsp;&nbsp;&nbsp; value,
+												<br>
+												&nbsp;&nbsp;&nbsp; optional option as 
+												time_bound = midnight<br>
+												&nbsp;&nbsp;&nbsp; ) as string</font></span></p>
+												<p>
+											<span class="830055807-21052007">
+												<font face="Arial">date_str 
+												= get_date_sql_format(&quot;1/3/07&quot;, 
+												before_midnight)</font></span></p>
+											</blockquote>
+											<div class="ExternalClassBBE1568293F74A1E938AC9438AC28E18">
+												<ul>
+													<li>
+													<b>
+													<span class="830055807-21052007">
+													<font face="Arial">Costanti</font></span></b></li>
+												</ul>
+											</div>
+											<span class="830055807-21052007">
+											<div dir="ltr">
+												<font face="Arial">L'uso delle costanti come delle 
+												variabili è sempre consigliabile 
+												anche se noioso. Come già 
+												evidenziato per i valori 
+												booleani, anziché scrivere:<br>
+												&nbsp;</font></div>
+											<blockquote dir="ltr" style="margin-right: 0px;">
+												<div dir="ltr">
+													<font face="Arial">if
+													(get_config_param(&quot;server 
+													name&quot;)=&quot;S55K8969&quot;)
+													then
+													... </font> </div>
+											</blockquote>
+											<div>
+												<font face="Arial">è bene usare:</font></div>
+											<blockquote dir="ltr" style="margin-right: 0px;">
+												<div>
+													<font face="Arial">p_svr_name=get_config_param(&quot;server 
+													name&quot;)</font></div>
+												<div>
+													<font face="Arial">svr_name=&quot;S55K8969&quot;</font></div>
+												<div>
+													<font face="Arial">if
+													(p_svr_name=svr_name)
+													then
+													...</font></div>
+											</blockquote>
+											<div>
+												<font face="Arial">questo&nbsp;perchè la variabile è 
+												sondabile in fase di debug e 
+												anche perchè si sarà 
+												naturalmente portati a riporre 
+												la costante nella sezione 
+												parametri.</font></div>
+											<div>
+												<font face="Arial">In linguaggi interpretati come 
+												VB e C#, non esiste infatti 
+												differenza tra una costante e 
+												una variabile e quindi le 
+												performance non risentono di 
+												miglioramenti dall'uso di 
+												costanti.</font></div>
+											<div>
+												<font face="Arial">Si, anche il nome del parametro 
+												dovrebbe essere messo a 
+												costante, infatti questo codice 
+												è necessariamente ridondante.</font></div>
+											<font face="Arial" size="2">
+											<div>
+												&nbsp;</div>
+											</font>
+											<ul>
+												<li>
+													<b><font face="Arial">Collezioni e array</font></b></li>
+											</ul>
+											<p><font face="Arial">Il 
+											codice ripetitivo è segno di 
+											programmazione mal formata. Codice 
+											tipo:</font></p>
+											<blockquote>
+												<p><font face="Arial">b 
+												= expression<br>
+												object1.visible = b<br>
+												object2.visible = b<br>
+												object3.visible = b<br>
+												object4.visible = b<br>
+												object5.visible = b<br>
+												object6.visible = b</font></p>
+											</blockquote>
+											<p><font face="Arial">Il seguente codice è più lungo:</font></p>
+											<blockquote>
+												<p><font face="Arial">collection c<br>
+												c.add(object1): c.add(object2)<br>
+												c.add(object3): c.add(object4)<br>
+												c.add(object5): c.add(object6)<br>
+												<br>
+												object o<br>
+												b = expression<br>
+												for each o in 
+												c<br>
+&nbsp;&nbsp;&nbsp; o.visible=b <br>
+												next o</font></p>
+											</blockquote>
+											<p><font face="Arial">Il nostro cervello cerca sempre 
+											delle scorciatoie. Ma per il 
+											cervello le scorciatoie sono anche 
+											le cose che sa già fare perché 
+											appunto cercare di fare le cose che 
+											non sa fare, lo porterebbe ad 
+											impiegarci di più. Nella mia 
+											esperienza mi è capitato di 
+											osservare programmatori scrivere 
+											codice lungo e complicato e mi sono 
+											reso conto che lo facevano perché 
+											per loro era facile farlo così 
+											perché sapevano farlo subito.</font></p>
+											<p><font face="Arial">Il secondo gruppo è decisamente 
+											più ampio e complesso. Ma se non si 
+											sta speculando e si sta anzi 
+											lavorando ad un progetto destinato a 
+											crescere, la seconda forma permette 
+											di estendere facilmente il numero di 
+											oggetti ma non solo. Nel contesto da 
+											cui l'esempio è stato estratto, in 
+											seguito si è reso necessario 
+											nascondere il contenitore e il 
+											passaggio è stato breve:</font></p>
+											<blockquote>
+												<p><font face="Arial">object o: int 
+												n<br>
+												b = expression<br>
+												for each 
+												o in c<br>
+&nbsp;&nbsp;&nbsp; o.visible=b<br>
+&nbsp;&nbsp;&nbsp; if b=true then 
+												n=n+1 <br>
+												next 
+												o<br>
+												if n=c.count
+												then 
+												container.visible=false</font></p>
+											</blockquote>
+											<p><font face="Arial">La regola è: &quot;Dove c'è una serie, 
+											ci deve essere un collettore e un 
+											iteratore&quot;.<br>
+&nbsp;</font></p>
+											<ul>
+												<li><b><font face="Arial">Ordine degli statement 
+												nell'IF</font></b></li>
+											</ul>
+											<div>
+												<font face="Arial">Valutare la condizione positiva 
+												e porre prima quello positivo:</font></div>
+											<blockquote dir="ltr" style="margin-right: 0px;">
+												<div>
+													<font face="Arial">if 
+													(condition) ok_statement</font></div>
+												<div>
+													<font face="Arial">else
+													notok_statement</font></div>
+											</blockquote>
+											<div dir="ltr">
+												<font face="Arial">Se comporta un'uscita dalla 
+												procedura usare la valutazione 
+												negativa della condizione</font></div>
+											<blockquote dir="ltr" style="margin-right: 0px;">
+												<div>
+													<font face="Arial">if 
+													(not condition) return</font></div>
+											</blockquote>
+											<font face="Arial" size="2">
+											</font>
+											<ul>
+												<li><b><font face="Arial">Codice duplicato</font></b></li>
+											</ul>
+											<p><font face="Arial">Spesso si scrivono porzioni di 
+											codice che differiscono per il nome 
+											di un parametro o il valore di una 
+											costante o il nome della funzione 
+											chiamata.<br>
+											Purtroppo solo linguaggi come il 
+											C/C++ permettono l'uso di macro 
+											sostituzioni e solo il pascal 
+											permette di scrivere funzioni locali 
+											ad altre funzioni. I linguaggi OO 
+											dovrebbero risolvere queste 
+											situazioni con nested classes ma non 
+											tutti lo permettono. Il C++ è uno di 
+											questi anche se grazie 
+											all'overloading e alle funzioni 
+											inline, superando gran parte di 
+											questo limite.</font></p>
+											<blockquote>
+												<p><font face="Arial">macro 
+												funzioneX a, b, c</font></p>
+												<blockquote>
+													<p>
+													<font face="Arial">funzioneX i,1,10<br>
+													funzioneX z,2,q*2</font></p>
+												</blockquote>
+											</blockquote>
+											<p><font face="Arial">La funzione dovrebbe essere 
+											essenziale cioè senza parametri. 
+											Questo significherebbe che la 
+											funzione é compiuta e deterministica. 
+											Le funzioni vanno usate soprattutto 
+											la dove un'operazione viene ripetuta 
+											molte volte e soprattutto se sono 
+											critiche (come l'impostazione della 
+											data di aggiornamento di una 
+											tabella, usata per sincronizzare gli 
+											archivi remoti. In questo caso un 
+											trigger é d'obbligo per non perdersi 
+											dei pezzi, ma non tutti i db 
+											supportano i trigger).</font></p>
+											<p><font face="Arial">L'assenza di parametri consente di 
+											specializzare la funzione, 
+											introducendo parametri di default, 
+											opzionalmente modificabili. Ad 
+											esempio:</font></p>
+											<blockquote>
+												<p>
+												<font face="Arial">function X(data structure , 
+												default behaviour=true)</font></p>
+												<font face="Arial" size="2">
+												<p>&nbsp;</p>
+											</blockquote>
+											</font>
+											<ul>
+												<li><b><font face="Arial">Debugging dei cicli</font></b></li>
+											</ul>
+											<p><font face="Arial">All'inizio di un ciclo può essere 
+											opportuno salvare lo stato delle 
+											variabili coinvolte, al fine di 
+											riprendere il ciclo da capo senza 
+											dover riavviare il programma. </font> </p>
+											<ul>
+												<li><b><font face="Arial">Dove dichiarare le 
+												variabili</font></b></li>
+											</ul>
+											<p><font face="Arial">Benchè 
+											preferisa linguaggi moderni come 
+											C/C++/C#, rimango dell'idea che 
+											un'unica dichiarazione in testa in 
+											stile Pascal sia la soluzione più 
+											condivisibile con chi dovrà prendere 
+											in&nbsp; mano il codice, noi stessi 
+											compresi a distanza di anni.</font></p>
+											<ul>
+												<li><b><font face="Arial">Nomi 
+												di variabili/campi</font></b></li>
+											</ul>
+											<p><font face="Arial">La notazione 
+											ungara è stata ben presto criticata 
+											eppure viene ancora utilizzata.
+											</font></p>
+											<p><font face="Arial">Con i RAD 
+											moderni non è più necessario che il 
+											nome contenga informazioni sul tipo. 
+											Ci sono anche strumenti come SSMS 
+											che sono RAD moderni ma non mostrano 
+											informazioni dettagliate in tempo 
+											reale.<br>
+											Tuttavia vale la regola della 
+											limitazione della mente umana e 
+											oltre i tre argomenti (o anche 
+											cinque) è bene dividere (o 
+											raggruppare) in macro gruppi.</font></p>
+											<p><font face="Arial">Per le 
+											variabili locali mantengo utili lo 
+											stile del C (&quot;i&quot; per index, &quot;c&quot; per 
+											counter, &quot;k e j&quot; per costante o 
+											contatore o indice secondario).</font></p>
+											<p><font face="Arial">Per alcuni 
+											nomi comuni uso la regola appresa 
+											con l'RPG di IBM, prendendo le 
+											consonanti a tre a tre dei nomi 
+											inglesi (group = grp, index = idx).</font></p>
+											<ul>
+												<li><b><font face="Arial">Rendere il programma un 
+												insieme di micro parser o 
+												generatori</font></b></li>
+											</ul>
+											<div>
+												<font face="Arial">Supponiamo di dover gestire 
+												degli utenti con diritti. </font> </div>
+											<ol>
+												<li><font face="Arial">Innanzi tutto è opportuno 
+												usare un enumeratore con&nbsp;potenze 
+												di 2 (1,2,4,8,etc.) anzichè una 
+												serie 1,2,3,4,5. Questo metodo 
+												permetet in futuro di incrociare 
+												i diritti e ottenere nuovi 
+												comportamenti, spesso senza 
+												riscrivere il codice. </font> </li>
+												<li><font face="Arial">La seconda cosa utile da 
+												fare è definire una exlusion 
+												mask da applicare alla variabile 
+												risultato in modo da escludere i 
+												diritti incompatibili e da 
+												evitare controlli tipo<br>
+												&nbsp;&nbsp;&nbsp; if a and not b then ...
+												</font> 
+												</li>
+												<li><font face="Arial">se si definisce una tabella, 
+												non si usa un enumeratore e 
+												viceversa. Questo crea 
+												replicazione del dato e 
+												probabile disallineamento. Se si 
+												usa una tabella esterna, nel 
+												codice deve esserci una funzione 
+												tipo grant(nome_diritto). La 
+												ripetizione del nome diritto 
+												porta con se un probabile 
+												disallineamento. Le soluzioni 
+												possibili sono: </font> 
+												<ol>
+													<li><font face="Arial">cablare i diritti solo a 
+													libello di programma e 
+													registrare l'informazione 
+													nel record utente/gruppo 
+													come sequenza di bit, come 
+													andrebbe fatto anche per 
+													presevare la sicurezza
+													</font> </li>
+													<li><font face="Arial">introdurre nella tabella 
+													dei diritti parte del codice 
+													comportamentale (porzioni di 
+													javascript o sql)</font></li>
+												</ol>
+												</li>
+												<li><font face="Arial">Possibilmente creare codice 
+												che autogenera i dati (non 
+												NULL). Lasciare all'utente il 
+												compito e l'onere di inserire i 
+												dati, introduce la possibilità 
+												di situazioni d'errore. Il 
+												concetto di inegrità 
+												referenziale è valida anche per 
+												il codice. Cioò che è visibile 
+												deve avere uno corrispettivo. 
+												Alla Microsoft spesso non ne 
+												tengono conto. Infatti 
+												forniscono strumenti visibili 
+												(indicatore wireless) ma non 
+												forniscono un punto 
+												(api/registry) corrispondente 
+												utile allo sviluppatore.<br>
+												Ad esempio la funzione 
+												TR(stringa,lingua) che traduce 
+												la stringa in lingua, la prima 
+												volta che viene chiamata&nbsp;è bene 
+												che generi un record in tabella 
+												in automatico. Questo fa 
+												risparmiare all'utente 
+												l'inserimento di dati, fa 
+												risparmiare allo sviluppatore la 
+												parte di inserimento, riduce le 
+												possibilità di introduzione di 
+												errore.</font></li>
+											</ol>
+											<ul>
+												<li><b><font face="Arial">I controlli nelle 
+												applicazioni</font></b></li>
+											</ul>
+											<p><font face="Arial">Con i 
+											linguaggi moderni si potrebbe 
+											finalmente impiegare più volte lo 
+											stesso nome con tipi differenti:</font></p>
+											<blockquote>
+												<p><font face="Arial"><b>
+												combobox </b>paziente<br>
+												<b>filter </b>paziente<br>
+												<b>table</b> paziente<br>
+												<br>
+												paziente.items = 
+												paziente.dataBind&nbsp;
+												<font color="#008000"># combobox 
+												&amp; table</font><br>
+												. . .<br>
+												paziente.selected = 
+												paziente.item;
+												<font color="#008000"># filter &amp; 
+												table</font><br>
+												paziente.where = paziente&nbsp;
+												<font color="#008000">&nbsp;# 
+												table &amp; filter</font></font></p>
+											</blockquote>
+											<p><font face="Arial">Purtroppo il 
+											concetto di overloading di funzione 
+											non è ancora stato applicato alle 
+											variabili come per 
+											l'auto-tipizzazione, probabilmente 
+											perché si pensa che sfocerebbe nel 
+											caos.</font></p>
+											<p><font face="Arial">Si finisce 
+											così ad usare la notazione ungara 
+											nei nomi di strutture. Quindi se con 
+											l'OOP siamo passati da &quot;azione 
+											oggetto&quot; ad &quot;oggetto.azione&quot; dove 
+											l'azione predefiniva il tipo di 
+											oggetto, comunque ci ritroviamo a 
+											scrivere anche 
+											&quot;tipo_oggetto.azione&quot;.</font></p>
+											<p><font face="Arial">La soluzione 
+											sembrerebbe definire un'unica e 
+											comune struttura di trasporto dati. 
+											Generalmente è la stringa, che oggi 
+											si vorrebbe fosse formattata in XML 
+											basato su XSL. Questa è una 
+											soluzione semplice ma lenta.</font></p>
+											<p><font face="Arial">Non ho trovato 
+											soluzione perché credo che i membri 
+											di una classe dovrebbero essere solo 
+											privati della classe ed ogni 
+											comunicazione tra classi delegata 
+											come nel pattern dell'ossevatore.<br>
+											Alla fine però questa soluzione 
+											richiede una sovra-strutturazione 
+											della comunicazione.</font></p>
+											<font face="Arial" size="2">
+											</font>
+											<ul>
+												<li><b><font face="Arial">Logging</font></b></li>
+											</ul>
+											<p><font face="Arial">Sarebbe auspicabile che il 
+											compilatore o l'interprete 
+											scrivessero su un file il messaggio 
+											d'errore che riportano in un punto 
+											non previsto del programma. 
+											Stranamente questo non è mai stato 
+											fatto. Viene sempre lascita al 
+											programmatore il dovere di scrivere 
+											una propria funzione di 
+											intercettazione. Non tutti i 
+											linguaggi però permettono ciò e con 
+											i linguaggi strutturati e ad oggetti 
+											è anche quasi un sacrilegio pensare 
+											ad una funzione globale di gestione 
+											degli errori.</font></p>
+											<p><font face="Arial">Conviene quindi scrivere un funzione 
+											che registri il passaggio e lo 
+											stato.</font></p>
+											<blockquote>
+												<p><font face="Arial">LOG PROCESS_ID, &quot;TEXT o 
+												FORMAT STRING&quot;,value1, 
+												... ,valueN</font></p>
+											</blockquote>
+											<p><font face="Arial">La 
+											funzione registra da se anche un 
+											contatore incrementale e la data 
+											dell'operazione.</font></p>
+											<p><font face="Arial">L'apoteosi, nel caso di applicazioni 
+											grafiche, è registrare uno 
+											screenshot assieme all'operazione di 
+											log.</font></p>
+											<p><font face="Arial">In 
+											caso di file di testo conviene 
+											produrre un file giornaliero con il 
+											medesimo nome (today_log.txt), 
+											cui poter fare riferimento con un 
+											link simbolico (today_log.lnk) 
+											da desktop e rinominarlo il giorno 
+											successivo con la data (2007-03-01_log.txt) 
+											, prima di creare quello nuovo.</font></p>
+											<p><font face="Arial">Un 
+											ultimo modo per gestire i log, è 
+											quello di utilizzare una driver ODBC 
+											per scrivere su un database SQLite, 
+											accessibile tramite la sua linea di 
+											comando con cui fare estrapolazioni 
+											oppure utilizzando tools grafici 
+											come MSAccess.</font></p>
+											<p>&nbsp;</p>
+											<ul>
+												<li><b><font face="Arial">OVERLOADING</font></b></li>
+											</ul>
+											<p><font face="Arial">L'overloading 
+											è utile per l'ottimizzazione ad 
+											esempio nella ricerca di un 
+											carattere in una stringa o di una 
+											stringa in un array, perché 
+											implicano codice completamente 
+											differente.<br>
+											Nel resto dei casi è confondibile 
+											e/o assimilabile alle funzioni con 
+											parametri predefiniti (o opzionali) 
+											e quindi richiedere una sola comune 
+											funziona padre chiamata da tutte le 
+											altre.</font></p>
+											<ul>
+												<li><b><font face="Arial">Event Handling</font></b></li>
+											</ul>
+											<p><font face="Arial">E' meglio una funzione per ogni 
+											evento o una per tutti? Dalla mia 
+											esperienza conviene una per tutti 
+											poiché al crescere della complessità 
+											risulta naturale la divisione. Meno 
+											naturale risulta invece la comunione 
+											di più eventi simili, soprattutto la 
+											dove gli handles sono stati scritti 
+											da diversi programmatori che non 
+											hanno una visione completa e 
+											finiscono quindi per ridondare il 
+											codice.</font></p>
+											<ul>
+												<li><b><font face="Arial">Cambiamenti del codice</font></b></li>
+											</ul>
+											<p><font face="Arial">Il cambiamento 
+											del codice può avvenire per aggiunta 
+											di un parametro, rimozione, 
+											spostamento o cambio di tipo e/o di 
+											nome del parametro o della funzione 
+											contenente. Nel caso di spostamento 
+											di un membro di classe si tratta 
+											probabilmente più di 
+											ristrutturazione se non rifacimento.</font></p>
+											<p><font face="Arial">Quel che si 
+											può fare per limitare la 
+											propagazione del cambiamento e 
+											quindi l'eventuale errore è operare 
+											una buona divisione orizzontale e 
+											verticale del progetto in librerie e 
+											moduli.</font></p>
+											<ul>
+												<li><b><font face="Arial">Try e 
+												Catch</font></b></li>
+											</ul>
+											<p><font face="Arial">La semplicità 
+											d'impiego piace tanto 
+											psicologicamente che vengono spesso 
+											abusati a tal punto che l'errore si 
+											perde nel costrutto più esterno. 
+											Altre volte si finisce con l'eludere 
+											le casistiche. Il tutto può 
+											diventare un overbooking di chiamate 
+											all'Helpdesk.</font></p>
+											<ul>
+												<li><b><font face="Arial">Esempi 
+												conclusivi</font></b></li>
+											</ul>
+											<p><font face="Arial">Il seguente 
+											esempio è tratto da un manuale. Nel 
+											quarto riquadro offro una revisione 
+											meno elegante ma più pratica. </font></p>
+<table border="1" width="100%" cellspacing="4" cellpadding="4" bgcolor="#FFFFCC" style="border-collapse: collapse">
+	<tr>
+		<td align="center" bgcolor="#FFFF99"><b><i>Spaghetti form</i></b></td>
+		<td align="center" bgcolor="#FFFF99"><b><i>Clean code</i></b></td>
+	</tr>
+	<tr>
+		<td valign="top" width="40%">
+		<font color="#008080" face="Courier New" size="2">// source from &quot;Clean 
+		code&quot; (pag 28,29)<br>
+		// by R.C. Martin, ed. Prentice Hall<br>
+		</font><font face="Courier New" size="2"><br>
+		<b>void</b> <font color="#008080"><b>printGuessStatistics</b></font> (<b><br>
+&nbsp;&nbsp;&nbsp; char</b> candidate, <b>int</b> count<br>
+&nbsp;&nbsp;&nbsp; ) <br>
+		{<br>
+		<br>
+		<b>string</b> number;<br>
+		<b>string</b> verb;<br>
+		<b>string</b> pluralModifier;<br>
+		<br>
+		<b>if</b> (count == 0) {<br>
+&nbsp;&nbsp;&nbsp; number = &quot;no&quot;;<br>
+&nbsp;&nbsp;&nbsp; verb = &quot;are&quot;;<br>
+&nbsp;&nbsp;&nbsp; pluralModifier = &quot;s&quot;;<br>
+		} <b>else</b> <b>if</b> (count == 1) {<br>
+&nbsp;&nbsp;&nbsp; number = &quot;1&quot;;<br>
+&nbsp;&nbsp;&nbsp; verb = &quot;is&quot;;<br>
+&nbsp;&nbsp;&nbsp; pluralModifier = &quot;&quot;;<br>
+		} <b>else</b> {<br>
+&nbsp;&nbsp;&nbsp; number = integer.toString( <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; count<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );<br>
+&nbsp;&nbsp;&nbsp; verb = &quot;are&quot;;<br>
+&nbsp;&nbsp;&nbsp; pluralModifier = &quot;s&quot;;<br>
+		}<br>
+		<br>
+		<b>string</b> guessMessage =&nbsp; <br>
+&nbsp;&nbsp;&nbsp; string.format(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;There %s %s %s%s&quot;, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; verb, number, candidate, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pluralModifier<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );<br>
+&nbsp;&nbsp;&nbsp; print(guessMessage);<br>
+		<br>
+		} <font color="#008080">// printGuessStatistics</font> <br>
+&nbsp;</font></td>
+		<td valign="top"><font face="Courier New" size="2">
+		<font color="#008080">// source from &quot;Clean code&quot; (pg. 28,29)<br>
+		// by R.C. Martin, ed. Prentice Hall<br>
+		<br>
+		</font><b>private</b> <br>
+		<b>void</b> <b><font color="#008080">printGuessStatistics</font></b>(<b><br>
+&nbsp;&nbsp;&nbsp; char</b> candidate, <b>int</b> count<br>
+&nbsp;&nbsp;&nbsp; )<br>
+&nbsp;&nbsp;&nbsp; {<br>
+		<br>
+		<b>&nbsp;&nbsp;&nbsp; string</b> number;<br>
+		<b>&nbsp;&nbsp;&nbsp; string</b> verb;<br>
+		<b>&nbsp;&nbsp;&nbsp; string</b> pluralModifier;<br>
+		<br>
+		<b>&nbsp;&nbsp;&nbsp; public string <font color="#008080">make</font></b>(<br>
+&nbsp;&nbsp;&nbsp; <b>&nbsp;&nbsp;&nbsp; char </b>candidate, <b>int </b>count<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		createPluralDependentMessageParts(count);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>string</b> guessMessage = 
+		string.format(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;There %s %s 
+		%s%s&quot;, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; verb, number, 
+		candidate, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		pluralModifier<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print(guessMessage);<br>
+&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;<br>
+		<b>&nbsp;&nbsp;&nbsp; private <br>
+&nbsp;&nbsp;&nbsp; void <font color="#008080">createPluralDependentMessageParts</font></b>(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>int </b>count<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>if</b> (count == 0) thereAreNoLetters();<br>
+&nbsp;&nbsp;&nbsp; <b>&nbsp;&nbsp;&nbsp; else</b> <b>if</b> (count == 1) thereIsOneLetter();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>else</b> thereAreManyLetters(count);<br>
+&nbsp;&nbsp;&nbsp; } <b><font color="#008080">// 
+		createPluralDependentMessageParts</font></b></font><p>
+		<font face="Courier New" size="2">&nbsp;&nbsp;&nbsp; <b>private</b> <b>
+		<br>
+&nbsp;&nbsp;&nbsp; void</b> <font color="#008080"><b>thereAreManyLetters</b></font>(<b>int</b> 
+		count)<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; number = integer.toString(count);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; verb = &quot;are&quot;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pluralModifier = &quot;s&quot;;<br>
+&nbsp;&nbsp;&nbsp; }<font color="#008080"><b> // thereAreManyLetters</b></font><br>
+		<br>
+		<br>
+&nbsp;&nbsp;&nbsp; <b>private</b><br>
+&nbsp;&nbsp;&nbsp; <b>void</b> <font color="#008080"><b>thereIsOneLetter</b></font>()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; number = &quot;1&quot;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; verb = &quot;is&quot;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pluralModifier = &quot;&quot;;<br>
+&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; <b>private</b> <b><br>
+&nbsp;&nbsp;&nbsp; void</b> <b><font color="#008080">thereAreNoLetters</font></b>()<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; number = &quot;no&quot;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; verb = &quot;are&quot;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pluralModifier = &quot;s&quot;;<br>
+&nbsp;&nbsp;&nbsp; } <font color="#008080"><b>// thereAreNoLetters</b></font><br>
+		<br>
+		} <font color="#008080">// printGuessStatistics</font><br>
+&nbsp;</font></td>
+	</tr>
+	<tr>
+		<td colspan="2" bgcolor="#FFFF99">
+		<p align="center"><i><b>Comments</b></i></td>
+	</tr>
+	<tr>
+		<td>le variabili sono senza contesto</td>
+		<td>le variabili hanno un contesto</td>
+	</tr>
+	<tr>
+		<td>non ci sono commenti</td>
+		<td>il codice è autoesplicante e facilmente modificabile</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td>ha solo richiesto il triplo del tempo (scrittura e riscrittura con 
+		il doppio delle righe)</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td>Bello, direbbe un mio ex capo:&quot;Sei licenziato perché mi costi troppo&quot;.</td>
+	</tr>
+	<tr>
+		<td valign="top"><font face="Courier New" size="2">
+		<font color="#008080"><b>// I don't know Java but imagine <br>
+		// can write something like...</b></font><br>
+		<b><br>
+		void</b> <font color="#008080"><b>printGuessStatistics</b></font> (<b><br>
+&nbsp;&nbsp;&nbsp; char</b> candidate, <b>int</b> count<br>
+&nbsp;&nbsp;&nbsp; ) <br>
+		{<br>
+		a[] = { <br>
+&nbsp; {<font color="#008080">&quot;are&quot;</font>, <font color="#008080">&quot;s&quot;</font>},&nbsp;&nbsp;
+		<font color="#008080"><b>//&nbsp; 0&nbsp; -&gt; no letters<br>
+		</b></font>&nbsp; {<font color="#008080">&quot;is&quot;</font>,&nbsp;
+		<font color="#008080">&quot;&quot;</font>},&nbsp;&nbsp;&nbsp;
+		<font color="#008080"><b>//&nbsp; 1&nbsp; -&gt; one letter<br>
+		</b></font>&nbsp; {<font color="#008080">&quot;are&quot;</font>,
+		<font color="#008080">&quot;s&quot;</font>}&nbsp;&nbsp;&nbsp;
+		<font color="#008080"><b>// 2=n -&gt; many letters<br>
+		</b></font>};<br>
+		<br>
+		<b>string</b> num;<br>
+		<b>string</b> verb;<br>
+		<b>string</b> plural;<br>
+		<b>string</b> msg;<br>
+		<b>int </b>idx;<br>
+		<br>
+		<font color="#008080"><b>// convert counter into array index</b></font><br>
+		idx = (count&gt;1 ? 2 : count);<br>
+		number = integer.toString(count);<br>
+		verb&nbsp;&nbsp; = a[idx][1];<br>
+		plural = a[idx][2];<br>
+		<br>
+		msg =&nbsp; <br>
+&nbsp;&nbsp;&nbsp; string.format(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#008080">&quot;There %s %s %s%s&quot;</font>,
+		<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; verb, number, candidate, plural<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );<br>
+		print(msg);<br>
+		<br>
+		} <font color="#008080">// printGuessStatistics</font> </font></td>
+		<td valign="top" bgcolor="#FFFF99"><font color="#008080" face="Courier New" size="2"><b>// 
+		I don't know Java but for sure this code work<br>
+		// and is readable in 99% of any language old and new <br>
+		</b></font><b><font face="Courier New" size="2"><br>
+		void</font></b><font face="Courier New" size="2"> <font color="#008080">
+		<b>printGuessStatistics</b></font> (<b>char</b> candidate, <b>int</b> 
+		count) <br>
+		{<br>
+		<b>string</b> msg;<br>
+		<b>if</b> (count == 0) msg = &quot;There are no &quot; + candidate + &quot;s&quot;;<br>
+		<b>if</b> (count == 1) msg = &quot;There is 1 &quot;&nbsp;&nbsp; + candidate;<br>
+		<b>if</b> (count&nbsp; &gt; 1) msg = &quot;There are &quot;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		+ integer.toString(count)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		+ candidate + &quot;s&quot;;<br>
+		print(msg);<br>
+		} <font color="#008080">// printGuessStatistics</font> </font></td>
+	</tr>
+	<tr>
+		<td>Contesti più piccoli permettono l&#39;uso di nomi di variabili più 
+		contenuti, abbreviazioni e ricicli (&quot;i&quot; sta sempre e ovunque per indice, 
+		&quot;n&quot; per il conto totale).</td>
+		<td>Idem</td>
+	</tr>
+	<tr>
+		<td>Questo codice risparmia memoria, è più performante ed aperto alle 
+		future evoluzioni...se ci saranno.</td>
+		<td>Questo è più bilanciato, ad un leggero costo in più di memoria.</td>
+	</tr>
+	<tr>
+		<td>Il metodo dei buoni e vecchi array è sempre il migliore perché 
+		basato sull&#39;hardware stesso.</td>
+		<td bgcolor="#FFFF99"><b>Per giungere a questa forma più semplice, si è 
+		dovuto riscriverlo 4 volte, la prima volta, ma d&#39;ora in poi possiamo 
+		scrivere tutti gli altri programmi nello stesso modo.</b></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td bgcolor="#FFFF99">
+		<p align="right"><i>Regola zero: &quot;Non cercate di commentare un programma 
+		incomprensibile, 
+			riscrivetelo&quot;<br>
+		(Brian W.Kernighan and P.J. Plaugher [The elements of 
+			Programming Style, .144].</i></td>
+	</tr>
+</table>
+<p><font face="Arial">Un altro esempio proviene da un articolo di 14 pagine, scritto a 4 mani da un 
+paio di ingegneri del software, membri dell&#39;IEEE, consulenti di importanti 
+aziende, del defunto Computer Programming dell&#39;aprile 2005 sulla pratica del 
+refactoring da cui si evince che:</font></p>
+<ul>
+	<li>
+	<font face="Arial">i programmi dalla vita più lunga sono quelli con i 
+	metodi più corti</font></li>
+	<li>
+	<font face="Arial">i commenti devono spiegare le motivazioni, non la 
+	tecnica in sé</font></li>
+</ul>
+<p><font face="Arial">Parole sante, ma come si vedrà dagli esempi proposti, l&#39;autoinganno è sempre 
+presente e vale ancora la regola zero.</font></p>
+<table border="1" width="100%" cellspacing="4" cellpadding="4" bgcolor="#FFFFCC" style="border-collapse: collapse">
+	<tr>
+		<td align="center" bgcolor="#FFFF99"><b><i>Esempio originale</i></b></td>
+		<td align="center" bgcolor="#FFFF99"><b><i>Dopo il refactoring</i></b></td>
+	</tr>
+	<tr>
+		<td valign="top" width="40%">
+		<font color="#008080" face="Courier New" size="2">&#39; controllo che 
+		total_amount <br>
+		&#39; sia maggiore di 100, <br>
+		&#39; poi applico uno sconto del 10%</font><font face="Courier New" size="2"><i><br>
+		</i><b>
+		<span lang="EN-US" style="font-family: Courier New; font-size: 10pt; color: #000000"><br>
+		If</span></b><span lang="EN-US" style="font-family: Courier New; font-size: 10pt; color: #000000"> ( totalAmount &gt; 100 ) <b>then</b></span></font><p class="MsoNormal">
+		<font face="Courier New" size="2">
+		<span lang="EN-US" style="font-family: Courier New; font-size: 10pt; color: #000000">&nbsp;&nbsp;&nbsp; totalAmount = 
+		totalAmount * 0.9</span></font></p>
+		<b>
+		<span lang="EN-US" style="font-family: Courier New; font-size:10pt; color:#000000"><font size="2">
+		end if</font></span></b><p>
+		<font color="#008080" face="Courier New" size="2">...</font></td>
+		<td valign="top"><font face="Courier New" size="2"><b>Boolean</b> 
+		eligibleForDiscount ( <b><br>
+&nbsp;&nbsp;&nbsp; double</b> totalAmount <br>
+&nbsp;&nbsp;&nbsp; ) <b><br>
+		{</b></font><p><font face="Courier New" size="2">&nbsp;&nbsp;&nbsp; <b>Return</b> (totalAmount 
+		&gt; Order.kAmountPlateau);</font></p>
+		<p><b><font face="Courier New" size="2">}</font></b></p>
+		<p><font face="Courier New" size="2">&nbsp;</font></p>
+		<p><font face="Courier New" size="2"><b>Double</b> applyDiscount ( <b>
+		<br>
+&nbsp;&nbsp;&nbsp; double</b> totalAmount, <b><br>
+&nbsp;&nbsp;&nbsp; double</b> percent <br>
+&nbsp;&nbsp;&nbsp; ) <b><br>
+		{</b></font></p>
+		<p><font face="Courier New" size="2">&nbsp;&nbsp;&nbsp; <b>Return</b> (totalAmount * 
+		percent / 100.0F );</font></p>
+		<p><b><font face="Courier New" size="2">}</font></b></p>
+		<p><font face="Courier New" size="2">...</font></p>
+		<p><font face="Courier New" size="2"><b>If</b> (eligibleForDiscount(totalAmount)
+		<b>{</b></font></p>
+		<font face="Courier New" size="2">&nbsp;&nbsp;&nbsp; totalAmount = <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; applyDiscount( <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		totalAmount, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		Order.kDiscountRate<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; );<br>
+		<b>}</b></font><p>
+		<font color="#008080" face="Courier New" size="2">...</font></td>
+	</tr>
+	<tr>
+		<td valign="top" colspan="2" bgcolor="#FFFF99">
+		<p align="center"><i><b>Comments</b></i></td>
+	</tr>
+	<tr>
+		<td valign="top" width="40%">
+		Ancora una volta si abbruttisce un esempio semplice e pratico, per 
+		valorizzare la teoria.</td>
+		<td valign="top">L&#39;esempio d&#39;origine era in Basic mentre questo è in ... 
+		C#? Java? C++?<p>Mancano solo i metodi DiverBy, MultiplyFor, 
+		CompareGreaterThan e la costante kHundredPercent,a magari più parlante 
+		con notazione ungherese: <i>
+		<span style="font-size: 11.0pt; font-family: Calibri,sans-serif; color:#000000">
+		iConstHundredPercent,</span></i> e il licenziamento per direttissima è 
+		assicurato.</td>
+	</tr>
+	<tr>
+		<td valign="top" colspan="2">
+		Prima di rifattorizzare la rifattorizzazione, riassumiamo le 14 pagine 
+		dell&#39;articolo nella seguente frase:<blockquote>
+			<p><i><b>&quot;codice, dati e strutture devono essere normalizzati, cioé 
+			univoci&quot;</b></i></p>
+		</blockquote>
+		<p>&nbsp;</td>
+	</tr>
+	<tr>
+		<td valign="top" width="40%">
+		<span lang="EN-US" style="font-family: Courier New; font-size:10pt; color:#000000">
+		<font size="2"><b>apply_discount</b> _<br>
+		&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;total_amount, base_discount, _<br>
+		&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<i>if_greater_than</i>, amount_plateau</font></span></td>
+		<td valign="top">
+		<p class="MsoNormal"><font face="Courier New" size="2"><b>
+		<span lang="EN-US" style="font-family: Courier New; font-size: 10pt; color: #000000">public</span></b><span lang="EN-US" style="font-family: Courier New; font-size: 10pt; color: #000000"> <b>sub</b> 
+		apply_discount( _</span></font></p>
+		<blockquote>
+			<p class="MsoNormal"><font face="Courier New" size="2">
+			<span lang="EN-US" style="font-family: Courier New; font-size: 10pt; color: #000000"><b>byRef</b> amount <b>as</b> <b>double</b>, _<br>
+			<b>byVal</b> discount <b>as</b> <b>double</b>, _<br>
+			<b>Optional</b> <b>byVal</b> cmp_method <b>as</b> CompareEnum = 
+			none, _<br>
+			<b>Optional</b> <b>byVal</b> value <b>as</b> <b>double </b>_</span></font></p>
+			<p class="MsoNormal"><font face="Courier New" size="2">
+			<span lang="EN-US" style="font-family: Courier New; font-size: 10pt; color: #000000">)</span></font></p>
+		</blockquote>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" width="40%">
+		La procedura è ripetibile:<p>apply_discount a,b, if_greater_than, 
+		amount_plateau<br>
+		apply_discount c,d, if_greater_than, amount_plateau<br>
+		... </td>
+		<td valign="top">Le considerazioni da fare sono di più ma mi fermo qui, 
+		poiché è impossibile predeterminare quanto un programma sia stand-alone 
+		o integrato con altri componenti non scritti da noi.</td>
+	</tr>
+</table>
+<p><font face="Arial">Anche le immagini costituiscono un autoinganno, essento l&#39;autoinganno proprio 
+una ingannevole rappresentazione eidetica.</font></p>
+<table border="1" width="100%" cellspacing="4" cellpadding="4" bgcolor="#FFFFCC" style="border-collapse: collapse">
+	<tr>
+		<td valign="top" width="40%" align="center">
+		<img border="0" src="images/lng/refactoring_1.png" width="624" height="274"></td>
+		<td valign="top" align="center">
+		<img border="0" src="images/lng/refactoring_2.png" width="746" height="318"></td>
+	</tr>
+	<tr>
+		<td valign="top" width="40%">
+		In questo caso l&#39;applicazione si impossessa del sistema operativo. A 
+		destra lo schema UML.</td>
+		<td valign="top">Dopo il refactoring, l&#39;applicazione e il S.O. sono 
+		evvettivamente disaccoppiati.<br>
+		Ma cosa c&#39;è nell&#39;adapter?<p>Secondo l&#39;articolo sicuramente non ci deve 
+		essere uno Switch/Case ma si deve utilizzare il polimorfismo.</p>
+		<p>Certo, ma questo esempio mostra solo delle frecce più ordinate perché 
+		orizzontali e perché non si intrecciano, ma per preservare il 
+		funzionamento, il livello adattante deve comunque avere pari complessità.</p>
+		<p>Sicuramente la complessità dell&#39;adapter ricalca il minimo comune 
+		denominatore.</td>
+	</tr>
+</table>
+	<p>&nbsp;</p>
+											</span></div>
+									</div>
+									</td>
+								</tr>
+							</table>
+							</td>
+						</tr>
+					</table>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<p>&nbsp;</p>
+	<p><br><br>
+    </td>
+    <td></td>
+  </tr>
+</table>
+<table border="0" width="100%" bgcolor="#FF9933">
+  <tr>
+    <td width="50%">&nbsp;</td>
+    <td width="50%">
+      <p align="right"><i><a href="index.htm">HOME PAGE</a></i></p>
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

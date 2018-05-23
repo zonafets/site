@@ -1,0 +1,461 @@
+<html style="height: 100%;"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Deck Title</title>
+
+<meta name="description" content="TODO">
+<meta name="author" content="TODO">
+
+<style>
+.componentContainer {
+    position: absolute;
+    line-height: normal;
+    /*-webkit-transform-origin: 135% 135%;
+    -moz-transform-origin: 135% 135%;
+    transform-origin: 135% 135%;*/
+}
+
+.transformContainer {
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+.bg {
+    width: 100%;
+    height: 100%;
+}
+</style>
+
+<link rel="stylesheet" href="tsql_zaglios_collection_files/default-reset.css">
+<link href="tsql_zaglios_collection_files/main.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="tsql_zaglios_collection_files/default.css" id="theme">
+<link href="tsql_zaglios_collection_files/web-fonts.css" rel="stylesheet" type="text/css">
+<link href="tsql_zaglios_collection_files/backgroundClasses.css" rel="stylesheet" type="text/css">
+<link href="tsql_zaglios_collection_files/surfaceClasses.css" rel="stylesheet" type="text/css">
+
+<link rel="shortcut icon" href="http://strut.io/editor/preview_export/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="http://strut.io/editor/preview_export/apple-touch-icon.png" type="image/png">
+
+<style>
+.reveal.themedArea {
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+}
+</style>
+
+<script src="tsql_zaglios_collection_files/analytics.js" async=""></script><script type="text/javascript" src="tsql_zaglios_collection_files/dataset-shim.js"></script>
+<script type="text/javascript" src="tsql_zaglios_collection_files/impress.js"></script>
+
+<script src="tsql_zaglios_collection_files/onready.js"></script>
+<script src="tsql_zaglios_collection_files/loadPresentation.js"></script>
+<script>
+ready(function() {
+    if (document.getElementById('launched-placeholder'))
+        loadPresentation();
+
+    if (!window.presStarted) {
+        startPres(document, window);
+        impress().init();   
+    }
+
+    if ("ontouchstart" in document.documentElement) { 
+        document.querySelector(".hint").innerHTML = 
+            "<p>Tap on the left or right to navigate</p>";
+    }
+});
+</script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-42322531-1', 'strut.io');
+    ga('send', 'pageview');
+    </script>
+</head>
+<body style="height: 100%; overflow: hidden;" class="impress-supported impress-enabled">
+<style type="text/css">
+
+</style>
+<style>
+
+</style>
+<style>
+
+
+
+	
+		
+		
+	
+
+	
+		
+		
+	
+
+	
+		
+		
+	
+
+	
+		
+		
+	
+
+	
+		
+		
+	
+
+	
+		
+		
+	
+
+	
+		
+		
+	
+
+	
+		
+		
+	
+
+	
+		
+		
+	
+
+	
+		
+		
+	
+
+</style>
+<!-- This is a work around / hack to get the user's browser to download the fonts 
+ if they decide to save the presentation. -->
+<div style="visibility: hidden; width: 0px; height: 0px">
+<img src="tsql_zaglios_collection_files/Lato-Bold.woff">
+<img src="tsql_zaglios_collection_files/HammersmithOne.woff">
+<img src="tsql_zaglios_collection_files/Droid-Sans-Mono.woff">
+<img src="tsql_zaglios_collection_files/Gorditas-Regular.woff">
+<img src="tsql_zaglios_collection_files/FredokaOne-Regular.woff">
+<img src="tsql_zaglios_collection_files/Ubuntu.woff">
+<img src="tsql_zaglios_collection_files/Ubuntu-Bold.woff">
+<img src="tsql_zaglios_collection_files/PressStart2P-Regular.woff">
+<img src="tsql_zaglios_collection_files/Lato-BoldItalic.woff">
+<img src="tsql_zaglios_collection_files/AbrilFatface-Regular.woff">
+<img src="tsql_zaglios_collection_files/Lato-Regular.woff">
+</div>
+
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div class="bg  strut-surface">
+<div class="bg innerBg strut-slide-3">
+<div style="position: absolute; transform-origin: left top 0px; transition: all 0ms ease-in-out 0ms; transform-style: preserve-3d; top: 50%; left: 50%; transform: perspective(1000px) scale(1);" id="impress"><div style="position: absolute; transform-origin: left top 0px; transition: all 0ms ease-in-out 0ms; transform-style: preserve-3d; transform: rotateZ(-89.9544deg) rotateY(0deg) rotateX(0deg) translate3d(-7086.08px, -1735.68px, 0px);">
+	
+		
+			<div style="position: absolute; transform: translate(-50%, -50%) translate3d(1365.33px, 1797.12px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); transform-style: preserve-3d;" id="step-1" class="step future" data-state="strut-slide-0" data-x="1365.3333333333333" data-y="1797.12" data-scale="1">
+			<div class="bg-solid-yellow slideContainer strut-slide-0" style="width: 1024px; height: 768px;">
+			<div class="themedArea">
+			
+			</div>
+			
+			<div class="componentContainer " style="top: 110px; left: 111px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 72px;" class="antialias">
+<font color="#f47806"><b>TSQL Zaglio'S Collection</b></font>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 361px; left: 134px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 37px;" class="antialias">
+<div align="center">70000 lines of TSQL code useful to extend and <br></div><div align="center">simplify administration of MSSQL2K, 2K5,2K8 <br>and the life of developers</div>
+</div>
+</div>
+</div>
+			
+			</div>
+		
+		</div>
+	
+		
+			<div style="position: absolute; transform: translate(-50%, -50%) translate3d(3413.33px, 1812.48px, 0px) rotateX(0deg) rotateY(8.02141deg) rotateZ(-92.2462deg) scale(1); transform-style: preserve-3d;" id="step-2" class="step future" data-state="strut-slide-1" data-x="3413.3333333333335" data-y="1812.48" data-rotate-y="8.021409131831525" data-rotate-z="-92.24620501606255" data-scale="1">
+			<div class=" slideContainer strut-slide-1" style="width: 1024px; height: 768px;">
+			<div class="themedArea">
+			
+			</div>
+			
+			<div class="componentContainer " style="top: 265px; left: 101px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 37px;" class="antialias">
+<div align="center">more than 300 functions<br>and stored procedure, collected or developed<br>from scratch but converted into a common style<br>that I hope can become a standard for your company<br>also thanks to the utilities to script objects.<br></div>
+</div>
+</div>
+</div>
+			
+			</div>
+		
+		</div>
+	
+		
+			<div style="position: absolute; transform: translate(-50%, -50%) translate3d(5201.92px, 1858.56px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); transform-style: preserve-3d;" id="step-3" class="step future" data-state="strut-slide-2" data-x="5201.92" data-y="1858.56" data-scale="1">
+			<div class=" slideContainer strut-slide-2" style="width: 1024px; height: 768px;">
+			<div class="themedArea">
+			
+			</div>
+			
+			<div class="componentContainer " style="top: 64px; left: 58px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 29px;" class="antialias">
+<font color="#f47806"><b>Names</b><br><br></font>The names of objects begin with SP or FN. <br>I don't like this but is a wide convention.<br><b>I'm developing a parser using the GOLD Parser <br>to allow us to completelly change tokens. <br><br></b>Names want double underscore for generic routines (sp__email).<br>Uses same name, in upper case, with single underscore <br>to wrap a generic utility with application's code (SP_EMAIL).<br>&nbsp;<br>The middle name identify a group. <br>For examples <b>??__str_?? </b>are sp/fn that work around <b>string manipulation</b>.<br><br><i><b>But there is a better way to group a family of objects . . .&nbsp; </b></i><br>
+</div>
+</div>
+</div>
+			
+			</div>
+		
+		</div>
+	
+		
+			<div style="position: absolute; transform: translate(-50%, -50%) translate3d(7086.08px, 1735.68px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(89.9544deg) scale(1); transform-style: preserve-3d;" id="step-4" class="step active present" data-state="strut-slide-3" data-x="7086.08" data-y="1735.68" data-rotate-z="89.95437383553926" data-scale="1">
+			<div class=" slideContainer strut-slide-3" style="width: 1024px; height: 768px;">
+			<div class="themedArea">
+			
+			</div>
+			
+			<div class="componentContainer " style="top: 95px; left: 55px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 28px;" class="antialias">
+<font color="#f47806"><b>Comments</b></font><br><br>The <b>sp__style</b> print snippet code to guide developers to use a common style. <br><br>Style of comments is very simple and smart because many developer<br>don't like complex headers.<br><br>A typical header is:<br><br><font color="#306f3a" face="'Droid Sans Mono', monospace">&nbsp;&nbsp;&nbsp; <i>/*<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>g:</b><font face="'Droid Sans Mono', monospace">utility</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>v:</b><font face="'Droid Sans Mono', monospace">121002</font>\<font face="'Droid Sans Mono', monospace">s</font>.<font face="'Droid Sans Mono', monospace">zaglio</font>: <font face="'Droid Sans Mono', monospace">added a</font> line of <font face="'Droid Sans Mono', monospace">code</font><br>&nbsp;&nbsp;&nbsp; */</i></font><br><br><b>g, v</b> are called tags. Each tag has a syntax and a function.<br>
+</div>
+</div>
+</div>
+			
+			</div>
+		
+		</div>
+	
+		
+			<div style="position: absolute; transform: translate(-50%, -50%) translate3d(7905.28px, 1797.12px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(0.1); transform-style: preserve-3d;" id="step-5" class="step future" data-state="strut-slide-4" data-x="7905.28" data-y="1797.12" data-scale="0.1">
+			<div class=" slideContainer strut-slide-4" style="width: 1024px; height: 768px;">
+			<div class="themedArea">
+			
+			</div>
+			
+			<div class="componentContainer " style="top: 82px; left: 42px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 27px;" class="antialias">
+<b>fn__script_info</b> return a table with list of parsed tags for each object.<br>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 489px; left: 41px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 27px;" class="antialias">
+<b>sp__script_group</b>&nbsp; uses fn__script_info to scan objects selecting those <br>that belong specified group (tag G), then <b>create an update script</b> that <br>uses V tag to compare newer with older objects.<br><br>If a <b>sp__GroupName_setup </b>exists, it is called at the begin and the end<br><b>to upgrade</b>.<br><br>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 181px; left: 75px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<img src="tsql_zaglios_collection_files/s6ncPID.png">
+</div>
+</div>
+			
+			</div>
+		
+		</div>
+	
+		
+			<div style="position: absolute; transform: translate(-50%, -50%) translate3d(8287.57px, 3056.64px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); transform-style: preserve-3d;" id="step-6" class="step future" data-state="strut-slide-5" data-x="8287.573333333334" data-y="3056.64" data-scale="1">
+			<div class=" slideContainer strut-slide-5" style="width: 1024px; height: 768px;">
+			<div class="themedArea">
+			
+			</div>
+			
+			<div class="componentContainer " style="top: 132px; left: 237px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 25px;" class="antialias">
+Used tags (see sp__style for details)<br><br>&nbsp;&nbsp;&nbsp; <b>v: </b>short Version comment<br>&nbsp;&nbsp;&nbsp; <b>r: </b>short Release comment<br>&nbsp;&nbsp;&nbsp; <b>t: </b>test line<br>&nbsp;&nbsp;&nbsp; <b>c: </b>comment line<br>&nbsp;&nbsp;&nbsp; <b>g: </b>group1, group2, group3<br>&nbsp;&nbsp;&nbsp; <b>s: </b>see also<br>&nbsp;&nbsp;&nbsp; <b>d: </b>deprecated<br>&nbsp;&nbsp;&nbsp; <b>o:</b> obsolete<br>&nbsp;&nbsp;&nbsp; <b>k: </b>search keywords<br>&nbsp;&nbsp;&nbsp; <b>a: </b>alias of<br>&nbsp;&nbsp;&nbsp; <b>j:</b> install as job<br>&nbsp;&nbsp;&nbsp; <b>b: </b>align to local application/platform version<br>&nbsp;&nbsp;&nbsp; <b>p: </b>profile
+</div>
+</div>
+</div>
+			
+			</div>
+		
+		</div>
+	
+		
+			<div style="position: absolute; transform: translate(-50%, -50%) translate3d(6703.79px, 3041.28px, 0px) rotateX(0deg) rotateY(1.14592deg) rotateZ(42.3989deg) scale(1); transform-style: preserve-3d;" id="step-7" class="step future" data-state="strut-slide-6" data-x="6703.786666666667" data-y="3041.28" data-rotate-y="1.1459155902616465" data-rotate-z="42.398876839680916" data-scale="1">
+			<div class=" slideContainer strut-slide-6" style="width: 1024px; height: 768px;">
+			<div class="themedArea">
+			
+			</div>
+			
+			<div class="componentContainer " style="top: 135px; left: 154px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 13px;" class="antialias">
+<font color="#000000" face="'Droid Sans Mono', monospace"><font color="#f47806"><b><i>usage</i> of</b></font> sp__script_group_tofile (v:130903) <br>&nbsp;&nbsp;&nbsp; @grp&nbsp;&nbsp;&nbsp;&nbsp; nvarchar(4000) ,<br>&nbsp;&nbsp;&nbsp; @out&nbsp;&nbsp;&nbsp;&nbsp; nvarchar(1024) ,<br>&nbsp;&nbsp;&nbsp; @exclude nvarchar(4000) ,<br>&nbsp;&nbsp;&nbsp; @include nvarchar(4000) ,<br>&nbsp;&nbsp;&nbsp; @opt&nbsp;&nbsp;&nbsp;&nbsp; sysname ,<br>&nbsp;&nbsp;&nbsp; @dbg&nbsp;&nbsp;&nbsp;&nbsp; int ,<br><br><font color="#f47806"><i>Scope</i></font><br>&nbsp;&nbsp;&nbsp; script each object of a group into a single file<br><br><font color="#f47806"><i>Notes</i></font><br>&nbsp;&nbsp;&nbsp; - a file index.txt is created and populated with the list of<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; versions in CSV format:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; obj,tag,version,author,last comment<br><br>&nbsp;&nbsp;&nbsp; - when single objects are scripted, the content of directory is kept and<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the list updated<br><br><font color="#f47806"><i>Parameters</i></font><br>&nbsp;&nbsp;&nbsp; [param]&nbsp;&nbsp;&nbsp;&nbsp; [desc]<br>&nbsp;&nbsp;&nbsp; @grp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; group name with optional prefix @author or list of objects<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; separated by | or CR/LF<br>&nbsp;&nbsp;&nbsp;
+ @out&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; destination path (a 
+directory where put obj_name.sql and index.txt)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ if null index.txt is shown to console to be used by sp__upgrade<br>&nbsp;&nbsp;&nbsp; @opt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ lo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; list only, fill #objs_list without 
+store files<br>&nbsp;&nbsp;&nbsp; @dbg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1=show execution info<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 2=show objects to script without script and save to file<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3=more up ...<br><br><font color="#f47806"><i>Examples</i></font><br>&nbsp;&nbsp;&nbsp; <font face="'Droid Sans Mono', monospace"><b>sp__script_group_t</b><font face="'Droid Sans Mono', monospace"><b>of</b><font face="'Droid Sans Mono', monospace"><b>ile</b> 'utility','<font face="'Droid Sans Mono', monospace">%temp%\utility<font face="'Droid Sans Mono', monospace">'</font></font><br></font></font></font></font>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 57px; left: 64px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 28px;" class="antialias">
+Each stored procedure is self explicant, when called&nbsp; without parameters.<br>
+</div>
+</div>
+</div>
+			
+			</div>
+		
+		</div>
+	
+		
+			<div style="position: absolute; transform: translate(-50%, -50%) translate3d(5092.69px, 3133.44px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); transform-style: preserve-3d;" id="step-8" class="step future" data-state="strut-slide-7" data-x="5092.693333333334" data-y="3133.44" data-scale="1">
+			<div class=" slideContainer strut-slide-7" style="width: 1024px; height: 768px;">
+			<div class="themedArea">
+			
+			</div>
+			
+			<div class="componentContainer " style="top: 106px; left: 75px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 31px;" class="antialias">
+<font color="#f47806"><b>Links</b></font><br><a target="_blank" href="http://www.sommarskog.se/index.html">Erland Sommarskog's home page</a><br><a target="_blank" href="http://www.sqlteam.com/forums/">SQLTeam</a><br><a target="_blank" href="http://www.databasejournal.com/">DatabaseJournal</a><br><a target="_blank" href="http://bytes.com/">Bytes</a><br><br><font color="#f47806"><b>Limits</b></font><br>Actually the user/schema is often dbo or the default.<br>Some sp don't manage a database different from the current.<br>Fast backup &amp; restore utilities do not manage dbs of multiple files.
+</div>
+</div>
+</div>
+			
+			</div>
+		
+		</div>
+	
+		
+			<div style="position: absolute; transform: translate(-50%, -50%) translate3d(3345.07px, 3210.24px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(87.6625deg) scale(1); transform-style: preserve-3d;" id="step-9" class="step future" data-state="strut-slide-8" data-x="3345.0666666666666" data-y="3210.24" data-rotate-z="87.66254265501594" data-scale="1">
+			<div class=" slideContainer strut-slide-8" style="width: 1024px; height: 768px;">
+			<div class="themedArea">
+			
+			</div>
+			
+			<div class="componentContainer " style="top: 182px; left: 26px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 36px;" class="antialias">
+There are utilities to profile code and others to show statistics.<br><br>For example with <b>sp__util_gource</b> we can obtain something like <br>the <a href="https://www.youtube.com/watch?v=D2u5Hn83Uuc">nice video </a>about the story of development.<br>
+</div>
+</div>
+</div>
+			
+			</div>
+		
+		</div>
+	
+		
+			<div style="position: absolute; transform: translate(-50%, -50%) translate3d(1556.48px, 3317.76px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); transform-style: preserve-3d;" id="step-10" class="step future" data-state="strut-slide-9" data-x="1556.48" data-y="3317.76" data-scale="1">
+			<div class="bg-solid-yellow slideContainer strut-slide-9" style="width: 1024px; height: 768px;">
+			<div class="themedArea">
+			
+			</div>
+			
+			<div class="componentContainer " style="top: 106px; left: 54px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 36px;" class="antialias">
+With <b>sp__script_group_tofile</b>, <b>sp__web</b> and some other utility<br>we can implement a differential distributed deploy system.<br>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 244px; left: 278px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 36px;" class="antialias">
+<ul><li target="_blank">see the <a href="tsql_index.htm">list</a> of&nbsp; objects</li><li target="_blank">see a <a href="https://www.youtube.com/watch?v=MBP_jCdrCDc">video</a> about a deploy<br>system developed using<br>utilities<br></li></ul>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 464px; left: 347px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 38px;" class="antialias">
+<a target="_blank" href="https://raw.githubusercontent.com/zonafets/TSQL-Utils/master/utilty.sql">Download the full script</a><br>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 461px; left: 185px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 130px; height: 104px;">
+<div class="transformContainer" style="-webkit-transform: scale(0.14, 0.14);
+-moz-transform: scale(0.14, 0.14);
+transform: scale(0.14, 0.14)">
+<iframe src="tsql_zaglios_collection_files/donate.htm" height="768" width="960"></iframe>
+</div>
+</div>
+			
+			</div>
+		
+		</div>
+	
+	<div style="position: absolute; transform: translate(-50%, -50%) translate3d(4826.45px, 2526.72px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(9); transform-style: preserve-3d;" id="overview" class="step future" data-state="strut-slide-overview" data-x="4826.453333333333" data-y="2526.72" data-scale="9"></div>
+	
+</div></div>
+<div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+</div>
+</div>
+</div></body></html>

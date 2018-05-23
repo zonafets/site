@@ -1,0 +1,173 @@
+<html>
+    <head>
+    	<link rel="icon" href="favicon.ico">
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="Content-Language" content="it">
+        <meta http-equiv="description" content="Home page di Stefano Zaglio">
+        <meta http-equiv="distribution" content="global">
+        <meta http-equiv="resource-type" content="document">
+        <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+        <meta name="keywords" content="szaglio,stefano,zaglio,programmatore,programmazione,linguaggio,sviluppo,ricerca,sviluppo,disegno,applicazioni,analista, IT manager, analista, programmatore, cretino,sesso,sistemista, pc, as400, castiglione delle stiviere, mantova, brescia, verona, asp, net, delphi, c/c++, windows 2003, msaccess, visual basic, novell, windows, xp, vista, it manager,it, manager, curriculum">
+        <meta name="description" content="Sito di Stefano Zaglio, analista programmatore, tecnico informatico, sistemista, project manager, system integrator, quality manager">
+        <meta name="ProgId" content="FrontPage.Editor.Document">
+        <meta name="ROBOTS" CONTENT="index,follow">
+        <meta name="robots" content="nosnippet"/>
+        <META NAME="GOOGLEBOT" CONTENT="INDEX, FOLLOW">
+        <META NAME="revisit-after" CONTENT="15 days">
+        <META NAME="rating" CONTENT="General">
+        <META NAME="author" CONTENT="Stefano Zaglio - https://zonafets.github.io/site/">
+
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/radial-menu.css">
+        <link rel="stylesheet" type="text/css" href="css/background-animations.css">
+
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/tippy.all.min.js"></script>
+        <!--
+        <script src="http://code.jquery.com/jquery-2.1.3.js"></script>
+        <script src="https://unpkg.com/tippy.js/dist/tippy.all.min.js"></script>
+        -->
+
+        <title>Stefano Zaglio - Home Page</title>
+
+    </head>
+
+    <body>
+
+        <div class="wrapper">
+            <div class="wrapped">
+                <p align="center">
+                    <img class="btn trigger" border="0" src="images/io/chi_sono.png" width="200" height="290" style="cursor:pointer">
+                    <div class="menu">
+                        <div class="trigger">
+                            <span -class="line"></span>
+                        </div>
+                        <div class="icons trigger">
+                            <div class="rotater">
+                                <a href="curriculum_ita.htm" title="Curriculum" class="btn btn-icon tooltip">
+                                    <i class="fa fa-id-card"></i>
+                                </a>
+                            </div>
+                            <div class="rotater">
+                                <a href="esperienze.htm" title="Esperienze" class="btn btn-icon">
+                                    <i class="fa fa-flask"></i>
+                                </a>
+                            </div>
+                            <div class="rotater">
+                                <a href="bibliografia.htm" title="Bibliografia" class="btn btn-icon">
+                                    <i class="fa fa-book"></i>
+                                </a>
+                            </div>
+                            <div class="rotater">
+                                <a href="links.htm" title="Links utili" class="btn btn-icon">
+                                    <i class="fa fa-link"></i>
+                                </a>
+                            </div>
+                            <div class="rotater">
+                                <a href="tsql_zaglios_collection.htm" title="TSQL Collection" class="btn btn-icon">
+                                    <i class="fa fa-database"></i>
+                                </a>
+                            </div>
+                            <div class="rotater">
+                                <a href="libri_saggi_poesie.htm" title="idee, storie" class="btn btn-icon">
+                                    <i class="fa fa-lightbulb-o"></i>
+                                </a>
+                            </div>
+                            <div class="rotater">
+                                <a href="#" id="info" class="btn btn-icon">
+                                    <i class="fa fa-question"></i>
+                                </a>
+                            </div>
+                            <div class="rotater">
+                                <a href="https://github.com/zonafets" title="GitHub" class="btn btn-icon">
+                                    <i class="fa fa-github"></i>
+                                </a>
+                            </div>
+							<div class="rotater">
+                                <a href="#" class="btn btn-icon animate-flicker" style="background:transparent;">
+                                    <i class="fa fa-hand-pointer-o"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </p>
+                <p align="center">
+                    <i><span>Più del 15% degli errori sono di tipo cognitivo,</span>
+					<span style="white-space: nowrap;"> spesso sistematici.</span></i>
+                <p align="center">
+                    <b>
+                        <i>
+                            <font size="2">
+								<span>Sintetizzato da "Decisioni mediche"</span>
+								<span style="white-space: nowrap;">Raffaello Cortina Editore</span>
+							</font>
+                        </i>
+                    </b>
+                <p align="center">
+            </div>
+
+
+        </div>
+        <canvas id="canvas" width="1950px" height="800px"></canvas>
+        <canvas id="canvasbg" width="1950px" height="800px"></canvas>
+        <canvas class="container" id="container" role="main"></canvas>
+        <div class="blur blurTop">
+            <canvas class="canvas" id="blurCanvasTop"></canvas>
+        </div>
+        <div class="blur blurBottom">
+            <canvas width="1000px" height="1000px" class="canvas" id="blurCanvasBottom"></canvas>
+        </div>
+
+        <div id="credits" style="position:fixed;bottom:0;width:100%"></div>
+
+        <div id="credits-template" style="display:none; text-align:left; ">
+            <h3><b>Credits</b></h3>
+            <ul>
+                <li><a href="https://codepen.io/suez/pen/vAais">CodePen simple radial menu</a></li>
+                <li><a href="https://modx.com/extras/package/cvs2table">JQ CVS2Table</a></li>
+                <li><a href="https://codepen.io/GiacomoSorbi/pen/OyyzvO">Background united research animation</a></li>
+                <li><a href="https://codepen.io/JonasBadalic/pen/cwEtH">Background particle animation</a></li>
+                <li><a href="https://atomiks.github.io/tippyjs/">Tippy</a></li>
+            </ul>
+        </div>
+
+    </body>
+
+    <script src="js/background-animations.js"></script>
+    <script>
+
+        particle_effect();
+        setTimeout(research_effect,3000);
+
+        $( "#info" ).click(function( event ) {
+          event.stopPropagation()
+          $.each( tips.tooltips, function(i,it) { it.show() })
+          credits._tippy.show()
+        });
+
+        var tips = tippy('[title]',{
+          delay: 100,
+          arrow: true,
+          size: 'large',
+          duration: 500,
+          animation: 'perspective'
+        })
+
+        var credits = $("#credits")[0]
+        tippy( credits , { 
+            html: "#credits-template",
+            arrow: false, 
+            animaion: "shift-away",
+            size: "large",
+            interactive: true,
+            //appendTo: document.querySelector('.wrapped')
+        })
+
+    </script>
+    <script src="js/radial-menu.js"></script>
+
+
+</html>

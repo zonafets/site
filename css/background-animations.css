@@ -1,0 +1,58 @@
+.container  {
+  width:100%;
+  height:100%;
+  position:absolute;
+}
+
+#blurCanvasTop{
+  left:0%;
+  top:0%;
+  position:absolute;
+  z-index:2;
+    animation: fadein 2s;
+}
+
+#blurCanvasBottom{
+  left:50%;
+  top:0;
+  position:absolute;
+  z-index:1;
+    animation: fadein 2s;
+}
+
+#canvas {
+	top:0;
+	position:absolute;
+	z-index:3;
+	opacity:0.2;
+	  animation: fadein 2s;
+}
+
+#canvasbg {
+	top:0;
+	position:absolute;
+	z-index:4;
+	opacity:0.2;
+	  animation: fadein 2s;
+}
+
+.blur {
+  width:100%;
+  height:100%;
+  position:absolute;
+  overflow:hidden;
+}
+
+.blurTop{
+  left:40%;
+  top:-110%;
+  transform:rotate(20deg);
+  transform-origin: 0 100%;
+}
+
+.blurBottom{
+  left:-60%;
+  top:100%;
+  transform:rotate(20deg);
+  transform-origin: 100% 0%;
+}

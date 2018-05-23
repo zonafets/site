@@ -1,0 +1,5 @@
+var matrix_tracking_enabled=true;var s_account='tivirgilioglobalprod';var s_linkInternalFilters='javascript:,virgilio.it';var _path=window.location.pathname,_hostname=window.location.hostname,_full=true;if(typeof(mtx_s)=="undefined"){var mtx_s={};}
+mtx_s.defined=function(x){if(typeof(x)=='undefined'){return false;}else{return true;}};
+mtx_s.channel='Xoom';mtx_s.prop1='Xoomer';mtx_s.prop9='COMMUNITY';mtx_s.prop10='www.virgilio.it';mtx_s.prop12='manuale';mtx_s.prop16='Virgilio';var lif_tivirxoomprod='javascript:,.xoom.it,clipart.virgilio.it,community.virgilio.it,cpmi.xoom.virgilio.it,members.xoom.it,search.sitipersonali.virgilio.it,search.xoom.virgilio.it,services.xoom.virgilio.it,wizardmu.virgilio.it,www.xoom.it,xb.xoom.virgilio.it,xoom.virgilio.it,xoomcounter.virgilio.it,xoomer.virgilio.it';mtx_account='tivirgilioglobalprod,tivirxoomprod';if(_path.indexOf('/')===0){mtx_linkInternalFilters=lif_tivirxoomprod;_full=false;} 
+mtx_s.pageName='VIR';if(mtx_s.defined(mtx_s.channel)){mtx_s.pageName=mtx_s.pageName+":"+mtx_s.channel;}if(mtx_s.defined(mtx_s.prop1)){mtx_s.pageName=mtx_s.pageName+":"+mtx_s.prop1;}
+mtx_s.prop17=window.location.hostname;
