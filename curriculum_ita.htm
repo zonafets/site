@@ -1,729 +1,683 @@
 <html>
-    <!-- 
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+    <meta http-equiv="cache-control" content="no-store"/>
+    <meta name="keywords" content="analista, programmatore, sistemista, itc, it, manager, pc, as400, castiglione delle stiviere, mantova, brescia, asp, net, razor, mvc, delphi, c/c++, c#, wince, windows, msaccess, tsql, visual, basic, novell, windows, ubuntu, linux"/>
+    <meta name="description" content="Curriculum di Stefano Zaglio"/>
+    <link rel="icon" href="favicon.ico"/>
+    <title>Curriculum di Stefano Zaglio</title>
+    
+    <style>
+        lg {
+            background: #DDD;                
+        }
 
-	Allo sviluppatore:
+        .separator {
+        	border-bottom: 3px solid lightgray;
+        }
 
-	Mi complimento innanzi tutto con chi sta guardando ai meta contenuti di questa pagina.
+        thead * {
+            color: #FFF;
+            background-color: darkgray;
+            font-weight: bold;
+            text-align: left;
+        }
+        
+        section {
+            margin-bottom: 10px;
+            font-size: small;
+            text-align: justify;
+        }
+        
+        section h2 {
+            margin-bottom: 0;
+            margin-top: 0;
+            font-size: small;
+            font-weight: bold;
+            background: darkgray;
+            color: white;
+            padding-left: 1;
+        }
 
-	So che senza CSS risulta peggio dello spaghetti code.
+        table {
+            width: 100%;
+            border-spacing: 0;
+            border-collapse: collapse;
+            margin-top: 0px;
+            margin-left: 0px;
+            margin-bottom: 10px;
+            margin-right: 0px;
+            border-spacing: 10px;
+            padding: 5;
+        }
+        
+        * {
+            font-size: small;
+            font-family: Tahoma;
+        }
+            
+    	body {
+        	margin:4px;
+        	background-color:#ffffff;
+        	color:#000000;
+    	}
+        
+        :link {
+            color: #663399 !important;
+            text-decoration: none;
+        }
+        
+        :visited {
+            color: #999933 !important;
+            text-decoration: none;
+        }
+        
+        :active {
+            color: #999933 !important;
+            text-decoration: none;
+        }
+        
+        tr {
+            vertical-align: top;
+        }
+        
+        #self-nomination {
+            text-align: left;
+            font-size: medium;
+        }
+        
+        ul,li {
+            margin: 0;
+            padding: 0;
+        }
 
-	E' in fase di allestimento una versione moderna generata online, anche se ciò può comportare la perdita di retro-compatibilità.
+        ul {
+            display: table;
+        }
 
-	
-	To the developer:
+        li {
+            list-style: none;
+            display: table-row;
+            text-align: justify;
+            line-height: 1.3em;
+        }
 
-	I firstly congratulate those who are looking at the meta content of this page.
+        li::before {
+            content: "●";
+            display: table-cell;
+            text-align: right;
+            padding-right: .3em;
+            padding-left: .3em;
+        }
+        
+        input[type="radio"] {
+          margin-top: -1px;
+          vertical-align: middle;
+        }
+        
+        #lasts-kb td + td {
+            text-align: right;
+            width:fit-content;
+        }
+        
+        #me {
+            border:0;
+            width:109;
+            height:105;
+        }
+        
+        #head td + td {
+            text-align: right;
+        }
 
-	I know that without CSS it is worse than spaghetti code.
+        #previous-kb td {
+        	width: 20%;
+        }
+        #previous-kb td + td {
+        	width: 64%;
+        }
+        #previous-kb td + td + td {
+        	width: 15%;
+        	text-align: right;
+        }
 
-	A modern version generated online is under construction, although this may result in the loss of backwards compatibility.
-	
--->
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
-        <meta http-equiv="cache-control" content="no-store"/>
-        <meta name="keywords" content="analista, programmatore, sistemista, itc, it, manager, pc, as400, castiglione delle stiviere, mantova, brescia, asp, net, delphi, c/c++, c#, wince, windows, msaccess, tsql, visual, basic, novell, windows, ubuntu, linux"/>
-        <meta name="description" content="Curriculum di Stefano Zaglio"/>
-        <link rel="icon" href="favicon.ico"/>
-        <title>Curriculum di Stefano Zaglio</title>
-        <style>
-            .separet {
-                background: #DDD;
-                height: 4px;
-                padding: 2px;
-            }
+        #experiences td {
+        	width: 20%;
+        }
+        #experiences td + td {
+        	width: 50%;
+        }
+        #experiences td + td + td {
+        	width: 30%;
+        	text-align: right;
+        }
 
-            .table-font * {
-                font-size: small;
-                font-family: Tahoma;
-                padding: 1px;
-            }
+        #privacy {
+        	border-top: 1px solid gray;
+        }
+        
+    </style>
+    <!--script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script-->
+    <!--script src="https://mrrio.github.io/jsPDF/dist/jspdf.debug.js"></script-->
+    <!--script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script-->
+</head>
+    
+<body style="display:none">
+    
+    <table id="head" class="anonymouse" >
+        <tbody>
+            <tr>
+                <td>
+                    <b>Stefano Zaglio</b>(CV)<br>
+                    <span>Via Soratino, 8</span><br/>
+                    46043 [Castiglione D/S] (Italy)<br>
+                    Nato il 01.02.72 / Sposato
+                </td>
+                <td rowspan="2">
+                    <img id="me" src="images/io/foto_tessera_cravatta%20-%20tonda.jpg"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="border-bottom: 1px solid gray;">
+                    <span id="ewide" style="visibility:hidden">XXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+                    <img id="emarker" src="images/ref.svg" style="display:none" onclick="about()"/><br>
+                    this:&nbsp;<a href="https://goo.gl/7hakDJ">https://goo.gl/7hakDJ</a>
+                    &nbsp;-&nbsp;<a href="zaglio_stefano_cv_ita.pdf">PDF</a>-&nbsp;[linkedin]
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
-            .table-header * {
-                color: #FFF;
-                background-color: #999;
-                font-weight: bold;
-            }
 
-            .section {
-                font-weight: bold;
-            }
+    <blockquote id="self-nomination"></blockquote>
+        
+    <section id="briefly">
+	    <h2>Brevemente</h2>
+	    <ul>
+	    </ul>
+    </section>
 
-            .justify * {
-                text-align: justify;
-            }
+    <table id="lasts-kb">
+        <thead>
+            <tr>
+                <td>Conoscenze recenti</td>
+                <td>Anni</td>
+            </tr>
+        </thead>
+    </table>
 
-            table {
-                width: 100%;
-                border-spacing: 0;
-                border-collapse: collapse;
-                margin-top: 0px;
-                margin-left: 4px;
-                margin-bottom: 10px;
-                margin-right: 4px;
-                cellpadding:5;
-                cellspacing:0;
-                }
-                
-        	body {
-	        	margin:4px;
-	        	alink:"#999933";
-	        	bgcolor:"#ffffff";
-	        	link:"#663399";
-	        	text:"#000000";
-	        	vlink="#999933";
-        	}
-        	
-        </style>
-        <!--script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script-->
-        <!--script src="https://mrrio.github.io/jsPDF/dist/jspdf.debug.js"></script-->
-        <!--script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script-->
-    </head>
-    <body>
-        <table id="head" class="anonymouse" >
-            <tbody>
-                <tr valign="top">
-                    <td >
-                        <font face="Tahoma">
-                            <span class="Small">
-                                <span style="">
-                                    <b>
-                                        <span id="bodyContent__ctl0_lblName" class="ContactGray">Stefano Zaglio</span>
-                                    </b>
-                                    (CV)
-                                    <font size="2">
-                                        <br/>
-                                        <span id="bodyContent__ctl0_lblAddr1" class="ContactGray">Via Soratino, 8</span>
-                                        <br/>
-                                        <span id="bodyContent__ctl0_lblLocation" class="ContactGray">
-                                            46043 
-							<a href="https://www.google.com/maps/place/46043+Castiglione+delle+Stiviere,+Province+of+Mantua/@45.3888698,10.4731711,14z/data=!3m1!4b1!4m5!3m4!1s0x4781be7b043662f9:0xb4c322fd93a83aeb!8m2!3d45.3873983!4d10.4829578">Castiglione D/S</a>
-                                            (Italy)<br>Nato il 01.02.72 / Sposato
-                                        </span>
-                                    </font>
-                                </span>
-                            </span>
-                        </font>
-                    </td>
-                    <td rowspan="2" style="border-bottom-style: none; border-bottom-width: medium">
-                        <p align="right">
-                            <img border="0" src="images/io/foto_tessera_cravatta%20-%20tonda.jpg" width="109" height="105"/>
-                        </p>
-                    </td>
+    <div id="view_by_projects" style="display:none">
+        <table id="progetti">
+            <thead>
+                <tr>
+                    <td>Progetti e attività principali</td>
+                    <td>Stack</td>
+                    <td>Comp.</td>
+                    <td>Az.</td>
                 </tr>
-                <tr valign="top">
-                    <td style="border-top-style: none; border-top-width: medium; border-bottom-style: solid; border-bottom-width: 1px">
-                        <span id="ewide" style="visibility:hidden">XXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
-                        <img id="emarker" src="images/ref.svg" style="display:none" onclick="about()"></img>
-                        <br>
-                        this
-                        <span>
-                            :&nbsp;<a href="https://goo.gl/7hakDJ">https://goo.gl/7hakDJ</a>
-                        </span>
-                        &nbsp;-&nbsp;<a href="zaglio_stefano_cv_ita.pdf">PDF</a>
-                        -&nbsp;<a href="https://it.linkedin.com/pub/stefano-zaglio/3b/541/1b7" style="text-decoration: none">linkedin</a>
-                    </td>
-                </tr>
-            </tbody>
+            </thead>
         </table>
-        <table>
-            <tbody>
-                <tr>
-                    <td class="justify" style="border-bottom-style: solid; border-bottom-width: 1px">
-                        <blockquote>
-                            <p style="text-align: left">
-                                <span style="font-family: Tahoma">
-                                    Gentile 
-								Responsabile,<br/>
-                                    <br/>
-                                    sarei lieto di mettere le mie competenze di 
-								tecnico e programmatore,<br/>
-                                    con vent &#39;anni di esperienza,
-								a servizio della Vostra Azienda.<br/>
-                                    <br/>Confidando in positivo riscontro, porgo distinti 
-								saluti.
-                                </span>
-                            </p>
-                        </blockquote>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table-font justify" border="0">
-            <tbody>
-                <tr class="table-header">
-                    <td colspan="2">In breve</td>
-                </tr>
-                <tr>
-                    <td align="center" valign="top">●</td>
-                    <td align="justify" style="text-align: left">
-                        <p style="text-align: left">attraverso tutti gli aspetti del ciclo di vita dello 
-							sviluppo e post vendita, lavorando in team o in 
-							autonomia</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" valign="top">●</td>
-                    <td align="justify" style="text-align: left">
-                        <p style="text-align: justify">soluzioni creative tramite brainstorming, mind maps; cura UI/UX con approfondimenti di p. cognitiva
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" valign="top">●</td>
-                    <td align="justify" style="text-align: left">
-                        <p>
-                            pratica nei settori
-							<a href="http://digilander.libero.it/bolido/MGSexyTV.htm">intrattenimento</a>
-                            ,
-							<a href="https://www.youtube.com/watch?v=5KzKdfDnq_o">manifatturieri</a>
-                            , 
-							<a href="https://www.youtube.com/watch?v=V1gc_mjGH1I">accoglienza</a>
-                            , 
-							<a href="https://zonafets.github.io/site/responsabile_it_copan_italia_spa.htm">automazione d'ufficio e industriale</a>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" valign="top">●</td>
-                    <td align="justify" style="text-align: left">
-                        <p style="text-align: justify">
-                            come
-							<a href="images/certificates/stefano_referenze_intea.jpg">tecnico, programmatore</a>
-                            junior e senior, sistemista,
-							<a href="http://xoomer.virgilio.it/stezagl/io/ita/esempi_estratti_da_mie_analisi.htm">analista</a>
-                            ,  
-							<a href="images/certificates/stefano_referenze_bpascal.jpg">trainer</a>
-                            ,
-							<a href="images/certificates/stefano_referenze_copan.jpg">ICT manager</a>
-                            , program e
-							<a href="software_quality_and_standard.htm">std &amp;qly</a>
-                            manager
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" valign="top">●</td>
-                    <td align="justify" style="text-align: left">
-                        <p style="text-align: justify">
-                            specializzato in
-							<a href="https://youtu.be/t7-qQL8V-zA">tracciabilità,</a>
-                            <a href="https://youtu.be/qMPB_zsRn1s">integrazione di sistemi</a>
-                            , 
-							<a href="esempi_estratti_da_mie_analisi.htm">documentazione</a>
-                            , 
-							ottimizzazione dei processi
-                            <span class="anonymouse">
-                                (<a href="https://youtu.be/MBP_jCdrCDc?t=4m56s">es.1</a>
-                                ,
-							<a href="https://youtu.be/qMPB_zsRn1s?t=5s">es.2</a>
-                                ,
-							<a href="https://youtu.be/t7-qQL8V-zA?t=5s">es.3</a>
-                                )
-                            </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" valign="top">●</td>
-                    <td align="justify" style="text-align: left">
-                        <p style="text-align: justify">Full-Stack Web, Mobile e Desktop Developer, 
-							multi-threading, multi-process e multi-platform
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" valign="top">●</td>
-                    <td align="justify" style="text-align: left">
-                        <p style="text-align: justify">disponibile al supporto con telelavoro, 
-							gestione delle urgenze, trasferte, anche 
-							internazionali di lunga durata e a R &amp;D
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" valign="top">●</td>
-                    <td align="justify" style="text-align: left">
-                        <p style="text-align: justify">possibilità di assunzione entro 
-							2 settimane 
-                    </td>
-                </tr>
-                <tr style="display:none">
-                    <td align="center" valign="top">●</td>
-                    <td align="justify" style="text-align: left">
-                        <p style="text-align: justify">RAL 45K trattabili
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table id="recenti" class="table-font">
-            <tbody>
-                <tr class="table-header">
-                    <td width="64%">Conoscenze recenti</td>
-                    <td  width="15%" align="right">Anni </td>
-                </tr>
-                <tr>
-                    <td width="64%">
-                        Javascript, HTML, C#/VB/Asp/MVC/Razor, 
-							dotNET, KnockoutJS, JQuery, Bootstrap
-                        <span class="anonymouse">
-                            (<a href="https://www.youtube.com/watch?v=X8Bl7z2anok">es.1</a>
-                            ) 
-							(<a href="https://youtu.be/4UNjBde8e1Q">es.2</a>
-                            )
-                        </span>
-                    </td>
-                    <td nowrap="true" width="15%" align="right">5 </td>
-                </tr>
-                <tr>
-                    <td width="64%">SAP/JDEdwards 
-							integration</td>
-                    <td  nowrap="true" width="15%" align="right">4 </td>
-                </tr>
-                <tr>
-                    <td width="64%">
-                        <a href="tsql_zaglios_collection.htm">MS SQL Server</a>
-                    </td>
-                    <td nowrap="true" width="15%" align="right">7
-							</td>
-                </tr>
-                <tr>
-                    <td style="border-style: none; border-width: medium" width="64%">
-                        <a href="https://www.youtube.com/watch?v=B_c3QVeiCDs">Postgresql</a>
-                        , MySQL, Sqlite, Node.js, JQuery
-                    </td>
-                    <td nowrap="true" width="15%" align="right">2</td>
-                </tr>
-                <tr>
-                    <td width="64%">MS Project e Visio</td>
-                    <td nowrap="true" width="15%" align="right">1</td>
-                </tr>
-            </tbody>
-        </table>
-        <table id="esperienze" class="table-font" cellpadding="5" cellspacing="0" border="0">
-            <tbody>
-                <tr class="section">
-                    <td colspan="3">
-                        <a href="https://goo.gl/XnCjuH">
-                            <b>Esperienze di Lavoro</b>
-                        </a>
-                        &nbsp;<span style="font-weight: 400">(f.time, p.time, co.co.co, co.co.pro, p.o.)</span>
-                    </td>
-                </tr>
-                <tr class="table-header" valign="top">
-                    <td width="20%" style="text-align: left">Periodo </td>
-                    <td width="50%">Attività</td>
-                    <td width="30%">
-                        <p align="right">Azienda </p>
-                    </td>
-                </tr>
-                <tr valign="top">
-                    <td width="20%" style="text-align: left">
-                        2014 - oggi<br>
-                        IT Consultant<a id="bodyContent__ctl3_rptExperience__ctl1_lnkAddEdit1">,
-							Senior Analyst &amp;Developer</a>
-                    </td>
-                    <td width="50%">
-                        consulente, analisi e sviluppo 
-							web/webapp/mobile/server (<a href="https://www.youtube.com/watch?v=X8Bl7z2anok">Docuware 
-							connector</a>
-                        ,
-							<a href="https://youtu.be/4UNjBde8e1Q">MicroERP</a>
-                        per RaspberryPI) ● approfondimenti personali su 
-							Blockchain, AI, smart learning
-                    </td>
-                    <td width="30%">
-                        <p align="right">
-                            <a href="http://www.3ds.team/it/">3DS Team 
-									Srl</a>
-                            (BS) <br/>
-                            <a href="https://zonafets.github.io/site/esempi_estratti_da_mie_analisi.htm#Mini_HOWTO_about_SAP_Connector_RFCs/IDOCs_and_porting_to_other_system_">SOL Group Spa</a>
-                            (MO)<br/>
-                            C.Anspi &nbsp;S.L.G. (MN)<br/>
-                            <a href="https://zonafets.github.io/site/esempi_estratti_da_mie_analisi.htm#Analysis_for_optimization_of_technical_office_processes_(2017)_">Alpac Srl</a>
-                            (VI)
-                    </td>
-                </tr>
-                <tr>
-                    <td class="separet" colspan="3" width="25%"></td>
-                </tr>
-                <tr valign="top">
-                    <td width="20%" style="text-align: left">
-                        2007 - 
-							2014<br/>
-                        <a id="bodyContent__ctl3_rptExperience__ctl1_lnkAddEdit">Senior Analyst &amp;Developer,
-							Program Manager,
-							Data Integrator,
-							Quality &amp;Standard manager</a>
-                    </td>
-                    <td width="50%">
-                        direzione,
-							analisi e sviluppo 
-							web/webapp/mobile/server per &nbsp;tracciabilità, 
-							gestione
-							<a href="https://www.youtube.com/watch?v=t7-qQL8V-zA">batch records</a>
-                        , magazzino e &nbsp;integrazione dati EDI, XML, CSV, 
-							IDOCs, RFC (JD Edward/SAP/ACG) (<a href="https://www.youtube.com/watch?v=qMPB_zsRn1s?t=5s">SAP connector</a>
-                        )
-                    </td>
-                    <td width="30%">
-                        <p align="right">
-                            <a href="http://www.seltris.eu/">Seltris 
-									S.r.l.</a>
-                            (MN)
-                    </td>
-                </tr>
-                <tr>
-                    <td class="separet" colspan="3" width="25%" style="text-align: left"></td>
-                </tr>
-                <tr valign="top">
-                    <td width="20%" style="text-align: left">
-                        2000 - 2006<br/>
-                        <a id="bodyContent__ctl3_rptExperience__ctl1_lnkAddEdit">Senior </a>
-                        <a id="bodyContent__ctl3_rptExperience__ctl1_lnkAddEdit0">Analyst / </a>
-                        <a id="bodyContent__ctl3_rptExperience__ctl1_lnkAddEdit">
-                            Developer<br/>Trainer &amp;IT consultant
-                        </a>
-                    </td>
-                    <td width="50%">
-                        analisi/sviluppo desktop (front-end 
-							grafico 
-							<a href="https://www.youtube.com/watch?v=V1gc_mjGH1I">Tavolinux</a>
-                        );<br/>
-                        docente corsi ECDL, MS Office, FSE 
-							(B.Pascal e C.F.P.);<br/>
-                        corso MS Office e Info base (ITC Don Milani di 
-							Montichiari);<br/>
-                        analisi /sviluppo applicazione 
-							per 
-							<a href="https://www.youtube.com/watch?v=6d7gQ3yM9sk">ottimizzare consegna e fatturazione</a>
-                        (Nestlé&nbsp;per fusione 
-							friskies S.p.A. e Purina Pet Care); <br/>
-                        sviluppo applicazioni 
-							AS400 in RPGIV (Intea s.n.c.);<br/>allestimento e manutenzione 
-							intranet Win.NT 4/MSSQL (Entreprise s.r.l.)
-                    </td>
-                    <td width="30%">
-                        <p style="text-align: right">
-                            <a href="http://www.trendservizi.it/">Trend 
-									Servizi S.r.l.</a>
-                            (MN)<br/>
-                            I.T.I. B.Pascal e C.F.P. (MN)<br/>
-                            ITC Don Milani (BS)<br/>
-                            <a href="http://www.ghirardi.it/">Marmi 
-									Ghirardi S.r.l.</a>
-                            (BS) <br/>
-                            Friskies Italia 
-									S.p.A. (MN)<br/>
-                            Intea S.n.c. (MN)<br/>Enterprise S.r.l. (MN)
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="separet" colspan="3" width="25%" style="text-align: left"></td>
-                </tr>
-                <tr valign="top">
-                    <td width="20%" style="text-align: left">
-                        1997 - 1999<br/>Junior IT Manager 
-                    </td>
-                    <td width="50%">Gestione acquisti, 
-							supporto su AS400, sviluppo applicazioni CRM, ERP ●&nbsp;Automatizzazione backoffice e produzione ●&nbsp;programmazione robot ●&nbsp;rete Wifi e terminali RF ●&nbsp;supporto 
-							a ricerca e sviluppo</td>
-                    <td width="30%">
-                        <p align="right">
-                            <a href="http://copanitalia.com/">Copan 
-									Italia S.p.a.</a>
-                            (BS)
-                    </td>
-                </tr>
-                <tr>
-                    <td class="separet" colspan="3" width="25%" style="text-align: left"></td>
-                </tr>
-                <tr valign="top">
-                    <td width="20%" style="text-align: left">
-                        1990 - 1997
-							<br/>
-                        <a id="bodyContent__ctl3_rptExperience__ctl8_lnkAddEdit">Docente tecnico pratico e tecnico/programmatore</a>
-                    </td>
-                    <td width="50%">
-                        <a href="https://goo.gl/LVGHhM">B.Pascal</a>
-                        (diurno 
-							e serale): docente tecnico pratico, tecnico di 
-							laboratorio e responsabile rete Novell, corsi 
-							Autocad, MSOffice, Dos, Windows; <br/>
-                        <a href="https://goo.gl/XnMFF1">Intea snc</a>
-                        (pomeridiano): programmazione Clipper / MSAccess / PLC; 
-							installazioni servers Novell;<br>
-                        Simulmondo/Dynabyte: sviluppo
-							<a href="http://digilander.libero.it/bolido/MGSexyTV.htm">video games</a>
-                        in asm x86 / C
-                    </td>
-                    <td width="30%">
-                        <p align="right">
-                            <a href="http://www.fondazionecasadelgiovane.it/">I.T.I. Blaise Pascal</a>
-                            /
-									<a href="http://www.inteaonline.it/">Intea 
-							S.n.c.</a>
-                            (MN)<br>
-                            <a href="https://it.wikipedia.org/wiki/Simulmondo">Simulmondo S.r.l.</a>
-                            (BO) / 
-									<a href="https://it.wikipedia.org/wiki/Dynabyte">Dynabyte S.n.c.</a>
-                            (GE)
-                    </td>
-                </tr>
-                <tr>
-                    <td class="separet" colspan="3" width="25%" style="text-align: left"></td>
-                </tr>
-            </tbody>
-        </table>
-</td></tr></tbody></table>
-<table id="conoscenze" class="table-font">
-    <tbody>
-        <tr>
-            <td class="section" colspan="3">Conoscenze pregresse</td>
-        </tr>
-        <tr class="table-header">
-            <td width="20%">Categoria</td>
-            <td width="64%">Nome 
-							</td>
-            <td width="15%" align="right">Anni</td>
-        </tr>
-        <!-- SKILL ITEM -->
-        <tr>
-            <td style="border-style: none; border-width: medium" width="20%">Server development</td>
-            <td style="border-style: none; border-width: medium" width="64%">
-                RPG-IV/ABAP, 
-							Ibm AS400
-							<a href="responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_">ACG integration</a>
-            </td>
-            <td style="border-style:none; border-width:medium; padding-left: 10px" nowrap="true" width="15%" align="right">1
-							</td>
-        </tr>
-        <tr>
-            <td class="separet" colspan="3" width="25%"></td>
-        </tr>
-        <tr>
-            <td style="border-style: none; border-width: medium" width="20%">Desktop development</td>
-            <td style="border-style: none; border-width: medium" width="64%">C / C++ (QT Libraries 3.5) / OPascal</td>
-            <td style="border-style:none; border-width:medium; padding-left: 10px" nowrap="true" width="15%" align="right">6 </td>
-        </tr>
-        <!-- /SKILL ITEM -->
-        <tr>
-            <td style="border-style: none; border-width: medium" width="20%">&nbsp;</td>
-            <td style="border-style: none; border-width: medium" width="64%">
-                Microsoft Access
-							
-                <span class="anonymouse">
-                    <a href="https://youtu.be/5KzKdfDnq_o">(es.1)</a>
-                    <a href="https://youtu.be/6d7gQ3yM9sk">(es.2)</a>
-                    <a href="https://youtu.be/-rfhieKOvR8">(es.3)</a>
-                    <a href="responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_">(es.4,&nbsp;5,&nbsp;6,&nbsp;7)</a>
-                </span>
-            </td>
-            <td style="border-style:none; border-width:medium; padding-left: 10px" nowrap="true" width="15%" align="right">10
-							</td>
-        </tr>
-        <tr>
-            <td style="border-style: none; border-width: medium" width="20%">&nbsp;</td>
-            <td style="border-style: none; border-width: medium" width="64%">VM Ware/VirtualBox</td>
-            <td style="border-style:none; border-width:medium; padding-left: 10px" nowrap="true" width="15%" align="right">3 </td>
-        </tr>
-        <tr>
-            <td style="border-style: none; border-width: medium" width="20%">Source Control Manager</td>
-            <td style="border-style: none; border-width: medium" width="64%">GIT / SVN</td>
-            <td style="border-style:none; border-width:medium; padding-left: 10px" nowrap="true" width="15%" align="right">5</td>
-        </tr>
-        <tr>
-            <td style="border-style: none; border-width: medium" width="20%">Help Desk</td>
-            <td style="border-style: none; border-width: medium" width="64%">Teamviewer/SSH/RemoteDesktop</td>
-            <td style="border-style:none; border-width:medium; padding-left: 10px" nowrap="true" width="15%" align="right">5 </td>
-        </tr>
-        <tr>
-            <td style="border-style: none; border-width: medium" width="20%">&nbsp;</td>
-            <td style="border-style: none; border-width: medium" width="64%">Software Open Source e Free 
-							multipiattaforma</td>
-            <td style="border-style:none; border-width:medium; padding-left: 10px" nowrap="true" width="15%" align="right">10 </td>
-        </tr>
-        <tr>
-            <td class="separet" colspan="3" width="25%"></td>
-        </tr>
-        <tr>
-            <td style="border-style: none; border-width: medium" bordercolordark="#FFFFFF" bordercolor="#C0C0C0" width="20%">Training </td>
-            <td style="border-style: none; border-width: medium" bordercolordark="#FFFFFF" bordercolor="#C0C0C0" width="64%">Metodologie/Strumenti Test 
-							software/hardware</td>
-            <td style="border-style:none; border-width:medium; padding-left: 10px" nowrap="true" bordercolordark="#FFFFFF" bordercolor="#C0C0C0" width="15%" align="right">10 
-							</td>
-        </tr>
-        <tr>
-            <td style="border-style: none; border-width: medium" width="20%">&nbsp;</td>
-            <td style="border-style: none; border-width: medium" width="64%">Documentazione Hardware/Software</td>
-            <td style="border-style:none; border-width:medium; padding-left: 10px" nowrap="true" width="15%" align="right">10 
-							</td>
-        </tr>
-        <tr>
-            <td class="separet" colspan="3" width="25%"></td>
-        </tr>
-        <tr>
-            <td style="border-style: none; border-width: medium" bordercolor="#C0C0C0" width="20%">Sistemi operativi</td>
-            <td style="border-style: none; border-width: medium" bordercolor="#C0C0C0" width="64%">DOS, Windows 
-							3.x/9x/2k/XP/TE/7/CE/Mobile/Tablet</td>
-            <td style="border-style:none; border-width:medium; padding-left: 10px" nowrap="true" bordercolor="#C0C0C0" width="15%" align="right">12 
-							</td>
-        </tr>
-        <tr>
-            <td style="border-style: none; border-width: medium" width="20%">&nbsp;</td>
-            <td style="border-style: none; border-width: medium" width="64%">Linux (slackware:1, redhat:1, 
-							ubuntu:3)</td>
-            <td style="border-style:none; border-width:medium; padding-left: 10px" nowrap="true" width="15%" align="right">5</td>
-        </tr>
-        <tr>
-            <td style="border-style: none; border-width: medium" width="20%">&nbsp;</td>
-            <td style="border-style: none; border-width: medium" width="64%">OS/2 e OS/400</td>
-            <td style="border-style:none; border-width:medium; padding-left: 10px" nowrap="true" width="15%" align="right">1 </td>
-        </tr>
-        <tr>
-            <td class="separet" colspan="3" width="25%"></td>
-        </tr>
-        <tr>
-            <td style="border-style: none; border-width: medium" width="20%">Applications</td>
-            <td style="border-style: none; border-width: medium" width="64%">Autocad, Google Sketchup</td>
-            <td style="border-style:none; border-width:medium; padding-left: 10px" nowrap="true" width="15%" align="right">3 </td>
-        </tr>
-        <tr>
-            <td style="border-style: none; border-width: medium" width="20%">&nbsp;</td>
-            <td style="border-style: none; border-width: medium" width="64%">MS Office / LibreOffice</td>
-            <td style="border-style:none; border-width:medium; padding-left: 10px" nowrap="true" width="15%" align="right">10 
-							/ 2</td>
-        </tr>
-        <tr>
-            <td style="border-style: none; border-width: medium" width="20%">&nbsp;</td>
-            <td style="border-style: none; border-width: medium" width="64%">Coreldraw/SharePoint/Zetafax</td>
-            <td style="border-style:none; border-width:medium; padding-left: 10px" nowrap="true" width="15%" align="right">1 
-							</td>
-        </tr>
-        <tr>
-            <td class="separet" colspan="3" width="25%"></td>
-        </tr>
-        <tr>
-            <td style="border-style: none; border-width: medium" width="20%">Hardware</td>
-            <td style="border-style: none; border-width: medium" width="64%">RaspberryPi, Arduino, Motorola MC75, Intermec CN70, 
-							Zebra RW420, Intermec PW50, HP Proliant</td>
-            <td style="border-style:none; border-width:medium; padding-left: 10px" nowrap="true" width="15%" align="right">4</td>
-        </tr>
-        <tr>
-            <td style="border-style: none; border-width: medium" width="20%">&nbsp;</td>
-            <td style="border-style: none; border-width: medium" width="64%">PLC Siemens, PIC18F2420, x86, 
-							Z80</td>
-            <td style="border-style:none; border-width:medium; padding-left: 10px" nowrap="true" width="15%" align="right">1</td>
-        </tr>
-    </tbody>
-</table>
-<table id="info" class="table-font" cellpadding="5" cellspacing="0" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px">
-    <tbody>
-        <tr class="table-header">
-            <td style="border-bottom-style: none; border-bottom-width: medium" bgcolor="#808080" colspan="2">Informazioni aggiuntive</td>
-        </tr>
-        <tr>
-            <td style="border-style:none; border-width:medium; " width="31%">Istruzione</td>
-            <td align="right" style="border-style:none; border-width:medium; ">
-                <p align="left">
-                    1985-89
-							Diploma - <a href="images/certificates/diploma_maturita.jpg">Perito Industriale Capotecnico</a>
-                    (spec. 
-							informatica) (54/60)
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td style="border-style:none; border-width:medium; " width="31%">Lingue</td>
-            <td align="left" style="border-style:none; border-width:medium; ">intermediate english written/spoken, Français 
-							élémentaire</td>
-        </tr>
-    </tbody>
-</table>
-<table id="attività" class="table-font" cellpadding="5" cellspacing="0" cellpadding="0" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-collapse:collapse">
-    <tbody>
-        <tr class="table-header">
-            <td style="border-bottom-style: solid; border-bottom-width: 1px" width="45%" bgcolor="#808080">
-                <a href="https://www.youtube.com/watch?v=D48u_Tu-K98">Attività 
-							extracurriculari</a>
-            </td>
-            <td style="border-bottom-style: solid; border-bottom-width: 1px" width="730" bgcolor="#808080">
-                <p align="left">Competenze acquisite</p>
-            </td>
-        </tr>
-        <tr>
-            <td style="border-bottom-style: none; border-bottom-width: medium; border-left-style:none; border-left-width:medium; border-right-style:none; border-right-width:medium" width="45%">* corso &quot;contabilità 
-							automatizzata&quot;</td>
-            <td align="left" style="border-bottom-style: none; border-bottom-width: medium; border-left-style:none; border-left-width:medium; border-right-style:none; border-right-width:medium">analisi bilancio, b.p.</td>
-        </tr>
-        <tr>
-            <td style="border-style:none; border-width:medium; " width="45%">
-                * relazione 
-							<a href="images/certificates/corso_hp.jpg">tecnico-cliente in HP</a>
-            </td>
-            <td align="left" style="border-style:none; border-width:medium; ">gestione obiezioni</td>
-        </tr>
-        <tr>
-            <td style="border-style:none; border-width:medium; " width="45%">* obiettivi e risultati 
-							con NLP</td>
-            <td align="left" style="border-style:none; border-width:medium; ">goal setting</td>
-        </tr>
-        <tr>
-            <td style="border-style:none; border-width:medium; " width="45%">* studi su 
-							meta-apprendimento</td>
-            <td align="left" style="border-style:none; border-width:medium; ">strategie di 
-							apprendimento e trasmissione di concetti</td>
-        </tr>
-        <tr>
-            <td style="border-style:none; border-width:medium; " width="45%">* fotografia b/w,
-							fumettistica e disegno</td>
-            <td align="left" style="border-style:none; border-width:medium; ">aspetti della 
-							percezione, rappresentazione</td>
-        </tr>
-        <tr>
-            <td style="border-style:none; border-width:medium; " width="45%">*
-							presepistica/modellazione, 
-							cucina, degustazione</td>
-            <td align="left" style="border-style:none; border-width:medium; ">modellamento, 
-							esecuzione, rapporto quantità</td>
-        </tr>
-        <tr>
-            <td style="border-style:none; border-width:medium; " width="45%">* brain storming / 
-							MindMap</td>
-            <td align="left" style="border-style:none; border-width:medium; ">sviluppo soluzioni 
-							creative o empiriche</td>
-        </tr>
-        <tr>
-            <td style="border-style:none; border-width:medium; " width="45%">* focus group</td>
-            <td align="left" style="border-style:none; border-width:medium; ">mantenere focalizzata 
-							l'attenzione del gruppo sull'obiettivo/argomento</td>
-        </tr>
-        <tr>
-            <td style="border-style:none; border-width:medium; " width="45%">
-                * 
-							<a href="https://zonafets.github.io/site/esempi_estratti_da_mie_analisi.htm#Documentation_developed_as_site_coordinator_for_property_renovation_(2015)_">coordinazione cantiere</a>
-            </td>
-            <td align="left" style="border-style:none; border-width:medium; ">gestione progetto con 
-							budget limitato: analisi qualità e competenze</td>
-        </tr>
-    </tbody>
-</table>
-<table border="0" id="table8" style="border-left-width: 0px; border-top-width: 0px; border-bottom-width: 0px">
-    <tbody>
-        <tr>
-            <td style="border-style:none; border-width:medium; ">
-                <i>Autorizzo il trattamento dei dati personali ai sensi del &nbsp;ex D. lgs. 196/2003</i>
-            </td>
-            <td style="border-left-style: none; border-left-width: medium">
-                <p align="right">
-                    <i>Castiglione 
-					D/S,
-					
-                    <!--webbot bot="Timestamp" s-type="EDITED" s-format="%d/%m/%Y" startspan -->24/05/2018<!--webbot bot="Timestamp" i-checksum="12583" endspan -->
-                    </i>
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-</body><script>
+
+        <section id="competencies">
+            <h2>Indice competenze</h2>
+        </section>
+
+        <section id="stacks">
+            <h2>Indice stacks</h2>
+            <lg>A</lg> ● Razor, Mvc.Net, C#, KnockoutJS, JQuery, Bootstrap, Sqlite, Git, Linux
+            <lg>B</lg> ● Libreoffice
+            <lg>C</lg> ● Skype, Libreoffice, Tutorials
+            <lg>D</lg> ● MSSql Server, TSQL
+            <lg>E</lg> ● WinCE, Visual Studio, VB.Net, Svn
+            <lg>F</lg> ● TSQL, VB.Net, ASP.Net, ERPConnect
+            <lg>G</lg> ● TSQL, ASP.Net
+        </section>
+
+        <section id="companies">
+            <h2>Indice aziende</h2>
+            <lg>2014-Today:</lg> ● 
+                <b> (14)</b> C.Anspi S.L.G. - MN ●
+                <b> (13)</b> [Alpac Srl] - VI ●
+                <b> (12)</b> [SOL Group Spa] - MO ●
+                <b> (11)</b> [3DS Team Srl] - BS ●
+            <lg>2007-2014:</lg>
+                <b> (10)</b> [Seltris Srl] - MN ● 
+            <lg>2005-2007:</lg>
+                <b> (9)</b>[Marmi Ghirarsi Spa] - BS ● 
+            <lg>2000-2005:</lg>
+                <b> (8)</b> Trend Servizi Srl - MN ●
+                <b> (7)</b> Friskies/Nestlé Spa - MI/MN ●
+                <b>	(6)</b> Enterprise Srl - MN ● 
+            <lg>1997-1998:</lg>
+                <b> (5)</b> Copan Italia Spa - BS ● 
+            <lg>1990-1997:</lg>
+                <b> (4)</b> Dynabyte - GE ●
+                <b> (3)</b> Simulmondo Snc - BO ●
+                <b> (2)</b> Intea Snc - MN ●
+                <b>	(1)</b> I.T.I. B.Pascal - MN
+        </section>
+    </div>
+
+    <div id="view_by_experiences">
+
+        <section id="experiences">
+            <b>[Esperienze di Lavoro]&nbsp;(f.time, p.time, co.co.co, co.co.pro, p.o.)</b>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Periodo/Comp.</td>
+                        <td>Attività</td>
+                        <td>Azienda</td>
+                    </tr>
+                </thead>
+            </table>
+        </section>
+
+    </div>
+
+	<section id="previous-kb">
+    <b>Conoscenze pregresse</b>
+    <table>
+        <thead>
+            <tr>
+                <td>Categoria</td>
+                <td>Nome</td>
+                <td>Anni</td>
+            </tr>
+        </thead>
+    </table>
+	</section>
+        
+    <section id="info">
+    	<h2>Informazioni aggiuntive</h2>
+		<table>
+		    <tbody>
+		        <tr>
+		            <td>Istruzione</td>
+		            <td>1985-89 Diploma - [Perito Industriale Capotecnico] (spec.informatica) (54/60)</td>
+		        </tr>
+		        <tr>
+		            <td>Lingue</td>
+		            <td>intermediate english written/spoken, Français élémentaire</td>
+		        </tr>
+		    </tbody>
+		</table>
+	</section>
+
+	<table id="extra-courses">
+	    <thead>
+	        <tr>
+	            <td>[Attività extracurriculari]</td>
+	            <td>Competenze acquisite</td>
+	        </tr>
+	    </thead>
+	</table>
+
+	<table id="privacy">
+	    <tbody>
+	        <tr>
+	            <td><i>Autorizzo il trattamento dei dati personali ai sensi del &nbsp;ex D. lgs. 196/2003</i></td>
+	            <td><p align="right"><i>Castiglione D/S, 24/05/2018</i></p></td>
+	        </tr>
+	    </tbody>
+	</table>
+
+</body>
+
+<script>
+    cv = {
+
+    	"self-nomination":
+    		"Gentile Responsabile,\n\n" +
+        	"sarei lieto di mettere le mie competenze di tecnico e programmatore,\n" +
+        	"con più di vent'anni di esperienza, a servizio della Vostra Azienda.\n\n"+
+        	"Confidando in positivo riscontro, porgo distinti saluti.",
+
+        briefly: [
+            "attraverso tutti gli aspetti del ciclo di vita dello sviluppo e post vendita, lavorando in team o in autonomia",
+        	"soluzioni creative tramite brainstorming, mind maps; cura UI/UX con approfondimenti di p. cognitiva",
+            "pratica nei settori [intrattenimento], [manifatturieri], [accoglienza], [automazione d'ufficio e industriale], "+
+            "come [tecnico, programmatore] junior e senior, sistemista, [analista], [trainer], [ICT manager], program e "+
+            "[std&qly] manager",
+	        "specializzato in [tracciabilità], [integrazione di sistemi], [documentazione],"+ 
+            "ottimizzazione dei processi ([es.1], [es.2], [es.3])",
+            "Full-Stack Web, Mobile e Desktop Developer, multi-threading, multi-process e multi-platform",
+        	"disponibile al supporto con telelavoro, gestione delle urgenze, trasferte, anche internazionali di lunga durata e a R&D",
+        	"possibilità di assunzione entro 2 settimane", 
+        	"RAL 45K trattabili"
+        ],
+
+        "lasts-kb": [
+        	["Javascript, HTML, C#/VB/Asp/MVC/Razor, dotNET, KnockoutJS, JQuery, Bootstrap ([es.4], [es.5])",5],
+        	["SAP/JDEdwards integration",4],
+        	["[MS SQL Server]",7],
+        	["[Postgresql], MySQL, Sqlite, Node.js, JQuery",2],
+        	["MS Project e Visio",1]
+        ],
+
+        experiencies: [
+        	{
+        		period_comp: "2014 - oggi\nIT Consultant, Senior Analyst &Developer",
+        		task: 
+        			"consulente, analisi e sviluppo web/webapp/mobile/server ([Docuware connector], [MicroERP] per RaspberryPI) ● "+
+        			"approfondimenti personali su Blockchain, AI, smart learning",
+        		companies:"[3DS Team Srl](BS)\n[SOL Group Spa](MO)\nC.Anspi  S.L.G. (MN)\n[Alpac Srl](VI)"
+        	},{
+				period_comp: "2007 - 2014\nSenior Analyst &Developer, Program Manager, Data Integrator, Quality &Standard manager",
+				task:
+					"direzione, analisi e sviluppo web/webapp/mobile/server per tracciabilità, gestione [batch records]," +
+					" magazzino e integrazione dati EDI, XML, CSV, IDOCs, RFC (JD Edward/SAP/ACG) ([SAP connector])",
+				companies: "Seltris Srl (MN)"
+			},{
+				period_comp: "2000 - 2006\nSenior Analyst / Developer\nTrainer &IT consultant",
+				task:
+					"analisi/sviluppo desktop (front-end grafico [Tavolinux]); "+
+					"docente corsi ECDL, MS Office, FSE (B.Pascal e C.F.P.); "+
+					"corso MS Office e Info base (ITC Don Milani di Montichiari); "+
+					"analisi /sviluppo applicazione per [ottimizzare consegna e fatturazione] "+
+					"(Nestlé per fusione friskies S.p.A. e Purina Pet Care); "+
+					"sviluppo applicazioni AS400 in RPGIV (Intea s.n.c.); "+
+					"allestimento e manutenzione intranet Win.NT 4/MSSQL (Entreprise s.r.l.)",
+				companies: 
+					"[Trend Servizi Srl] (MN)\nI.T.I. B.Pascal e C.F.P. (MN)\nITC Don Milani (BS)\n[Marmi Ghirardi Spa] (BS)\n"+ 
+					"Friskies Italia S.p.A. (MN)\nIntea Snc (MN)\nEnterprise S.r.l. (MN)"
+			},{
+				period_comp: "1997 - 1999\nJunior IT Manager",
+				task: 
+					"Gestione acquisti, supporto su AS400, sviluppo applicazioni CRM, ERP ● Automatizzazione backoffice e produzione"+
+					" ● programmazione robot ● rete Wifi e terminali RF ● supporto a ricerca e sviluppo	",
+				companies:"[Copan Italia S.p.a.] (BS)"
+			},{
+
+				period_comp: "1990 - 1997\nDocente tecnico pratico e tecnico/programmatore",
+				task: 
+					"[B.Pascal] (diurno e serale): docente tecnico pratico, tecnico di laboratorio e responsabile rete Novell,"+
+					" corsi Autocad, MSOffice, Dos, Windows;\n"+ 
+					"[Intea Snc] (pomeridiano): programmazione Clipper / MSAccess / PLC, installazioni servers Novell;\n"+
+					"Simulmondo/Dynabyte: sviluppo [video games] in asm x86 / C",
+				companies:
+					"[I.T.I. Blaise Pascal] / [Intea S.n.c.] (MN)\n[Simulmondo S.r.l.] (BO) / [Dynabyte S.n.c.] (GE)"
+			}
+
+        ],
+
+        "previous-kb": [
+	        ["Server development",		"RPG-IV/ABAP, Ibm AS400 [ACG integration]", 1],
+			["Desktop development",		"C / C++ (QT Libraries 3.5) / OPascal", 6],	
+			["",						"Microsoft Access ([es.6]) ([es.7]) ([es.8]) ([es.9], [10], [11], [12])", 10],
+			["",						"VM Ware/VirtualBox", 3],
+			["Source Control Manager",	"GIT / SVN", 5],
+			["Help Desk",				"Teamviewer/SSH/RemoteDesktop", 5],
+			["",						"Software Open Source e Free multipiattaforma", 10],
+			["Training",				"Metodologie/Strumenti Test software/hardware", 10],
+			["",						"Documentazione Hardware/Software", 10],
+			["Sistemi operativi",		"DOS, Windows 3.x/9x/2k/XP/TE/7/CE/Mobile/Tablet", 12],
+			["",						"Linux (slackware:1, redhat:1, ubuntu:3)", 5],
+			["",						"OS/2 e OS/400", 1],
+			["Applications",			"Autocad, Google Sketchup", 3],
+			["",						"MS Office / LibreOffice", "10 / 2"],
+			["",						"Coreldraw/SharePoint/Zetafax", 1],
+			["Hardware",				"RaspberryPi, Arduino, Motorola MC75, Intermec CN70, Zebra RW420, Intermec PW50, HP Proliant",4],
+	 		["",						"PLC Siemens, PIC18F2420, x86, Z80","1"]	
+        ],
+
+    	extra_courses: [
+	        {
+	            course:'corso "contabilità automatizzata"',
+	            learned:'analisi bilancio, b.p.'
+	        },{
+	            course:'relazione [tecnico-cliente in HP]',
+	            learned:'gestione obiezioni',
+	        },{
+	        	course:'obiettivi e risultati con NLP',            
+	            learned:'goal setting',
+	        },{
+	        	course:'studi su meta-apprendimento',
+	            learned:'strategie di apprendimento e trasmissione di concetti',
+	        },{
+	        	course:'fotografia b/w, fumettistica e disegno',
+	            learned:'aspetti della percezione, rappresentazione',
+	        },{
+	        	course:'presepistica/modellazione, cucina, degustazione',
+	            learned:'modellamento, esecuzione, rapporto quantità',
+	        },{
+	        	course:'brain storming / MindMap',
+	            learned:'sviluppo soluzioni creative o empiriche',
+	        },{
+	        	course:'focus group',
+	            learned:'mantenere focalizzata l\'attenzione del gruppo sull\'obiettivo/argomento',
+	        },{
+	        	course:'[coordinazione cantiere]',
+	            learned:'gestione progetto con budget limitato: analisi qualità e competenze'
+	        }
+	    ],
+
+        competencies: [
+        	{id:"SD",dsc:"Senior Developer"},
+        	{id:"PM",dsc:"Program Manager"}
+        ],
+
+        projects: [
+        	["microERP x RaspberryPI", "Razor, Mvc.Net, C#, KnockoutJS, JQuery, Bootstrap, Sqlite, Git, Linux", "PM,SD", "C.Anspi S.L.G. - MN"],
+        	["consulenza analisi congestione uff. tecnico", "LibreOffice", "CO", "Alpac Srl - VI"],
+        ],
+
+        companies_idx: [
+        	["2014-oggi", [14,13,12,11]]
+        ],
+
+        anonymouse: [
+        	"([es.1], [es.2], [es.3])",
+        	"([es.4]) ([es.5])",
+        	"([es.6]) ([es.7]) ([es.8]) ([es.9], [10], [11], [12])",
+        ],
+
+        hidden: [
+        	"RAL 45K trattabili",
+        ],
+
+    	links: [
+			{
+	            mark: "Castiglione D/S",
+	            href: "https://www.google.com/maps/place/46043+Castiglione+delle+Stiviere,+Province+of+Mantua/@45.3888698,10.4731711,14z/data=!3m1!4b1!4m5!3m4!1s0x4781be7b043662f9:0xb4c322fd93a83aeb!8m2!3d45.3873983!4d10.4829578"
+	        },{
+	            mark: "intrattenimento",
+	            href: "http://digilander.libero.it/bolido/MGSexyTV.htm"
+	        },{
+	            mark: "manifatturieri",
+	            href: "https://www.youtube.com/watch?v=5KzKdfDnq_o"
+	        },{
+	            mark: "accoglienza",
+	            href: "https://www.youtube.com/watch?v=V1gc_mjGH1I"
+	        },{
+	            mark: "automazione d'ufficio e industriale",
+	            href: "https://zonafets.github.io/site/responsabile_it_copan_italia_spa.htm"
+	        },{
+	            mark: "tecnico, programmatore",
+	            href: "images/certificates/stefano_referenze_intea.jpg"
+	        },{
+	            mark: "analista",
+	            href: "http://xoomer.virgilio.it/stezagl/io/ita/esempi_estratti_da_mie_analisi.htm",
+	        },{
+	            mark: "trainer",
+	            href: "images/certificates/stefano_referenze_bpascal.jpg"
+	        },{
+	            mark: "ICT manager",
+	            href: "images/certificates/stefano_referenze_copan.jpg"
+	        },{
+	            mark: "std&amp;qly",
+	            href: "software_quality_and_standard.htm"
+	        },{
+	            mark: "tracciabilità",
+	            href: "https://youtu.be/t7-qQL8V-zA"
+	        },{
+	        	mark: "integrazione di sistemi",
+	        	href: "https://youtu.be/qMPB_zsRn1s",
+	        },{
+	            mark: "documentazione",
+	            href: "esempi_estratti_da_mie_analisi.htm"
+	        },{
+	            mark: "es.1",
+	            href: "https://youtu.be/MBP_jCdrCDc?t=4m56s"
+	        },{
+	            mark: "es.2",
+	            href: "https://youtu.be/qMPB_zsRn1s?t=5s"
+	        },{
+	            mark: "es.3",
+	            href: "https://youtu.be/t7-qQL8V-zA?t=5s"
+	        },{
+	        	mark: "es.4",
+	        	href: "https://www.youtube.com/watch?v=X8Bl7z2anok"
+	        },{
+	        	mark: "es.5",
+				href: "https://youtu.be/4UNjBde8e1Q"
+	        },{
+	            mark: "es.6",
+	            href: "https://youtu.be/5KzKdfDnq_o"
+	        },{
+	            mark: "es.7",
+	            href: "https://youtu.be/6d7gQ3yM9sk"
+	        },{
+	            mark: "es.8",
+	            href: "https://youtu.be/-rfhieKOvR8"
+	        },{
+	        	mark: "es.9",
+	        	href: "responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_"
+	        },{
+	        	mark: "10",
+				href: "responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_"
+	        },{
+	        	mark: "11",
+				href: "responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_"
+	        },{
+	        	mark: "12",
+				href: "responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_"
+	        },{
+	            mark: "linkedin",
+	            href: "https://it.linkedin.com/pub/stefano-zaglio/3b/541/1b7"
+	        },{
+	            mark: "Attività extracurriculari",
+	            href: "https://www.youtube.com/watch?v=D48u_Tu-K98"
+	        },{
+	            mark: "ottimizzare consegna e fatturazione",
+	            href: "https://www.youtube.com/watch?v=6d7gQ3yM9sk"
+	        },{
+	            mark: "Tavolinux",
+	            href: "https://www.youtube.com/watch?v=V1gc_mjGH1I"
+	        },{
+	        	mark: "Esperienze di Lavoro",
+	        	href: "https://goo.gl/XnCjuH"
+			},{
+				mark: "Perito Industriale Capotecnico",
+				href: "images/certificates/diploma_maturita.jpg"
+			},{
+				mark: "MS SQL Server",
+				href: "tsql_zaglios_collection.htm"
+			},{
+				mark: "Postgresql",
+				href: "https://www.youtube.com/watch?v=B_c3QVeiCDs"
+			},{
+				mark: "SAP connector",
+				href: "https://www.youtube.com/watch?v=qMPB_zsRn1s?t=5s"
+			},{
+				mark: "MicroERP",
+				href: "https://youtu.be/4UNjBde8e1Q"
+			},{
+				mark: "Docuware connector",
+				href: "https://www.youtube.com/watch?v=X8Bl7z2anok"
+			},{
+				mark: "batch records",
+				href: "https://www.youtube.com/watch?v=t7-qQL8V-zA"
+			},{
+				mark: "B.Pascal",
+				href: "https://www.youtube.com/watch?v=6d7gQ3yM9sk"
+			},{
+				mark: "Intea Snc",
+				href: "https://goo.gl/XnMFF1"
+			},{
+				mark: "video games",
+				href: "http://digilander.libero.it/bolido/MGSexyTV.htm"
+			},{
+				mark: "ACG integration",
+				href: "http://digilander.libero.it/bolido/MGSexyTV.htm"
+			},{
+				mark: "es.1",
+				href: "https://youtu.be/5KzKdfDnq_o"
+			},{
+				mark: "tecnico-cliente in HP",
+				href: "images/certificates/corso_hp.jpg"
+			},{
+				mark: "coordinazione cantiere",
+				href: "esempi_estratti_da_mie_analisi.htm#Documentation_developed_as_site_coordinator_for_property_renovation_(2015)_"
+			}
+		],
+
+		companies: [
+	        // companies
+	        {
+	            mark: "Trend Servizi Srl",
+	            href: "http://www.trendservizi.it",
+	            prov: "MN"
+	        },{
+	            mark: "Copan Italia S.p.a.",
+	            href: "http://copanitalia.com/",
+	            prov: "BS"
+	        },{
+	            mark: "Intea S.n.c.",
+	            href: "https://www.inteaonline.it/",
+	            prov: "MN"
+	        },{
+	            mark: "I.T.I. Blaise Pascal",
+	            href: "http://www.fondazionecasadelgiovane.it/",
+	            prov: "MN"
+	        },{
+	            mark: "Seltris Srl",
+	            href: "http://www.seltris.eu/",
+	            prov: "MN"
+	        },{
+	            mark: "Marmi Ghirardi Spa",
+	            href: "http://www.ghirardi.it/",
+	            prov: "BS"
+	        },{
+	        	mark: "3DS Team Srl",
+	        	href: "http://www.3ds.team/it/",
+	        	prov: "BS"
+	        },{
+	        	mark: "SOL Group Spa",
+	        	href: "https://zonafets.github.io/site/esempi_estratti_da_mie_analisi.htm#Mini_HOWTO_about_SAP_Connector_RFCs/IDOCs_and_porting_to_other_system_",
+	        	prov: "MO"
+	        },{
+	        	mark: "Alpac Srl",
+	        	href: "https://zonafets.github.io/site/esempi_estratti_da_mie_analisi.htm#Analysis_for_optimization_of_technical_office_processes_(2017)_",
+				prov: "VI"
+			},{
+				mark: "Trend Servizi S.r.l.",
+				href: "http://www.trendservizi.it/",
+				prov: "MN"
+			},{
+				mark: "Marmi Ghirarsi S.p.a.",
+				href: "http://www.ghirardi.it/",
+				prov: "BS"
+			},{
+				mark: "Simulmondo S.r.l.",
+				href: "https://it.wikipedia.org/wiki/Simulmondo",
+				prov: "BO"
+			},{
+				mark: "Dynabyte S.n.c.",
+				href: "https://it.wikipedia.org/wiki/Dynabyte",
+				prov: "GE"
+			}
+		]
+
+
+	} // cv
+
+</script>		
+
+<script>
+
+	var tag,tbody,parent,tr,td,tn,cv
 
     function about() {
         document.oncopy = function(event) {
@@ -737,6 +691,149 @@
         alert("Email copiata nella clipboard.")
     }
 
+    function trNtd() 
+    {
+    	var tr = document.createElement("tr")
+    	for (var i=0;i<arguments.length;i++) {
+    		var td = document.createElement("td")
+    		var strings = arguments[i].split("\n")
+    		for (var j=0; j<strings.length; j++) {
+    			var tn = document.createTextNode(strings[j])
+	    		td.appendChild(tn)
+    			if (j!=strings.length-1)
+    			td.appendChild(document.createElement("br"))
+    		}
+    		tr.appendChild(td)
+    	}
+    	return tr
+    }
+
+    function trSeparet()
+    {
+    	var tr = document.createElement("tr")
+		var td = document.createElement("td")
+		td.className = "separet"
+		var att = document.createAttribute("colspan")
+		att.value = arguments.length
+		td.setAttributeNode(att); 
+		tr.appendChild(td)
+		return tr
+    }
+
+    function li(txt)
+    {
+		var li = document.createElement("li")
+		var tn = document.createTextNode(txt)
+		li.appendChild(tn)
+		return li
+    }
+
+	String.prototype.replaceAll = function(search, replacement) {
+	    var target = this;
+	    return target.replace(new RegExp(search.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), 'g'), replacement);
+	};
+
+    // -------------------------------------------------------------------
+
+    parent = document.getElementById("self-nomination")
+    parent.innerHTML = cv["self-nomination"].replace(/\n/g,"<br>")
+
+    parent = document.querySelector("#briefly ul")
+    cv.briefly.forEach(
+    	function(it) {
+    		if (cv.hidden.indexOf(it) == -1)
+				parent.appendChild(li(it))
+		}
+	)
+
+    parent = document.getElementById("lasts-kb")
+    tbody = document.createElement("tbody")
+	parent.appendChild(tbody)
+    cv["lasts-kb"].forEach(
+    	function(it) {
+			tbody.appendChild(trNtd(it[0], it[1]+''))
+		}
+	)
+
+    parent = document.querySelector("#previous-kb table")
+    tbody = document.createElement("tbody")
+    parent.appendChild(tbody)
+    cv["previous-kb"].forEach(
+    	function(it) {
+			parent.appendChild(trNtd(it[0],it[1],it[2]+''))
+		}
+	)
+
+    parent = document.querySelector("#experiences table")
+    tbody = document.createElement("tbody")
+    parent.appendChild(tbody)
+    cv.experiencies.forEach(
+    	function(it) {
+    		var tr = trNtd(it.period_comp, it.task, it.companies)
+			tbody.appendChild(tr)
+			tr.className = "separator"
+			// tbody.appendChild(trSeparet(it.period_comp, it.task, it.companies))
+		}
+	)
+
+
+    parent = document.getElementById("extra-courses")
+    tbody = document.createElement("tbody")
+    parent.appendChild(tbody)
+    cv.extra_courses.forEach( 
+    	function(it) {
+    		tbody.appendChild(trNtd( "* " + it.course, it.learned ))
+    	}
+    )
+
+    parent = document.getElementById("competencies")
+    cv.competencies.forEach(
+    	function(it) {
+    		tag = document.createElement("lg")
+	        tn = document.createTextNode(it.id)
+	        tag.appendChild(tn)
+    		parent.appendChild(tag)
+    		tn = document.createTextNode(" ● " + it.dsc + " ")
+    		parent.appendChild(tn)
+    	}
+    )
+
+    /*********************
+     *  replace [links]  *
+     *********************/
+     
+    var html = document.body.innerHTML
+
+    cv.anonymouse.forEach(
+    	function(it) {
+	        var span = '<span class="anonymouse">' + it + '</span>'
+	        html = html.replaceAll( it, span )
+	    }
+	)
+
+    cv.anonymouse.forEach(
+    	function(it) {
+	        var span = '<span class="anonymouse">' + it + '</span>'
+	        html = html.replaceAll( it, span )
+	    }
+	)
+
+	var links = []
+	links.push.apply(links, cv.links)
+	links.push.apply(links, cv.companies)
+
+    links.forEach(
+    	function(it) {
+	        var a = '<a href="' + it.href+'">' + it.mark + '</a>'
+	        var r = "["+it.mark+"]"
+	        html = html.replaceAll( r, a )
+	    }
+	)
+    
+    document.body.innerHTML = html
+    
+    document.body.style.display='block';
+    
     var ewide = document.getElementById("ewide")
     var width = ewide.offsetWidth
     var emarker = document.getElementById("emarker")
