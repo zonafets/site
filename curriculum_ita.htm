@@ -9,9 +9,25 @@
     <title>Curriculum di Stefano Zaglio</title>
     
     <style>
+
         lg {
             background: #DDD;                
         }
+
+		.circle {
+		    border-radius: 50%;
+		  
+		    width: 2ch;
+		    padding: 0 2px 0 2px;
+		    
+		    background: #fff;
+		    border: 2px solid #666;
+		    color: #666;
+		    text-align: center;
+		    display: inline-block;
+		    font-size: xx-small;
+		    /* <div class="circle">2</div> */		    
+		}
 
         .separator {
         	border-bottom: 3px solid lightgray;
@@ -27,7 +43,6 @@
         section {
             margin-bottom: 10px;
             font-size: small;
-            text-align: justify;
         }
         
         section h2 {
@@ -51,6 +66,10 @@
             border-spacing: 10px;
             padding: 5;
         }
+
+        td {
+        	padding: 0px 2px 0px 2px;
+        }
         
         * {
             font-size: small;
@@ -61,7 +80,14 @@
         	margin:4px;
         	background-color:#ffffff;
         	color:#000000;
+	    	opacity: 0;
+		    transition: none;
     	}
+
+		body.fade-in {
+		    opacity: 1;
+		    transition: 1s opacity;
+		}
         
         :link {
             color: #663399 !important;
@@ -82,11 +108,6 @@
             vertical-align: top;
         }
         
-        #self-nomination {
-            text-align: left;
-            font-size: medium;
-        }
-        
         ul,li {
             margin: 0;
             padding: 0;
@@ -99,7 +120,6 @@
         li {
             list-style: none;
             display: table-row;
-            text-align: justify;
             line-height: 1.3em;
         }
 
@@ -114,6 +134,17 @@
         input[type="radio"] {
           margin-top: -1px;
           vertical-align: middle;
+        }
+
+        #self-nomination {
+            text-align: left;
+            font-size: medium;
+        }
+
+        #placeE {
+        	cursor: pointer;
+    		margin-left: 1;
+    		width: 40ch;
         }
         
         #lasts-kb td + td {
@@ -156,14 +187,100 @@
         #privacy {
         	border-top: 1px solid gray;
         }
-        
+        #privacy td + td {
+        	text-align: right;
+        }
+
+        #projects tbody tr {
+        	border-bottom: 1px solid lightgray;
+        }
+
+		/******************************
+		 *  filp animation for photo  *
+		 ******************************/
+
+        /* entire container, keeps perspective */
+		.flip-container {
+			perspective: 1000px;
+			display: inline-table;
+		}
+
+		.flip-container.flip .flipper {
+			transform: rotateY(180deg);
+		}
+
+		.flip-container, .front, .back {
+			width: 104px;
+			height: 102px;
+		}
+
+		/* flip speed goes here */
+		.flipper {
+			transition: 0.6s;
+			transform-style: preserve-3d;
+
+			position: relative;
+		}
+
+		/* hide back of pane during swap */
+		.front, .back {
+			backface-visibility: hidden;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-size: contain;
+		}
+
+		/* front pane, placed above back */
+		.front {
+			z-index: 2;
+			background-image: url("images/io/foto-cravatta-tonda.jpg");
+			/* for firefox 31 */
+			transform: rotateY(0deg);
+		}
+
+		/* back, initially hidden pane */
+		.back {
+			background-image: url("images/io/foto-tonda.jpg");
+			transform: rotateY(180deg);
+		}
+
+		.vertical.flip-container {
+			position: relative;
+		}
+
+		.vertical .back {
+			transform: rotateX(180deg);
+		}
+
+		.vertical.flip-container .flipper {
+			transform-origin: 100% 51px; /* half of height */
+		}
+
+		.vertical.flip-container:hover .flipper {
+			transform: rotateX(-180deg);
+		}
+
+		/****************************************************************
+		 *  slider animation for views experiencies/projects animation  *
+		 ****************************************************************/
+
+		.slider {
+			max-height: 0;
+    		transition: max-height 0.5s ease-in-out;
+    		overflow: hidden;
+		}
+		.slider.opened {
+			max-height: 1000ch;
+		}
+    
     </style>
     <!--script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script-->
     <!--script src="https://mrrio.github.io/jsPDF/dist/jspdf.debug.js"></script-->
     <!--script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script-->
 </head>
     
-<body style="display:none">
+<body>
     
     <table id="head" class="anonymouse" >
         <tbody>
@@ -175,40 +292,45 @@
                     Nato il 01.02.72 / Sposato
                 </td>
                 <td rowspan="2">
-                    <img id="me" src="images/io/foto_tessera_cravatta%20-%20tonda.jpg"/>
+                	<div class="flip-container" onclick="this.classList.toggle('flip');swapView()">
+						<div class="flipper">
+							<div class="front">
+							</div>
+							<div class="back">
+							</div>
+						</div>
+					</div>
                 </td>
             </tr>
             <tr>
                 <td style="border-bottom: 1px solid gray;">
-                    <span id="ewide" style="visibility:hidden">XXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
-                    <img id="emarker" src="images/ref.svg" style="display:none" onclick="about()"/><br>
-                    this:&nbsp;<a href="https://goo.gl/7hakDJ">https://goo.gl/7hakDJ</a>
-                    &nbsp;-&nbsp;<a href="zaglio_stefano_cv_ita.pdf">PDF</a>-&nbsp;[linkedin]
+                    <img id="placeE" src="images/ref.svg" onclick="about()"/><br>
+                    this:&nbsp;[https://goo.gl/7hakDJ]
+                    &nbsp;-&nbsp;[PDF]-&nbsp;[linkedin]
                 </td>
             </tr>
         </tbody>
     </table>
 
-
     <blockquote id="self-nomination"></blockquote>
-        
+
     <section id="briefly">
 	    <h2>Brevemente</h2>
 	    <ul>
 	    </ul>
     </section>
 
-    <table id="lasts-kb">
-        <thead>
-            <tr>
-                <td>Conoscenze recenti</td>
-                <td>Anni</td>
-            </tr>
-        </thead>
-    </table>
+    <div id="view_by_projects" class="slider">
+    
+        <section id="stacks-idx">
+            <h2>Indice stacks</h2>
+        </section>
 
-    <div id="view_by_projects" style="display:none">
-        <table id="progetti">
+        <section id="competencies-idx">
+            <h2>Indice competenze</h2>
+        </section>
+
+        <table id="projects">
             <thead>
                 <tr>
                     <td>Progetti e attività principali</td>
@@ -219,47 +341,22 @@
             </thead>
         </table>
 
-        <section id="competencies">
-            <h2>Indice competenze</h2>
-        </section>
-
-        <section id="stacks">
-            <h2>Indice stacks</h2>
-            <lg>A</lg> ● Razor, Mvc.Net, C#, KnockoutJS, JQuery, Bootstrap, Sqlite, Git, Linux
-            <lg>B</lg> ● Libreoffice
-            <lg>C</lg> ● Skype, Libreoffice, Tutorials
-            <lg>D</lg> ● MSSql Server, TSQL
-            <lg>E</lg> ● WinCE, Visual Studio, VB.Net, Svn
-            <lg>F</lg> ● TSQL, VB.Net, ASP.Net, ERPConnect
-            <lg>G</lg> ● TSQL, ASP.Net
-        </section>
-
-        <section id="companies">
+        <section id="companies-idx">
             <h2>Indice aziende</h2>
-            <lg>2014-Today:</lg> ● 
-                <b> (14)</b> C.Anspi S.L.G. - MN ●
-                <b> (13)</b> [Alpac Srl] - VI ●
-                <b> (12)</b> [SOL Group Spa] - MO ●
-                <b> (11)</b> [3DS Team Srl] - BS ●
-            <lg>2007-2014:</lg>
-                <b> (10)</b> [Seltris Srl] - MN ● 
-            <lg>2005-2007:</lg>
-                <b> (9)</b>[Marmi Ghirarsi Spa] - BS ● 
-            <lg>2000-2005:</lg>
-                <b> (8)</b> Trend Servizi Srl - MN ●
-                <b> (7)</b> Friskies/Nestlé Spa - MI/MN ●
-                <b>	(6)</b> Enterprise Srl - MN ● 
-            <lg>1997-1998:</lg>
-                <b> (5)</b> Copan Italia Spa - BS ● 
-            <lg>1990-1997:</lg>
-                <b> (4)</b> Dynabyte - GE ●
-                <b> (3)</b> Simulmondo Snc - BO ●
-                <b> (2)</b> Intea Snc - MN ●
-                <b>	(1)</b> I.T.I. B.Pascal - MN
         </section>
+
     </div>
 
-    <div id="view_by_experiences">
+    <div id="view_by_experiences" class="slider opened">
+
+	    <table id="lasts-kb">
+	        <thead>
+	            <tr>
+	                <td>Conoscenze recenti</td>
+	                <td>Anni</td>
+	            </tr>
+	        </thead>
+	    </table>
 
         <section id="experiences">
             <b>[Esperienze di Lavoro]&nbsp;(f.time, p.time, co.co.co, co.co.pro, p.o.)</b>
@@ -274,34 +371,24 @@
             </table>
         </section>
 
-    </div>
+		<section id="previous-kb">
+	    <b>Conoscenze pregresse</b>
+	    <table>
+	        <thead>
+	            <tr>
+	                <td>Categoria</td>
+	                <td>Nome</td>
+	                <td>Anni</td>
+	            </tr>
+	        </thead>
+	    </table>
+		</section>
 
-	<section id="previous-kb">
-    <b>Conoscenze pregresse</b>
-    <table>
-        <thead>
-            <tr>
-                <td>Categoria</td>
-                <td>Nome</td>
-                <td>Anni</td>
-            </tr>
-        </thead>
-    </table>
-	</section>
+    </div>
         
-    <section id="info">
+    <section id="extra-info">
     	<h2>Informazioni aggiuntive</h2>
 		<table>
-		    <tbody>
-		        <tr>
-		            <td>Istruzione</td>
-		            <td>1985-89 Diploma - [Perito Industriale Capotecnico] (spec.informatica) (54/60)</td>
-		        </tr>
-		        <tr>
-		            <td>Lingue</td>
-		            <td>intermediate english written/spoken, Français élémentaire</td>
-		        </tr>
-		    </tbody>
 		</table>
 	</section>
 
@@ -318,7 +405,7 @@
 	    <tbody>
 	        <tr>
 	            <td><i>Autorizzo il trattamento dei dati personali ai sensi del &nbsp;ex D. lgs. 196/2003</i></td>
-	            <td><p align="right"><i>Castiglione D/S, 24/05/2018</i></p></td>
+	            <td><i>Castiglione D/S, 24/05/2018</i></td>
 	        </tr>
 	    </tbody>
 	</table>
@@ -326,145 +413,319 @@
 </body>
 
 <script>
+	function prj(name,desc,link) {
+		function obj(name,desc,link) {
+			this.name = name;
+			this.desc = desc;
+			this.link = link;
+		}
+		return new obj(name, desc, link)
+	}
+
     cv = {
+
+    	head: {
+    		links: [
+    			["Castiglione D/S", "https://www.google.com/maps/place/46043+Castiglione+delle+Stiviere,+Province+of+Mantua/@45.3888698,10.4731711,14z/data=!3m1!4b1!4m5!3m4!1s0x4781be7b043662f9:0xb4c322fd93a83aeb!8m2!3d45.3873983!4d10.4829578"],
+    			["https://goo.gl/7hakDJ", "https://goo.gl/7hakDJ"],
+    			["PDF", "zaglio_stefano_cv_ita.pdf"],
+    			["linkedin", "https://it.linkedin.com/pub/stefano-zaglio/3b/541/1b7"],
+    		],
+    	},
 
     	"self-nomination":
     		"Gentile Responsabile,\n\n" +
         	"sarei lieto di mettere le mie competenze di tecnico e programmatore,\n" +
-        	"con più di vent'anni di esperienza, a servizio della Vostra Azienda.\n\n"+
+        	"con più di vent'anni di esperienza per compagnie di varie dimensioni e settore,\n"+
+        	"a servizio della Vostra Azienda.\n\n"+
         	"Confidando in positivo riscontro, porgo distinti saluti.",
 
-        briefly: [
-            "attraverso tutti gli aspetti del ciclo di vita dello sviluppo e post vendita, lavorando in team o in autonomia",
-        	"soluzioni creative tramite brainstorming, mind maps; cura UI/UX con approfondimenti di p. cognitiva",
-            "pratica nei settori [intrattenimento], [manifatturieri], [accoglienza], [automazione d'ufficio e industriale], "+
-            "come [tecnico, programmatore] junior e senior, sistemista, [analista], [trainer], [ICT manager], program e "+
-            "[std&qly] manager",
-	        "specializzato in [tracciabilità], [integrazione di sistemi], [documentazione],"+ 
-            "ottimizzazione dei processi ([es.1], [es.2], [es.3])",
-            "Full-Stack Web, Mobile e Desktop Developer, multi-threading, multi-process e multi-platform",
-        	"disponibile al supporto con telelavoro, gestione delle urgenze, trasferte, anche internazionali di lunga durata e a R&D",
-        	"possibilità di assunzione entro 2 settimane", 
-        	"RAL 45K trattabili"
-        ],
+        briefly: {
+        	lines: [
+	            "attraverso tutti gli aspetti del ciclo di vita dello sviluppo e post vendita, lavorando in team o in autonomia",
+	        	"soluzioni creative tramite brainstorming, mind maps; cura UI/UX con approfondimenti di p. cognitiva",
+	            "pratica nei settori [intrattenimento], [manifatturieri], [accoglienza], [automazione d'ufficio e industriale], "+
+	            "come [tecnico, programmatore] junior e senior, sistemista, [analista], [trainer], [ICT manager], program e "+
+	            "[std&qly] manager",
+		        "specializzato in [tracciabilità], [integrazione di sistemi], [documentazione],"+ 
+	            "ottimizzazione dei processi ([es.1], [es.2], [es.3])",
+	            "Full-Stack Web, Mobile e Desktop Developer, multi-threading, multi-process e multi-platform",
+	        	"disponibile al supporto con telelavoro, gestione delle urgenze, trasferte, anche internazionali di lunga durata e a R&D",
+	        	"possibilità di assunzione entro 2 settimane", 
+	        	"RAL 45K trattabili"
+        	],
+        	links:[
+        		["intrattenimento",						"http://digilander.libero.it/bolido/MGSexyTV.htm"],
+        		["manifatturieri", 						"https://www.youtube.com/watch?v=5KzKdfDnq_o"],
+        		["accoglienza", 						"https://www.youtube.com/watch?v=V1gc_mjGH1I"],
+        		["automazione d'ufficio e industriale", "https://zonafets.github.io/site/responsabile_it_copan_italia_spa.htm"],
+        		["tecnico, programmatore", 				"images/certificates/stefano_referenze_intea.jpg"],
+        		["analista", 							"http://xoomer.virgilio.it/stezagl/io/ita/esempi_estratti_da_mie_analisi.htm"],
+        		["trainer", 							"images/certificates/stefano_referenze_bpascal.jpg"],
+        		["ICT manager", 						"images/certificates/stefano_referenze_copan.jpg"],
+        		["std&qly", 							"software_quality_and_standard.htm"],
+        		["tracciabilità", 						"https://youtu.be/t7-qQL8V-zA"],
+        		["integrazione di sistemi", 			"https://youtu.be/qMPB_zsRn1s"],
+        		["documentazione", 						"esempi_estratti_da_mie_analisi.htm"],
+        		["es.1", 								"https://youtu.be/MBP_jCdrCDc?t=4m56s"],
+        		["es.2", 								"https://youtu.be/qMPB_zsRn1s?t=5s"],
+        		["es.3", 								"https://youtu.be/t7-qQL8V-zA?t=5s"],
+        	],
 
-        "lasts-kb": [
-        	["Javascript, HTML, C#/VB/Asp/MVC/Razor, dotNET, KnockoutJS, JQuery, Bootstrap ([es.4], [es.5])",5],
-        	["SAP/JDEdwards integration",4],
-        	["[MS SQL Server]",7],
-        	["[Postgresql], MySQL, Sqlite, Node.js, JQuery",2],
-        	["MS Project e Visio",1]
-        ],
+  		},
+	   
+        "lasts-kb": {
+        	lines:[
+	        	["Javascript, HTML, C#/VB/Asp/MVC/Razor, dotNET, KnockoutJS, JQuery, Bootstrap ([es.4], [es.5])",5],
+	        	["SAP/JDEdwards integration",4],
+	        	["[MS SQL Server]",7],
+	        	["[Postgresql], MySQL, Sqlite, Node.js, JQuery",2],
+	        	["MS Project e Visio",1]
+	        ],
+	        links: [
+	        	["es.4",			"https://www.youtube.com/watch?v=X8Bl7z2anok"],
+		        ["es.5",			"https://youtu.be/4UNjBde8e1Q"],
+		        ["MS SQL Server",	"tsql_zaglios_collection.htm"],
+		        ["Postgresql",		"https://www.youtube.com/watch?v=B_c3QVeiCDs"]
+	        ]
+        },
 
-        experiencies: [
+        experiences: [
         	{
-        		period_comp: "2014 - oggi\nIT Consultant, Senior Analyst &Developer",
+        		period: "2014 - oggi",
+        		comp: 	"IT Consultant, Senior Analyst & Developer",
+        		competencies: ["ITC","SAD"],
         		task: 
         			"consulente, analisi e sviluppo web/webapp/mobile/server ([Docuware connector], [MicroERP] per RaspberryPI) ● "+
         			"approfondimenti personali su Blockchain, AI, smart learning",
-        		companies:"[3DS Team Srl](BS)\n[SOL Group Spa](MO)\nC.Anspi  S.L.G. (MN)\n[Alpac Srl](VI)"
+        		companies:[
+	        		{
+	        			name:"C.Anspi S.L.G.",	prov:"MN",link:"", 
+	        			projects:[
+	        				prj("MicroERP", "gestione servizi doposcuola, servizi cloud,Q&A","https://youtu.be/4UNjBde8e1Q")
+	        			]
+	        		},{
+	        			name:"Alpac Srl", prov:"VI", link:"https://zonafets.github.io/site/esempi_estratti_da_mie_analisi.htm#Analysis_for_optimization_of_technical_office_processes_(2017)_",
+	        			projects:[
+	        				prj("", "consulenza uff. tecnico", "https://zonafets.github.io/site/esempi_estratti_da_mie_analisi.htm#Analysis_for_optimization_of_technical_office_processes_(2017)_"),
+	        			]
+	        		},{
+	        			name:"SOL Group Spa", prov:"MO", link:"https://zonafets.github.io/site/esempi_estratti_da_mie_analisi.htm#Mini_HOWTO_about_SAP_Connector_RFCs/IDOCs_and_porting_to_other_system_",
+	        			projects:[
+	        				prj("","consulenza SAP connector", "https://zonafets.github.io/site/esempi_estratti_da_mie_analisi.htm#Mini_HOWTO_about_SAP_Connector_RFCs/IDOCs_and_porting_to_other_system_"),
+	        			]
+	        		},{
+						name:"3DS Team Srl", prov:"BS", link:"http://www.3ds.team/it/",
+						projects:[
+							prj("Docuware connector", "interfaccia Docuware -> archiviazione sostitutiva", "https://www.youtube.com/watch?v=X8Bl7z2anok"),
+						]
+					}
+				],
+				stack: 	"Razor, Mvc.Net, C#, KnockoutJS, JQuery, Bootstrap, Sqlite, MSSql, Git, Libreoffice, Linux",
         	},{
-				period_comp: "2007 - 2014\nSenior Analyst &Developer, Program Manager, Data Integrator, Quality &Standard manager",
+				period: "2007 - 2014",
+				comp: 	"Senior Analyst &Developer, Program Manager, Data Integrator, Quality &Standard manager",
+				competencies: ["SAD","PM","DI","QSM"],
 				task:
 					"direzione, analisi e sviluppo web/webapp/mobile/server per tracciabilità, gestione [batch records]," +
 					" magazzino e integrazione dati EDI, XML, CSV, IDOCs, RFC (JD Edward/SAP/ACG) ([SAP connector])",
-				companies: "Seltris Srl (MN)"
+				companies: [
+					{ 
+						name:"Seltris Srl", prov:"MN", link:"http://www.seltris.eu",
+						projects:[
+							prj("ottimizzazione deploy","riduzione tempi e complessità dell'organizzazione",""),
+							prj("adattamento sw PDA", "da Motorola a Intermec con stampante bluet. termica, da SqlCe a Sqlite",""),
+							prj("SAP connector", "integrazione gestionale con SAP", "https://www.youtube.com/watch?v=qMPB_zsRn1s?t=5s"),
+							prj("batch records", "gestione certificazione qualità", "https://www.youtube.com/watch?v=t7-qQL8V-zA"),
+							prj("", "gestione magazzino centrale", "esempi_estratti_da_mie_analisi.htm#User_and_Developer_guide_(2009)_"),
+							prj("", "integrazione internazionale", "esempi_estratti_da_mie_analisi.htm#Developer_Guide_(2009)"),
+							prj("", "sincronizzazione internazionale base dati", ""),
+							prj("", "analisi conversione struttura dati da singolo a multi articolo", ""),
+						]
+					}
+				],
+				stack: 	"ASP.Net, VB.Net, MSSql, SqlCE, SQLite, Svn, MS-Visio, MS-Project, WindowsCe, Windows NT, Motorola, Intermec, Zebra",
 			},{
-				period_comp: "2000 - 2006\nSenior Analyst / Developer\nTrainer &IT consultant",
+				period: "2000 - 2006",
+				comp: 	"Senior Analyst / Developer\nTrainer &IT consultant",
+				competencies: ["SAD","TRN","ITC"],
 				task:
 					"analisi/sviluppo desktop (front-end grafico [Tavolinux]); "+
 					"docente corsi ECDL, MS Office, FSE (B.Pascal e C.F.P.); "+
 					"corso MS Office e Info base (ITC Don Milani di Montichiari); "+
-					"analisi /sviluppo applicazione per [ottimizzare consegna e fatturazione] "+
+					"analisi /sviluppo applicazione per [ottimizzazione consegna e fatturazione] "+
 					"(Nestlé per fusione friskies S.p.A. e Purina Pet Care); "+
-					"sviluppo applicazioni AS400 in RPGIV (Intea s.n.c.); "+
 					"allestimento e manutenzione intranet Win.NT 4/MSSQL (Entreprise s.r.l.)",
-				companies: 
-					"[Trend Servizi Srl] (MN)\nI.T.I. B.Pascal e C.F.P. (MN)\nITC Don Milani (BS)\n[Marmi Ghirardi Spa] (BS)\n"+ 
-					"Friskies Italia S.p.A. (MN)\nIntea Snc (MN)\nEnterprise S.r.l. (MN)"
+				companies: [
+					{
+						name:"Trend Servizi Srl", prov:"MN", link:"http://www.trendservizi.it",
+						projects:[
+							prj("Tavolinux","interfaccia gestione ristorazione","https://www.youtube.com/watch?v=V1gc_mjGH1I"),
+							prj("RenCar","gestione noleggio mezzi","https://www.youtube.com/watch?v=-rfhieKOvR8"),
+						]
+					},{
+						name:"I.T.I. B.Pascal e C.F.P.", prov: "MN", link:"",
+						projects:[
+							prj("","docente corsi ECDL, MS Office, FSE", "")
+						]
+					},{
+						name:"ITC Don Milani", prov:"BS", link:"",
+						projects:[
+							prj("","docente corsi informatica", "")
+						]
+					},{
+						name:"Marmi Ghirardi Spa", prov:"BS", link:"http://www.ghirardi.it",
+						projects: [
+							prj("GMarmo", "gestione lavorazione e confezionamento marmo","https://www.youtube.com/watch?v=5KzKdfDnq_o")
+						]
+					},{
+						name:"Friskies Italia Spa", prov:"MN", link:"",
+						projects: [
+							prj("TPFE","ottimizzazione consegna e fatturazione","https://www.youtube.com/watch?v=6d7gQ3yM9sk")
+						]
+					},{
+						name:"Enterprise Srl", prov:"MN", link:"",
+						projects: [
+							prj("", "amministrazione rete e supporto allo sviluppo del sito SuperRicettario", "")
+						]
+					}
+				],
+				stack: 	"C++, QT Libraries, Postgresql, CVS, MS-Access, Linux, Windows NT, HP Proliant"
 			},{
-				period_comp: "1997 - 1999\nJunior IT Manager",
+				period: "1997 - 1999",
+				comp: 	"Junior ICT Manager",
+				competencies: ["JIT"],
 				task: 
-					"Gestione acquisti, supporto su AS400, sviluppo applicazioni CRM, ERP ● Automatizzazione backoffice e produzione"+
+					"Gestione acquisti, supporto su AS400, sviluppo applicazioni CRM, ERP ● [Automatizzazione backoffice e produzione]"+
 					" ● programmazione robot ● rete Wifi e terminali RF ● supporto a ricerca e sviluppo	",
-				companies:"[Copan Italia S.p.a.] (BS)"
+				links: [
+					["Automatizzazione backoffice e produzione","https://zonafets.github.io/site/responsabile_it_copan_italia_spa.htm"]
+				],
+				companies: [
+					{
+						name: "Copan Italia Spa", prov: "BS", link:"http://copanitalia.com",
+						projects: [
+							prj("","Automazione conferme ordini via email, fax; gestione insoluti, costi, MRP, stampa etichette","https://zonafets.github.io/site/responsabile_it_copan_italia_spa.htm"),
+							prj("","Gestione acquisto/allestimento/manutenzione infrastrutture rete aziendale",""),							
+						]
+					},
+				],
+
+				stack: "MS-Access, MSSql, IBM Acg, Zetafax, Autocad, PDFCreator, OS/400, Windows NT, AS/400, stampanti Intermec e Zebra"
 			},{
-
-				period_comp: "1990 - 1997\nDocente tecnico pratico e tecnico/programmatore",
+				period: "1990 - 1997",
+				comp: 	"Docente tecnico pratico, tecnico/programmatore",
+				competencies: ["DTP","TP"],
 				task: 
-					"[B.Pascal] (diurno e serale): docente tecnico pratico, tecnico di laboratorio e responsabile rete Novell,"+
+					"B.Pascal (diurno e serale): docente tecnico pratico, tecnico di laboratorio e responsabile rete Novell,"+
 					" corsi Autocad, MSOffice, Dos, Windows;\n"+ 
-					"[Intea Snc] (pomeridiano): programmazione Clipper / MSAccess / PLC, installazioni servers Novell;\n"+
+					"Intea Snc (pomeridiano): programmazione Clipper / MSAccess / PLC / RPG-IV, installazioni servers Novell;\n"+
 					"Simulmondo/Dynabyte: sviluppo [video games] in asm x86 / C",
-				companies:
-					"[I.T.I. Blaise Pascal] / [Intea S.n.c.] (MN)\n[Simulmondo S.r.l.] (BO) / [Dynabyte S.n.c.] (GE)"
-			}
+				companies: [
+					{
+						name: "I.T.I. Blaise Pascal", prov: "MN", link:"http://www.fondazionecasadelgiovane.it/",
+						projects: [
+							prj("", "docente tecnico pratico, manutenzione laboratori e responsabile rete Novell", ""),
+						]
+					},{
+						name: "Intea Snc", prov: "MN", link:"https://www.inteaonline.it/",
+						projects: [
+							prj("", "raccolta dati via PLC, filtri e statistiche", ""),
+							prj("", "gestionali per calzaturifici e idraulica", ""),
+							prj("", "installazione linee produzione con server Novell", ""),
+							prj("", "sviluppo applicazione RFID terminali per AS400", ""), 
+						]
+					},{
+						name: "Dynabyte Snc", prov: "GE", link: "https://it.wikipedia.org/wiki/Dynabyte",
+						projects: [
+							prj("Late Night Sexy TV Show","video game lead programmer ","http://digilander.libero.it/bolido/MGSexyTV.htm")
+						]
+					},{
+						name: "Simulmondo Srl", prov: "BO", link: "https://it.wikipedia.org/wiki/Simulmondo",
+						projects: [
+							prj("","Editor di scene per videogiochi da edicola DylanDog, Spiderman","")
+						]
+					}
+				],
+				stack: "Pascal, C, ASMx86, Ventura Publisher, Coreldraw, Autocad, MSOffice, Dos, Novell, Windows"
+			},
+        ], // experiences
 
-        ],
+        "previous-kb": {
+        	items:[
+		        ["Server development",		"RPG-IV/ABAP, Ibm AS400 [ACG integration]", 1],
+				["Desktop development",		"C / C++ (QT Libraries 3.5) / OPascal", 6],	
+				["",						"Microsoft Access ([es.6]) ([es.7]) ([es.8]) ([es.9], [10], [11], [12])", 10],
+				["",						"VM Ware/VirtualBox", 3],
+				["Source Control Manager",	"GIT / SVN", 5],
+				["Help Desk",				"Teamviewer/SSH/RemoteDesktop", 5],
+				["",						"Software Open Source e Free multipiattaforma", 10],
+				["Training",				"Metodologie/Strumenti Test software/hardware", 10],
+				["",						"Documentazione Hardware/Software", 10],
+				["Sistemi operativi",		"DOS, Windows 3.x/9x/2k/XP/TE/7/CE/Mobile/Tablet", 12],
+				["",						"Linux (slackware:1, redhat:1, ubuntu:3)", 5],
+				["",						"OS/2 e OS/400", 1],
+				["Applications",			"Autocad, Google Sketchup", 3],
+				["",						"MS Office / LibreOffice", "10 / 2"],
+				["",						"Coreldraw/SharePoint/Zetafax", 1],
+				["Hardware",				"RaspberryPi, Arduino, Motorola MC75, Intermec CN70, Zebra RW420, Intermec PW50, HP Proliant",4],
+		 		["",						"PLC Siemens, PIC18F2420, x86, Z80","1"]	
+	        ],
 
-        "previous-kb": [
-	        ["Server development",		"RPG-IV/ABAP, Ibm AS400 [ACG integration]", 1],
-			["Desktop development",		"C / C++ (QT Libraries 3.5) / OPascal", 6],	
-			["",						"Microsoft Access ([es.6]) ([es.7]) ([es.8]) ([es.9], [10], [11], [12])", 10],
-			["",						"VM Ware/VirtualBox", 3],
-			["Source Control Manager",	"GIT / SVN", 5],
-			["Help Desk",				"Teamviewer/SSH/RemoteDesktop", 5],
-			["",						"Software Open Source e Free multipiattaforma", 10],
-			["Training",				"Metodologie/Strumenti Test software/hardware", 10],
-			["",						"Documentazione Hardware/Software", 10],
-			["Sistemi operativi",		"DOS, Windows 3.x/9x/2k/XP/TE/7/CE/Mobile/Tablet", 12],
-			["",						"Linux (slackware:1, redhat:1, ubuntu:3)", 5],
-			["",						"OS/2 e OS/400", 1],
-			["Applications",			"Autocad, Google Sketchup", 3],
-			["",						"MS Office / LibreOffice", "10 / 2"],
-			["",						"Coreldraw/SharePoint/Zetafax", 1],
-			["Hardware",				"RaspberryPi, Arduino, Motorola MC75, Intermec CN70, Zebra RW420, Intermec PW50, HP Proliant",4],
-	 		["",						"PLC Siemens, PIC18F2420, x86, Z80","1"]	
-        ],
+	        links: [
+	        	["es.6", "https://youtu.be/5KzKdfDnq_o"],
+	        	["es.7", "https://youtu.be/6d7gQ3yM9sk"],
+	        	["es.8", "https://youtu.be/-rfhieKOvR8"],
+	        	["es.9", "responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_"],
+	        	["10", "responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_"],
+	        	["11", "responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_"],
+	        	["12", "responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_"],
+	        	["ACG integration", "https://zonafets.github.io/site/responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_"]
+	        ]
+	    },
 
-    	extra_courses: [
-	        {
-	            course:'corso "contabilità automatizzata"',
-	            learned:'analisi bilancio, b.p.'
-	        },{
-	            course:'relazione [tecnico-cliente in HP]',
-	            learned:'gestione obiezioni',
-	        },{
-	        	course:'obiettivi e risultati con NLP',            
-	            learned:'goal setting',
-	        },{
-	        	course:'studi su meta-apprendimento',
-	            learned:'strategie di apprendimento e trasmissione di concetti',
-	        },{
-	        	course:'fotografia b/w, fumettistica e disegno',
-	            learned:'aspetti della percezione, rappresentazione',
-	        },{
-	        	course:'presepistica/modellazione, cucina, degustazione',
-	            learned:'modellamento, esecuzione, rapporto quantità',
-	        },{
-	        	course:'brain storming / MindMap',
-	            learned:'sviluppo soluzioni creative o empiriche',
-	        },{
-	        	course:'focus group',
-	            learned:'mantenere focalizzata l\'attenzione del gruppo sull\'obiettivo/argomento',
-	        },{
-	        	course:'[coordinazione cantiere]',
-	            learned:'gestione progetto con budget limitato: analisi qualità e competenze'
-	        }
-	    ],
+	    "extra-info": {
+	    	items: [
+				["Istruzione", "1985-89 Diploma - [Perito Industriale Capotecnico] (spec.informatica) (54/60)"],
+		        ["Lingue", "intermediate english written/spoken, Français élémentaire"]
+		    ],
+		    links: [
+		    	["Perito Industriale Capotecnico", "images/certificates/diploma_maturita.jpg"]
+		    ]
+		},
+
+    	"extra-courses": {
+    		items: [
+    			['corso "contabilità automatizzata"',	'analisi bilancio, b.p.'],
+		        ['relazione [tecnico-cliente in HP]',	'gestione obiezioni'],
+		        ['obiettivi e risultati con NLP',		'goal setting'],
+		        ['studi su meta-apprendimento',			'strategie di apprendimento e trasmissione di concetti'],
+
+		        ['fotografia b/w, fumettistica e disegno',			'aspetti della percezione, rappresentazione'],
+		        ['presepistica/modellazione, cucina, degustazione',	'modellamento, esecuzione, rapporto quantità'],
+
+		        ['brain storming / MindMap',	'sviluppo soluzioni creative o empiriche'],
+		        ['focus group',					'mantenere focalizzata l\'attenzione del gruppo sull\'obiettivo/argomento'],
+		        ['[coordinazione cantiere]',	'gestione progetto con budget limitato: analisi qualità e competenze'],
+		    ],
+
+		    links: [
+		    	["Attività extracurriculari", 	"https://www.youtube.com/watch?v=D48u_Tu-K98"],
+		    	["tecnico-cliente in HP", 		"images/certificates/corso_hp.jpg"],
+		    	["coordinazione cantiere",		"esempi_estratti_da_mie_analisi.htm#Documentation_developed_as_site_coordinator_for_property_renovation_(2015)_"],
+		    ]
+		},
 
         competencies: [
-        	{id:"SD",dsc:"Senior Developer"},
-        	{id:"PM",dsc:"Program Manager"}
-        ],
-
-        projects: [
-        	["microERP x RaspberryPI", "Razor, Mvc.Net, C#, KnockoutJS, JQuery, Bootstrap, Sqlite, Git, Linux", "PM,SD", "C.Anspi S.L.G. - MN"],
-        	["consulenza analisi congestione uff. tecnico", "LibreOffice", "CO", "Alpac Srl - VI"],
-        ],
-
-        companies_idx: [
-        	["2014-oggi", [14,13,12,11]]
+        	["ITC",	"IT Consultant"],
+        	["SAD",	"Senior Analyst & Developer"],
+			["PM",	"Program Manager"],
+			["DI",	"Data Integrator"],
+			["QSM",	"Quality &Standard manager"],
+			["TRN", "Trainer"],
+			["JIT",	"Junior ICT Manager"],
+			["DTP",	"Docente tecnico pratico"],
+			["TP", 	"tecnico/programmatore"]
         ],
 
         anonymouse: [
@@ -477,207 +738,27 @@
         	"RAL 45K trattabili",
         ],
 
-    	links: [
-			{
-	            mark: "Castiglione D/S",
-	            href: "https://www.google.com/maps/place/46043+Castiglione+delle+Stiviere,+Province+of+Mantua/@45.3888698,10.4731711,14z/data=!3m1!4b1!4m5!3m4!1s0x4781be7b043662f9:0xb4c322fd93a83aeb!8m2!3d45.3873983!4d10.4829578"
-	        },{
-	            mark: "intrattenimento",
-	            href: "http://digilander.libero.it/bolido/MGSexyTV.htm"
-	        },{
-	            mark: "manifatturieri",
-	            href: "https://www.youtube.com/watch?v=5KzKdfDnq_o"
-	        },{
-	            mark: "accoglienza",
-	            href: "https://www.youtube.com/watch?v=V1gc_mjGH1I"
-	        },{
-	            mark: "automazione d'ufficio e industriale",
-	            href: "https://zonafets.github.io/site/responsabile_it_copan_italia_spa.htm"
-	        },{
-	            mark: "tecnico, programmatore",
-	            href: "images/certificates/stefano_referenze_intea.jpg"
-	        },{
-	            mark: "analista",
-	            href: "http://xoomer.virgilio.it/stezagl/io/ita/esempi_estratti_da_mie_analisi.htm",
-	        },{
-	            mark: "trainer",
-	            href: "images/certificates/stefano_referenze_bpascal.jpg"
-	        },{
-	            mark: "ICT manager",
-	            href: "images/certificates/stefano_referenze_copan.jpg"
-	        },{
-	            mark: "std&amp;qly",
-	            href: "software_quality_and_standard.htm"
-	        },{
-	            mark: "tracciabilità",
-	            href: "https://youtu.be/t7-qQL8V-zA"
-	        },{
-	        	mark: "integrazione di sistemi",
-	        	href: "https://youtu.be/qMPB_zsRn1s",
-	        },{
-	            mark: "documentazione",
-	            href: "esempi_estratti_da_mie_analisi.htm"
-	        },{
-	            mark: "es.1",
-	            href: "https://youtu.be/MBP_jCdrCDc?t=4m56s"
-	        },{
-	            mark: "es.2",
-	            href: "https://youtu.be/qMPB_zsRn1s?t=5s"
-	        },{
-	            mark: "es.3",
-	            href: "https://youtu.be/t7-qQL8V-zA?t=5s"
-	        },{
-	        	mark: "es.4",
-	        	href: "https://www.youtube.com/watch?v=X8Bl7z2anok"
-	        },{
-	        	mark: "es.5",
-				href: "https://youtu.be/4UNjBde8e1Q"
-	        },{
-	            mark: "es.6",
-	            href: "https://youtu.be/5KzKdfDnq_o"
-	        },{
-	            mark: "es.7",
-	            href: "https://youtu.be/6d7gQ3yM9sk"
-	        },{
-	            mark: "es.8",
-	            href: "https://youtu.be/-rfhieKOvR8"
-	        },{
-	        	mark: "es.9",
-	        	href: "responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_"
-	        },{
-	        	mark: "10",
-				href: "responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_"
-	        },{
-	        	mark: "11",
-				href: "responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_"
-	        },{
-	        	mark: "12",
-				href: "responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_"
-	        },{
-	            mark: "linkedin",
-	            href: "https://it.linkedin.com/pub/stefano-zaglio/3b/541/1b7"
-	        },{
-	            mark: "Attività extracurriculari",
-	            href: "https://www.youtube.com/watch?v=D48u_Tu-K98"
-	        },{
-	            mark: "ottimizzare consegna e fatturazione",
-	            href: "https://www.youtube.com/watch?v=6d7gQ3yM9sk"
-	        },{
-	            mark: "Tavolinux",
-	            href: "https://www.youtube.com/watch?v=V1gc_mjGH1I"
-	        },{
-	        	mark: "Esperienze di Lavoro",
-	        	href: "https://goo.gl/XnCjuH"
-			},{
-				mark: "Perito Industriale Capotecnico",
-				href: "images/certificates/diploma_maturita.jpg"
-			},{
-				mark: "MS SQL Server",
-				href: "tsql_zaglios_collection.htm"
-			},{
-				mark: "Postgresql",
-				href: "https://www.youtube.com/watch?v=B_c3QVeiCDs"
-			},{
-				mark: "SAP connector",
-				href: "https://www.youtube.com/watch?v=qMPB_zsRn1s?t=5s"
-			},{
-				mark: "MicroERP",
-				href: "https://youtu.be/4UNjBde8e1Q"
-			},{
-				mark: "Docuware connector",
-				href: "https://www.youtube.com/watch?v=X8Bl7z2anok"
-			},{
-				mark: "batch records",
-				href: "https://www.youtube.com/watch?v=t7-qQL8V-zA"
-			},{
-				mark: "B.Pascal",
-				href: "https://www.youtube.com/watch?v=6d7gQ3yM9sk"
-			},{
-				mark: "Intea Snc",
-				href: "https://goo.gl/XnMFF1"
-			},{
-				mark: "video games",
-				href: "http://digilander.libero.it/bolido/MGSexyTV.htm"
-			},{
-				mark: "ACG integration",
-				href: "http://digilander.libero.it/bolido/MGSexyTV.htm"
-			},{
-				mark: "es.1",
-				href: "https://youtu.be/5KzKdfDnq_o"
-			},{
-				mark: "tecnico-cliente in HP",
-				href: "images/certificates/corso_hp.jpg"
-			},{
-				mark: "coordinazione cantiere",
-				href: "esempi_estratti_da_mie_analisi.htm#Documentation_developed_as_site_coordinator_for_property_renovation_(2015)_"
-			}
-		],
-
-		companies: [
-	        // companies
-	        {
-	            mark: "Trend Servizi Srl",
-	            href: "http://www.trendservizi.it",
-	            prov: "MN"
-	        },{
-	            mark: "Copan Italia S.p.a.",
-	            href: "http://copanitalia.com/",
-	            prov: "BS"
-	        },{
-	            mark: "Intea S.n.c.",
-	            href: "https://www.inteaonline.it/",
-	            prov: "MN"
-	        },{
-	            mark: "I.T.I. Blaise Pascal",
-	            href: "http://www.fondazionecasadelgiovane.it/",
-	            prov: "MN"
-	        },{
-	            mark: "Seltris Srl",
-	            href: "http://www.seltris.eu/",
-	            prov: "MN"
-	        },{
-	            mark: "Marmi Ghirardi Spa",
-	            href: "http://www.ghirardi.it/",
-	            prov: "BS"
-	        },{
-	        	mark: "3DS Team Srl",
-	        	href: "http://www.3ds.team/it/",
-	        	prov: "BS"
-	        },{
-	        	mark: "SOL Group Spa",
-	        	href: "https://zonafets.github.io/site/esempi_estratti_da_mie_analisi.htm#Mini_HOWTO_about_SAP_Connector_RFCs/IDOCs_and_porting_to_other_system_",
-	        	prov: "MO"
-	        },{
-	        	mark: "Alpac Srl",
-	        	href: "https://zonafets.github.io/site/esempi_estratti_da_mie_analisi.htm#Analysis_for_optimization_of_technical_office_processes_(2017)_",
-				prov: "VI"
-			},{
-				mark: "Trend Servizi S.r.l.",
-				href: "http://www.trendservizi.it/",
-				prov: "MN"
-			},{
-				mark: "Marmi Ghirarsi S.p.a.",
-				href: "http://www.ghirardi.it/",
-				prov: "BS"
-			},{
-				mark: "Simulmondo S.r.l.",
-				href: "https://it.wikipedia.org/wiki/Simulmondo",
-				prov: "BO"
-			},{
-				mark: "Dynabyte S.n.c.",
-				href: "https://it.wikipedia.org/wiki/Dynabyte",
-				prov: "GE"
-			}
-		]
-
+		links: [
+			["Esperienze di Lavoro", "https://goo.gl/XnCjuH"],
+			["video games", "http://digilander.libero.it/bolido/MGSexyTV.htm"],
+    	],
 
 	} // cv
 
-</script>		
-
-<script>
-
 	var tag,tbody,parent,tr,td,tn,cv
+
+	function swapView() {
+		var experience_view = document.getElementById("view_by_experiences")
+		var projects_view = document.getElementById("view_by_projects")
+		var css = "opened"
+		if (projects_view.classList.contains(css)) {
+			projects_view.classList.remove(css)
+			setTimeout(function(){experience_view.classList.add(css)}, 500)			
+		} else {
+			experience_view.classList.remove(css)
+			setTimeout(function(){projects_view.classList.add(css)},500)
+		}
+	}
 
     function about() {
         document.oncopy = function(event) {
@@ -708,18 +789,6 @@
     	return tr
     }
 
-    function trSeparet()
-    {
-    	var tr = document.createElement("tr")
-		var td = document.createElement("td")
-		td.className = "separet"
-		var att = document.createAttribute("colspan")
-		att.value = arguments.length
-		td.setAttributeNode(att); 
-		tr.appendChild(td)
-		return tr
-    }
-
     function li(txt)
     {
 		var li = document.createElement("li")
@@ -727,6 +796,144 @@
 		li.appendChild(tn)
 		return li
     }
+
+    var app = {
+
+    	"companies-idx": function() {
+    		node = document.getElementById("companies-idx")
+    		var n = 0, i = 0;
+
+    		var list = cv.experiences
+	    	list.forEach(
+	    		function(it) { n += it.companies.length }
+	    	)
+
+	    	list.forEach(
+	    		function(it) {
+			    	var lg = document.createElement("lg")
+			    	if (i>0)
+				    	lg.appendChild(document.createTextNode(" "))
+			    	lg.appendChild(document.createTextNode(it.period))
+			    	node.appendChild(lg)
+			    	
+			    	it.companies.forEach(
+			    		function(it) {
+			    			var b = document.createElement("b")
+			    			var id = n - i
+			    			it.id = id
+			    			var tn = document.createTextNode(" ●\u00a0"+id+".\u00a0")
+			    			i++
+			    			b.appendChild(tn)
+			    			node.appendChild(b)
+			    			tn = document.createTextNode("\u00a0" + it.name + "-" + it.prov + " ")
+			    			node.appendChild(tn)
+			    		}
+			    	)
+		    	}
+		    )
+    	},
+
+	    "stacks-idx": function(node) {
+    		node = document.getElementById("stacks-idx")
+    		cv.experiences.forEach(
+	    		function(it,i) {
+			    	var lg = document.createElement("lg")
+			    	if (i>0)
+				    	lg.appendChild(document.createTextNode(" "))
+			    	
+	    			var b = document.createElement("b")
+	    			// b.className = "circle"
+	    			var id = String.fromCharCode( 65 + i )
+	    			it.stackId = id
+	    			var tn = document.createTextNode(" ●\u00a0"+id+" ")
+	    			b.appendChild(tn)
+	    			lg.appendChild(b)
+			    	node.appendChild(lg)
+
+	    			tn = document.createTextNode(" " + it.stack + " ")
+	    			node.appendChild(tn)
+		    	}
+		    )
+	    }, // stacks-idx
+
+	    "competencies-idx": function(node) {
+    		node = document.getElementById("competencies-idx")
+    		cv.competencies.forEach(
+	    		function(it) {
+			    	var lg = document.createElement("lg")
+			    	if (i>0)
+				    	lg.appendChild(document.createTextNode(" "))
+			    	
+	    			var b = document.createElement("b")
+	    			var tn = document.createTextNode(" ●\u00a0"+it[0]+" ")
+	    			b.appendChild(tn)
+	    			lg.appendChild(b)
+			    	node.appendChild(lg)
+
+	    			tn = document.createTextNode(" " + it[1] + " ")
+	    			node.appendChild(tn)
+		    	}
+		    )
+	    }, // competencies-idx
+
+	    "projects": function(node) {
+	    	node = document.getElementById("projects")
+	    	tbody = document.createElement("tbody")
+	    	cv.experiences.forEach(
+	    		function(exp) {
+	    			exp.companies.forEach(
+	    				function(comp) {
+	    					comp.projects.forEach(
+	    						function(prj) {
+					    			var tr = document.createElement("tr")
+	    							// project
+			    					var td = document.createElement("td")
+			    					var dsc
+
+			    					if (prj.link !== "") {
+			    						var alink
+
+			    						if (prj.name !== "") {
+			    							alink = prj.name
+			    							dsc = "[" + alink + "]: " + prj.desc
+			    						} else {
+			    							alink = prj.desc
+			    							dsc = "[" + alink +"]"
+										}
+			    						cv.links.push( [ alink, prj.link ] )
+			    					} else {
+			    						dsc = prj.desc
+			    					}
+
+			    					var tn = document.createTextNode(dsc)
+			    					td.appendChild(tn)
+			    					tr.appendChild(td)
+			    					// stack
+			    					td = document.createElement("td")
+			    					tn = document.createTextNode(exp.stackId)
+			    					td.appendChild(tn)
+			    					tr.appendChild(td)
+			    					// competencies
+			    					td = document.createElement("td")
+			    					tn = document.createTextNode(exp.competencies.join(","))
+			    					td.appendChild(tn)
+			    					tr.appendChild(td)
+			    					// company
+			    					td = document.createElement("td")
+			    					tn = document.createTextNode(comp.id)
+			    					td.appendChild(tn)
+			    					tr.appendChild(td)
+	    							tbody.appendChild(tr)
+			    				}
+			    			)
+	    				}
+	    			)
+	    		}
+	    	)
+	    	node.appendChild(tbody)
+	    }
+
+	} // app
 
 	String.prototype.replaceAll = function(search, replacement) {
 	    var target = this;
@@ -739,7 +946,7 @@
     parent.innerHTML = cv["self-nomination"].replace(/\n/g,"<br>")
 
     parent = document.querySelector("#briefly ul")
-    cv.briefly.forEach(
+    cv.briefly.lines.forEach(
     	function(it) {
     		if (cv.hidden.indexOf(it) == -1)
 				parent.appendChild(li(it))
@@ -749,7 +956,7 @@
     parent = document.getElementById("lasts-kb")
     tbody = document.createElement("tbody")
 	parent.appendChild(tbody)
-    cv["lasts-kb"].forEach(
+    cv["lasts-kb"].lines.forEach(
     	function(it) {
 			tbody.appendChild(trNtd(it[0], it[1]+''))
 		}
@@ -758,45 +965,61 @@
     parent = document.querySelector("#previous-kb table")
     tbody = document.createElement("tbody")
     parent.appendChild(tbody)
-    cv["previous-kb"].forEach(
+    cv["previous-kb"].items.forEach(
     	function(it) {
 			parent.appendChild(trNtd(it[0],it[1],it[2]+''))
 		}
 	)
 
+    // render("experiences", function(it) {...})
     parent = document.querySelector("#experiences table")
     tbody = document.createElement("tbody")
     parent.appendChild(tbody)
-    cv.experiencies.forEach(
+    cv.experiences.forEach(
     	function(it) {
-    		var tr = trNtd(it.period_comp, it.task, it.companies)
+    		var company = ""
+    		it.companies.forEach(
+    			function (c) {
+    				var name = c.name
+    				if (c.hasOwnProperty("link") && c.link!="") 
+    					name = "["+name+"]"
+    				company += name + " (" + c.prov + ")\n"
+    			}
+    		)
+    		var tr = trNtd(it.period+"\n"+it.comp, it.task, company)
 			tbody.appendChild(tr)
 			tr.className = "separator"
-			// tbody.appendChild(trSeparet(it.period_comp, it.task, it.companies))
 		}
 	)
 
+    parent = document.querySelector("#extra-info table")
+    tbody = document.createElement("tbody")
+    parent.appendChild(tbody)
+    cv["extra-info"].items.forEach( 
+    	function(it) {
+    		tbody.appendChild(trNtd( it[0], it[1] ))
+    	}
+    )
 
     parent = document.getElementById("extra-courses")
     tbody = document.createElement("tbody")
     parent.appendChild(tbody)
-    cv.extra_courses.forEach( 
+    cv["extra-courses"].items.forEach( 
     	function(it) {
-    		tbody.appendChild(trNtd( "* " + it.course, it.learned ))
+    		tbody.appendChild(trNtd( "* " + it[0], it[1] ))
     	}
     )
 
-    parent = document.getElementById("competencies")
-    cv.competencies.forEach(
-    	function(it) {
-    		tag = document.createElement("lg")
-	        tn = document.createTextNode(it.id)
-	        tag.appendChild(tn)
-    		parent.appendChild(tag)
-    		tn = document.createTextNode(" ● " + it.dsc + " ")
-    		parent.appendChild(tn)
-    	}
-    )
+
+    /*****************************
+     *  render view by projects  *
+     *****************************/
+
+    app["companies-idx"]()
+    app["stacks-idx"]()
+    app["competencies-idx"]()
+    app["projects"]()
+
 
     /*********************
      *  replace [links]  *
@@ -818,31 +1041,46 @@
 	    }
 	)
 
-	var links = []
-	links.push.apply(links, cv.links)
-	links.push.apply(links, cv.companies)
+	function collect_links(obj, collection) {
+		if (collection === undefined) collection=[]
+		for (var k in obj) {
+			if (k === "links")
+				// obj[k].forEach( function (it) {collection.push.apply(it)} )
+				collection.push.apply(collection,obj.links)
+			if (typeof obj[k] === "object")
+				collect_links(obj[k], collection)
+		}
+		return collection
+	}
+
+	var links = cv.links
+	links.push.apply(links, collect_links(cv))
+
+	// add links from companies
+	cv.experiences.forEach( 
+		function(it) {
+			it.companies.forEach( 
+				function(c) {
+					links.push([c.name,c.link])
+				}
+			)
+		}
+	)
 
     links.forEach(
     	function(it) {
-	        var a = '<a href="' + it.href+'">' + it.mark + '</a>'
-	        var r = "["+it.mark+"]"
+	        var a = '<a href="' + it[1]+'">' + it[0] + '</a>'
+	        var r = "["+it[0]+"]"
 	        html = html.replaceAll( r, a )
 	    }
 	)
     
     document.body.innerHTML = html
-    
-    document.body.style.display='block';
-    
-    var ewide = document.getElementById("ewide")
-    var width = ewide.offsetWidth
-    var emarker = document.getElementById("emarker")
-    ewide.style = "display:none"
-    emarker.style = "width:" + width + "px;display:block-inline;cursor:pointer;"
 
-    var cmd = "anonymouse"
-    var cmdLen = cmd.length
-    if (window.location.href.slice(-cmdLen) == cmd) {
+    var cmds = location.search.substring(1).split("&")
+    
+    if (cmds.indexOf("anonymouse")>-1) {
+    	// convert links to text
         var l = document.getElementsByTagName("a")
         while (l.length > 0) {
             for (var i = 0; i < l.length; i++) {
@@ -856,5 +1094,12 @@
         css.innerText = ".anonymouse{display:none;}"
         document.head.append(css)
     }
+
+    if (cmds.indexOf("projects")>-1) {
+    	swapView()
+    }
+
+    document.body.className='fade-in';
+    
 </script>
 </html>
