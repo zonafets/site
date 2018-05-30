@@ -1,7 +1,16 @@
-<html>
+<html style="min-width: 480px;">
+
+<!--
+
+	This isn't only a page with my CV, but also a place where I'll refine the code to test 
+	the concepts of NTE (https://github.com/zonafets/NTE)
+
+-->
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+    <!--meta name="viewport" content="initial-scale=1, maximum-scale=1"/-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="cache-control" content="no-store"/>
     <meta name="keywords" content="analista, programmatore, sistemista, itc, it, manager, pc, as400, castiglione delle stiviere, mantova, brescia, asp, net, razor, mvc, delphi, c/c++, c#, wince, windows, msaccess, tsql, visual, basic, novell, windows, ubuntu, linux"/>
     <meta name="description" content="Curriculum di Stefano Zaglio"/>
@@ -10,27 +19,10 @@
     
     <style>
 
+    	@-ms-viewport { width: device-width; }
+
         lg {
             background: #DDD;                
-        }
-
-		.circle {
-		    border-radius: 50%;
-		  
-		    width: 2ch;
-		    padding: 0 2px 0 2px;
-		    
-		    background: #fff;
-		    border: 2px solid #666;
-		    color: #666;
-		    text-align: center;
-		    display: inline-block;
-		    font-size: xx-small;
-		    /* <div class="circle">2</div> */		    
-		}
-
-        .separator {
-        	border-bottom: 3px solid lightgray;
         }
 
         thead * {
@@ -69,14 +61,16 @@
 
         td {
         	padding: 0px 2px 0px 2px;
+        	vertical-align: middle;
         }
         
         * {
             font-size: small;
             font-family: Tahoma;
         }
-            
+
     	body {
+
         	margin:4px;
         	background-color:#ffffff;
         	color:#000000;
@@ -130,11 +124,6 @@
             padding-right: .3em;
             padding-left: .3em;
         }
-        
-        input[type="radio"] {
-          margin-top: -1px;
-          vertical-align: middle;
-        }
 
         #self-nomination {
             text-align: left;
@@ -147,53 +136,38 @@
     		width: 40ch;
         }
         
-        #lasts-kb td + td {
-            text-align: right;
-            width:fit-content;
-        }
-        
-        #me {
-            border:0;
-            width:109;
-            height:105;
-        }
-        
-        #head td + td {
-            text-align: right;
+        #previous-kb td + td + td, #experiences td + td + td,
+        #lasts-kb td + td, #head td + td {
+        	text-align: right;
         }
 
-        #previous-kb td {
-        	width: 20%;
-        }
-        #previous-kb td + td {
-        	width: 64%;
-        }
         #previous-kb td + td + td {
-        	width: 15%;
-        	text-align: right;
+        	width: 10%;
         }
 
-        #experiences td {
-        	width: 20%;
-        }
-        #experiences td + td {
-        	width: 50%;
-        }
-        #experiences td + td + td {
-        	width: 30%;
-        	text-align: right;
-        }
+        @media screen and (min-width: 321px) {
+	        #lasts-kb td + td 			{ width:fit-content; }
+	        
+	        #previous-kb td 			{ width: 20%; }
+	        #previous-kb td + td 		{ width: 64%; }
 
-        #privacy {
-        	border-top: 1px solid gray;
-        }
-        #privacy td + td {
-        	text-align: right;
-        }
+	        #experiences td 			{ width: 20%;}
+	        #experiences td + td + td 	{ width: 20%; text-align: right; }
+		}
 
-        #projects tbody tr {
-        	border-bottom: 1px solid lightgray;
-        }
+        #privacy { border-top: 1px solid gray; }
+        #privacy td + td { text-align: right; }
+
+        #competencies-idx img, #projects img { width: 2ch; vertical-align: middle; padding: 2px; }
+        #competencies-idx span { display: inline-block; margin: 0 2px 0 2px; }
+        #competencies-idx span:nth-child(even) { background: #DDD }
+
+        #projects tbody tr { border-bottom: 1px solid lightgray; }
+        #projects td + td { text-align: center; }
+
+        #experiences tbody tr { border-bottom: 1px solid lightgray; }
+
+		#extra-courses tbody tr { border-bottom: 1px solid lightgray; }
 
 		/******************************
 		 *  filp animation for photo  *
@@ -267,7 +241,7 @@
 
 		.slider {
 			max-height: 0;
-    		transition: max-height 0.5s ease-in-out;
+    		transition: max-height 1s ease-in-out;
     		overflow: hidden;
 		}
 		.slider.opened {
@@ -463,7 +437,7 @@
         		["analista", 							"http://xoomer.virgilio.it/stezagl/io/ita/esempi_estratti_da_mie_analisi.htm"],
         		["trainer", 							"images/certificates/stefano_referenze_bpascal.jpg"],
         		["ICT manager", 						"images/certificates/stefano_referenze_copan.jpg"],
-        		["std&qly", 							"software_quality_and_standard.htm"],
+        		["std&amp;qly",							"software_quality_and_standard.htm"],
         		["tracciabilità", 						"https://youtu.be/t7-qQL8V-zA"],
         		["integrazione di sistemi", 			"https://youtu.be/qMPB_zsRn1s"],
         		["documentazione", 						"esempi_estratti_da_mie_analisi.htm"],
@@ -747,16 +721,27 @@
 
 	var tag,tbody,parent,tr,td,tn,cv
 
+	function getStyle(className) {
+	    var classes = document.styleSheets[0].rules || document.styleSheets[0].cssRules;
+	    for (var x = 0; x < classes.length; x++) {
+	        if (classes[x].selectorText == className) {
+	            return classes[x].style;
+	        }
+	    }
+	}
+
 	function swapView() {
 		var experience_view = document.getElementById("view_by_experiences")
 		var projects_view = document.getElementById("view_by_projects")
+		var style = getStyle(".slider")
+		var time = parseInt(style.transitionDuration) * 1000
 		var css = "opened"
 		if (projects_view.classList.contains(css)) {
 			projects_view.classList.remove(css)
-			setTimeout(function(){experience_view.classList.add(css)}, 500)			
+			setTimeout(function(){experience_view.classList.add(css)}, time)
 		} else {
 			experience_view.classList.remove(css)
-			setTimeout(function(){projects_view.classList.add(css)},500)
+			setTimeout(function(){projects_view.classList.add(css)}, time)
 		}
 	}
 
@@ -859,7 +844,8 @@
 	    "competencies-idx": function(node) {
     		node = document.getElementById("competencies-idx")
     		cv.competencies.forEach(
-	    		function(it) {
+	    		function(it,i) {
+	    			/*
 			    	var lg = document.createElement("lg")
 			    	if (i>0)
 				    	lg.appendChild(document.createTextNode(" "))
@@ -869,16 +855,29 @@
 	    			b.appendChild(tn)
 	    			lg.appendChild(b)
 			    	node.appendChild(lg)
+			    	*/
 
-	    			tn = document.createTextNode(" " + it[1] + " ")
-	    			node.appendChild(tn)
+			    	var id = it[0].toLowerCase()
+			    	var dsc = it[1]
+
+			    	var span = document.createElement("span")
+			    	var img = document.createElement("img")
+	    			img.src = "images/icons/" + it[0].toLowerCase() + ".png"
+	    			span.appendChild(img)
+
+	    			tn = document.createTextNode(" " + dsc + " ")
+	    			span.appendChild(tn)
+
+	    			node.appendChild(span)
+
 		    	}
 		    )
 	    }, // competencies-idx
 
 	    "projects": function(node) {
 	    	node = document.getElementById("projects")
-	    	tbody = document.createElement("tbody")
+	    	var tbody = document.createElement("tbody")
+			var prevComps = ""
 	    	cv.experiences.forEach(
 	    		function(exp) {
 	    			exp.companies.forEach(
@@ -886,6 +885,7 @@
 	    					comp.projects.forEach(
 	    						function(prj) {
 					    			var tr = document.createElement("tr")
+
 	    							// project
 			    					var td = document.createElement("td")
 			    					var dsc
@@ -908,16 +908,36 @@
 			    					var tn = document.createTextNode(dsc)
 			    					td.appendChild(tn)
 			    					tr.appendChild(td)
+
 			    					// stack
 			    					td = document.createElement("td")
 			    					tn = document.createTextNode(exp.stackId)
 			    					td.appendChild(tn)
 			    					tr.appendChild(td)
+
 			    					// competencies
 			    					td = document.createElement("td")
-			    					tn = document.createTextNode(exp.competencies.join(","))
+
+			    					var comps = exp.competencies.join(",")
+			    					if (prevComps == comps) 
+		    							td.appendChild(document.createTextNode("\""))
+			    					else {
+				    					exp.competencies.forEach(
+				    						function(it) {
+				    							var img = document.createElement("img")
+				    							img.src="images/icons/" + it.toLowerCase() + ".png"
+				    							td.appendChild(img)
+				    						}
+				    					)
+				    					prevComps = comps
+				    				}
+
+			    					/*
+			    					tn = document.createTextNode(exp.competencies.join(", "))
 			    					td.appendChild(tn)
+			    					*/
 			    					tr.appendChild(td)
+
 			    					// company
 			    					td = document.createElement("td")
 			    					tn = document.createTextNode(comp.id)
@@ -988,7 +1008,6 @@
     		)
     		var tr = trNtd(it.period+"\n"+it.comp, it.task, company)
 			tbody.appendChild(tr)
-			tr.className = "separator"
 		}
 	)
 
