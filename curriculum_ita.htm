@@ -409,7 +409,7 @@
 
     	"self-nomination":
     		"Gentile Responsabile,\n\n" +
-        	"sarei lieto di mettere le mie competenze di tecnico e programmatore,\n" +
+        	"sarei lieto di mettere le mie competenze di tecnico e analista-programmatore,\n" +
         	"con più di vent'anni di esperienza per compagnie di varie dimensioni e settore,\n"+
         	"a servizio della Vostra Azienda.\n\n"+
         	"Confidando in positivo riscontro, porgo distinti saluti.",
@@ -560,11 +560,11 @@
 					},{
 						name:"Enterprise Srl", prov:"MN", link:"",
 						projects: [
-							prj("", "amministrazione rete e supporto allo sviluppo del sito SuperRicettario", "")
+							prj("SuperRicettario", "amministrazione rete e supporto allo sviluppo del sito", "")
 						]
 					}
 				],
-				stack: 	"C++, QT Libraries, Postgresql, CVS, MS-Access, Linux, Windows NT, HP Proliant"
+				stack: 	"C++, QT Libraries, Postgresql, CVS, MS-Access, Linux, Windows NT/TE, HP Proliant"
 			},{
 				period: "1997 - 1999",
 				comp: 	"Junior ICT Manager",
@@ -902,7 +902,7 @@
 										}
 			    						cv.links.push( [ alink, prj.link ] )
 			    					} else {
-			    						dsc = prj.desc
+			    						dsc = prj.name ? prj.name+": "+prj.desc : prj.desc
 			    					}
 
 			    					var tn = document.createTextNode(dsc)
