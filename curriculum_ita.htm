@@ -145,7 +145,7 @@
         	width: 10%;
         }
 
-        @media screen and (min-width: 321px) {
+        @media screen,print and (min-width: 321px) {
 	        #lasts-kb td + td 			{ width:fit-content; }
 	        
 	        #previous-kb td 			{ width: 20%; }
@@ -169,6 +169,12 @@
 
 		#extra-courses tbody tr { border-bottom: 1px solid lightgray; }
 
+		#foto-barba,#foto-cravatta {
+			/*display:none;*/
+			width:104px;
+			height:102px;
+		}
+
 		/******************************
 		 *  filp animation for photo  *
 		 ******************************/
@@ -183,6 +189,12 @@
 			transform: rotateY(180deg);
 		}
 
+		/* avoid wrong print of front image */
+		.flip-container.flip .flipper .front {
+			visibility:hidden;
+			transition: 1s;
+		}
+
 		.flip-container, .front, .back {
 			width: 104px;
 			height: 102px;
@@ -190,9 +202,8 @@
 
 		/* flip speed goes here */
 		.flipper {
-			transition: 0.6s;
+			transition: transform 0.6s;
 			transform-style: preserve-3d;
-
 			position: relative;
 		}
 
@@ -208,14 +219,14 @@
 		/* front pane, placed above back */
 		.front {
 			z-index: 2;
-			background-image: url("images/io/foto-cravatta-tonda.jpg");
+			/*background-image: url("images/io/foto-cravatta-tonda.jpg");*/
 			/* for firefox 31 */
 			transform: rotateY(0deg);
 		}
 
 		/* back, initially hidden pane */
 		.back {
-			background-image: url("images/io/foto-tonda.jpg");
+			/*background-image: url("images/io/foto-tonda.jpg");*/
 			transform: rotateY(180deg);
 		}
 
@@ -247,6 +258,39 @@
 		.slider.opened {
 			max-height: 1000ch;
 		}
+
+		/****************
+		 * nice tooltip *
+		 ****************/
+
+		.tip {
+   			display: inline;
+    		position: relative;
+		}
+		
+		.tip:hover:after{
+    		background: #333;
+    		background: rgba(0,0,0,.8);
+    		border-radius: 5px;
+    		bottom: 26px;
+    		color: #fff;
+    		content: attr(title);
+    		left: -200%;
+    		padding: 5px 15px;
+    		position: absolute;
+    		z-index: 98;
+		}
+		
+		.tip:hover:before{
+    		border: solid;
+    		border-color: #333 transparent;
+    		border-width: 6px 6px 0 6px;
+    		bottom: 20px;
+    		content: "";
+    		left: 10%;
+    		position: absolute;
+    		z-index: 99;
+		}
     
     </style>
     <!--script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script-->
@@ -269,8 +313,10 @@
                 	<div class="flip-container" onclick="this.classList.toggle('flip');swapView()">
 						<div class="flipper">
 							<div class="front">
+								<img id="foto-cravatta" src="images/io/foto-cravatta-tonda.jpg" >
 							</div>
 							<div class="back">
+								<img id="foto-barba" src="images/io/foto-tonda.jpg" >
 							</div>
 						</div>
 					</div>
@@ -410,7 +456,7 @@
     	"self-nomination":
     		"Gentile Responsabile,\n\n" +
         	"sarei lieto di mettere le mie competenze di tecnico e analista-programmatore,\n" +
-        	"con più di vent'anni di esperienza per compagnie di varie dimensioni e settore,\n"+
+        	"con più di vent'anni di esperienza, per compagnie di varie dimensioni e settore,\n"+
         	"a servizio della Vostra Azienda.\n\n"+
         	"Confidando in positivo riscontro, porgo distinti saluti.",
 
@@ -471,7 +517,7 @@
         		competencies: ["ITC","SAD"],
         		task: 
         			"consulente, analisi e sviluppo web/webapp/mobile/server ([Docuware connector], [MicroERP] per RaspberryPI) ● "+
-        			"approfondimenti personali su Blockchain, AI, smart learning",
+        			"approfondimenti personali su Blockchain, AI, smart learning, meta-analisi",
         		companies:[
 	        		{
 	        			name:"C.Anspi S.L.G.",	prov:"MN",link:"", 
@@ -509,6 +555,7 @@
 						projects:[
 							prj("ottimizzazione deploy","riduzione tempi e complessità dell'organizzazione",""),
 							prj("adattamento sw PDA", "da Motorola a Intermec con stampante bluet. termica, da SqlCe a Sqlite",""),
+							prj("", "partizionamento software dati obsoleti", ""),
 							prj("SAP connector", "integrazione gestionale con SAP", "https://www.youtube.com/watch?v=qMPB_zsRn1s?t=5s"),
 							prj("batch records", "gestione certificazione qualità", "https://www.youtube.com/watch?v=t7-qQL8V-zA"),
 							prj("", "gestione magazzino centrale", "esempi_estratti_da_mie_analisi.htm#User_and_Developer_guide_(2009)_"),
@@ -534,7 +581,7 @@
 					{
 						name:"Trend Servizi Srl", prov:"MN", link:"http://www.trendservizi.it",
 						projects:[
-							prj("Tavolinux","interfaccia gestione ristorazione","https://www.youtube.com/watch?v=V1gc_mjGH1I"),
+							prj("Tavolinux","interfaccia desktop gestione ristorazione","https://www.youtube.com/watch?v=V1gc_mjGH1I"),
 							prj("RenCar","gestione noleggio mezzi","https://www.youtube.com/watch?v=-rfhieKOvR8"),
 						]
 					},{
@@ -670,6 +717,7 @@
 
     	"extra-courses": {
     		items: [
+    			['approfondimenti personali',			'smart-learning, meta-analisi, AI, blockchain'],
     			['corso "contabilità automatizzata"',	'analisi bilancio, b.p.'],
 		        ['relazione [tecnico-cliente in HP]',	'gestione obiezioni'],
 		        ['obiettivi e risultati con NLP',		'goal setting'],
@@ -781,6 +829,18 @@
 		li.appendChild(tn)
 		return li
     }
+
+	function competence(id) {
+		var dsc = ""
+		cv.competencies.some(
+			function(it) {
+				var b = (it[0] === id)
+				if (b) dsc = it[1]
+				return b
+			}
+		)
+		return dsc
+	}
 
     var app = {
 
@@ -924,9 +984,13 @@
 			    					else {
 				    					exp.competencies.forEach(
 				    						function(it) {
+				    							var span = document.createElement("span") 
+				    							span.title = competence(it)
+				    							span.className = "tip" 
 				    							var img = document.createElement("img")
-				    							img.src="images/icons/" + it.toLowerCase() + ".png"
-				    							td.appendChild(img)
+				    							img.src = "images/icons/" + it.toLowerCase() + ".png"
+				    							span.appendChild(img)
+				    							td.appendChild(span)
 				    						}
 				    					)
 				    					prevComps = comps
@@ -1115,7 +1179,8 @@
     }
 
     if (cmds.indexOf("projects")>-1) {
-    	swapView()
+    	var photo = document.querySelector(".flipper")
+		photo.click()
     }
 
     document.body.className='fade-in';
