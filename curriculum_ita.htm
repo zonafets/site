@@ -1,9 +1,20 @@
-<html style="min-width: 480px;">
+<!DOCTYPE html>
+<!--[if lt IE 7]>  <html class="ie ie6 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 7]>     <html class="ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]>     <html class="ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]>     <html class="ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]>  <html> <![endif]-->
+<!--[if !IE]><!--> <html>             <!--<![endif]-->
 
 <!--
 
 	This isn't only a page with my CV, but also a place where I'll refine the code to test 
 	the concepts of NTE (https://github.com/zonafets/NTE)
+
+	r:180530\s.zaglio: first semi-definitive version
+	r:180601\s.zaglio: added todo
+
+	todo:180601\s.zaglio: apply DRY principle to code and convert to NTE
 
 -->
 
@@ -70,7 +81,6 @@
         }
 
     	body {
-
         	margin:4px;
         	background-color:#ffffff;
         	color:#000000;
@@ -80,7 +90,7 @@
 
 		body.fade-in {
 		    opacity: 1;
-		    transition: 1s opacity;
+		    transition: 0.6s opacity;
 		}
         
         :link {
@@ -145,14 +155,15 @@
         	width: 10%;
         }
 
-        @media screen,print and (min-width: 321px) {
+        @media (min-width: 321px) {
 	        #lasts-kb td + td 			{ width:fit-content; }
 	        
 	        #previous-kb td 			{ width: 20%; }
 	        #previous-kb td + td 		{ width: 64%; }
 
 	        #experiences td 			{ width: 20%;}
-	        #experiences td + td + td 	{ width: 20%; text-align: right; }
+	        #experiences td + td		{ width: 60%;}
+	        #experiences td + td + td	{ width: 20%; text-align: right; }
 		}
 
         #privacy { border-top: 1px solid gray; }
@@ -202,10 +213,15 @@
 
 		/* flip speed goes here */
 		.flipper {
-			transition: transform 0.6s;
-			transform-style: preserve-3d;
 			position: relative;
+			transform-style: preserve-3d;
 		}
+
+		@media screen {
+			.flipper {
+				transition: transform 0.6s;
+		}
+	}
 
 		/* hide back of pane during swap */
 		.front, .back {
@@ -252,9 +268,15 @@
 
 		.slider {
 			max-height: 0;
-    		transition: max-height 1s ease-in-out;
     		overflow: hidden;
 		}
+
+		@media screen {
+			.slider {
+	    		transition: max-height 1s ease-in-out;
+			}
+		}
+
 		.slider.opened {
 			max-height: 1000ch;
 		}
@@ -310,7 +332,7 @@
                     Nato il 01.02.72 / Sposato
                 </td>
                 <td rowspan="2">
-                	<div class="flip-container" onclick="this.classList.toggle('flip');swapView()">
+                	<div class="flip-container" onclick="flip(this)">
 						<div class="flipper">
 							<div class="front">
 								<img id="foto-cravatta" src="images/io/foto-cravatta-tonda.jpg" >
@@ -324,7 +346,7 @@
             </tr>
             <tr>
                 <td style="border-bottom: 1px solid gray;">
-                    <img id="placeE" src="images/ref.svg" onclick="about()"/><br>
+                    <img id="placeE" alt="myEmail" src="images/ref.svg" onclick="about()"/><br>
                     this:&nbsp;[https://goo.gl/7hakDJ]
                     &nbsp;-&nbsp;[PDF]-&nbsp;[linkedin]
                 </td>
@@ -379,7 +401,7 @@
 	    </table>
 
         <section id="experiences">
-            <b>[Esperienze di Lavoro]&nbsp;(f.time, p.time, co.co.co, co.co.pro, p.o.)</b>
+            <b>[Esperienze di Lavoro]&nbsp;(f/p.time, co.co.pro, p.o.)</b>
             <table>
                 <thead>
                     <tr>
@@ -433,14 +455,6 @@
 </body>
 
 <script>
-	function prj(name,desc,link) {
-		function obj(name,desc,link) {
-			this.name = name;
-			this.desc = desc;
-			this.link = link;
-		}
-		return new obj(name, desc, link)
-	}
 
     cv = {
 
@@ -462,9 +476,11 @@
 
         briefly: {
         	lines: [
-	            "attraverso tutti gli aspetti del ciclo di vita dello sviluppo e post vendita, lavorando in team o in autonomia",
-	        	"soluzioni creative tramite brainstorming, mind maps; cura UI/UX con approfondimenti di p. cognitiva",
-	            "pratica nei settori [intrattenimento], [manifatturieri], [accoglienza], [automazione d'ufficio e industriale], "+
+	            "fortemente motivato al problem solving in team o in autonomia",
+	            "intuitivo, con attenzione a costi/benefici e performance",
+	            "attraverso tutti gli aspetti del ciclo di vita, dalla ricerca allo sviluppo fino al post vendita",
+	        	"con soluzioni creative tramite brainstorming, mind maps; cura UI/UX con approfondimenti di p. cognitiva",
+	            "esperienza nei settori [intrattenimento], [manifatturieri], [accoglienza], [automazione d'ufficio e industriale], "+
 	            "come [tecnico, programmatore] junior e senior, sistemista, [analista], [trainer], [ICT manager], program e "+
 	            "[std&qly] manager",
 		        "specializzato in [tracciabilità], [integrazione di sistemi], [documentazione],"+ 
@@ -520,24 +536,24 @@
         			"approfondimenti personali su Blockchain, AI, smart learning, meta-analisi",
         		companies:[
 	        		{
-	        			name:"C.Anspi S.L.G.",	prov:"MN",link:"", 
+	        			name:"C.Anspi S.L.G.",	prov:"MN", 
 	        			projects:[
-	        				prj("MicroERP", "gestione servizi doposcuola, servizi cloud,Q&A","https://youtu.be/4UNjBde8e1Q")
+	        				{ name:"MicroERP", desc:"gestione servizi doposcuola, servizi cloud,Q&A", link:"https://youtu.be/4UNjBde8e1Q" }
 	        			]
 	        		},{
-	        			name:"Alpac Srl", prov:"VI", link:"https://zonafets.github.io/site/esempi_estratti_da_mie_analisi.htm#Analysis_for_optimization_of_technical_office_processes_(2017)_",
+	        			name:"Alpac Srl", prov:"VI", link:"http://www.alpac.it",
 	        			projects:[
-	        				prj("", "consulenza uff. tecnico", "https://zonafets.github.io/site/esempi_estratti_da_mie_analisi.htm#Analysis_for_optimization_of_technical_office_processes_(2017)_"),
+	        				{ desc:"consulenza uff. tecnico", link:"https://zonafets.github.io/site/esempi_estratti_da_mie_analisi.htm#Analysis_for_optimization_of_technical_office_processes_(2017)_" },
 	        			]
 	        		},{
-	        			name:"SOL Group Spa", prov:"MO", link:"https://zonafets.github.io/site/esempi_estratti_da_mie_analisi.htm#Mini_HOWTO_about_SAP_Connector_RFCs/IDOCs_and_porting_to_other_system_",
+	        			name:"SOL Group Spa", prov:"MO", link:"http://www.solgroup.com",
 	        			projects:[
-	        				prj("","consulenza SAP connector", "https://zonafets.github.io/site/esempi_estratti_da_mie_analisi.htm#Mini_HOWTO_about_SAP_Connector_RFCs/IDOCs_and_porting_to_other_system_"),
+	        				{ desc:"consulenza SAP connector", link:"https://zonafets.github.io/site/esempi_estratti_da_mie_analisi.htm#Mini_HOWTO_about_SAP_Connector_RFCs/IDOCs_and_porting_to_other_system_"},
 	        			]
 	        		},{
 						name:"3DS Team Srl", prov:"BS", link:"http://www.3ds.team/it/",
 						projects:[
-							prj("Docuware connector", "interfaccia Docuware -> archiviazione sostitutiva", "https://www.youtube.com/watch?v=X8Bl7z2anok"),
+							{ name:"Docuware connector", desc:"interfaccia Docuware -> archiviazione sostitutiva", link:"https://www.youtube.com/watch?v=X8Bl7z2anok"},
 						]
 					}
 				],
@@ -553,15 +569,17 @@
 					{ 
 						name:"Seltris Srl", prov:"MN", link:"http://www.seltris.eu",
 						projects:[
-							prj("ottimizzazione deploy","riduzione tempi e complessità dell'organizzazione",""),
-							prj("adattamento sw PDA", "da Motorola a Intermec con stampante bluet. termica, da SqlCe a Sqlite",""),
-							prj("", "partizionamento software dati obsoleti", ""),
-							prj("SAP connector", "integrazione gestionale con SAP", "https://www.youtube.com/watch?v=qMPB_zsRn1s?t=5s"),
-							prj("batch records", "gestione certificazione qualità", "https://www.youtube.com/watch?v=t7-qQL8V-zA"),
-							prj("", "gestione magazzino centrale", "esempi_estratti_da_mie_analisi.htm#User_and_Developer_guide_(2009)_"),
-							prj("", "integrazione internazionale", "esempi_estratti_da_mie_analisi.htm#Developer_Guide_(2009)"),
-							prj("", "sincronizzazione internazionale base dati", ""),
-							prj("", "analisi conversione struttura dati da singolo a multi articolo", ""),
+							{name:"ottimizzazione deploy", desc:"riduzione tempi e complessità dell'organizzazione", link:"https://www.youtube.com/edit?o=U&video_id=MBP_jCdrCDc"},
+							{name:"adattamento sw PDA", desc:"da Motorola a Intermec con stampante bluet. termica, da SqlCe a Sqlite"},
+							{desc:"partizionamento dati obsoleti (storicizzazione milioni di records)"},
+							{name:"SAP connector", desc:"integrazione gestionale con SAP", link:"https://www.youtube.com/watch?v=qMPB_zsRn1s?t=5s"},
+							{name:"Import/Export", desc:"EDI/CSV/FTP Nutricia/Nestlé/Beghelli/TNT Traco", link:"https://www.youtube.com/edit?o=U&video_id=hCIbzP47_0c"},
+							{name:"batch records", desc:"gestione certificazione qualità", link:"https://www.youtube.com/watch?v=t7-qQL8V-zA"},
+							{desc:"gestione magazzino centrale", link:"esempi_estratti_da_mie_analisi.htm#User_and_Developer_guide_(2009)_"},
+							{desc:"integrazione internazionale", link:"esempi_estratti_da_mie_analisi.htm#Developer_Guide_(2009)"},
+							{desc:"collezionate e ristrutturate 200+ utilities TSQL", link:"https://youtu.be/D2u5Hn83Uuc"},
+							{desc:"sincronizzazione internazionale base dati"},
+							{desc:"analisi conversione struttura dati da singolo a multi articolo"},
 						]
 					}
 				],
@@ -581,37 +599,37 @@
 					{
 						name:"Trend Servizi Srl", prov:"MN", link:"http://www.trendservizi.it",
 						projects:[
-							prj("Tavolinux","interfaccia desktop gestione ristorazione","https://www.youtube.com/watch?v=V1gc_mjGH1I"),
-							prj("RenCar","gestione noleggio mezzi","https://www.youtube.com/watch?v=-rfhieKOvR8"),
+							{name:"Tavolinux", desc:"interfaccia desktop gestione ristorazione",link:"https://www.youtube.com/watch?v=V1gc_mjGH1I"},
+							{name:"RenCar",desc:"gestione noleggio mezzi",link:"https://www.youtube.com/watch?v=-rfhieKOvR8"},
 						]
 					},{
 						name:"I.T.I. B.Pascal e C.F.P.", prov: "MN", link:"",
 						projects:[
-							prj("","docente corsi ECDL, MS Office, FSE", "")
+							{desc:"docente corsi ECDL, MS Office, FSE"}
 						]
 					},{
 						name:"ITC Don Milani", prov:"BS", link:"",
 						projects:[
-							prj("","docente corsi informatica", "")
+							{desc:"docente corsi informatica"}
 						]
 					},{
 						name:"Marmi Ghirardi Spa", prov:"BS", link:"http://www.ghirardi.it",
 						projects: [
-							prj("GMarmo", "gestione lavorazione e confezionamento marmo","https://www.youtube.com/watch?v=5KzKdfDnq_o")
+							{name:"GMarmo", desc:"gestione lavorazione e confezionamento marmo", link:"https://www.youtube.com/watch?v=5KzKdfDnq_o"}
 						]
 					},{
 						name:"Friskies Italia Spa", prov:"MN", link:"",
 						projects: [
-							prj("TPFE","ottimizzazione consegna e fatturazione","https://www.youtube.com/watch?v=6d7gQ3yM9sk")
+							{name:"TPFE",desc:"ottimizzazione consegna e fatturazione",link:"https://www.youtube.com/watch?v=6d7gQ3yM9sk"}
 						]
 					},{
 						name:"Enterprise Srl", prov:"MN", link:"",
 						projects: [
-							prj("SuperRicettario", "amministrazione rete e supporto allo sviluppo del sito", "")
+							{name:"SuperRicettario", desc:"amministrazione rete e supporto allo sviluppo del sito"}
 						]
 					}
 				],
-				stack: 	"C++, QT Libraries, Postgresql, CVS, MS-Access, Linux, Windows NT/TE, HP Proliant"
+				stack: 	"C++, QT Libraries, [Postgresql], CVS, MS-Access, Linux, Windows NT/TE, HP Proliant"
 			},{
 				period: "1997 - 1999",
 				comp: 	"Junior ICT Manager",
@@ -626,8 +644,8 @@
 					{
 						name: "Copan Italia Spa", prov: "BS", link:"http://copanitalia.com",
 						projects: [
-							prj("","Automazione conferme ordini via email, fax; gestione insoluti, costi, MRP, stampa etichette","https://zonafets.github.io/site/responsabile_it_copan_italia_spa.htm"),
-							prj("","Gestione acquisto/allestimento/manutenzione infrastrutture rete aziendale",""),							
+							{desc:"Automazione conferme ordini via email, fax; gestione insoluti, costi, MRP, stampa etichette", link:"https://zonafets.github.io/site/responsabile_it_copan_italia_spa.htm"},
+							{desc:"Gestione acquisto/allestimento/manutenzione infrastrutture rete aziendale"},							
 						]
 					},
 				],
@@ -646,25 +664,25 @@
 					{
 						name: "I.T.I. Blaise Pascal", prov: "MN", link:"http://www.fondazionecasadelgiovane.it/",
 						projects: [
-							prj("", "docente tecnico pratico, manutenzione laboratori e responsabile rete Novell", ""),
+							{desc: "docente tecnico pratico, manutenzione laboratori e responsabile rete Novell"},
 						]
 					},{
 						name: "Intea Snc", prov: "MN", link:"https://www.inteaonline.it/",
 						projects: [
-							prj("", "raccolta dati via PLC, filtri e statistiche", ""),
-							prj("", "gestionali per calzaturifici e idraulica", ""),
-							prj("", "installazione linee produzione con server Novell", ""),
-							prj("", "sviluppo applicazione RFID terminali per AS400", ""), 
+							{desc: "raccolta dati via PLC, filtri e statistiche"},
+							{desc: "gestionali per calzaturifici e idraulica"},
+							{desc: "installazione linee produzione con server Novell"},
+							{desc: "sviluppo applicazione RFID terminali per AS400"}, 
 						]
 					},{
 						name: "Dynabyte Snc", prov: "GE", link: "https://it.wikipedia.org/wiki/Dynabyte",
 						projects: [
-							prj("Late Night Sexy TV Show","video game lead programmer ","http://digilander.libero.it/bolido/MGSexyTV.htm")
+							{name:"Late Night Sexy TV Show", desc:"video game lead programmer ", link:"http://digilander.libero.it/bolido/MGSexyTV.htm"}
 						]
 					},{
 						name: "Simulmondo Srl", prov: "BO", link: "https://it.wikipedia.org/wiki/Simulmondo",
 						projects: [
-							prj("","Editor di scene per videogiochi da edicola DylanDog, Spiderman","")
+							{desc:"Editor di scene per videogiochi da edicola DylanDog, Spiderman"}
 						]
 					}
 				],
@@ -778,18 +796,31 @@
 	    }
 	}
 
-	function swapView() {
+	function flip(node) {
+		var photo = document.querySelector(".flip-container")
+		if (node === photo) {
+			node.classList.toggle('flip')
+			adjustViews()
+		}
+		else
+			photo.click()
+	}
+
+
+	function adjustViews() {
+		var flipper = document.querySelector(".flip-container")
 		var experience_view = document.getElementById("view_by_experiences")
 		var projects_view = document.getElementById("view_by_projects")
 		var style = getStyle(".slider")
 		var time = parseInt(style.transitionDuration) * 1000
 		var css = "opened"
-		if (projects_view.classList.contains(css)) {
-			projects_view.classList.remove(css)
-			setTimeout(function(){experience_view.classList.add(css)}, time)
-		} else {
+
+		if (flipper.classList.contains("flip")) {
 			experience_view.classList.remove(css)
 			setTimeout(function(){projects_view.classList.add(css)}, time)
+		} else {
+			projects_view.classList.remove(css)
+			setTimeout(function(){experience_view.classList.add(css)}, time)
 		}
 	}
 
@@ -870,8 +901,17 @@
 			    			i++
 			    			b.appendChild(tn)
 			    			node.appendChild(b)
-			    			tn = document.createTextNode("\u00a0" + it.name + "-" + it.prov + " ")
-			    			node.appendChild(tn)
+
+		    				node.appendChild(document.createTextNode("\u00a0"))
+			    			if (it.hasOwnProperty("link") && it.link!="") {
+			    				var a = document.createElement("a")
+			    				a.href = it.link
+			    				a.appendChild(document.createTextNode(it.name))
+			    				node.appendChild(a)
+			    			} else {
+			    				node.appendChild(document.createTextNode(it.name))
+			    			}
+		    				node.appendChild(document.createTextNode(" - " + it.prov + " "))
 			    		}
 			    	)
 		    	}
@@ -944,25 +984,30 @@
 	    				function(comp) {
 	    					comp.projects.forEach(
 	    						function(prj) {
+
+	    							var name = prj.hasOwnProperty("name") ? prj.name : ""
+	    							var desc = prj.hasOwnProperty("desc") ? prj.desc : ""
+	    							var link = prj.hasOwnProperty("link") ? prj.link : ""
+
 					    			var tr = document.createElement("tr")
 
 	    							// project
 			    					var td = document.createElement("td")
 			    					var dsc
 
-			    					if (prj.link !== "") {
+			    					if (link !== "") {
 			    						var alink
 
-			    						if (prj.name !== "") {
-			    							alink = prj.name
-			    							dsc = "[" + alink + "]: " + prj.desc
+			    						if (name !== "") {
+			    							alink = name
+			    							dsc = "[" + alink + "]: " + desc
 			    						} else {
-			    							alink = prj.desc
+			    							alink = desc
 			    							dsc = "[" + alink +"]"
 										}
-			    						cv.links.push( [ alink, prj.link ] )
+			    						cv.links.push( [ alink, link ] )
 			    					} else {
-			    						dsc = prj.name ? prj.name+": "+prj.desc : prj.desc
+			    						dsc = name ? name+": "+desc : desc
 			    					}
 
 			    					var tn = document.createTextNode(dsc)
@@ -1178,12 +1223,13 @@
         document.head.append(css)
     }
 
-    if (cmds.indexOf("projects")>-1) {
-    	var photo = document.querySelector(".flipper")
-		photo.click()
-    }
-
     document.body.className='fade-in';
+	
+    if (cmds.indexOf("print") > -1)
+		flip()
+	else if (cmds.indexOf("projects") == -1)
+		setTimeout( flip, 1050)
+
     
 </script>
 </html>
