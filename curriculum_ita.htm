@@ -11,6 +11,9 @@
 	This isn't only a page with my CV, but also a place where I'll refine the code to test 
 	the concepts of NTE (https://github.com/zonafets/NTE)
 
+	Note: I know, this is not the better code. DRY principle can be applied more.
+
+	r:180608\s.zaglio: added self-taught experience; improved links replace with "&"
 	r:180530\s.zaglio: first semi-definitive version
 	r:180601\s.zaglio: added todo
 
@@ -499,7 +502,7 @@
         		["analista", 							"http://xoomer.virgilio.it/stezagl/io/ita/esempi_estratti_da_mie_analisi.htm"],
         		["trainer", 							"images/certificates/stefano_referenze_bpascal.jpg"],
         		["ICT manager", 						"images/certificates/stefano_referenze_copan.jpg"],
-        		["std&amp;qly",							"software_quality_and_standard.htm"],
+        		["std&qly",								"software_quality_and_standard.htm"],
         		["tracciabilità", 						"https://youtu.be/t7-qQL8V-zA"],
         		["integrazione di sistemi", 			"https://youtu.be/qMPB_zsRn1s"],
         		["documentazione", 						"esempi_estratti_da_mie_analisi.htm"],
@@ -661,7 +664,7 @@
 				comp: 	"Docente tecnico pratico, tecnico/programmatore",
 				competencies: ["DTP","TP"],
 				task: 
-					"B.Pascal (diurno e serale): docente tecnico pratico, tecnico di laboratorio e responsabile rete Novell,"+
+					"B.Pascal (diurno e serale): docente tecnico pratico, tecnico di laboratorio e responsabile rete Novell (hw&sw),"+
 					" corsi Autocad, MSOffice, Dos, Windows;\n"+ 
 					"Intea Snc (pomeridiano): programmazione Clipper / MSAccess / PLC / RPG-IV, installazioni servers Novell;\n"+
 					"Simulmondo/Dynabyte: sviluppo [video games] in asm x86 / C",
@@ -669,7 +672,7 @@
 					{
 						name: "I.T.I. Blaise Pascal", prov: "MN", link:"http://www.fondazionecasadelgiovane.it/",
 						projects: [
-							{desc: "docente tecnico pratico, manutenzione laboratori e responsabile rete Novell"},
+							{desc: "docente tecnico pratico, manutenzione laboratori e responsabile rete Novell(hw&sw)",link:"images/certificates/stefano_referenze_bpascal.jpg"},
 						]
 					},{
 						name: "Intea Snc", prov: "MN", link:"https://www.inteaonline.it/",
@@ -677,6 +680,7 @@
 							{desc: "raccolta dati via PLC, filtri e statistiche"},
 							{desc: "gestionali per calzaturifici e idraulica"},
 							{desc: "installazione linee produzione con server Novell"},
+							{desc: "tecnico PC/Rete"},
 							{desc: "sviluppo applicazione RFID terminali per AS400"}, 
 						]
 					},{
@@ -688,6 +692,37 @@
 						name: "Simulmondo Srl", prov: "BO", link: "https://it.wikipedia.org/wiki/Simulmondo",
 						projects: [
 							{desc:"Editor di scene per videogiochi da edicola DylanDog, Spiderman"}
+						]
+					}
+				],
+				stack: "Pascal, C, ASMx86, Ventura Publisher, Coreldraw, Autocad, MSOffice, Dos, Novell, Windows"
+			},{
+				period: "1994 - 1997",
+				comp: 	"Studente, autodidatta, tecnico/programmatore",
+				competencies: ["TP"],
+				task: 
+					"Autodidatta: Assemblaggio PC, Dos, Autocad, BBS (Fidonet Nodo 207), Assembler Z80/X86, C/C++, Object Pascal/Turbo Vision\n"+
+					"Disegnatore tecnico Autocad (Marchon), Ventura Desktop Publisher (Rapetti), sw per trasmissione visure camerali (EDP Iannella - CO)",
+				companies: [
+					{
+						name: "Marchon", prov: "MN",
+						projects: [
+							{desc: "disegnatore tecnico Autocad"},
+						]
+					},{
+						name: "Rapetti", prov: "MN", 
+						projects: [
+							{desc: "Desktop Publishing"}, 
+						]
+					},{
+						name: "Iannella EDP", prov: "CO", 
+						projects: [
+							{desc:"Sviluppo sw per trasmissione visure camerali"}
+						]
+					},{
+						name: "Privatamente",  
+						projects: [
+							{desc:"Provider BBS Fidonet Nodo 207"}
 						]
 					}
 				],
@@ -916,7 +951,8 @@
 			    			} else {
 			    				node.appendChild(document.createTextNode(it.name))
 			    			}
-		    				node.appendChild(document.createTextNode(" - " + it.prov + " "))
+			    			if (it.prov)
+		    					node.appendChild(document.createTextNode(" - " + it.prov + " "))
 			    		}
 			    	)
 		    	}
@@ -1074,7 +1110,21 @@
 	    return target.replace(new RegExp(search.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), 'g'), replacement);
 	};
 
+
+	function isIE() {
+		var div = document.createElement("div")
+		div.innerHTML = "<!--[if IE]><i></i><![endif]-->"
+		var b = (div.getElementsByTagName("i").length == 1)
+		if (b) return b
+		if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) {
+   			return true // MSIE
+		}
+		return false
+	}
+
     // -------------------------------------------------------------------
+
+    if (isIE()) alert("Segui l'esempio dei loro creatori, abbandona anche tu IE per un altro browser.")
 
     parent = document.getElementById("self-nomination")
     parent.innerHTML = cv["self-nomination"].replace(/\n/g,"<br>")
@@ -1203,7 +1253,7 @@
     links.forEach(
     	function(it) {
 	        var a = '<a href="' + it[1]+'">' + it[0] + '</a>'
-	        var r = "["+it[0]+"]"
+	        var r = "["+it[0].replace("&","&amp;")+"]"
 	        html = html.replaceAll( r, a )
 	    }
 	)
