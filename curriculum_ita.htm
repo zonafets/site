@@ -174,7 +174,6 @@
 
         #competencies-idx img, #projects img { width: 2ch; vertical-align: middle; padding: 2px; }
         #competencies-idx span { display: inline-block; margin: 0 2px 0 2px; }
-        #competencies-idx span:nth-child(even) { background: #DDD }
 
         #projects tbody tr { border-bottom: 1px solid lightgray; }
         #projects td + td { text-align: center; }
@@ -183,10 +182,32 @@
 
 		#extra-courses tbody tr { border-bottom: 1px solid lightgray; }
 
-		#foto-barba,#foto-cravatta {
-			/*display:none;*/
-			width:104px;
-			height:102px;
+		.flip-container, .from, .back {
+		    position: absolute;
+    		top: 4px;
+    		right: 4px;
+    	}
+
+		@media (min-width: 361px) {
+			#foto-barba,#foto-cravatta {
+				width:104px;
+				height:102px;
+			}
+			.flip-container, .front, .back {
+				width: 104px;
+				height: 102px;
+			}
+		}
+
+		@media (max-width: 360px) {
+			#foto-barba,#foto-cravatta {
+				width:64px;
+				height:63px;
+			}
+			.flip-container, .front, .back {
+				width: 64px;
+				height: 63px;
+			}
 		}
 
 		/******************************
@@ -207,11 +228,6 @@
 		.flip-container.flip .flipper .front {
 			visibility:hidden;
 			transition: 1s;
-		}
-
-		.flip-container, .front, .back {
-			width: 104px;
-			height: 102px;
 		}
 
 		/* flip speed goes here */
@@ -480,8 +496,8 @@
         briefly: {
         	lines: [
 	            "fortemente motivato al problem solving in team o in autonomia",
-	            "intuitivo, con attenzione a costi/benefici e performance",
-	            "attraverso tutti gli aspetti del ciclo di vita, dalla ricerca allo sviluppo fino al post vendita",
+	            "con intuito e attenzione a costi/benefici e performance",
+	            "attraverso tutti gli aspetti del ciclo di vita, dalla R&D al post vendita",
 	        	"con soluzioni creative tramite brainstorming, mind maps; cura UI/UX con approfondimenti di p. cognitiva",
 	            "esperienza nei settori [intrattenimento], [manifatturieri], [accoglienza], [automazione d'ufficio e industriale], "+
 	            "come [tecnico, programmatore] junior e senior, sistemista, [analista], [trainer], [ICT manager], program e "+
@@ -489,7 +505,7 @@
 		        "specializzato in [tracciabilità], [integrazione di sistemi], [documentazione],"+ 
 	            "ottimizzazione dei processi ([es.1], [es.2], [es.3])",
 	            "Full-Stack Web, Mobile e Desktop Developer, multi-threading, multi-process e multi-platform",
-	        	"disponibile al supporto con telelavoro, gestione delle urgenze, trasferte, anche internazionali di lunga durata e a R&D",
+	        	"disponibile al supporto con telelavoro, gestione delle urgenze, trasferte, anche internazionali di lunga durata",
 	        	"possibilità di assunzione entro 2 settimane", 
 	        	"RAL 45K trattabili"
         	],
@@ -559,7 +575,7 @@
 							{ name:"Docuware connector", desc:"interfaccia Docuware -> archiviazione sostitutiva", link:"https://www.youtube.com/watch?v=X8Bl7z2anok"},
 						]
 					},{
-						name:"Zaglio", prov:"MN",
+						name:"Video*CV",
 						projects:[
 							{ desc:"Blur di logo casuali in video sorgente", link:"https://github.com/zonafets/VideoBlurring" }
 						]
@@ -677,10 +693,8 @@
 					},{
 						name: "Intea Snc", prov: "MN", link:"https://www.inteaonline.it/",
 						projects: [
-							{desc: "raccolta dati via PLC, filtri e statistiche"},
-							{desc: "gestionali per calzaturifici e idraulica"},
-							{desc: "installazione linee produzione con server Novell"},
-							{desc: "tecnico PC/Rete"},
+							{desc: "raccolta dati via PLC, filtri e statistiche, gestionali per calzaturifici"},
+							{desc: "tecnico PC/Rete, installazione linee produzione con server Novell"},
 							{desc: "sviluppo applicazione RFID terminali per AS400"}, 
 						]
 					},{
@@ -766,10 +780,12 @@
 	    "extra-info": {
 	    	items: [
 				["Istruzione", "1985-89 Diploma - [Perito Industriale Capotecnico] (spec.informatica) (54/60)"],
-		        ["Lingue", "intermediate english written/spoken, Français élémentaire"]
+		        ["Lingue", "intermediate english written/spoken, Français élémentaire"],
+		        ["Ultime [letture]", "L'arte di imparare; Professione sceneggiatore"]
 		    ],
 		    links: [
-		    	["Perito Industriale Capotecnico", "images/certificates/diploma_maturita.jpg"]
+		    	["Perito Industriale Capotecnico", "images/certificates/diploma_maturita.jpg"],
+		    	["letture", "bibliografia.htm"]
 		    ]
 		},
 
@@ -986,17 +1002,6 @@
     		node = document.getElementById("competencies-idx")
     		cv.competencies.forEach(
 	    		function(it,i) {
-	    			/*
-			    	var lg = document.createElement("lg")
-			    	if (i>0)
-				    	lg.appendChild(document.createTextNode(" "))
-			    	
-	    			var b = document.createElement("b")
-	    			var tn = document.createTextNode(" ●\u00a0"+it[0]+" ")
-	    			b.appendChild(tn)
-	    			lg.appendChild(b)
-			    	node.appendChild(lg)
-			    	*/
 
 			    	var id = it[0].toLowerCase()
 			    	var dsc = it[1]
