@@ -341,6 +341,45 @@
     		z-index: 99;
 		}
 
+		/*****************
+		 * message style *
+		 *****************/
+
+		.fullPageOverlay > * {
+			transition: all 1s ease-in-out;
+		}
+
+		.fullPageOverlay {
+		    height:100%;
+		    width:100%;
+		    position:fixed;
+		    left:0;
+		    top:0;
+		    z-index:100 !important;
+		    background-color: rgba(0,0,0,0.5);
+		    display: none;
+        	cursor: pointer;
+		}
+
+		.fullPageOverlay .message {
+			display: inline-block;
+		    position: absolute;
+		    left: 0;
+		    right: 0;
+		    margin: auto;
+		    color: white;
+		    height: fit-content;
+		    top: 20%;
+		    text-align: center;
+		    background: slategray;
+		}
+
+		.fullPageOverlay .message p {
+		    font-weight: bold;
+		    font-size: 125%;
+		    padding: 5%;
+		}
+
     </style>
     <!--script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script-->
     <!--script src="https://mrrio.github.io/jsPDF/dist/jspdf.debug.js"></script-->
@@ -480,6 +519,12 @@
 	</table>
 
 	<!-- the following is the first draft for NTE implementation -->
+
+	<div id="notifyBar" class="fullPageOverlay" click="message">
+	    <span class="message">
+	    	<p></p>
+	    </span>
+	</div>
 
 	<notifyBar></notifyBar>
 
@@ -1026,6 +1071,7 @@
 	    document.body.innerHTML = html
 
 	    // replaces templates
+	    /* temporally disabled because not compatible with mobile chrome
 	    var templates = document.getElementsByTagName("template")
 	    for(var i=0;i<templates.length;i++) {
 	    	var tpl = templates[i]
@@ -1044,6 +1090,7 @@
 				tag.replaceWith(clone)
 			}	
 	    }
+	    */
 
 	    // add events
 	    var activeElems = document.querySelectorAll("*[click]")
