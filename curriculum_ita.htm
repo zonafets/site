@@ -8,16 +8,23 @@
 
 <!--
 
+	-- NOTES ------------------------------------------------------------------------------
+
 	This isn't only a page with my CV, but also a place where I'll refine the code to test 
 	the concepts of NTE (https://github.com/zonafets/NTE)
 
 	Note: I know, this is not the better code. DRY principle can be applied more.
 
-	r:180608\s.zaglio: added self-taught experience; improved links replace with "&"
-	r:180530\s.zaglio: first semi-definitive version
-	r:180601\s.zaglio: added todo
+	-- CHANGELOG --------------------------------------------------------------------------
 
-	todo:180601\s.zaglio: apply DRY principle to code and convert to NTE
+	180611\s.zaglio: begin of apply of DRY principle to the code
+	180608\s.zaglio: added self-taught experience; improved links replace with "&"
+	180601\s.zaglio: added todo section
+	180530\s.zaglio: first semi-definitive version
+
+	-- TODO -------------------------------------------------------------------------------
+
+	180601\s.zaglio: apply DRY principle to code and convert to NTE
 
 -->
 
@@ -351,7 +358,7 @@
                     Nato il 01.02.72 / Sposato
                 </td>
                 <td rowspan="2">
-                	<div class="flip-container" onclick="flip(this)">
+                	<div class="flip-container" click="flip">
 						<div class="flipper">
 							<div class="front">
 								<img id="foto-cravatta" src="images/io/foto-cravatta-tonda.jpg" >
@@ -365,7 +372,7 @@
             </tr>
             <tr>
                 <td style="border-bottom: 1px solid gray;">
-                    <img id="placeE" alt="myEmail" title="click to get email into clipboard" src="images/ref.svg" onclick="about()"/><br>
+                    <img id="placeE" alt="myEmail" title="click to get email into clipboard" src="images/ref.svg" click="copyEmail2Clipboard"/><br>
                     this:&nbsp;[https://goo.gl/7hakDJ]
                     &nbsp;-&nbsp;[PDF]-&nbsp;[linkedin]
                 </td>
@@ -475,7 +482,7 @@
 
 <script>
 
-    cv = {
+    var cv = {
 
     	head: {
     		links: [
@@ -841,98 +848,158 @@
 
 	} // cv
 
-	var tag,tbody,parent,tr,td,tn,cv
+	var app = new (function() {
 
-	function getStyle(className) {
-	    var classes = document.styleSheets[0].rules || document.styleSheets[0].cssRules;
-	    for (var x = 0; x < classes.length; x++) {
-	        if (classes[x].selectorText == className) {
-	            return classes[x].style;
-	        }
+		var self = this
+
+		var tag,tbody,parent,tr,td,tn
+
+		
+		// prototypes
+
+		String.prototype.replaceAll = function(search, replacement) {
+		    var target = this;
+		    return target.replace(new RegExp(search.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), 'g'), replacement);
+		};
+
+
+		// generic utilities
+
+		function getStyle(className) {
+		    var classes = document.styleSheets[0].rules || document.styleSheets[0].cssRules;
+		    for (var x = 0; x < classes.length; x++) {
+		        if (classes[x].selectorText == className) {
+		            return classes[x].style;
+		        }
+		    }
+		}
+
+	    function trNtd() 
+	    {
+	    	var tr = document.createElement("tr")
+	    	for (var i=0;i<arguments.length;i++) {
+	    		var td = document.createElement("td")
+	    		var strings = arguments[i].split("\n")
+	    		for (var j=0; j<strings.length; j++) {
+	    			var tn = document.createTextNode(strings[j])
+		    		td.appendChild(tn)
+	    			if (j!=strings.length-1)
+	    			td.appendChild(document.createElement("br"))
+	    		}
+	    		tr.appendChild(td)
+	    	}
+	    	return tr
 	    }
-	}
 
-	function flip(node) {
-		var photo = document.querySelector(".flip-container")
-		if (node === photo) {
-			node.classList.toggle('flip')
-			adjustViews()
+	    function li(txt)
+	    {
+			var li = document.createElement("li")
+			var tn = document.createTextNode(txt)
+			li.appendChild(tn)
+			return li
+	    }
+
+		function competence_dsc(id) {
+			var dsc = ""
+			cv.competencies.some(
+				function(it) {
+					var b = (it[0] === id)
+					if (b) dsc = it[1]
+					return b
+				}
+			)
+			return dsc
 		}
-		else
-			photo.click()
-	}
 
 
-	function adjustViews() {
-		var flipper = document.querySelector(".flip-container")
-		var experience_view = document.getElementById("view_by_experiences")
-		var projects_view = document.getElementById("view_by_projects")
-		var style = getStyle(".slider")
-		var time = parseInt(style.transitionDuration) * 1000
-		var css = "opened"
+		// behaviours
 
-		if (flipper.classList.contains("flip")) {
-			experience_view.classList.remove(css)
-			setTimeout(function(){projects_view.classList.add(css)}, time)
-		} else {
-			projects_view.classList.remove(css)
-			setTimeout(function(){experience_view.classList.add(css)}, time)
-		}
-	}
+		function swapViews() {
+			var flipper = document.querySelector(".flip-container")
+			var experience_view = document.getElementById("view_by_experiences")
+			var projects_view = document.getElementById("view_by_projects")
+			var style = getStyle(".slider")
+			var time = parseInt(style.transitionDuration) * 1000
+			var css = "opened"
 
-    function about() {
-        document.oncopy = function(event) {
-            var a = ["z", "a", "g", "l", "i", "o", ".", "s", "t", "e", "f", "a", "n", "o", "@", "g", "m", "a", "i", "l", ".", "c", "o", "m"]
-            event.clipboardData.setData("Text", a.join(''));
-            event.preventDefault();
-        }
-        ;
-        document.execCommand("Copy");
-        document.oncopy = undefined;
-        alert("Email copiata nella clipboard.")
-    }
-
-    function trNtd() 
-    {
-    	var tr = document.createElement("tr")
-    	for (var i=0;i<arguments.length;i++) {
-    		var td = document.createElement("td")
-    		var strings = arguments[i].split("\n")
-    		for (var j=0; j<strings.length; j++) {
-    			var tn = document.createTextNode(strings[j])
-	    		td.appendChild(tn)
-    			if (j!=strings.length-1)
-    			td.appendChild(document.createElement("br"))
-    		}
-    		tr.appendChild(td)
-    	}
-    	return tr
-    }
-
-    function li(txt)
-    {
-		var li = document.createElement("li")
-		var tn = document.createTextNode(txt)
-		li.appendChild(tn)
-		return li
-    }
-
-	function competence(id) {
-		var dsc = ""
-		cv.competencies.some(
-			function(it) {
-				var b = (it[0] === id)
-				if (b) dsc = it[1]
-				return b
+			if (flipper.classList.contains("flip")) {
+				experience_view.classList.remove(css)
+				setTimeout(function(){projects_view.classList.add(css)}, time)
+			} else {
+				projects_view.classList.remove(css)
+				setTimeout(function(){experience_view.classList.add(css)}, time)
 			}
-		)
-		return dsc
-	}
+		}
 
-    var app = {
+		function flip(ev) {
+			var target = ev?ev.currentTarget:null
+			var photo = document.querySelector(".flip-container")
+			if (target === photo) {
+				target.classList.toggle('flip')
+				swapViews()
+			}
+			else
+				photo.click()
+		}
 
-    	"companies-idx": function() {
-    		node = document.getElementById("companies-idx")
+	    function copyEmail2Clipboard() {
+	        document.oncopy = function(event) {
+	            var a = ["z", "a", "g", "l", "i", "o", ".", "s", "t", "e", "f", "a", "n", "o", "@", "g", "m", "a", "i", "l", ".", "c", "o", "m"]
+	            event.clipboardData.setData("Text", a.join(''));
+	            event.preventDefault();
+	        }
+	        ;
+	        document.execCommand("Copy");
+	        document.oncopy = undefined;
+	        alert("Email copiata nella clipboard.")
+	    }
+
+
+	    // DOM helpers
+
+	    function elem(id) {
+	    	return document.getElementById(id)
+	    }
+
+	    function append( parent, node ) {
+	    	parent.appendChild(node)
+	    	return parent
+	    }
+
+	    function spcIf(condition) {
+	    	return condition? " ":""
+	    }
+
+	    function txt(text) {
+	    	return document.createTextNode(text)
+	    }
+
+	    function bold(nodeOrText) {
+	    	var b = document.createElement("b")
+	    	if (typeof nodeOrText === "string") {
+	    		nodeOrText = document.createTextNode( nodeOrText )
+	    	}
+	    	b.appendChild(nodeOrText)
+	    	return b
+	    }
+
+	    function lnk( href, node ) {
+			var a = document.createElement("a")
+			a.href = href
+			a.appendChild( node )
+			return a
+		}
+
+	    function lg(node) {
+	    	var lg = document.createElement("lg")
+	    	lg.appendChild(node)
+	    	return lg
+	    }
+
+	    // node constructors
+
+    	this["companies-idx"] = function() {
+    		node = elem("companies-idx")
     		var n = 0, i = 0;
 
     		var list = cv.experiences
@@ -942,63 +1009,64 @@
 
 	    	list.forEach(
 	    		function(it) {
-			    	var lg = document.createElement("lg")
-			    	if (i>0)
-				    	lg.appendChild(document.createTextNode(" "))
-			    	lg.appendChild(document.createTextNode(it.period))
-			    	node.appendChild(lg)
+
+			    	append( node, lg( txt( spcIf(i>0) + it.period ) ) )
 			    	
 			    	it.companies.forEach(
 			    		function(it) {
-			    			var b = document.createElement("b")
+
 			    			var id = n - i
 			    			it.id = id
-			    			var tn = document.createTextNode(" ●\u00a0"+id+".\u00a0")
 			    			i++
-			    			b.appendChild(tn)
-			    			node.appendChild(b)
 
-		    				node.appendChild(document.createTextNode("\u00a0"))
+			    			append( node, bold( txt( " ●\u00a0"+id+".\u00a0" ) ) )
+
+		    				append( node, txt("\u00a0") )
 			    			if (it.hasOwnProperty("link") && it.link!="") {
-			    				var a = document.createElement("a")
-			    				a.href = it.link
-			    				a.appendChild(document.createTextNode(it.name))
-			    				node.appendChild(a)
+			    				append( node, lnk( it.link, txt(it.name) ) )
 			    			} else {
-			    				node.appendChild(document.createTextNode(it.name))
+			    				append( node, txt(it.name) )
 			    			}
 			    			if (it.prov)
-		    					node.appendChild(document.createTextNode(" - " + it.prov + " "))
+		    					append( node, txt(" - " + it.prov + " ") )
 			    		}
 			    	)
 		    	}
 		    )
-    	},
+    	}
 
-	    "stacks-idx": function(node) {
-    		node = document.getElementById("stacks-idx")
+	    this["stacks-idx"] = function() {
+    		node = elem("stacks-idx")
     		cv.experiences.forEach(
 	    		function(it,i) {
-			    	var lg = document.createElement("lg")
-			    	if (i>0)
-				    	lg.appendChild(document.createTextNode(" "))
+
 			    	
-	    			var b = document.createElement("b")
-	    			// b.className = "circle"
+	    			
 	    			var id = String.fromCharCode( 65 + i )
 	    			it.stackId = id
-	    			var tn = document.createTextNode(" ●\u00a0"+id+" ")
+	    			var text = " ●\u00a0"+id+" "
+
+	    			/*
+	    			// without helpers
+			    	var lg = document.createElement("lg")
+			    	if (i>0) lg.appendChild(document.createTextNode(" "))
+	    			var tn = document.createTextNode(text)
+	    			var b = document.createElement("b")
 	    			b.appendChild(tn)
 	    			lg.appendChild(b)
 			    	node.appendChild(lg)
+			    	*/
 
-	    			tn = document.createTextNode(" " + it.stack + " ")
-	    			node.appendChild(tn)
+			    	// node.appendChild( lg ( txt(spcIf(i>0)) ).appendChild( bold( text ) ).parentElement )
+
+			    	append( node, append( lg ( txt(spcIf(i>0)) ), bold( text ) ))
+
+	    			append( node, txt( " " + it.stack + " " ) )
 		    	}
 		    )
-	    }, // stacks-idx
+	    } // stacks-idx
 
-	    "competencies-idx": function(node) {
+	    this["competencies-idx"] = function(node) {
     		node = document.getElementById("competencies-idx")
     		cv.competencies.forEach(
 	    		function(it,i) {
@@ -1018,9 +1086,9 @@
 
 		    	}
 		    )
-	    }, // competencies-idx
+	    } // competencies-idx
 
-	    "projects": function(node) {
+	    this["projects"] = function(node) {
 	    	node = document.getElementById("projects")
 	    	var tbody = document.createElement("tbody")
 			var prevComps = ""
@@ -1076,7 +1144,7 @@
 				    					exp.competencies.forEach(
 				    						function(it) {
 				    							var span = document.createElement("span") 
-				    							span.title = competence(it)
+				    							span.title = competence_dsc(it)
 				    							span.className = "tip" 
 				    							var img = document.createElement("img")
 				    							img.src = "images/icons/" + it.toLowerCase() + ".png"
@@ -1108,188 +1176,199 @@
 	    	node.appendChild(tbody)
 	    }
 
-	} // app
-
-	String.prototype.replaceAll = function(search, replacement) {
-	    var target = this;
-	    return target.replace(new RegExp(search.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), 'g'), replacement);
-	};
-
-
-	function isIE() {
-		var div = document.createElement("div")
-		div.innerHTML = "<!--[if IE]><i></i><![endif]-->"
-		var b = (div.getElementsByTagName("i").length == 1)
-		if (b) return b
-		if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) {
-   			return true // MSIE
+		function isIE() {
+			var div = document.createElement("div")
+			div.innerHTML = "<!--[if IE]><i></i><![endif]-->"
+			var b = (div.getElementsByTagName("i").length == 1)
+			if (b) return b
+			if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) {
+	   			return true // MSIE
+			}
+			return false
 		}
-		return false
-	}
 
-    // -------------------------------------------------------------------
+	    // -------------------------------------------------------------------
 
-    if (isIE()) alert("Segui l'esempio dei loro creatori, abbandona anche tu IE per un altro browser.")
+	    if (isIE()) alert("Segui l'esempio dei loro creatori, abbandona anche tu IE per un altro browser.")
 
-    parent = document.getElementById("self-nomination")
-    parent.innerHTML = cv["self-nomination"].replace(/\n/g,"<br>")
+	    parent = document.getElementById("self-nomination")
+	    parent.innerHTML = cv["self-nomination"].replace(/\n/g,"<br>")
 
-    parent = document.querySelector("#briefly ul")
-    cv.briefly.lines.forEach(
-    	function(it) {
-    		if (cv.hidden.indexOf(it) == -1)
-				parent.appendChild(li(it))
+	    parent = document.querySelector("#briefly ul")
+	    cv.briefly.lines.forEach(
+	    	function(it) {
+	    		if (cv.hidden.indexOf(it) == -1)
+					parent.appendChild(li(it))
+			}
+		)
+
+	    parent = document.getElementById("lasts-kb")
+	    tbody = document.createElement("tbody")
+		parent.appendChild(tbody)
+	    cv["lasts-kb"].lines.forEach(
+	    	function(it) {
+				tbody.appendChild(trNtd(it[0], it[1]+''))
+			}
+		)
+
+	    parent = document.querySelector("#previous-kb table")
+	    tbody = document.createElement("tbody")
+	    parent.appendChild(tbody)
+	    cv["previous-kb"].items.forEach(
+	    	function(it) {
+				parent.appendChild(trNtd(it[0],it[1],it[2]+''))
+			}
+		)
+
+	    // render("experiences", function(it) {...})
+	    parent = document.querySelector("#experiences table")
+	    tbody = document.createElement("tbody")
+	    parent.appendChild(tbody)
+	    cv.experiences.forEach(
+	    	function(it) {
+	    		var company = ""
+	    		it.companies.forEach(
+	    			function (c) {
+	    				var name = c.name
+	    				if (c.hasOwnProperty("link") && c.link!="") 
+	    					name = "["+name+"]"
+	    				company += name + " (" + c.prov + ")\n"
+	    			}
+	    		)
+	    		var tr = trNtd(it.period+"\n"+it.comp, it.task, company)
+				tbody.appendChild(tr)
+			}
+		)
+
+	    parent = document.querySelector("#extra-info table")
+	    tbody = document.createElement("tbody")
+	    parent.appendChild(tbody)
+	    cv["extra-info"].items.forEach( 
+	    	function(it) {
+	    		tbody.appendChild(trNtd( it[0], it[1] ))
+	    	}
+	    )
+
+	    parent = document.getElementById("extra-courses")
+	    tbody = document.createElement("tbody")
+	    parent.appendChild(tbody)
+	    cv["extra-courses"].items.forEach( 
+	    	function(it) {
+	    		tbody.appendChild(trNtd( "* " + it[0], it[1] ))
+	    	}
+	    )
+
+
+	    /*****************************
+	     *  render view by projects  *
+	     *****************************/
+
+	    this["companies-idx"]()
+	    this["stacks-idx"]()
+	    this["competencies-idx"]()
+	    this["projects"]()
+
+
+	    /*********************
+	     *  replace [links]  *
+	     *********************/
+	     
+	    var html = document.body.innerHTML
+
+	    cv.anonymouse.forEach(
+	    	function(it) {
+		        var span = '<span class="anonymouse">' + it + '</span>'
+		        html = html.replaceAll( it, span )
+		    }
+		)
+
+	    cv.anonymouse.forEach(
+	    	function(it) {
+		        var span = '<span class="anonymouse">' + it + '</span>'
+		        html = html.replaceAll( it, span )
+		    }
+		)
+
+		function collect_links(obj, collection) {
+			if (collection === undefined) collection=[]
+			for (var k in obj) {
+				if (k === "links")
+					// obj[k].forEach( function (it) {collection.push.apply(it)} )
+					collection.push.apply(collection,obj.links)
+				if (typeof obj[k] === "object")
+					collect_links(obj[k], collection)
+			}
+			return collection
 		}
-	)
 
-    parent = document.getElementById("lasts-kb")
-    tbody = document.createElement("tbody")
-	parent.appendChild(tbody)
-    cv["lasts-kb"].lines.forEach(
-    	function(it) {
-			tbody.appendChild(trNtd(it[0], it[1]+''))
-		}
-	)
+		var links = cv.links
+		links.push.apply(links, collect_links(cv))
 
-    parent = document.querySelector("#previous-kb table")
-    tbody = document.createElement("tbody")
-    parent.appendChild(tbody)
-    cv["previous-kb"].items.forEach(
-    	function(it) {
-			parent.appendChild(trNtd(it[0],it[1],it[2]+''))
-		}
-	)
-
-    // render("experiences", function(it) {...})
-    parent = document.querySelector("#experiences table")
-    tbody = document.createElement("tbody")
-    parent.appendChild(tbody)
-    cv.experiences.forEach(
-    	function(it) {
-    		var company = ""
-    		it.companies.forEach(
-    			function (c) {
-    				var name = c.name
-    				if (c.hasOwnProperty("link") && c.link!="") 
-    					name = "["+name+"]"
-    				company += name + " (" + c.prov + ")\n"
-    			}
-    		)
-    		var tr = trNtd(it.period+"\n"+it.comp, it.task, company)
-			tbody.appendChild(tr)
-		}
-	)
-
-    parent = document.querySelector("#extra-info table")
-    tbody = document.createElement("tbody")
-    parent.appendChild(tbody)
-    cv["extra-info"].items.forEach( 
-    	function(it) {
-    		tbody.appendChild(trNtd( it[0], it[1] ))
-    	}
-    )
-
-    parent = document.getElementById("extra-courses")
-    tbody = document.createElement("tbody")
-    parent.appendChild(tbody)
-    cv["extra-courses"].items.forEach( 
-    	function(it) {
-    		tbody.appendChild(trNtd( "* " + it[0], it[1] ))
-    	}
-    )
+		// add links from companies
+		cv.experiences.forEach( 
+			function(it) {
+				it.companies.forEach( 
+					function(c) {
+						links.push([c.name,c.link])
+					}
+				)
+			}
+		)
 
 
-    /*****************************
-     *  render view by projects  *
-     *****************************/
+		// replace [link] with aref
 
-    app["companies-idx"]()
-    app["stacks-idx"]()
-    app["competencies-idx"]()
-    app["projects"]()
+	    links.forEach(
+	    	function(it) {
+		        var a = '<a href="' + it[1]+'">' + it[0] + '</a>'
+		        var r = "["+it[0].replace("&","&amp;")+"]"
+		        html = html.replaceAll( r, a )
+		    }
+		)
+	    
+	    document.body.innerHTML = html
 
 
-    /*********************
-     *  replace [links]  *
-     *********************/
-     
-    var html = document.body.innerHTML
+	    // add events
+	    var activeElems = document.querySelectorAll("*[click]")
+	    activeElems.forEach(
+	    	function(it) {
+	    		var listener = eval(it.attributes.click.value)
+	    		it.addEventListener("click",listener)
+	    	}
+	    )
 
-    cv.anonymouse.forEach(
-    	function(it) {
-	        var span = '<span class="anonymouse">' + it + '</span>'
-	        html = html.replaceAll( it, span )
+	    // manage "commandline options"
+
+	    var cmds = location.search.substring(1).split("&")
+	    
+	    if (cmds.indexOf("anonymouse")>-1) {
+	    	// convert links to text
+	        var l = document.getElementsByTagName("a")
+	        while (l.length > 0) {
+	            for (var i = 0; i < l.length; i++) {
+	                var mySpan = document.createElement("span")
+	                mySpan.innerText = l[i].innerText
+	                l[i].replaceWith(mySpan)
+	            }
+	            l = document.getElementsByTagName("a")
+	        }
+	        var css = document.createElement("STYLE")
+	        css.innerText = ".anonymouse{display:none;}"
+	        document.head.append(css)
 	    }
-	)
 
-    cv.anonymouse.forEach(
-    	function(it) {
-	        var span = '<span class="anonymouse">' + it + '</span>'
-	        html = html.replaceAll( it, span )
-	    }
-	)
 
-	function collect_links(obj, collection) {
-		if (collection === undefined) collection=[]
-		for (var k in obj) {
-			if (k === "links")
-				// obj[k].forEach( function (it) {collection.push.apply(it)} )
-				collection.push.apply(collection,obj.links)
-			if (typeof obj[k] === "object")
-				collect_links(obj[k], collection)
-		}
-		return collection
-	}
+	    // show body and run
 
-	var links = cv.links
-	links.push.apply(links, collect_links(cv))
+	    document.body.className='fade-in';
+		
+	    if (cmds.indexOf("print") > -1)
+			flip()
+		else if (cmds.indexOf("projects") == -1)
+			setTimeout( flip, 1050)
 
-	// add links from companies
-	cv.experiences.forEach( 
-		function(it) {
-			it.companies.forEach( 
-				function(c) {
-					links.push([c.name,c.link])
-				}
-			)
-		}
-	)
-
-    links.forEach(
-    	function(it) {
-	        var a = '<a href="' + it[1]+'">' + it[0] + '</a>'
-	        var r = "["+it[0].replace("&","&amp;")+"]"
-	        html = html.replaceAll( r, a )
-	    }
-	)
-    
-    document.body.innerHTML = html
-
-    var cmds = location.search.substring(1).split("&")
-    
-    if (cmds.indexOf("anonymouse")>-1) {
-    	// convert links to text
-        var l = document.getElementsByTagName("a")
-        while (l.length > 0) {
-            for (var i = 0; i < l.length; i++) {
-                var mySpan = document.createElement("span")
-                mySpan.innerText = l[i].innerText
-                l[i].replaceWith(mySpan)
-            }
-            l = document.getElementsByTagName("a")
-        }
-        var css = document.createElement("STYLE")
-        css.innerText = ".anonymouse{display:none;}"
-        document.head.append(css)
-    }
-
-    document.body.className='fade-in';
-	
-    if (cmds.indexOf("print") > -1)
-		flip()
-	else if (cmds.indexOf("projects") == -1)
-		setTimeout( flip, 1050)
-
+	})() // end&run of app
     
 </script>
 </html>
