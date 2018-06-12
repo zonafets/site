@@ -425,7 +425,7 @@ var app = new (function() {
 	    				var name = c.name
 	    				if (c.hasOwnProperty("link") && c.link!="") 
 	    					name = "["+name+"]"
-	    				company += name + " (" + c.prov + ")\n"
+	    				company += name + (c.prov?" (" + c.prov + ")":"")+"\n"
 	    			}
 	    		)
 	    		var tr = trNtd(it.period+"\n"+it.comp, it.task, company)
@@ -447,7 +447,7 @@ var app = new (function() {
 	    parent.appendChild(tbody)
 	    cv["extra-courses"].items.forEach( 
 	    	function(it) {
-	    		tbody.appendChild(trNtd( "* " + it[0], it[1] ))
+	    		tbody.appendChild(trNtd( it[0], it[1] ))
 	    	}
 	    )
 
