@@ -17,6 +17,7 @@
 
 	-- CHANGELOG --------------------------------------------------------------------------
 
+	180612\s.zaglio: begin of apply Brian W. Kernighan and P. J. Plaugher principle
 	180611\s.zaglio: begin of apply of DRY & NTE principles to the code; added message
 	180608\s.zaglio: added self-taught experience; improved links replace with "&"
 	180601\s.zaglio: added todo section
@@ -24,7 +25,6 @@
 
 	-- TODO -------------------------------------------------------------------------------
 
-	180611\s.zaglio: apply Brian W. Kernighan and P. J. Plaugher principle
 	180601\s.zaglio: apply DRY principle to code and convert to NTE
 
 -->
@@ -247,8 +247,8 @@
 		@media screen {
 			.flipper {
 				transition: transform 0.6s;
+			}
 		}
-	}
 
 		/* hide back of pane during swap */
 		.front, .back {
@@ -339,45 +339,6 @@
     		left: 10%;
     		position: absolute;
     		z-index: 99;
-		}
-
-		/*****************
-		 * message style *
-		 *****************/
-
-		.fullPageOverlay > * {
-			transition: all 1s ease-in-out;
-		}
-
-		.fullPageOverlay {
-		    height:100%;
-		    width:100%;
-		    position:fixed;
-		    left:0;
-		    top:0;
-		    z-index:100 !important;
-		    background-color: rgba(0,0,0,0.5);
-		    display: none;
-        	cursor: pointer;
-		}
-
-		.fullPageOverlay .message {
-			display: inline-block;
-		    position: absolute;
-		    left: 0;
-		    right: 0;
-		    margin: auto;
-		    color: white;
-		    height: fit-content;
-		    top: 20%;
-		    text-align: center;
-		    background: slategray;
-		}
-
-		.fullPageOverlay .message p {
-		    font-weight: bold;
-		    font-size: 125%;
-		    padding: 5%;
 		}
 
     </style>
@@ -520,12 +481,6 @@
 
 	<!-- the following is the first draft for NTE implementation -->
 
-	<div id="notifyBar" class="fullPageOverlay" click="message">
-	    <span class="message">
-	    	<p></p>
-	    </span>
-	</div>
-
 	<notifyBar></notifyBar>
 
 	<template name="notifyBar">
@@ -584,8 +539,23 @@
 
 		var self = this
 
-		var tag,tbody,parent,tr,td,tn
+		// messages
+		var lang = navigator.language.substring(0,2)
 
+		var msgs = {
+			notForIe: {
+				it:"Segui l'esempio di Microsoft. Abbandona Internet Explorer per qualcosa di più compatibile.",
+				en:"Follow Microsoft's example. Leave Internet Explorer for something more compatible",
+			},
+			instructions:{
+				it:"Cliccare/toccare sulla fotografia per cambiare vista da elenco progetti a esperienze\n\n"
+				  +"Cliccare/toccare sull'email per copiarla nella clipboard\n\n"
+				  +"Cliccare/toccare questo messaggio per chiuderlo",
+				en:"Click / tap on the photo to change view from project list to experiences\n\n"
+				  +"Click / tap on the email to copy it to the clipboard\n\n"
+				  +"Click / tap this message to close it"
+			}
+		}
 		
 		// prototypes
 
@@ -738,7 +708,7 @@
 			return li
 	    }
 
-	    // node constructors
+	    // NTE node constructors
 
     	this["companies-idx"] = function() {
     		node = elem("companies-idx")
@@ -929,183 +899,188 @@
 			return false
 		}
 
-	    // -------------------------------------------------------------------
+	    /*********************************
+	    **                              **
+	    **   Section functions          **
+	    **                              **
+	    **********************************/
 
-	    if (isIE()) alert("Segui l'esempio dei loro creatori, abbandona anche tu IE per un altro browser.")
-
-	    parent = document.getElementById("self-nomination")
-	    parent.innerHTML = cv["self-nomination"].replace(/\n/g,"<br>")
-
-	    parent = document.querySelector("#briefly ul")
-	    cv.briefly.lines.forEach(
-	    	function(it) {
-	    		if (cv.hidden.indexOf(it) == -1)
-					parent.appendChild(li(it))
-			}
-		)
-
-	    parent = document.getElementById("lasts-kb")
-	    tbody = document.createElement("tbody")
-		parent.appendChild(tbody)
-	    cv["lasts-kb"].lines.forEach(
-	    	function(it) {
-				tbody.appendChild(trNtd(it[0], it[1]+''))
-			}
-		)
-
-	    parent = document.querySelector("#previous-kb table")
-	    tbody = document.createElement("tbody")
-	    parent.appendChild(tbody)
-	    cv["previous-kb"].items.forEach(
-	    	function(it) {
-				parent.appendChild(trNtd(it[0],it[1],it[2]+''))
-			}
-		)
-
-	    // render("experiences", function(it) {...})
-	    parent = document.querySelector("#experiences table")
-	    tbody = document.createElement("tbody")
-	    parent.appendChild(tbody)
-	    cv.experiences.forEach(
-	    	function(it) {
-	    		var company = ""
-	    		it.companies.forEach(
-	    			function (c) {
-	    				var name = c.name
-	    				if (c.hasOwnProperty("link") && c.link!="") 
-	    					name = "["+name+"]"
-	    				company += name + " (" + c.prov + ")\n"
-	    			}
-	    		)
-	    		var tr = trNtd(it.period+"\n"+it.comp, it.task, company)
-				tbody.appendChild(tr)
-			}
-		)
-
-	    parent = document.querySelector("#extra-info table")
-	    tbody = document.createElement("tbody")
-	    parent.appendChild(tbody)
-	    cv["extra-info"].items.forEach( 
-	    	function(it) {
-	    		tbody.appendChild(trNtd( it[0], it[1] ))
-	    	}
-	    )
-
-	    parent = document.getElementById("extra-courses")
-	    tbody = document.createElement("tbody")
-	    parent.appendChild(tbody)
-	    cv["extra-courses"].items.forEach( 
-	    	function(it) {
-	    		tbody.appendChild(trNtd( "* " + it[0], it[1] ))
-	    	}
-	    )
-
-
-	    /*****************************
-	     *  render view by projects  *
-	     *****************************/
-
-	    this["companies-idx"]()
-	    this["stacks-idx"]()
-	    this["competencies-idx"]()
-	    this["projects"]()
-
-
-	    /*********************
-	     *  replace [links]  *
-	     *********************/
-	     
-	    var html = document.body.innerHTML
-
-	    cv.anonymouse.forEach(
-	    	function(it) {
-		        var span = '<span class="anonymouse">' + it + '</span>'
-		        html = html.replaceAll( it, span )
-		    }
-		)
-
-	    cv.anonymouse.forEach(
-	    	function(it) {
-		        var span = '<span class="anonymouse">' + it + '</span>'
-		        html = html.replaceAll( it, span )
-		    }
-		)
-
-		function collect_links(obj, collection) {
-			if (collection === undefined) collection=[]
-			for (var k in obj) {
-				if (k === "links")
-					// obj[k].forEach( function (it) {collection.push.apply(it)} )
-					collection.push.apply(collection,obj.links)
-				if (typeof obj[k] === "object")
-					collect_links(obj[k], collection)
-			}
-			return collection
-		}
-
-		var links = cv.links
-		links.push.apply(links, collect_links(cv))
-
-		// add links from companies
-		cv.experiences.forEach( 
-			function(it) {
-				it.companies.forEach( 
-					function(c) {
-						links.push([c.name,c.link])
-					}
-				)
-			}
-		)
-
-
-		// replace [link] with aref
-
-	    links.forEach(
-	    	function(it) {
-		        var a = '<a href="' + it[1]+'">' + it[0] + '</a>'
-		        var r = "["+it[0].replace("&","&amp;")+"]"
-		        html = html.replaceAll( r, a )
-		    }
-		)
-	    
-	    document.body.innerHTML = html
-
-	    // replaces templates
-	    /* temporally disabled because not compatible with mobile chrome
-	    var templates = document.getElementsByTagName("template")
-	    for(var i=0;i<templates.length;i++) {
-	    	var tpl = templates[i]
-    		var style = tpl.content.querySelector("style")
-    		var css = document.createElement("style")
-    		css.innerText = style.innerText
-    		document.head.appendChild(css)
-    		
-    		// search tags an replace content
-    		var name = tpl.attributes.name.value
-    		var tags = document.getElementsByTagName(name)
-    		for (var j=0;j<tags.length;j++) {
-	    		tag = tags[j]
-	    		var clone = tpl.content.querySelector("div").cloneNode(true)
-	    		clone.id = name + (j===0?"":j)
-				tag.replaceWith(clone)
-			}	
+		function checkIE() 
+		{	    
+	    	if (isIE()) alert(msgs.notForIE[lang])
 	    }
-	    */
 
-	    // add events
-	    var activeElems = document.querySelectorAll("*[click]")
-	    activeElems.forEach(
-	    	function(it) {
-	    		var listener = eval(it.attributes.click.value)
-	    		it.addEventListener("click",listener)
-	    	}
-	    )
+		function renderNodes(app) 
+		{
+		    parent = document.getElementById("self-nomination")
+		    parent.innerHTML = cv["self-nomination"].replace(/\n/g,"<br>")
 
-	    // manage "commandline options"
+		    parent = document.querySelector("#briefly ul")
+		    cv.briefly.lines.forEach(
+		    	function(it) {
+		    		if (cv.hidden.indexOf(it) == -1)
+						parent.appendChild(li(it))
+				}
+			)
 
-	    var cmds = location.search.substring(1).split("&")
-	    
-	    if (cmds.indexOf("anonymouse")>-1) {
+		    parent = document.getElementById("lasts-kb")
+		    tbody = document.createElement("tbody")
+			parent.appendChild(tbody)
+		    cv["lasts-kb"].lines.forEach(
+		    	function(it) {
+					tbody.appendChild(trNtd(it[0], it[1]+''))
+				}
+			)
+
+		    parent = document.querySelector("#previous-kb table")
+		    tbody = document.createElement("tbody")
+		    parent.appendChild(tbody)
+		    cv["previous-kb"].items.forEach(
+		    	function(it) {
+					parent.appendChild(trNtd(it[0],it[1],it[2]+''))
+				}
+			)
+
+		    // render("experiences", function(it) {...})
+		    parent = document.querySelector("#experiences table")
+		    tbody = document.createElement("tbody")
+		    parent.appendChild(tbody)
+		    cv.experiences.forEach(
+		    	function(it) {
+		    		var company = ""
+		    		it.companies.forEach(
+		    			function (c) {
+		    				var name = c.name
+		    				if (c.hasOwnProperty("link") && c.link!="") 
+		    					name = "["+name+"]"
+		    				company += name + " (" + c.prov + ")\n"
+		    			}
+		    		)
+		    		var tr = trNtd(it.period+"\n"+it.comp, it.task, company)
+					tbody.appendChild(tr)
+				}
+			)
+
+		    parent = document.querySelector("#extra-info table")
+		    tbody = document.createElement("tbody")
+		    parent.appendChild(tbody)
+		    cv["extra-info"].items.forEach( 
+		    	function(it) {
+		    		tbody.appendChild(trNtd( it[0], it[1] ))
+		    	}
+		    )
+
+		    parent = document.getElementById("extra-courses")
+		    tbody = document.createElement("tbody")
+		    parent.appendChild(tbody)
+		    cv["extra-courses"].items.forEach( 
+		    	function(it) {
+		    		tbody.appendChild(trNtd( "* " + it[0], it[1] ))
+		    	}
+		    )
+
+		    app["companies-idx"]()
+		    app["stacks-idx"]()
+		    app["competencies-idx"]()
+		    app["projects"]()
+		} // RenderNodes
+
+
+		function renderWikiStyleLinks() 
+		{
+
+		    var html = document.body.innerHTML
+
+		    cv.anonymouse.forEach(
+		    	function(it) {
+			        var span = '<span class="anonymouse">' + it + '</span>'
+			        html = html.replaceAll( it, span )
+			    }
+			)
+
+		    cv.anonymouse.forEach(
+		    	function(it) {
+			        var span = '<span class="anonymouse">' + it + '</span>'
+			        html = html.replaceAll( it, span )
+			    }
+			)
+
+			function collect_links(obj, collection) {
+				if (collection === undefined) collection=[]
+				for (var k in obj) {
+					if (k === "links")
+						// obj[k].forEach( function (it) {collection.push.apply(it)} )
+						collection.push.apply(collection,obj.links)
+					if (typeof obj[k] === "object")
+						collect_links(obj[k], collection)
+				}
+				return collection
+			}
+
+			var links = cv.links
+			links.push.apply(links, collect_links(cv))
+
+			// add links from companies
+			cv.experiences.forEach( 
+				function(it) {
+					it.companies.forEach( 
+						function(c) {
+							links.push([c.name,c.link])
+						}
+					)
+				}
+			)
+
+			// replace [link] with aref
+		    links.forEach(
+		    	function(it) {
+			        var a = '<a href="' + it[1]+'">' + it[0] + '</a>'
+			        var r = "["+it[0].replace("&","&amp;")+"]"
+			        html = html.replaceAll( r, a )
+			    }
+			)
+		    
+		    document.body.innerHTML = html
+
+		} // RenderWikiStyleLinks
+
+
+	    function renderTemplates() 
+	    {
+
+		    var templates = document.getElementsByTagName("template")
+		    for(var i=0;i<templates.length;i++) {
+		    	var tpl = templates[i]
+	    		var style = tpl.content.querySelector("style")
+	    		var css = document.createElement("style")
+	    		css.innerText = style.innerText
+	    		document.head.appendChild(css)
+	    		
+	    		// search tags an replace content
+	    		var name = tpl.attributes.name.value
+	    		var tags = document.getElementsByTagName(name)
+	    		for (var j=0;j<tags.length;j++) {
+		    		tag = tags[j]
+		    		var clone = tpl.content.querySelector("div").cloneNode(true)
+		    		clone.id = name + (j===0?"":j)
+					tag.replaceWith(clone)
+				}	
+		    }
+
+		    // add events
+		    var activeElems = document.querySelectorAll("*[click]")
+		    activeElems.forEach(
+		    	function(it) {
+		    		var listener = eval(it.attributes.click.value)
+		    		it.addEventListener("click",listener)
+		    	}
+		    )
+
+		} // RenderTemplates
+
+	    function convertLinksToText() 
+	    {
+
 	    	// convert links to text
 	        var l = document.getElementsByTagName("a")
 	        while (l.length > 0) {
@@ -1119,27 +1094,40 @@
 	        var css = document.createElement("STYLE")
 	        css.innerText = ".anonymouse{display:none;}"
 	        document.head.append(css)
-	    }
+		    
+		} // convertLinksToText
+
+	    
+	    function run(cmds)
+	    {
+		    var cmds = location.search.substring(1).split("&")
+		    
+		    if (cmds.indexOf("anonymouse")>-1) convertLinksToText()
+
+		    document.body.className='fade-in';
+			
+		    if (cmds.indexOf("print") > -1) {
+				flip()
+			} else if (cmds.indexOf("projects") == -1) {
+				setTimeout( flip, 1050)
+				message(msgs.instructions[lang])
+			}
+		} // run
 
 
-	    // show body and run
+		/***********
+		**        ** 
+		**  MAIN  **
+		**        **
+		************/
 
-	    document.body.className='fade-in';
-		
-	    if (cmds.indexOf("print") > -1) {
-			flip()
-		} else if (cmds.indexOf("projects") == -1) {
-			setTimeout( flip, 1050)
-			message(
-				"Cliccare/toccare sulla fotografia per cambiare vista da elenco progetti a esperienze"+
-				"\n\n"+
-				"Cliccare/toccare sull'email per copiarla nella clipboard"+
-				"\n\n"+
-				"Cliccare/toccare questo messaggio per chiuderlo"
-			)
-		}
+		checkIE()
+		renderNodes(this)
+		renderWikiStyleLinks()
+		renderTemplates()
+		run()
 
-	})() // end&run of app
+	})() // app
     
 </script>
 </html>
