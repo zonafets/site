@@ -1,0 +1,317 @@
+/*
+
+    -- NOTES ------------------------------------------------------------------------------
+
+    This isn't only a page with my CV, but also a place where I'll refine the code to test 
+    the concepts of NTE (https://github.com/zonafets/NTE)
+
+    I know, this is not the better code. DRY principle can be applied more.
+
+    -- CHANGELOG --------------------------------------------------------------------------
+
+    180612\s.zaglio: slitted from curriculum_ita.htm
+
+    -- TODO -------------------------------------------------------------------------------
+
+    180601\s.zaglio: apply DRY principle to code and convert to NTE
+
+*/
+@-ms-viewport { width: device-width; }
+
+lg {
+    background: #DDD;                
+}
+
+thead * {
+    color: #FFF;
+    background-color: darkgray;
+    font-weight: bold;
+    text-align: left;
+}
+
+section {
+    margin-bottom: 10px;
+    font-size: small;
+}
+
+section h2 {
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: small;
+    font-weight: bold;
+    background: darkgray;
+    color: white;
+    padding-left: 1;
+}
+
+table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    margin-right: 0px;
+    border-spacing: 10px;
+    padding: 5;
+}
+
+td {
+	padding: 0px 2px 0px 2px;
+	vertical-align: middle;
+}
+
+* {
+    font-size: small;
+    font-family: Tahoma;
+}
+
+body {
+	margin:4px;
+	background-color:#ffffff;
+	color:#000000;
+	opacity: 0;
+    transition: none;
+}
+
+body.fade-in {
+    opacity: 1;
+    transition: 0.6s opacity;
+}
+
+:link {
+    color: #663399 !important;
+    text-decoration: none;
+}
+
+:visited {
+    color: #999933 !important;
+    text-decoration: none;
+}
+
+:active {
+    color: #999933 !important;
+    text-decoration: none;
+}
+
+tr {
+    vertical-align: top;
+}
+
+ul,li {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    display: table;
+}
+
+li {
+    list-style: none;
+    display: table-row;
+    line-height: 1.3em;
+}
+
+li::before {
+    content: "●";
+    display: table-cell;
+    text-align: right;
+    padding-right: .3em;
+    padding-left: .3em;
+}
+
+#self-nomination {
+    text-align: left;
+    font-size: medium;
+}
+
+#placeE {
+	cursor: pointer;
+	margin-left: 1;
+	width: 40ch;
+}
+
+#previous-kb td + td + td, #experiences td + td + td,
+#lasts-kb td + td, #head td + td {
+	text-align: right;
+}
+
+#previous-kb td + td + td {
+	width: 10%;
+}
+
+@media (min-width: 321px) {
+    #lasts-kb td + td 			{ width:fit-content; }
+    
+    #previous-kb td 			{ width: 20%; }
+    #previous-kb td + td 		{ width: 64%; }
+
+    #experiences td 			{ width: 20%;}
+    #experiences td + td		{ width: 60%;}
+    #experiences td + td + td	{ width: 20%; text-align: right; }
+}
+
+#privacy { border-top: 1px solid gray; }
+#privacy td + td { text-align: right; }
+
+#competencies-idx img, #projects img { width: 2ch; vertical-align: middle; padding: 2px; }
+#competencies-idx span { display: inline-block; margin: 0 2px 0 2px; }
+
+#projects tbody tr { border-bottom: 1px solid lightgray; }
+#projects td + td { text-align: center; }
+
+#experiences tbody tr { border-bottom: 1px solid lightgray; }
+
+#extra-courses tbody tr { border-bottom: 1px solid lightgray; }
+
+.flip-container, .from, .back {
+    position: absolute;
+	top: 4px;
+	right: 4px;
+}
+
+@media (min-width: 361px) {
+	#foto-barba,#foto-cravatta {
+		width:104px;
+		height:102px;
+	}
+	.flip-container, .front, .back {
+		width: 104px;
+		height: 102px;
+	}
+}
+
+@media (max-width: 360px) {
+	#foto-barba,#foto-cravatta {
+		width:64px;
+		height:63px;
+	}
+	.flip-container, .front, .back {
+		width: 64px;
+		height: 63px;
+	}
+}
+
+/******************************
+ *  filp animation for photo  *
+ ******************************/
+
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000px;
+	display: inline-table;
+}
+
+.flip-container.flip .flipper {
+	transform: rotateY(180deg);
+}
+
+/* avoid wrong print of front image */
+.flip-container.flip .flipper .front {
+	visibility:hidden;
+	transition: 1s;
+}
+
+/* flip speed goes here */
+.flipper {
+	position: relative;
+	transform-style: preserve-3d;
+}
+
+@media screen {
+	.flipper {
+		transition: transform 0.6s;
+	}
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-size: contain;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/*background-image: url("images/io/foto-cravatta-tonda.jpg");*/
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+	/*background-image: url("images/io/foto-tonda.jpg");*/
+	transform: rotateY(180deg);
+}
+
+.vertical.flip-container {
+	position: relative;
+}
+
+.vertical .back {
+	transform: rotateX(180deg);
+}
+
+.vertical.flip-container .flipper {
+	transform-origin: 100% 51px; /* half of height */
+}
+
+.vertical.flip-container:hover .flipper {
+	transform: rotateX(-180deg);
+}
+
+/****************************************************************
+ *  slider animation for views experiencies/projects animation  *
+ ****************************************************************/
+
+.slider {
+	max-height: 0;
+	overflow: hidden;
+}
+
+@media screen {
+	.slider {
+		transition: max-height 1s ease-in-out;
+	}
+}
+
+.slider.opened {
+	max-height: 1000ch;
+}
+
+/****************
+ * nice tooltip *
+ ****************/
+
+.tip {
+		display: inline;
+	position: relative;
+}
+
+.tip:hover:after{
+	background: #333;
+	background: rgba(0,0,0,.8);
+	border-radius: 5px;
+	bottom: 26px;
+	color: #fff;
+	content: attr(title);
+	left: -200%;
+	padding: 5px 15px;
+	position: absolute;
+	z-index: 98;
+}
+
+.tip:hover:before{
+	border: solid;
+	border-color: #333 transparent;
+	border-width: 6px 6px 0 6px;
+	bottom: 20px;
+	content: "";
+	left: 10%;
+	position: absolute;
+	z-index: 99;
+}

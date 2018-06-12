@@ -200,7 +200,7 @@ var cv = {
 				stack: "MS-Access, MSSql, IBM Acg, Zetafax, Autocad, PDFCreator, OS/400, Windows NT, AS/400, stampanti Intermec e Zebra"
 			},{
 				period: "1990 - 1997",
-				comp: 	"Docente tecnico pratico, tecnico/programmatore",
+				comp: 	"Docente tecnico pratico, tecnico-programmatore",
 				competencies: ["DTP","TP"],
 				task: 
 					"B.Pascal (diurno e serale): docente tecnico pratico, tecnico di laboratorio e responsabile rete Novell (hw&sw),"+
@@ -235,7 +235,7 @@ var cv = {
 				stack: "Pascal, C, ASMx86, Ventura Publisher, Coreldraw, Autocad, MSOffice, Dos, Novell, Windows"
 			},{
 				period: "1994 - 1997",
-				comp: 	"Studente, autodidatta, tecnico/programmatore",
+				comp: 	"Studente, autodidatta, tecnico-programmatore",
 				competencies: ["TP"],
 				task: 
 					"Autodidatta: Assemblaggio PC, Dos, Autocad, BBS (Fidonet Nodo 207), Assembler Z80/X86, C/C++, Object Pascal/Turbo Vision\n"+
@@ -344,7 +344,7 @@ var cv = {
 			["TRN", "Trainer"],
 			["JIT",	"Junior ICT Manager"],
 			["DTP",	"Docente tecnico pratico"],
-			["TP", 	"tecnico/programmatore"]
+			["TP", 	"tecnico-programmatore"]
         ],
 
         anonymouse: [
