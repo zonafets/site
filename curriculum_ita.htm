@@ -174,11 +174,18 @@
 	    </tbody>
 	</table>
 
-	<!-- the following is the first draft for NTE implementation -->
+	<!-- 
 
-	<notifyBar></notifyBar>
+		the following is the first draft for NTE implementation 
+		notes the different way to define the templates, to try to respect the DRY principle
+		eventually I'll call it TBE (template by example)
 
-	<template name="notifyBar">
+	-->
+
+	<div template="notifyBar" class="fullPageOverlay" click="message">
+	    <span class="message">
+	    	<p></p>
+	    </span>
 		<style>
 			.fullPageOverlay > * {
 				transition: all 1s ease-in-out;
@@ -215,14 +222,8 @@
 			    padding: 5%;
 			}
 		</style>
+	</div>
 
-		<div class="fullPageOverlay" click="message">
-		    <span class="message">
-		    	<p></p>
-		    </span>
-		</div>
-
-	</template>
 
 </body>
 

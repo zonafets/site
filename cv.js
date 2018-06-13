@@ -18,10 +18,11 @@ var cv = {
 
         briefly: {
         	lines: [
-	            "fortemente motivato al problem solving in team o in autonomia",
-	            "con intuito e attenzione a costi/benefici e performance",
+	            "motivato al problem solving o alla gestione, in sitnonia con la politica aziendale",
+	            "con intuito e attenzione a costi/benefici e alle performance",
 	            "attraverso tutti gli aspetti del ciclo di vita, dalla R&D al post vendita",
-	        	"con soluzioni creative tramite brainstorming, mind maps; cura UI/UX con approfondimenti di p. cognitiva",
+	        	"con soluzioni creative tramite brainstorming, mind maps, //in team o in autonomia//", 
+	        	"cura UI/UX con approfondimenti di p. cognitiva",
 	            "esperienza nei settori [intrattenimento], [manifatturieri], [accoglienza], [automazione d'ufficio e industriale], "+
 	            "come [tecnico, programmatore] junior e senior, sistemista, [analista], [trainer], [ICT manager], program e "+
 	            "[std&qly] manager",

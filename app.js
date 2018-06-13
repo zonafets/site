@@ -1,4 +1,4 @@
-/*
+/**********************************************************************************************************************
 
 	-- NOTES ------------------------------------------------------------------------------
 
@@ -13,9 +13,11 @@
 
 	-- TODO -------------------------------------------------------------------------------
 
+	180602\s.zaglio: optimize multiple string replace in renderWikiStyleTags()
 	180601\s.zaglio: apply DRY principle to code and convert to NTE
 
-*/
+***********************************************************************************************************************/
+
 var app = new (function() {
 
 	var self = this
@@ -38,7 +40,7 @@ var app = new (function() {
 		}
 	}
 	
-	// prototypes
+	// prototypes =====================================================================================================
 
 	String.prototype.replaceAll = function(search, replacement) {
 	    var target = this;
@@ -46,7 +48,7 @@ var app = new (function() {
 	};
 
 
-	// generic utilities
+	// generic utilities ==============================================================================================
 
 	function competence_dsc(id) {
 		var dsc = ""
@@ -60,6 +62,8 @@ var app = new (function() {
 		return dsc
 	}
 
+	// ----------------------------------------------------------------------------------------------------------------
+
 	function message(textOrClickEvent) {
 		var bar = document.getElementById("notifyBar")
 		if (typeof textOrClickEvent === "string") {
@@ -71,7 +75,7 @@ var app = new (function() {
 	}
 
 
-	// behaviours
+	// behaviours =====================================================================================================
 
 	function swapViews() {
 		var flipper = document.querySelector(".flip-container")
@@ -90,6 +94,8 @@ var app = new (function() {
 		}
 	}
 
+	// ----------------------------------------------------------------------------------------------------------------
+
 	function flip(ev) {
 		var target = ev?ev.currentTarget:null
 		var photo = document.querySelector(".flip-container")
@@ -101,9 +107,14 @@ var app = new (function() {
 			photo.click()
 	}
 
+	// ----------------------------------------------------------------------------------------------------------------
+
     function copyEmail2Clipboard() {
         document.oncopy = function(event) {
-            var a = ["z", "a", "g", "l", "i", "o", ".", "s", "t", "e", "f", "a", "n", "o", "@", "g", "m", "a", "i", "l", ".", "c", "o", "m"]
+            var a = [
+            	"z", "a", "g", "l", "i", "o", ".", "s", "t", "e", "f", "a", "n", "o", 
+            	"@", "g", "m", "a", "i", "l", ".", "c", "o", "m"
+            ]
             event.clipboardData.setData("Text", a.join(''));
             event.preventDefault();
         }
@@ -114,7 +125,7 @@ var app = new (function() {
     }
 
 
-    // DOM helpers
+    // DOM helpers ====================================================================================================
 
     function elem(id) {
     	return document.getElementById(id)
@@ -180,7 +191,7 @@ var app = new (function() {
 		return li
     }
 
-    // NTE node constructors
+    // NTE node constructors ==========================================================================================
 
 	this["companies-idx"] = function() {
 		node = elem("companies-idx")
@@ -219,6 +230,8 @@ var app = new (function() {
 	    )
 	}
 
+	// ----------------------------------------------------------------------------------------------------------------
+
     this["stacks-idx"] = function() {
 		node = elem("stacks-idx")
 		cv.experiences.forEach(
@@ -250,6 +263,8 @@ var app = new (function() {
 	    )
     } // stacks-idx
 
+	// ----------------------------------------------------------------------------------------------------------------
+
     this["competencies-idx"] = function(node) {
 		node = document.getElementById("competencies-idx")
 		cv.competencies.forEach(
@@ -271,6 +286,8 @@ var app = new (function() {
 	    	}
 	    )
     } // competencies-idx
+
+	// ----------------------------------------------------------------------------------------------------------------
 
     this["projects"] = function(node) {
     	node = document.getElementById("projects")
@@ -359,6 +376,8 @@ var app = new (function() {
     	)
     	node.appendChild(tbody)
     }
+
+	// ----------------------------------------------------------------------------------------------------------------
 
 	function isIE() {
 		var div = document.createElement("div")
@@ -457,8 +476,9 @@ var app = new (function() {
 	    app["projects"]()
 	} // RenderNodes
 
+	// ----------------------------------------------------------------------------------------------------------------
 
-	function renderWikiStyleLinks() 
+	function renderWikiStyleTags() 
 	{
 
 	    var html = document.body.innerHTML
@@ -511,33 +531,67 @@ var app = new (function() {
 		        html = html.replaceAll( r, a )
 		    }
 		)
+
+	    // collect and replace //...// with <i>...</i>
+		function collect_italics(obj, collection) {
+			if (collection === undefined) collection = []
+			for (var k in obj) {
+				if (k !== "links" && k !== "link" ) {
+					var prop = obj[k]
+					if (typeof prop === "object")
+						collect_italics(obj[k], collection)
+					if (typeof prop === "string") {
+						collection.push.apply(collection,prop.match(/[/][/].*[/][/]/g))
+					}
+				}
+			}
+			return collection
+		}
+
+		var italics = collect_italics(cv)
+
+	    italics.forEach(
+	    	function(it) {
+		        var i = '<i>' + it.slice(2,-2) +'</i>'
+		        html = html.replaceAll( it, i )
+		    }
+		)
 	    
 	    document.body.innerHTML = html
 
 	} // RenderWikiStyleLinks
 
+	// ----------------------------------------------------------------------------------------------------------------
 
     function renderTemplates() 
     {
+    	
+	    var templates = document.querySelectorAll("*[template]")
+	    templates.forEach(
+	    	function(tpl) {
 
-	    var templates = document.getElementsByTagName("template")
-	    for(var i=0;i<templates.length;i++) {
-	    	var tpl = templates[i]
-    		var style = tpl.content.querySelector("style")
-    		var css = document.createElement("style")
-    		css.innerText = style.innerText
-    		document.head.appendChild(css)
-    		
-    		// search tags an replace content
-    		var name = tpl.attributes.name.value
-    		var tags = document.getElementsByTagName(name)
-    		for (var j=0;j<tags.length;j++) {
-	    		tag = tags[j]
-	    		var clone = tpl.content.querySelector("div").cloneNode(true)
-	    		clone.id = name + (j===0?"":j)
-				tag.replaceWith(clone)
-			}	
-	    }
+	    		var style = tpl.querySelector("style")
+
+	    		if (style) {	// todo: if plural? 
+		    		var css = document.createElement("style")
+		    		css.innerText = style.innerText
+		    		document.head.appendChild(css)
+		    	}
+
+	    		var name = tpl.attributes.template.value
+		    	// the 1st template become active
+		    	tpl.id = name
+
+	    		// search tags an replace content
+	    		var tags = document.getElementsByTagName(name)
+	    		for (var j=0;j<tags.length;j++) {
+		    		tag = tags[j]
+		    		var clone = tpl.content.querySelector("div").cloneNode(true)
+		    		clone.id = name + (j===0?"":j)
+					tag.replaceWith(clone)
+				}	
+	    	}
+	    )
 
 	    // add events
 	    var activeElems = document.querySelectorAll("*[click]")
@@ -549,6 +603,8 @@ var app = new (function() {
 	    )
 
 	} // RenderTemplates
+
+	// ----------------------------------------------------------------------------------------------------------------
 
     function convertLinksToText() 
     {
@@ -569,6 +625,7 @@ var app = new (function() {
 	    
 	} // convertLinksToText
 
+	// ----------------------------------------------------------------------------------------------------------------
     
     function run(cmds)
     {
@@ -595,7 +652,7 @@ var app = new (function() {
 
 	checkIE()
 	renderNodes(this)
-	renderWikiStyleLinks()
+	renderWikiStyleTags()
 	renderTemplates()
 	run()
 
