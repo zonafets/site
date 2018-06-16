@@ -70,13 +70,16 @@ body {
 	margin:4px;
 	background-color:#ffffff;
 	color:#000000;
-	opacity: 0;
-    transition: none;
 }
 
-body.fade-in {
-    opacity: 1;
-    transition: 0.6s opacity;
+@media screen {
+	body {
+		opacity: 0;
+	}
+	body.fade-in {
+	    opacity: 1;
+	    transition: 0.6s opacity;
+	}
 }
 
 :link {
@@ -223,6 +226,9 @@ li::before {
 	.flipper {
 		transition: transform 0.6s;
 	}
+	.flip-container.flip .flipper .front {
+		transition: 1s;
+	}
 }
 
 /* hide back of pane during swap */
@@ -288,7 +294,7 @@ li::before {
  ****************/
 
 .tip {
-		display: inline;
+	display: inline;
 	position: relative;
 }
 

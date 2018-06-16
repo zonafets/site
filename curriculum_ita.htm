@@ -8,20 +8,27 @@
 
 <!--
 
-	-- NOTES ------------------------------------------------------------------------------
+	-- SCOPE ------------------------------------------------------------------------------
 
-	This isn't only a page with my CV, but also a place where I'll refine the code to test 
-	the concepts of NTE (https://github.com/zonafets/NTE)
+	Show my CV, rendering content from JSON(cv-data.js) using an experimental template 
+	technique that I'am calling/define as NTE (Natural Template Engine) or TBE (template by example).
+	(https://github.com/zonafets/NTE)
+
+
+	-- NOTES ------------------------------------------------------------------------------
 
 	I know, this is not the better code. DRY principle can be applied more.
 
+
 	-- CHANGELOG --------------------------------------------------------------------------
 
+	180616\s.zaglio: tested on Midori and adapted to generate a static version 
 	180612\s.zaglio: split into external files
 	180611\s.zaglio: begin of apply of DRY & NTE principles to the code; added message
 	180608\s.zaglio: added self-taught experience; improved links replace with "&"
 	180601\s.zaglio: added todo section
 	180530\s.zaglio: first semi-definitive version
+
 
 	-- TODO -------------------------------------------------------------------------------
 
@@ -39,7 +46,7 @@
     <link rel="icon" href="favicon.ico"/>
     <title>Curriculum di Stefano Zaglio</title>
     
-    <link rel="stylesheet" type="text/css" href="cv.css">
+    <link rel="stylesheet" type="text/css" href="css/cv.css">
 </head>
     
 <body>
@@ -47,14 +54,15 @@
     <table id="head" class="anonymouse" >
         <tbody>
             <tr>
-                <td>
+                <td template="address">
+                	<!-- move to: <template id="address"><b>...@address...</template>  -->
                     <b>Stefano Zaglio</b>(CV)<br>
                     <span>Via Soratino, 8</span><br/>
                     46043 [Castiglione D/S] (Italy)<br>
                     Nato il 01.02.72 / Sposato
                 </td>
                 <td rowspan="2">
-                	<div class="flip-container" click="flip">
+                	<div class="flip-container flip" click="flip">
 						<div class="flipper">
 							<div class="front">
 								<img id="foto-cravatta" src="images/io/foto-cravatta-tonda.jpg" >
@@ -84,7 +92,7 @@
 	    </ul>
     </section>
 
-    <div id="view_by_projects" class="slider">
+    <div id="view_by_projects" class="slider opened">
     
         <section id="stacks-idx">
             <h2>Indice stacks</h2>
@@ -111,7 +119,7 @@
 
     </div>
 
-    <div id="view_by_experiences" class="slider opened">
+    <div id="view_by_experiences" class="slider">
 
 	    <table id="lasts-kb">
 	        <thead>
@@ -227,8 +235,9 @@
 
 </body>
 
-<script src="cv.js?180612.1245"></script>
-
-<script src="app.js?180612.1245"></script>
+<script src="js/cv-data.js"></script>
+<script src="js/compatibility.js"></script>
+<script src="js/proto.js"></script>
+<script src="js/app.js"></script>
 
 </html>

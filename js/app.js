@@ -7,9 +7,16 @@
 
 	I know, this is not the better code. DRY principle can be applied more.
 
+	-- SCOPE ------------------------------------------------------------------------------
+
+	Render content of JSON(cv-data.js) using an experimental template technique that I'am
+	calling/define as NTE (Natural Template Engine) or TBE (template by example).
+
+
 	-- CHANGELOG --------------------------------------------------------------------------
 
 	180612\s.zaglio: begin of apply Brian W. Kernighan and P. J. Plaugher principle
+
 
 	-- TODO -------------------------------------------------------------------------------
 
@@ -19,6 +26,31 @@
 ***********************************************************************************************************************/
 
 var app = new (function() {
+
+	// ----------------------------------------------------------------------------------------------------------------
+
+	var redirect = "curriculum_ita_static.htm"
+
+	function wasRedirected() {	
+		return (window.location.href.substr(-redirect.length)===redirect) ? true : false
+	}
+
+	if (wasRedirected()) {
+		document.body.style.display = 'block';
+		return
+	}
+
+	// ----------------------------------------------------------------------------------------------------------------
+
+	function redirectToStaticVersion() {
+		console.log("Redirecting to static version")
+		window.location.href = "curriculum_ita_static.htm"
+	}
+
+	if (!isCompatibileBrowser()) 
+		redirectToStaticVersion()
+
+	// ----------------------------------------------------------------------------------------------------------------
 
 	var self = this
 
@@ -39,14 +71,6 @@ var app = new (function() {
 			  +"Click / tap this message to close it"
 		}
 	}
-	
-	// prototypes =====================================================================================================
-
-	String.prototype.replaceAll = function(search, replacement) {
-	    var target = this;
-	    return target.replace(new RegExp(search.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), 'g'), replacement);
-	};
-
 
 	// generic utilities ==============================================================================================
 
@@ -470,10 +494,10 @@ var app = new (function() {
 	    	}
 	    )
 
-	    app["companies-idx"]()
-	    app["stacks-idx"]()
-	    app["competencies-idx"]()
-	    app["projects"]()
+	    self["companies-idx"]()
+	    self["stacks-idx"]()
+	    self["competencies-idx"]()
+	    self["projects"]()
 	} // RenderNodes
 
 	// ----------------------------------------------------------------------------------------------------------------
@@ -567,8 +591,11 @@ var app = new (function() {
     {
     	
 	    var templates = document.querySelectorAll("*[template]")
+
 	    templates.forEach(
 	    	function(tpl) {
+
+		    	if (typeof(tpl) !== "object") return
 
 	    		var style = tpl.querySelector("style")
 
@@ -591,14 +618,15 @@ var app = new (function() {
 					tag.replaceWith(clone)
 				}	
 	    	}
-	    )
+		)    
 
 	    // add events
 	    var activeElems = document.querySelectorAll("*[click]")
 	    activeElems.forEach(
 	    	function(it) {
-	    		var listener = eval(it.attributes.click.value)
-	    		it.addEventListener("click",listener)
+	    		if (typeof(it) !== "object") return
+    			var listener = eval(it.attributes.click.value)
+    			it.addEventListener("click",listener)
 	    	}
 	    )
 
@@ -635,25 +663,23 @@ var app = new (function() {
 
 	    document.body.className='fade-in';
 		
-	    if (cmds.indexOf("print") > -1) {
-			flip()
-		} else if (cmds.indexOf("projects") == -1) {
+	    if (cmds.indexOf("print") == -1 && cmds.indexOf("projects") == -1) {
 			setTimeout( flip, 1050)
 			message(msgs.instructions[lang])
 		}
 	} // run
 
 
-	/***********
-	**        ** 
-	**  MAIN  **
-	**        **
-	************/
+	// ----------------------------------------------------------------------------------------------------------------
 
-	checkIE()
-	renderNodes(this)
-	renderWikiStyleTags()
-	renderTemplates()
-	run()
+	function start() {
+		checkIE()
+		renderNodes(this)
+		renderWikiStyleTags()
+		renderTemplates()
+		run()
+	}
+
+	start()
 
 })() // app
