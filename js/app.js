@@ -664,7 +664,7 @@ var app = new (function() {
 	    document.body.className='fade-in';
 		
 	    if (cmds.indexOf("print") == -1 && cmds.indexOf("projects") == -1) {
-			setTimeout( flip, 1050)
+			// setTimeout( flip, 1050)
 			message(msgs.instructions[lang])
 		}
 	} // run
