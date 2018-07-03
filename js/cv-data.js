@@ -11,8 +11,8 @@ var cv = {
 
     	"self-nomination":
     		"Gentile Responsabile,\n\n" +
-        	"sarei lieto di mettere le mie competenze di tecnico e analista-programmatore,\n" +
-        	"con più di vent'anni di esperienza, per compagnie di varie dimensioni e settore,\n"+
+        	"sarei lieto di mettere le competenze di costruttore di mezzi oggi scontati dalla formazione,\n" +
+        	"nei vent'anni di esperienza in compagnie di varie dimensioni e settori,\n"+
         	"a servizio della Vostra Azienda.\n\n"+
         	"Confidando in un positivo riscontro, porgo distinti saluti.",
 
@@ -31,7 +31,7 @@ var cv = {
 	            "Full-Stack Web, Mobile e Desktop Developer, multi-threading, multi-process e multi-platform",
 	        	"disponibile al supporto con telelavoro, gestione delle urgenze, trasferte, anche internazionali di lunga durata",
 	        	"possibilità di assunzione entro 2 settimane", 
-	        	"RAL 45K trattabili"
+	        	"RAL 45K(trattabili)"
         	],
         	links:[
         		["intrattenimento",						"http://digilander.libero.it/bolido/MGSexyTV.htm"],
@@ -52,6 +52,32 @@ var cv = {
         	],
 
   		},
+
+  		introduction: [
+  			"Egregio Responsabile del personale,",
+			"avrei piacere a mettere la mia ventennale esperienza a servizio della Vostra azienda.",
+	
+			"Essa ha visto il raggiungimento e perdurare decennale degli obiettivi, in diversi settori e ruoli. Bilanciando tra gestione tecnica o commerciale, sviluppando soluzioni innovative o adattando le funzionalità sistemiche, mi qualifica come analista programmatore dotato di una famiglia di tecniche adatta ai diversi paradigmi, abile ad anticipare gli effetti collaterali.",
+
+			"**Hard skills**",
+			"Perito elettronico capotecnico con specilizzazione in informatica, diplomato a pieni voti, nei primi dieci anni svolgo alternativamente attività come programmatore, tecnico e docente. Maturando i livelli nei vari ruoli, apprendo ed impiego con successo gli strumenti richiesti dall'azienda.",
+			"Gli ambiti vanno dal firmware al front end, al back office, dal micro dispositivo al main frame, lavorando anche in ambienti differenti da Windows. I settori vanno dall'intrattenimento al manifatturiero con soluzioni anche per l'ottimizzazione delle performance e degli stessi processi di lavoro.",
+			"Le **recenti conoscenze** riguardano:",
+			"  HTML, Javascript, C#, Razor/Asp.Net, Jquery, KnockoutJS.",
+			"Interessi **a breve**:",
+			"  AngularJS o React su web/desktop, Xamarin o iOS su desktop/mobile, OpenCV/Python per video/image processing.",
+			"Interessi **futuri**:",
+			"  blockchain per certificazione e uso AI per analisi dati. ",
+
+			"**Soft skills**",
+			"Negli ultimi dieci anni mi specializzo nell'analisi e sviluppo con momenti di direzione di progetto e team management, non disdegnando supporto tramite helpdesk, da remoto o con trasferte estere.",
+			"Uno studio collaterale mi vede anche personalmente impegnato nella difficile arte della ristrutturazione, la dove i costi obbligano alla conservazione. ",
+			"Per una **visione dettagliata delle abilità**, è possibile visione il mio CV online all'indirizzo: [https://goo.gl/7hakDJ#details#projects] , che è web app esemplificativa con links ai video dei prodotti realizzati e alle referenze.",
+			
+			"Confidando in positivo riscontro,",
+			"porgo distinti saluti.",
+			"s.z."
+  		],
 	   
         "lasts-kb": {
         	lines:[
@@ -268,6 +294,10 @@ var cv = {
 			},
         ], // experiences
 
+        "projectsTable": {
+        	theads: ["Progetti e attività principali","Stack","Comp.","Az."],
+        },
+
         "previous-kb": {
         	items:[
 		        ["Server development",		"RPG-IV/ABAP, Ibm AS400 [ACG integration]", 1],
@@ -355,12 +385,13 @@ var cv = {
         ],
 
         hidden: [
-        	"RAL 45K trattabili",
+        	"RAL 45K(trattabili)",
         ],
 
 		links: [
 			["Esperienze di Lavoro", "https://goo.gl/XnCjuH"],
 			["video games", "http://digilander.libero.it/bolido/MGSexyTV.htm"],
+			["https://goo.gl/7hakDJ#details#projects","https://goo.gl/7hakDJ#details#projects"],
     	],
 
 	} // cv

@@ -7,6 +7,7 @@
 echo "Creatin pdf"
 chromehtml2pdf \
 	--headless \
+	--allow-file-access-from-files \
 	--out=zaglio_stefano_cv_ita.pdf \
 	--run-all-compositor-stages-before-draw \
 	--disable-checker-imaging \
@@ -22,12 +23,14 @@ chromehtml2pdf \
 echo "Creating static version"
 chromium-browser \
 	--headless \
+	--allow-file-access-from-files \
 	--save-page-as-mhtml \
 	--run-all-compositor-stages-before-draw \
 	--disable-checker-imaging \
 	--disable-gpu \
-	--virtual-time-budget=2500 \
 	--dump-dom \
 	file:///home/stefano/develop/GitHub/site/curriculum_ita.htm?print \
 	> curriculum_ita_static.htm 
 
+
+	# --virtual-time-budget=2500 \

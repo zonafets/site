@@ -1,0 +1,59 @@
+<style>
+	.fullPageOverlay > * {
+		transition: all 1s ease-in-out;
+	}
+
+	.fullPageOverlay {
+	    height:100%;
+	    width:100%;
+	    position:fixed;
+	    left:0;
+	    top:0;
+	    z-index:100 !important;
+	    background-color: rgba(0,0,0,0.5);
+	    display: none;
+		cursor: pointer;
+	}
+
+	.fullPageOverlay .message {
+		display: inline-block;
+	    position: absolute;
+	    left: 0;
+	    right: 0;
+	    margin: auto;
+	    color: white;
+	    height: fit-content;
+	    top: 20%;
+	    text-align: center;
+	    background: slategray;
+	}
+
+	.fullPageOverlay .message p {
+	    font-weight: bold;
+	    font-size: 125%;
+	    padding: 5%;
+	}
+</style>
+
+<template name="notifyBar" class="fullPageOverlay" click="message">
+    <span class="message">
+    	<p></p>
+    </span>
+</template>
+
+<script>
+	// manual installation
+	var imp = document.querySelector('link[name="notifyBar"]')
+	imp = imp.import;
+	var tpl = imp.getElementsByTagName("template")[0]
+	var div = document.createElement("div")
+	div.id = tpl.attributes.name.value
+	div.className = tpl.className
+	div.setAttribute("click", tpl.attributes.click.value)
+	div.appendChild(tpl.content.firstElementChild) // .cloneNode(true))
+	document.body.appendChild(div)
+	div = undefined
+	tpl = undefined
+	imp = undefined
+</script>
+

@@ -40,6 +40,9 @@ function isCompatibileBrowser() {
 		typeof(element.firstElementChild)!=='object'
 		) 
 		return false
+
+    if (!('import' in document.createElement('link'))) return false;
+
 	console.log("Compatibility verified")
 	return true
 }

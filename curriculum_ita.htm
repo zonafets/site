@@ -47,6 +47,7 @@
     <title>Curriculum di Stefano Zaglio</title>
     
     <link rel="stylesheet" type="text/css" href="css/cv.css">
+	<link name="notifyBar" rel="import" href="./notifyBar.htm">
 </head>
     
 <body>
@@ -62,7 +63,7 @@
                     Nato il 01.02.72 / Sposato
                 </td>
                 <td rowspan="2">
-                	<div class="flip-container flip" click="flip">
+                	<div class="flip-container" click="flip">
 						<div class="flipper">
 							<div class="front">
 								<img id="foto-cravatta" src="images/io/foto-cravatta-tonda.jpg" >
@@ -84,157 +85,114 @@
         </tbody>
     </table>
 
-    <blockquote id="self-nomination"></blockquote>
+    <introduction hash="#">
+	    <p bind="cv.introduction"></p>
+	</introduction>
 
-    <section id="briefly">
-	    <h2>Brevemente</h2>
-	    <ul>
-	    </ul>
-    </section>
+    <div hash="#details">
+	    <!--blockquote id="self-nomination"></blockquote-->
 
-    <div id="view_by_projects" class="slider opened">
-    
-        <section id="stacks-idx">
-            <h2>Indice stacks</h2>
-        </section>
+	    <briefly>
+		    <h2>Brevemente</h2>
+		    <ul>
+		    	<li bind="cv.briefly.lines"></li>
+		    </ul>
+	    </briefly>
 
-        <section id="competencies-idx">
-            <h2>Indice competenze</h2>
-        </section>
+	    <div hash="#projects" class="slider">
+	    
+	        <stacks>
+	            <h2>Indice stacks</h2>
+	        </stacks>
 
-        <table id="projects">
-            <thead>
-                <tr>
-                    <td>Progetti e attività principali</td>
-                    <td>Stack</td>
-                    <td>Comp.</td>
-                    <td>Az.</td>
-                </tr>
-            </thead>
-        </table>
+	        <competencies>
+	            <h2>Indice competenze</h2>
+	        </competencies>
 
-        <section id="companies-idx">
-            <h2>Indice aziende</h2>
-        </section>
+	        <projects>
+	        	<table>
+		            <thead>
+		                <tr>
+		                    <td bind="cv.projectsTable.theads"></td>
+		                </tr>
+		            </thead>
+		        </table>
+		    </projects>
 
-    </div>
+	        <companies>
+	            <h2>Indice aziende</h2>
+	        </companies>
 
-    <div id="view_by_experiences" class="slider">
+	    </div>
 
-	    <table id="lasts-kb">
-	        <thead>
-	            <tr>
-	                <td>Conoscenze recenti</td>
-	                <td>Anni</td>
-	            </tr>
-	        </thead>
-	    </table>
+	    <div hash="#experiences" class="slider">
 
-        <section id="experiences">
-            <b>[Esperienze di Lavoro]&nbsp;(f/p.time, co.co.pro, p.o.)</b>
-            <table>
-                <thead>
-                    <tr>
-                        <td>Periodo/Comp.</td>
-                        <td>Attività</td>
-                        <td>Azienda</td>
-                    </tr>
-                </thead>
-            </table>
-        </section>
+		    <table id="lasts-kb">
+		        <thead>
+		            <tr>
+		                <td>Conoscenze recenti</td>
+		                <td>Anni</td>
+		            </tr>
+		        </thead>
+		    </table>
 
-		<section id="previous-kb">
-	    <b>Conoscenze pregresse</b>
-	    <table>
-	        <thead>
-	            <tr>
-	                <td>Categoria</td>
-	                <td>Nome</td>
-	                <td>Anni</td>
-	            </tr>
-	        </thead>
-	    </table>
+	        <section id="experiences">
+	            <b>[Esperienze di Lavoro]&nbsp;(f/p.time, co.co.pro, p.o.)</b>
+	            <table>
+	                <thead>
+	                    <tr>
+	                        <td>Periodo/Comp.</td>
+	                        <td>Attività</td>
+	                        <td>Azienda</td>
+	                    </tr>
+	                </thead>
+	            </table>
+	        </section>
+
+			<section id="previous-kb">
+		    <b>Conoscenze pregresse</b>
+		    <table>
+		        <thead>
+		            <tr>
+		                <td>Categoria</td>
+		                <td>Nome</td>
+		                <td>Anni</td>
+		            </tr>
+		        </thead>
+		    </table>
+			</section>
+
+	    </div>
+	        
+	    <section id="extra-info">
+	    	<h2>Informazioni aggiuntive</h2>
+			<table>
+			</table>
 		</section>
 
-    </div>
-        
-    <section id="extra-info">
-    	<h2>Informazioni aggiuntive</h2>
-		<table>
+		<table id="extra-courses">
+		    <thead>
+		        <tr>
+		            <td>[Attività extracurriculari]</td>
+		            <td>Competenze acquisite</td>
+		        </tr>
+		    </thead>
 		</table>
-	</section>
 
-	<table id="extra-courses">
-	    <thead>
-	        <tr>
-	            <td>[Attività extracurriculari]</td>
-	            <td>Competenze acquisite</td>
-	        </tr>
-	    </thead>
-	</table>
+		<table id="privacy">
+		    <tbody>
+		        <tr>
+		            <td><i>Autorizzo il trattamento dei dati personali ai sensi del &nbsp;ex D. lgs. 196/2003</i></td>
+		            <td><i>Castiglione D/S, 24/05/2018</i></td>
+		        </tr>
+		    </tbody>
+		</table>
 
-	<table id="privacy">
-	    <tbody>
-	        <tr>
-	            <td><i>Autorizzo il trattamento dei dati personali ai sensi del &nbsp;ex D. lgs. 196/2003</i></td>
-	            <td><i>Castiglione D/S, 24/05/2018</i></td>
-	        </tr>
-	    </tbody>
-	</table>
-
-	<!-- 
-
-		the following is the first draft for NTE implementation 
-		notes the different way to define the templates, to try to respect the DRY principle
-		eventually I'll call it TBE (template by example)
-
-	-->
-
-	<div template="notifyBar" class="fullPageOverlay" click="message">
-	    <span class="message">
-	    	<p></p>
-	    </span>
-		<style>
-			.fullPageOverlay > * {
-				transition: all 1s ease-in-out;
-			}
-
-			.fullPageOverlay {
-			    height:100%;
-			    width:100%;
-			    position:fixed;
-			    left:0;
-			    top:0;
-			    z-index:100 !important;
-			    background-color: rgba(0,0,0,0.5);
-			    display: none;
-            	cursor: pointer;
-			}
-
-			.fullPageOverlay .message {
-				display: inline-block;
-			    position: absolute;
-			    left: 0;
-			    right: 0;
-			    margin: auto;
-			    color: white;
-			    height: fit-content;
-			    top: 20%;
-			    text-align: center;
-			    background: slategray;
-			}
-
-			.fullPageOverlay .message p {
-			    font-weight: bold;
-			    font-size: 125%;
-			    padding: 5%;
-			}
-		</style>
 	</div>
-
 
 </body>
 
+<script src="js/nte.js"></script>
 <script src="js/cv-data.js"></script>
 <script src="js/compatibility.js"></script>
 <script src="js/proto.js"></script>

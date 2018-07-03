@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>  <html class="ie ie6 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 7]>     <html class="ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]>     <html class="ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]>     <html class="ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]>  <html> <![endif]-->
+<!--[if !IE]><!--> <html>             <!--<![endif]-->
+
+<!--
+
+	-- SCOPE ------------------------------------------------------------------------------
+
+	Show my CV, rendering content from JSON(cv-data.js) using an experimental template 
+	technique that I'am calling/define as NTE (Natural Template Engine) or TBE (template by example).
+	(https://github.com/zonafets/NTE)
+
+
+	-- NOTES ------------------------------------------------------------------------------
+
+	I know, this is not the better code. DRY principle can be applied more.
+
+
+	-- CHANGELOG --------------------------------------------------------------------------
+
+	180702\s.zaglio: heavy implementation of NTE 
+	180630\s.zaglio: heavy implementation of NTE 
+	180616\s.zaglio: tested on Midori and adapted to generate a static version 
+	180612\s.zaglio: split into external files
+	180611\s.zaglio: begin of apply of DRY & NTE principles to the code; added message
+	180608\s.zaglio: added self-taught experience; improved links replace with "&"
+	180601\s.zaglio: added todo section
+	180530\s.zaglio: first semi-definitive version
+
+
+	-- TODO -------------------------------------------------------------------------------
+
+	180601\s.zaglio: apply DRY principle to code and convert to NTE
+
+-->
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!--meta name="viewport" content="initial-scale=1, maximum-scale=1"/-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="cache-control" content="no-store"/>
+    <meta name="keywords" content="analista, programmatore, sistemista, itc, it, manager, pc, as400, castiglione delle stiviere, mantova, brescia, asp, net, razor, mvc, delphi, c/c++, c#, wince, windows, msaccess, tsql, visual, basic, novell, windows, ubuntu, linux"/>
+    <meta name="description" content="Curriculum di Stefano Zaglio"/>
+    <link rel="icon" href="favicon.ico"/>
+    <title>Curriculum di Stefano Zaglio</title>
+
+    <link rel="stylesheet" type="text/css" href="css/cv.css">
+	<link name="notifyBar" rel="import" href="./notifyBar.htm">
+
+</head>
+    
+<body bind = "app">
+
+	<person-info></person-info>    
+
+    <!--self-nomination></self-nomination-->
+
+    <introduction>
+    	<p bind="cv.introduction"></p>
+    </introduction>
+
+    <details bind="cv" hash="details">
+
+	    <briefly></briefly>
+
+	    <view-by-projects hash="projects">
+	    
+	        <stacks-idx></stacks-idx>
+	            
+	        <competencies-idx></competencies-idx>
+
+	        <projects></projects>
+
+	        <companies-idx></companies-idx>
+
+	    </view-by-projects>>
+
+	    <view-by-experiences hash="experiences">
+
+		    <lasts-kb></lasts-kb>
+
+	        <experiences></experiences>
+
+			<previous-kb></previous-kb>
+
+	    </view-by-experiences>>
+	        
+	    <extra-info></extra-info>
+
+		<extra-courses></extra-courses>
+
+		<privacy></privacy>
+
+	</details>
+
+</body>
+
+<templates>
+	<template name="address">
+		<b>Stefano Zaglio</b>(CV)<br>
+		<span>Via Soratino, 8</span><br/>
+		46043 [Castiglione D/S] (Italy)<br>
+		Nato il 01.02.72 / Sposato
+	</template>
+
+	<template name="person-info">
+		<table id="head" class="anonymouse" >
+	        <tbody>
+	            <tr>
+	                <td>
+	                	<address></address>
+	                </td>
+	                <td rowspan="2">
+	                	<div class="flip-container flip" click="flip">
+							<div class="flipper">
+								<div class="front">
+									<img id="foto-cravatta" src="images/io/foto-cravatta-tonda.jpg" >
+								</div>
+								<div class="back">
+									<img id="foto-barba" src="images/io/foto-tonda.jpg" >
+								</div>
+							</div>
+						</div>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td style="border-bottom: 1px solid gray;">
+	                    <img id="placeE" alt="myEmail" title="click to get email into clipboard" src="images/ref.svg" click="copyEmail2Clipboard"/><br>
+	                    this:&nbsp;[https://goo.gl/7hakDJ]
+	                    &nbsp;-&nbsp;[PDF]-&nbsp;[linkedin]
+	                </td>
+	            </tr>
+	        </tbody>
+	    </table>
+	</template>
+
+	<template name="self-nomination">
+	    <blockquote bind="cv.self-nomination"></blockquote>
+	</template>
+
+	<template name="briefly">
+	    <h2>Brevemente</h2>
+	    <ul bind="cv.briefly.lines"></ul>
+	</template>
+
+	<template name="projects">
+        <table id="projects" bind="cv.projects-table">
+            <thead>
+                <tr>
+                	<td bind="thead"></td>
+                    <td>Progetti e attività principali</td>
+                    <td>Stack</td>
+                    <td>Comp.</td>
+                    <td>Az.</td>
+                </tr>
+            </thead>
+            <tbody bind="app.projects">
+            	<tr bind="cv.projects">
+            		<td bind="desc"></td>
+            		<td bind="competencies" tag="img"></td>
+            		<td
+
+            </tbody>
+        </table>
+	</template>
+
+</templates>
+
+<script src="js/nte.js"></script>
+<script src="js/cv-data.js"></script>
+<script src="js/compatibility.js"></script>
+<script src="js/proto.js"></script>
+<!--script src="js/app.js"></script-->
+<script>
+	var app={
+		start: function() {
+		}
+	}
+</script>
+
+</html>

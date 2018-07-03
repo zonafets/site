@@ -24,6 +24,7 @@
 	180601\s.zaglio: apply DRY principle to code and convert to NTE
 
 ***********************************************************************************************************************/
+"use strict"
 
 var app = new (function() {
 
@@ -53,6 +54,7 @@ var app = new (function() {
 	// ----------------------------------------------------------------------------------------------------------------
 
 	var self = this
+	var app = this
 
 	// messages
 	var lang = navigator.language.substring(0,2)
@@ -69,6 +71,10 @@ var app = new (function() {
 			en:"Click / tap on the photo to change view from project list to experiences\n\n"
 			  +"Click / tap on the email to copy it to the clipboard\n\n"
 			  +"Click / tap this message to close it"
+		},
+		emailCopied:{
+			it:"Email copiata nella clipboard.",
+			en:"Email copied into clipboard."
 		}
 	}
 
@@ -88,7 +94,7 @@ var app = new (function() {
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-	function message(textOrClickEvent) {
+	self.message = function(textOrClickEvent) {
 		var bar = document.getElementById("notifyBar")
 		if (typeof textOrClickEvent === "string") {
 			var msg = bar.firstElementChild.firstElementChild // span.p
@@ -102,29 +108,17 @@ var app = new (function() {
 	// behaviours =====================================================================================================
 
 	function swapViews() {
-		var flipper = document.querySelector(".flip-container")
-		var experience_view = document.getElementById("view_by_experiences")
-		var projects_view = document.getElementById("view_by_projects")
-		var style = getComputedStyle(document.querySelector(".slider"))
-		var time = parseInt(style.transitionDuration) * 1000
-		var css = "opened"
-
-		if (flipper.classList.contains("flip")) {
-			experience_view.classList.remove(css)
-			setTimeout(function(){projects_view.classList.add(css)}, time)
-		} else {
-			projects_view.classList.remove(css)
-			setTimeout(function(){experience_view.classList.add(css)}, time)
-		}
+		if (location.hash === "#details#experiences" || location.hash === "") location.hash = "#details#projects"
+		else
+			if (location.hash === "#details#projects") location.hash = "#details#experiences"
 	}
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-	function flip(ev) {
+	self.flip = function(ev) {
 		var target = ev?ev.currentTarget:null
 		var photo = document.querySelector(".flip-container")
 		if (target === photo) {
-			target.classList.toggle('flip')
 			swapViews()
 		}
 		else
@@ -133,7 +127,7 @@ var app = new (function() {
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-    function copyEmail2Clipboard() {
+    self.copyEmail2Clipboard = function() {
         document.oncopy = function(event) {
             var a = [
             	"z", "a", "g", "l", "i", "o", ".", "s", "t", "e", "f", "a", "n", "o", 
@@ -145,44 +139,11 @@ var app = new (function() {
         ;
         document.execCommand("Copy");
         document.oncopy = undefined;
-        message("Email copiata nella clipboard.")
+        self.message(msgs.emailCopied[lang])
     }
 
 
-    // DOM helpers ====================================================================================================
-
-    function elem(id) {
-    	return document.getElementById(id)
-    }
-
-    function append( parent, node ) {
-    	parent.appendChild(node)
-    	return parent
-    }
-
-    function spcIf(condition) {
-    	return condition? " ":""
-    }
-
-    function txt(text) {
-    	return document.createTextNode(text)
-    }
-
-    function bold(nodeOrText) {
-    	var b = document.createElement("b")
-    	if (typeof nodeOrText === "string") {
-    		nodeOrText = document.createTextNode( nodeOrText )
-    	}
-    	b.appendChild(nodeOrText)
-    	return b
-    }
-
-    function lnk( href, node ) {
-		var a = document.createElement("a")
-		a.href = href
-		a.appendChild( node )
-		return a
-	}
+    // node constructors ==========================================================================================
 
     function lg(node) {
     	var lg = document.createElement("lg")
@@ -190,35 +151,12 @@ var app = new (function() {
     	return lg
     }
 
-    function trNtd() 
-    {
-    	var tr = document.createElement("tr")
-    	for (var i=0;i<arguments.length;i++) {
-    		var td = document.createElement("td")
-    		var strings = arguments[i].split("\n")
-    		for (var j=0; j<strings.length; j++) {
-    			var tn = document.createTextNode(strings[j])
-	    		td.appendChild(tn)
-    			if (j!=strings.length-1)
-    			td.appendChild(document.createElement("br"))
-    		}
-    		tr.appendChild(td)
-    	}
-    	return tr
-    }
+	// ----------------------------------------------------------------------------------------------------------------
 
-    function li(txt)
-    {
-		var li = document.createElement("li")
-		var tn = document.createTextNode(txt)
-		li.appendChild(tn)
-		return li
-    }
-
-    // NTE node constructors ==========================================================================================
-
-	this["companies-idx"] = function() {
-		node = elem("companies-idx")
+	this["companies"] = function(node) {
+		
+		var elem = nte.elem, append = nte.append, bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf, node, lnk = nte.lnk
+		
 		var n = 0, i = 0;
 
 		var list = cv.experiences
@@ -256,29 +194,15 @@ var app = new (function() {
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-    this["stacks-idx"] = function() {
-		node = elem("stacks-idx")
+    this["stacks"] = function(node) {
 		cv.experiences.forEach(
     		function(it,i) {
 
-		    	
+    	    	var append = nte.append, bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf
     			
     			var id = String.fromCharCode( 65 + i )
     			it.stackId = id
     			var text = " ●\u00a0"+id+" "
-
-    			/*
-    			// without helpers
-		    	var lg = document.createElement("lg")
-		    	if (i>0) lg.appendChild(document.createTextNode(" "))
-    			var tn = document.createTextNode(text)
-    			var b = document.createElement("b")
-    			b.appendChild(tn)
-    			lg.appendChild(b)
-		    	node.appendChild(lg)
-		    	*/
-
-		    	// node.appendChild( lg ( txt(spcIf(i>0)) ).appendChild( bold( text ) ).parentElement )
 
 		    	append( node, append( lg ( txt(spcIf(i>0)) ), bold( text ) ))
 
@@ -289,23 +213,28 @@ var app = new (function() {
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-    this["competencies-idx"] = function(node) {
-		node = document.getElementById("competencies-idx")
+    this["competencies"] = function(node) {
 		cv.competencies.forEach(
     		function(it,i) {
 
-		    	var id = it[0].toLowerCase()
-		    	var dsc = it[1]
+		    	var append = nte.append, txt = nte.txt, 
+    	    		create = (tag)=>document.createElement(tag), get = (id)=>document.getElementById(id), 
+					select = (qry)=>document.querySelector(qry)
 
-		    	var span = document.createElement("span")
-		    	var img = document.createElement("img")
+				var id,dsc,span,img,tn
+
+		    	id = it[0].toLowerCase()
+		    	dsc = it[1]
+
+		    	span = create("span")
+		    	img = create("img")
     			img.src = "images/icons/" + it[0].toLowerCase() + ".png"
-    			span.appendChild(img)
+    			append(span,img)
 
-    			tn = document.createTextNode(" " + dsc + " ")
-    			span.appendChild(tn)
+    			tn = txt(" " + dsc + " ")
+    			append(span,tn)
 
-    			node.appendChild(span)
+    			append(node,span)
 
 	    	}
 	    )
@@ -314,8 +243,14 @@ var app = new (function() {
 	// ----------------------------------------------------------------------------------------------------------------
 
     this["projects"] = function(node) {
-    	node = document.getElementById("projects")
-    	var tbody = document.createElement("tbody")
+		var
+    		elem = nte.elem, append = nte.append, bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf,
+    		lnk = nte.lnk, trNtd = nte.trNtd, li = nte.li, replyElem = nte.replyElem, 
+    		create = (tag)=>document.createElement(tag), get = (id)=>node.getElementById(id), 
+			select = (qry)=>node.querySelector(qry)
+
+    	var table = select("table")
+    	var tbody = create("tbody")
 		var prevComps = ""
     	cv.experiences.forEach(
     		function(exp) {
@@ -328,10 +263,10 @@ var app = new (function() {
     							var desc = prj.hasOwnProperty("desc") ? prj.desc : ""
     							var link = prj.hasOwnProperty("link") ? prj.link : ""
 
-				    			var tr = document.createElement("tr")
+				    			var tr = create("tr")
 
     							// project
-		    					var td = document.createElement("td")
+		    					var td = create("td")
 		    					var dsc
 
 		    					if (link !== "") {
@@ -349,70 +284,55 @@ var app = new (function() {
 		    						dsc = name ? name+": "+desc : desc
 		    					}
 
-		    					var tn = document.createTextNode(dsc)
-		    					td.appendChild(tn)
-		    					tr.appendChild(td)
+		    					var tn = txt(dsc)
+		    					append(td,tn)
+		    					append(tr,td)
 
 		    					// stack
-		    					td = document.createElement("td")
-		    					tn = document.createTextNode(exp.stackId)
-		    					td.appendChild(tn)
-		    					tr.appendChild(td)
+		    					td = create("td")
+		    					tn = txt(exp.stackId)
+		    					append(td,tn)
+		    					append(tr,td)
 
 		    					// competencies
-		    					td = document.createElement("td")
+		    					td = create("td")
 
 		    					var comps = exp.competencies.join(",")
 		    					if (prevComps == comps) 
-	    							td.appendChild(document.createTextNode("\""))
+	    							append(td,txt("\""))
 		    					else {
 			    					exp.competencies.forEach(
 			    						function(it) {
-			    							var span = document.createElement("span") 
+			    							var span = create("span") 
 			    							span.title = competence_dsc(it)
 			    							span.className = "tip" 
-			    							var img = document.createElement("img")
+			    							var img = create("img")
 			    							img.src = "images/icons/" + it.toLowerCase() + ".png"
-			    							span.appendChild(img)
-			    							td.appendChild(span)
+			    							append(span,img)
+			    							append(td,span)
 			    						}
 			    					)
 			    					prevComps = comps
 			    				}
 
-		    					/*
-		    					tn = document.createTextNode(exp.competencies.join(", "))
-		    					td.appendChild(tn)
-		    					*/
-		    					tr.appendChild(td)
+		    					append(tr,td)
 
 		    					// company
-		    					td = document.createElement("td")
-		    					tn = document.createTextNode(comp.id)
-		    					td.appendChild(tn)
-		    					tr.appendChild(td)
-    							tbody.appendChild(tr)
+		    					td = create("td")
+		    					tn = txt(comp.id)
+		    					append(td,tn)
+		    					append(tr,td)
+		    					append(tbody,tr)
 		    				}
 		    			)
     				}
     			)
     		}
     	)
-    	node.appendChild(tbody)
+    	append(table,tbody)
     }
 
-	// ----------------------------------------------------------------------------------------------------------------
 
-	function isIE() {
-		var div = document.createElement("div")
-		div.innerHTML = "<!--[if IE]><i></i><![endif]-->"
-		var b = (div.getElementsByTagName("i").length == 1)
-		if (b) return b
-		if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) {
-   			return true // MSIE
-		}
-		return false
-	}
 
     /*********************************
     **                              **
@@ -422,44 +342,52 @@ var app = new (function() {
 
 	function checkIE() 
 	{	    
-    	if (isIE()) alert(msgs.notForIE[lang])
+    	if (nte.isIE()) alert(msgs.notForIE[lang])
     }
 
 	function renderNodes(app) 
 	{
-	    parent = document.getElementById("self-nomination")
-	    parent.innerHTML = cv["self-nomination"].replace(/\n/g,"<br>")
+		var li = nte.li, lnk = nte.lnk, append = nte.append, trNtd = nte.trNtd,
+			create = (tag)=>document.createElement(tag), get = (id)=>document.getElementById(id), 
+			select = (qry)=>document.querySelector(qry)
 
-	    parent = document.querySelector("#briefly ul")
+		var  parent,tbody
+
+	    parent = get("self-nomination")
+	    if (parent)
+	    	parent.innerHTML = cv["self-nomination"].replace(/\n/g,"<br>")
+
+	    /*
+	    parent = select("briefly ul")
 	    cv.briefly.lines.forEach(
 	    	function(it) {
-	    		if (cv.hidden.indexOf(it) == -1)
-					parent.appendChild(li(it))
+	    		if (cv.hidden.indexOf(it) == -1) append(parent,li(it))
 			}
 		)
+		*/
 
-	    parent = document.getElementById("lasts-kb")
-	    tbody = document.createElement("tbody")
-		parent.appendChild(tbody)
+	    parent = get("lasts-kb")
+	    tbody = create("tbody")
+		append(parent,tbody)
 	    cv["lasts-kb"].lines.forEach(
 	    	function(it) {
-				tbody.appendChild(trNtd(it[0], it[1]+''))
+				append(tbody,trNtd(it[0], it[1]+''))
 			}
 		)
 
-	    parent = document.querySelector("#previous-kb table")
-	    tbody = document.createElement("tbody")
-	    parent.appendChild(tbody)
+	    parent = select("#previous-kb table")
+	    tbody = create("tbody")
+	    append(parent,tbody)
 	    cv["previous-kb"].items.forEach(
 	    	function(it) {
-				parent.appendChild(trNtd(it[0],it[1],it[2]+''))
+				append(parent,trNtd(it[0],it[1],it[2]+''))
 			}
 		)
 
 	    // render("experiences", function(it) {...})
-	    parent = document.querySelector("#experiences table")
-	    tbody = document.createElement("tbody")
-	    parent.appendChild(tbody)
+	    parent = select("#experiences table")
+	    tbody = create("tbody")
+	    append(parent,tbody)
 	    cv.experiences.forEach(
 	    	function(it) {
 	    		var company = ""
@@ -472,32 +400,32 @@ var app = new (function() {
 	    			}
 	    		)
 	    		var tr = trNtd(it.period+"\n"+it.comp, it.task, company)
-				tbody.appendChild(tr)
+				append(tbody,tr)
 			}
 		)
 
-	    parent = document.querySelector("#extra-info table")
-	    tbody = document.createElement("tbody")
-	    parent.appendChild(tbody)
+	    parent = select("#extra-info table")
+	    tbody = create("tbody")
+	    append(parent,tbody)
 	    cv["extra-info"].items.forEach( 
 	    	function(it) {
-	    		tbody.appendChild(trNtd( it[0], it[1] ))
+	    		append(tbody,trNtd( it[0], it[1] ))
 	    	}
 	    )
 
-	    parent = document.getElementById("extra-courses")
-	    tbody = document.createElement("tbody")
-	    parent.appendChild(tbody)
+	    parent = get("extra-courses")
+	    tbody = create("tbody")
+	    append(parent,tbody)
 	    cv["extra-courses"].items.forEach( 
 	    	function(it) {
-	    		tbody.appendChild(trNtd( it[0], it[1] ))
+	    		append(tbody,trNtd( it[0], it[1] ))
 	    	}
 	    )
 
-	    self["companies-idx"]()
-	    self["stacks-idx"]()
-	    self["competencies-idx"]()
-	    self["projects"]()
+	    self["companies"](select("companies"))
+	    self["stacks"](select("stacks"))
+	    self["competencies"](select("competencies"))
+	    self["projects"](select("projects"))
 	} // RenderNodes
 
 	// ----------------------------------------------------------------------------------------------------------------
@@ -580,57 +508,76 @@ var app = new (function() {
 		        html = html.replaceAll( it, i )
 		    }
 		)
+
+	    // collect and replace **...** with <b>...</b>
+		function collect_bolds(obj, collection) {
+			if (collection === undefined) collection = []
+			for (var k in obj) {
+				if (k !== "links" && k !== "link" ) {
+					var prop = obj[k]
+					if (typeof prop === "object")
+						collect_bolds(obj[k], collection)
+					if (typeof prop === "string") {
+						collection.push.apply(collection,prop.match(/[*][*].*[*][*]/g))
+					}
+				}
+			}
+			return collection
+		}
+
+		var bolds = collect_bolds(cv)
+
+	    bolds.forEach(
+	    	function(it) {
+		        var i = '<b>' + it.slice(2,-2) +'</b>'
+		        html = html.replaceAll( it, i )
+		    }
+		)
 	    
 	    document.body.innerHTML = html
 
-	} // RenderWikiStyleLinks
+	} // renderWikiStyleTags
 
 	// ----------------------------------------------------------------------------------------------------------------
 
     function renderTemplates() 
     {
     	
-	    var templates = document.querySelectorAll("*[template]")
+	    var templates = document.getElementsByTagName("template")
 
-	    templates.forEach(
-	    	function(tpl) {
+	    if (templates.length > 0) {
 
-		    	if (typeof(tpl) !== "object") return
+		    templates.forEach(
+		    	function(tpl) {
 
-	    		var style = tpl.querySelector("style")
+			    	if (typeof(tpl) !== "object") return
 
-	    		if (style) {	// todo: if plural? 
-		    		var css = document.createElement("style")
-		    		css.innerText = style.innerText
-		    		document.head.appendChild(css)
+		    		var style = tpl.querySelector("style")
+
+		    		if (style) {	// todo: if plural? 
+			    		var css = document.createElement("style")
+			    		css.innerText = style.innerText
+			    		document.head.appendChild(css)
+			    	}
+
+		    		var name = tpl.attributes.template.value
+			    	// the 1st template become active
+			    	tpl.id = name
+
+		    		// search tags an replace content
+		    		var tags = document.getElementsByTagName(name)
+		    		for (var j=0;j<tags.length;j++) {
+			    		tag = tags[j]
+			    		var clone = tpl.content.querySelector("div").cloneNode(true)
+			    		clone.id = name + (j===0?"":j)
+						tag.replaceWith(clone)
+					}	
 		    	}
+			)    
+		}
 
-	    		var name = tpl.attributes.template.value
-		    	// the 1st template become active
-		    	tpl.id = name
+	} // renderTemplates
 
-	    		// search tags an replace content
-	    		var tags = document.getElementsByTagName(name)
-	    		for (var j=0;j<tags.length;j++) {
-		    		tag = tags[j]
-		    		var clone = tpl.content.querySelector("div").cloneNode(true)
-		    		clone.id = name + (j===0?"":j)
-					tag.replaceWith(clone)
-				}	
-	    	}
-		)    
-
-	    // add events
-	    var activeElems = document.querySelectorAll("*[click]")
-	    activeElems.forEach(
-	    	function(it) {
-	    		if (typeof(it) !== "object") return
-    			var listener = eval(it.attributes.click.value)
-    			it.addEventListener("click",listener)
-	    	}
-	    )
-
-	} // RenderTemplates
 
 	// ----------------------------------------------------------------------------------------------------------------
 
@@ -654,6 +601,44 @@ var app = new (function() {
 	} // convertLinksToText
 
 	// ----------------------------------------------------------------------------------------------------------------
+
+	function changeView() {
+		var hashes = document.querySelectorAll("*[hash]")
+		var hash = location.hash === "" ? [""] : location.hash.split("#").slice(1)
+		hashes.forEach(
+			function(it) {
+				var h = it.attributes.hash.value.substr(1)
+				var val = (hash.indexOf(h)>-1 ? "block":"none") 
+				it.style.display = val
+			}
+		)
+
+		var flipper = document.querySelector(".flip-container")
+		var experience_view = document.querySelector("[hash='#experiences']")
+		var projects_view = document.querySelector("[hash='#projects']")
+		var style = getComputedStyle(document.querySelector(".slider"))
+		var time = parseInt(style.transitionDuration) * 1000
+		var css = "opened"
+		var last = hash[hash.length-1]
+
+		var opened = document.getElementsByClassName("opened")
+		for (var i=0;i<opened.length;i++)
+			opened[i].classList.remove(css)
+
+		if (last == "experiences" || last == "") {
+			flipper.classList.remove("flip")
+			projects_view.classList.remove(css)
+			setTimeout(function(){experience_view.classList.add(css)}, time)
+		}
+		if (last == "projects") {
+			flipper.classList.add("flip")
+			experience_view.classList.remove(css)
+			setTimeout(function(){projects_view.classList.add(css)}, time)
+		}
+
+	}
+
+	// ----------------------------------------------------------------------------------------------------------------
     
     function run(cmds)
     {
@@ -661,11 +646,13 @@ var app = new (function() {
 	    
 	    if (cmds.indexOf("anonymouse")>-1) convertLinksToText()
 
+	    changeView()
+
 	    document.body.className='fade-in';
 		
 	    if (cmds.indexOf("print") == -1 && cmds.indexOf("projects") == -1) {
 			// setTimeout( flip, 1050)
-			message(msgs.instructions[lang])
+			self.message(msgs.instructions[lang])
 		}
 	} // run
 
@@ -674,9 +661,13 @@ var app = new (function() {
 
 	function start() {
 		checkIE()
+		window.onhashchange = changeView;
 		renderNodes(this)
-		renderWikiStyleTags()
+		// renderWikiStyleTags()
 		renderTemplates()
+		nte.renderBinds(self)
+		renderWikiStyleTags()
+		nte.attachEvents(self)
 		run()
 	}
 
