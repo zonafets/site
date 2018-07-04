@@ -22,6 +22,7 @@
 
 	-- CHANGELOG --------------------------------------------------------------------------
 
+	180704\s.zaglio: converting to NTE
 	180616\s.zaglio: tested on Midori and adapted to generate a static version 
 	180612\s.zaglio: split into external files
 	180611\s.zaglio: begin of apply of DRY & NTE principles to the code; added message
@@ -51,40 +52,9 @@
 </head>
     
 <body>
-    
-    <table id="head" class="anonymouse" >
-        <tbody>
-            <tr>
-                <td template="address">
-                	<!-- move to: <template id="address"><b>...@address...</template>  -->
-                    <b>Stefano Zaglio</b>(CV)<br>
-                    <span>Via Soratino, 8</span><br/>
-                    46043 [Castiglione D/S] (Italy)<br>
-                    Nato il 01.02.72 / Sposato
-                </td>
-                <td rowspan="2">
-                	<div class="flip-container" click="flip">
-						<div class="flipper">
-							<div class="front">
-								<img id="foto-cravatta" src="images/io/foto-cravatta-tonda.jpg" >
-							</div>
-							<div class="back">
-								<img id="foto-barba" src="images/io/foto-tonda.jpg" >
-							</div>
-						</div>
-					</div>
-                </td>
-            </tr>
-            <tr>
-                <td style="border-bottom: 1px solid gray;">
-                    <img id="placeE" alt="myEmail" title="click to get email into clipboard" src="images/ref.svg" click="copyEmail2Clipboard"/><br>
-                    this:&nbsp;[https://goo.gl/7hakDJ]
-                    &nbsp;-&nbsp;[PDF]-&nbsp;[linkedin]
-                </td>
-            </tr>
-        </tbody>
-    </table>
 
+	<person-info></person-info>
+    
     <introduction hash="#">
 	    <p bind="cv.introduction"></p>
 	</introduction>
@@ -190,10 +160,47 @@
 
 	</div>
 
+	<templates>
+		<template name="person-info">
+		    <table id="head" class="anonymouse" >
+		        <tbody>
+		            <tr>
+		                <td template="address">
+		                	<!-- move to: <template id="address"><b>...@address...</template>  -->
+		                    <b>Stefano Zaglio</b>(CV)<br>
+		                    <span>Via Soratino, 8</span><br/>
+		                    46043 [Castiglione D/S] (Italy)<br>
+		                    Nato il 01.02.72 / Sposato
+		                </td>
+		                <td rowspan="2">
+		                	<div class="flip-container" click="flip">
+								<div class="flipper">
+									<div class="front">
+										<img id="foto-cravatta" src="images/io/foto-cravatta-tonda.jpg" >
+									</div>
+									<div class="back">
+										<img id="foto-barba" src="images/io/foto-tonda.jpg" >
+									</div>
+								</div>
+							</div>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td style="border-bottom: 1px solid gray;">
+		                    <img id="placeE" alt="myEmail" title="click to get email into clipboard" src="images/ref.svg" click="copyEmail2Clipboard"/><br>
+		                    this:&nbsp;[https://goo.gl/7hakDJ]
+		                    &nbsp;-&nbsp;[PDF]-&nbsp;[linkedin]
+		                </td>
+		            </tr>
+		        </tbody>
+		    </table>
+		</template>
+	</templates>
+
 </body>
 
 <script src="js/nte.js"></script>
-<script src="js/cv-data.js"></script>
+<script src="js/cv-data.js?dt=1807041234"></script>
 <script src="js/compatibility.js"></script>
 <script src="js/proto.js"></script>
 <script src="js/app.js"></script>

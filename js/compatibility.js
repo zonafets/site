@@ -19,15 +19,15 @@
 function isCompatibileBrowser() {
 	var element = document.createElement("div")
 	console.log("Verifing Compatibility")
-	console.log("Array.prototype.forEach......:"+(!Array.prototype.forEach))
-	console.log("NodeList.prototype.forEach...:"+(!NodeList.prototype.forEach))
-	console.log("document.querySelector.......:"+(typeof(document['querySelector'])!=='function'))
-	console.log("document.querySelectorAll....:"+(typeof(document['querySelectorAll'])!=='function'))
-	console.log("element.querySelector........:"+(typeof(element['querySelector'])!=='function'))
-	console.log("element.querySelectorAll.....:"+(typeof(element['querySelectorAll'])!=='function'))
-	console.log("element.firstElementChild......:"+(typeof(element.firstElementChild)!=='object'))
+	console.log("Array.prototype.forEach......:"+(Array.prototype.forEach))
+	console.log("NodeList.prototype.forEach...:"+(NodeList.prototype.forEach))
+	console.log("document.querySelector.......:"+(typeof(document['querySelector'])=='function'))
+	console.log("document.querySelectorAll....:"+(typeof(document['querySelectorAll'])=='function'))
+	console.log("element.querySelector........:"+(typeof(element['querySelector'])=='function'))
+	console.log("element.querySelectorAll.....:"+(typeof(element['querySelectorAll'])=='function'))
+	console.log("element.firstElementChild......:"+(typeof(element.firstElementChild)=='object'))
 
-	typeof NodeList.prototype.forEach
+	// typeof NodeList.prototype.forEach
 	// illegal invocation
 	// console.log("window.Element.prototype.firstElementChild...:"+(typeof(window.Element.prototype.firstElementChild)!=='function'))
 	if (!Array.prototype.forEach) return false

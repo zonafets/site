@@ -121,7 +121,6 @@ var nte = new (function() {
 		return false
 	}
 
-   	// ----------------------------------------------------------------------------------------------------------------
 	// ----------------------------------------------------------------------------------------------------------------
 
 	self.attachEvents = function(app) 
@@ -159,6 +158,66 @@ var nte = new (function() {
 	    	}
 	    )
 	} // RenderBinds
+
+	// ----------------------------------------------------------------------------------------------------------------
+
+    self.renderTemplates = function() 
+    {
+    	
+	    var templates = document.getElementsByTagName("template")
+
+	    if (templates.length > 0) {
+
+		    	function replaceTpl(tpl) {
+
+			    	if (typeof(tpl) !== "object") return
+
+		    		var style = tpl.querySelector("style")
+
+		    		if (style) {	// todo: if plural? 
+			    		var css = document.createElement("style")
+			    		css.innerText = style.innerText
+			    		document.head.appendChild(css)
+			    	}
+
+		    		var name = tpl.attributes.name.value
+
+		    		// search tags an replace content
+		    		var tags = document.getElementsByTagName(name)
+		    		for (var j=0;j<tags.length;j++) {
+			    		var tag = tags[j]
+			    		// TODO: for now we suppose that template is made by single tag
+			    		var clone = tpl.content.firstElementChild.cloneNode(true)
+			    		clone.id = name + (j===0?"":j)
+			    		// TODO: for now we suppose to replace the tag (duty for bootstrap)
+						tag.replaceWith(clone)
+					}	
+		    	} // fn
+			for (var i=0;i<templates.length;i++) replaceTpl(templates[i])
+		}
+
+	} // renderTemplates
+
+	// ----------------------------------------------------------------------------------------------------------------
+
+    self.convertLinksToText = function() 
+    {
+
+    	// convert links to text
+        var l = document.getElementsByTagName("a")
+        while (l.length > 0) {
+            for (var i = 0; i < l.length; i++) {
+                var mySpan = document.createElement("span")
+                mySpan.innerText = l[i].innerText
+                l[i].replaceWith(mySpan)
+            }
+            l = document.getElementsByTagName("a")
+        }
+        var css = document.createElement("STYLE")
+        css.innerText = ".anonymouse{display:none;}"
+        document.head.append(css)
+	    
+	} // convertLinksToText
 
 	// ----------------------------------------------------------------------------------------------------------------
 

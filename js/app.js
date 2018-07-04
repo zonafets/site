@@ -15,6 +15,7 @@
 
 	-- CHANGELOG --------------------------------------------------------------------------
 
+	180704\s.zaglio: moving generic DOM fn to nte.js
 	180612\s.zaglio: begin of apply Brian W. Kernighan and P. J. Plaugher principle
 
 
@@ -27,31 +28,6 @@
 "use strict"
 
 var app = new (function() {
-
-	// ----------------------------------------------------------------------------------------------------------------
-
-	var redirect = "curriculum_ita_static.htm"
-
-	function wasRedirected() {	
-		return (window.location.href.substr(-redirect.length)===redirect) ? true : false
-	}
-
-	if (wasRedirected()) {
-		document.body.style.display = 'block';
-		return
-	}
-
-	// ----------------------------------------------------------------------------------------------------------------
-
-	function redirectToStaticVersion() {
-		console.log("Redirecting to static version")
-		window.location.href = "curriculum_ita_static.htm"
-	}
-
-	if (!isCompatibileBrowser()) 
-		redirectToStaticVersion()
-
-	// ----------------------------------------------------------------------------------------------------------------
 
 	var self = this
 	var app = this
@@ -75,8 +51,42 @@ var app = new (function() {
 		emailCopied:{
 			it:"Email copiata nella clipboard.",
 			en:"Email copied into clipboard."
+		},
+		redirect:{
+			it:"Questo browser non è completamente compatibile con le funzionalità richieste per le parti dinamiche.\n\n"
+			  +"Questa app è disegnata per Chrome/Opera attualmente sono i browser più diffusi e veloci.\n\n"
+			  +"Verrete rediretti alla versione statica.",
+			en:"This browser is not fully compatible with the functionality required for dynamic parts.\n\n"
+			  +"This app is designed for Chrome / Opera currently they are the most widespread and fast browsers.\n\n" 
+			  +"You will be redirected to the static version."
 		}
 	}
+
+	// ----------------------------------------------------------------------------------------------------------------
+
+	var redirect = "curriculum_ita_static.htm"
+
+	function wasRedirected() {	
+		return (window.location.href.substr(-redirect.length)===redirect) ? true : false
+	}
+
+	if (wasRedirected()) {
+		document.body.style.display = 'block';
+		return
+	}
+
+	// ----------------------------------------------------------------------------------------------------------------
+
+	function redirectToStaticVersion() {
+		console.log("Redirecting to static version")
+		alert(msgs.redirect[lang])
+		window.location.href = "curriculum_ita_static.htm"
+	}
+
+	if (!isCompatibileBrowser()) 
+		redirectToStaticVersion()
+
+	// ----------------------------------------------------------------------------------------------------------------
 
 	// generic utilities ==============================================================================================
 
@@ -332,7 +342,7 @@ var app = new (function() {
     	append(table,tbody)
     }
 
-
+	// ----------------------------------------------------------------------------------------------------------------
 
     /*********************************
     **                              **
@@ -540,68 +550,6 @@ var app = new (function() {
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-    function renderTemplates() 
-    {
-    	
-	    var templates = document.getElementsByTagName("template")
-
-	    if (templates.length > 0) {
-
-		    templates.forEach(
-		    	function(tpl) {
-
-			    	if (typeof(tpl) !== "object") return
-
-		    		var style = tpl.querySelector("style")
-
-		    		if (style) {	// todo: if plural? 
-			    		var css = document.createElement("style")
-			    		css.innerText = style.innerText
-			    		document.head.appendChild(css)
-			    	}
-
-		    		var name = tpl.attributes.template.value
-			    	// the 1st template become active
-			    	tpl.id = name
-
-		    		// search tags an replace content
-		    		var tags = document.getElementsByTagName(name)
-		    		for (var j=0;j<tags.length;j++) {
-			    		tag = tags[j]
-			    		var clone = tpl.content.querySelector("div").cloneNode(true)
-			    		clone.id = name + (j===0?"":j)
-						tag.replaceWith(clone)
-					}	
-		    	}
-			)    
-		}
-
-	} // renderTemplates
-
-
-	// ----------------------------------------------------------------------------------------------------------------
-
-    function convertLinksToText() 
-    {
-
-    	// convert links to text
-        var l = document.getElementsByTagName("a")
-        while (l.length > 0) {
-            for (var i = 0; i < l.length; i++) {
-                var mySpan = document.createElement("span")
-                mySpan.innerText = l[i].innerText
-                l[i].replaceWith(mySpan)
-            }
-            l = document.getElementsByTagName("a")
-        }
-        var css = document.createElement("STYLE")
-        css.innerText = ".anonymouse{display:none;}"
-        document.head.append(css)
-	    
-	} // convertLinksToText
-
-	// ----------------------------------------------------------------------------------------------------------------
-
 	function changeView() {
 		var hashes = document.querySelectorAll("*[hash]")
 		var hash = location.hash === "" ? [""] : location.hash.split("#").slice(1)
@@ -644,7 +592,7 @@ var app = new (function() {
     {
 	    var cmds = location.search.substring(1).split("&")
 	    
-	    if (cmds.indexOf("anonymouse")>-1) convertLinksToText()
+	    if (cmds.indexOf("anonymouse")>-1) nte.convertLinksToText()
 
 	    changeView()
 
@@ -664,7 +612,7 @@ var app = new (function() {
 		window.onhashchange = changeView;
 		renderNodes(this)
 		// renderWikiStyleTags()
-		renderTemplates()
+		nte.renderTemplates()
 		nte.renderBinds(self)
 		renderWikiStyleTags()
 		nte.attachEvents(self)

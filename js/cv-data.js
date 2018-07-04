@@ -72,7 +72,7 @@ var cv = {
 			"**Soft skills**",
 			"Negli ultimi dieci anni mi specializzo nell'analisi e sviluppo con momenti di direzione di progetto e team management, non disdegnando supporto tramite helpdesk, da remoto o con trasferte estere.",
 			"Uno studio collaterale mi vede anche personalmente impegnato nella difficile arte della ristrutturazione, la dove i costi obbligano alla conservazione. ",
-			"Per una **visione dettagliata delle abilità**, è possibile visione il mio CV online all'indirizzo: [https://goo.gl/7hakDJ#details#projects] , che è web app esemplificativa con links ai video dei prodotti realizzati e alle referenze.",
+			"Per una **visione dettagliata delle abilità**, è possibile visione il mio CV online all'indirizzo: [https://zonafets.github.io/site/curriculum_ita.htm#details#projects] , che è web app esemplificativa con links ai video dei prodotti realizzati e alle referenze.",
 			
 			"Confidando in positivo riscontro,",
 			"porgo distinti saluti.",
@@ -391,7 +391,7 @@ var cv = {
 		links: [
 			["Esperienze di Lavoro", "https://goo.gl/XnCjuH"],
 			["video games", "http://digilander.libero.it/bolido/MGSexyTV.htm"],
-			["https://goo.gl/7hakDJ#details#projects","https://goo.gl/7hakDJ#details#projects"],
+			["https://zonafets.github.io/site/curriculum_ita.htm#details#projects"],
     	],
 
 	} // cv
