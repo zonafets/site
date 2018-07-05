@@ -163,184 +163,188 @@ var app = new (function() {
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-	this["companies"] = function(node) {
+	self.html = {
+
+		companies: function(node) {
 		
-		var elem = nte.elem, append = nte.append, bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf, node, lnk = nte.lnk
-		
-		var n = 0, i = 0;
+			var elem = nte.elem, append = nte.append, bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf, node, lnk = nte.lnk
+			
+			var n = 0, i = 0;
 
-		var list = cv.experiences
-    	list.forEach(
-    		function(it) { n += it.companies.length }
-    	)
+			var list = cv.experiences
+	    	list.forEach(
+	    		function(it) { n += it.companies.length }
+	    	)
 
-    	list.forEach(
-    		function(it) {
+	    	list.forEach(
+	    		function(it) {
 
-		    	append( node, lg( txt( spcIf(i>0) + it.period ) ) )
-		    	
-		    	it.companies.forEach(
-		    		function(it) {
+			    	append( node, lg( txt( spcIf(i>0) + it.period ) ) )
+			    	
+			    	it.companies.forEach(
+			    		function(it) {
 
-		    			var id = n - i
-		    			it.id = id
-		    			i++
+			    			var id = n - i
+			    			it.id = id
+			    			i++
 
-		    			append( node, bold( txt( " ●\u00a0"+id+".\u00a0" ) ) )
+			    			append( node, bold( txt( " ●\u00a0"+id+".\u00a0" ) ) )
 
-	    				append( node, txt("\u00a0") )
-		    			if (it.hasOwnProperty("link") && it.link!="") {
-		    				append( node, lnk( it.link, txt(it.name) ) )
-		    			} else {
-		    				append( node, txt(it.name) )
-		    			}
-		    			if (it.prov)
-	    					append( node, txt(" - " + it.prov + " ") )
-		    		}
-		    	)
-	    	}
-	    )
-	}
-
-	// ----------------------------------------------------------------------------------------------------------------
-
-    this["stacks"] = function(node) {
-		cv.experiences.forEach(
-    		function(it,i) {
-
-    	    	var append = nte.append, bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf
-    			
-    			var id = String.fromCharCode( 65 + i )
-    			it.stackId = id
-    			var text = " ●\u00a0"+id+" "
-
-		    	append( node, append( lg ( txt(spcIf(i>0)) ), bold( text ) ))
-
-    			append( node, txt( " " + it.stack + " " ) )
-	    	}
-	    )
-    } // stacks-idx
+		    				append( node, txt("\u00a0") )
+			    			if (it.hasOwnProperty("link") && it.link!="") {
+			    				append( node, lnk( it.link, txt(it.name) ) )
+			    			} else {
+			    				append( node, txt(it.name) )
+			    			}
+			    			if (it.prov)
+		    					append( node, txt(" - " + it.prov + " ") )
+			    		}
+			    	)
+		    	}
+		    )
+		},
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-    this["competencies"] = function(node) {
-		cv.competencies.forEach(
-    		function(it,i) {
+    	stacks: function(node) {
+			cv.experiences.forEach(
+	    		function(it,i) {
 
-		    	var append = nte.append, txt = nte.txt, 
-    	    		create = (tag)=>document.createElement(tag), get = (id)=>document.getElementById(id), 
-					select = (qry)=>document.querySelector(qry)
+	    	    	var append = nte.append, bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf
+	    			
+	    			var id = String.fromCharCode( 65 + i )
+	    			it.stackId = id
+	    			var text = " ●\u00a0"+id+" "
 
-				var id,dsc,span,img,tn
+			    	append( node, append( lg ( txt(spcIf(i>0)) ), bold( text ) ))
 
-		    	id = it[0].toLowerCase()
-		    	dsc = it[1]
-
-		    	span = create("span")
-		    	img = create("img")
-    			img.src = "images/icons/" + it[0].toLowerCase() + ".png"
-    			append(span,img)
-
-    			tn = txt(" " + dsc + " ")
-    			append(span,tn)
-
-    			append(node,span)
-
-	    	}
-	    )
-    } // competencies-idx
+	    			append( node, txt( " " + it.stack + " " ) )
+		    	}
+		    )
+	    }, // stacks-idx
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-    this["projects"] = function(node) {
-		var
-    		elem = nte.elem, append = nte.append, bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf,
-    		lnk = nte.lnk, trNtd = nte.trNtd, li = nte.li, replyElem = nte.replyElem, 
-    		create = (tag)=>document.createElement(tag), get = (id)=>node.getElementById(id), 
-			select = (qry)=>node.querySelector(qry)
+    	competencies: function(node) {
+			cv.competencies.forEach(
+	    		function(it,i) {
 
-    	var table = select("table")
-    	var tbody = create("tbody")
-		var prevComps = ""
-    	cv.experiences.forEach(
-    		function(exp) {
-    			exp.companies.forEach(
-    				function(comp) {
-    					comp.projects.forEach(
-    						function(prj) {
+			    	var append = nte.append, txt = nte.txt, 
+	    	    		create = (tag)=>document.createElement(tag), get = (id)=>document.getElementById(id), 
+						select = (qry)=>document.querySelector(qry)
 
-    							var name = prj.hasOwnProperty("name") ? prj.name : ""
-    							var desc = prj.hasOwnProperty("desc") ? prj.desc : ""
-    							var link = prj.hasOwnProperty("link") ? prj.link : ""
+					var id,dsc,span,img,tn
 
-				    			var tr = create("tr")
+			    	id = it[0].toLowerCase()
+			    	dsc = it[1]
 
-    							// project
-		    					var td = create("td")
-		    					var dsc
+			    	span = create("span")
+			    	img = create("img")
+	    			img.src = "images/icons/" + it[0].toLowerCase() + ".png"
+	    			append(span,img)
 
-		    					if (link !== "") {
-		    						var alink
+	    			tn = txt(" " + dsc + " ")
+	    			append(span,tn)
 
-		    						if (name !== "") {
-		    							alink = name
-		    							dsc = "[" + alink + "]: " + desc
-		    						} else {
-		    							alink = desc
-		    							dsc = "[" + alink +"]"
-									}
-		    						cv.links.push( [ alink, link ] )
-		    					} else {
-		    						dsc = name ? name+": "+desc : desc
-		    					}
+	    			append(node,span)
 
-		    					var tn = txt(dsc)
-		    					append(td,tn)
-		    					append(tr,td)
+		    	}
+		    )
+	    }, // competencies-idx
 
-		    					// stack
-		    					td = create("td")
-		    					tn = txt(exp.stackId)
-		    					append(td,tn)
-		    					append(tr,td)
+	// ----------------------------------------------------------------------------------------------------------------
 
-		    					// competencies
-		    					td = create("td")
+    	projects: function(node) {
+			var
+	    		elem = nte.elem, append = nte.append, bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf,
+	    		lnk = nte.lnk, trNtd = nte.trNtd, li = nte.li, replyElem = nte.replyElem, 
+	    		create = (tag)=>document.createElement(tag), get = (id)=>node.getElementById(id), 
+				select = (qry)=>node.querySelector(qry)
 
-		    					var comps = exp.competencies.join(",")
-		    					if (prevComps == comps) 
-	    							append(td,txt("\""))
-		    					else {
-			    					exp.competencies.forEach(
-			    						function(it) {
-			    							var span = create("span") 
-			    							span.title = competence_dsc(it)
-			    							span.className = "tip" 
-			    							var img = create("img")
-			    							img.src = "images/icons/" + it.toLowerCase() + ".png"
-			    							append(span,img)
-			    							append(td,span)
-			    						}
-			    					)
-			    					prevComps = comps
+	    	var table = select("table")
+	    	var tbody = create("tbody")
+			var prevComps = ""
+	    	cv.experiences.forEach(
+	    		function(exp) {
+	    			exp.companies.forEach(
+	    				function(comp) {
+	    					comp.projects.forEach(
+	    						function(prj) {
+
+	    							var name = prj.hasOwnProperty("name") ? prj.name : ""
+	    							var desc = prj.hasOwnProperty("desc") ? prj.desc : ""
+	    							var link = prj.hasOwnProperty("link") ? prj.link : ""
+
+					    			var tr = create("tr")
+
+	    							// project
+			    					var td = create("td")
+			    					var dsc
+
+			    					if (link !== "") {
+			    						var alink
+
+			    						if (name !== "") {
+			    							alink = name
+			    							dsc = "[" + alink + "]: " + desc
+			    						} else {
+			    							alink = desc
+			    							dsc = "[" + alink +"]"
+										}
+			    						cv.links.push( [ alink, link ] )
+			    					} else {
+			    						dsc = name ? name+": "+desc : desc
+			    					}
+
+			    					var tn = txt(dsc)
+			    					append(td,tn)
+			    					append(tr,td)
+
+			    					// stack
+			    					td = create("td")
+			    					tn = txt(exp.stackId)
+			    					append(td,tn)
+			    					append(tr,td)
+
+			    					// competencies
+			    					td = create("td")
+
+			    					var comps = exp.competencies.join(",")
+			    					if (prevComps == comps) 
+		    							append(td,txt("\""))
+			    					else {
+				    					exp.competencies.forEach(
+				    						function(it) {
+				    							var span = create("span") 
+				    							span.title = competence_dsc(it)
+				    							span.className = "tip" 
+				    							var img = create("img")
+				    							img.src = "images/icons/" + it.toLowerCase() + ".png"
+				    							append(span,img)
+				    							append(td,span)
+				    						}
+				    					)
+				    					prevComps = comps
+				    				}
+
+			    					append(tr,td)
+
+			    					// company
+			    					td = create("td")
+			    					tn = txt(comp.id)
+			    					append(td,tn)
+			    					append(tr,td)
+			    					append(tbody,tr)
 			    				}
+			    			)
+	    				}
+	    			)
+	    		}
+	    	)
+	    	append(table,tbody)
+	    }
 
-		    					append(tr,td)
-
-		    					// company
-		    					td = create("td")
-		    					tn = txt(comp.id)
-		    					append(td,tn)
-		    					append(tr,td)
-		    					append(tbody,tr)
-		    				}
-		    			)
-    				}
-    			)
-    		}
-    	)
-    	append(table,tbody)
-    }
+	} // html
 
 	// ----------------------------------------------------------------------------------------------------------------
 
@@ -362,19 +366,6 @@ var app = new (function() {
 			select = (qry)=>document.querySelector(qry)
 
 		var  parent,tbody
-
-	    parent = get("self-nomination")
-	    if (parent)
-	    	parent.innerHTML = cv["self-nomination"].replace(/\n/g,"<br>")
-
-	    /*
-	    parent = select("briefly ul")
-	    cv.briefly.lines.forEach(
-	    	function(it) {
-	    		if (cv.hidden.indexOf(it) == -1) append(parent,li(it))
-			}
-		)
-		*/
 
 	    parent = get("lasts-kb")
 	    tbody = create("tbody")
@@ -432,10 +423,14 @@ var app = new (function() {
 	    	}
 	    )
 
-	    self["companies"](select("companies"))
-	    self["stacks"](select("stacks"))
-	    self["competencies"](select("competencies"))
-	    self["projects"](select("projects"))
+	    for (var tag in self.html) {
+	    	var node = select(tag)
+	    	if (!node) {
+	    		console.log("Warning, node '" + tag + "' not found")
+	    	} else 
+	    		self.html[tag](node)
+	    }
+
 	} // RenderNodes
 
 	// ----------------------------------------------------------------------------------------------------------------
@@ -494,24 +489,36 @@ var app = new (function() {
 		    }
 		)
 
-	    // collect and replace //...// with <i>...</i>
-		function collect_italics(obj, collection) {
+		function collect(obj,separators) {
+			var collection = [] 
+			var regStr = ""
+			if (typeof(separators) === "string") separators = [separators,separators] 
+			separators.forEach(
+				function(sep) {
+					if (regStr != "") regStr+=".*"
+					for (var i=0;i<sep.length;i++) regStr+="["+sep.substr(i,1)+"]"
+				}
+			)
+			var regxp = new RegExp(regStr,"g")
 			if (collection === undefined) collection = []
-			for (var k in obj) {
-				if (k !== "links" && k !== "link" ) {
-					var prop = obj[k]
-					if (typeof prop === "object")
-						collect_italics(obj[k], collection)
-					if (typeof prop === "string") {
-						collection.push.apply(collection,prop.match(/[/][/].*[/][/]/g))
+			function innerCollect(obj) {
+				for (var k in obj) {
+					if (k !== "links" && k !== "link" ) {
+						var prop = obj[k]
+						if (typeof prop === "object")
+							innerCollect(obj[k])
+						if (typeof prop === "string") {
+							collection.push.apply(collection,prop.match(regxp))
+						}
 					}
 				}
 			}
+			innerCollect(obj)
 			return collection
 		}
 
-		var italics = collect_italics(cv)
-
+	    // collect and replace //...// with <i>...</i>
+		var italics = collect(cv,"//")
 	    italics.forEach(
 	    	function(it) {
 		        var i = '<i>' + it.slice(2,-2) +'</i>'
@@ -520,26 +527,19 @@ var app = new (function() {
 		)
 
 	    // collect and replace **...** with <b>...</b>
-		function collect_bolds(obj, collection) {
-			if (collection === undefined) collection = []
-			for (var k in obj) {
-				if (k !== "links" && k !== "link" ) {
-					var prop = obj[k]
-					if (typeof prop === "object")
-						collect_bolds(obj[k], collection)
-					if (typeof prop === "string") {
-						collection.push.apply(collection,prop.match(/[*][*].*[*][*]/g))
-					}
-				}
-			}
-			return collection
-		}
-
-		var bolds = collect_bolds(cv)
-
+		var bolds = collect(cv,"**")
 	    bolds.forEach(
 	    	function(it) {
 		        var i = '<b>' + it.slice(2,-2) +'</b>'
+		        html = html.replaceAll( it, i )
+		    }
+		)
+
+	    // collect and replace $...$ with <span hidden>...</span>
+		var bolds = collect(cv,"§")
+	    bolds.forEach(
+	    	function(it) {
+		        var i = '<span hidden>' + it.slice(1,-1) +'</span>'
 		        html = html.replaceAll( it, i )
 		    }
 		)

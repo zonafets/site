@@ -31,7 +31,7 @@ var cv = {
 	            "Full-Stack Web, Mobile e Desktop Developer, multi-threading, multi-process e multi-platform",
 	        	"disponibile al supporto con telelavoro, gestione delle urgenze, trasferte, anche internazionali di lunga durata",
 	        	"possibilità di assunzione entro 2 settimane", 
-	        	"RAL 45K(trattabili)"
+	        	// "RAL 45K(trattabili)"
         	],
         	links:[
         		["intrattenimento",						"http://digilander.libero.it/bolido/MGSexyTV.htm"],
@@ -65,7 +65,7 @@ var cv = {
 			"Le **recenti conoscenze** riguardano:",
 			"  HTML, Javascript, C#, Razor/Asp.Net, Jquery, KnockoutJS.",
 			"Interessi **a breve**:",
-			"  AngularJS o React su web/desktop, Xamarin o iOS su desktop/mobile, OpenCV/Python per video/image processing.",
+			"  Angular o React su web/desktop, Xamarin su desktop/mobile, OpenCV/Python per video/image processing.",
 			"Interessi **futuri**:",
 			"  blockchain per certificazione e uso AI per analisi dati. ",
 
@@ -391,7 +391,7 @@ var cv = {
 		links: [
 			["Esperienze di Lavoro", "https://goo.gl/XnCjuH"],
 			["video games", "http://digilander.libero.it/bolido/MGSexyTV.htm"],
-			["https://zonafets.github.io/site/curriculum_ita.htm#details#projects"],
+			["https://zonafets.github.io/site/curriculum_ita.htm#details#projects","https://zonafets.github.io/site/curriculum_ita.htm#details#projects"],
     	],
 
 	} // cv

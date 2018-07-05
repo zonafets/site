@@ -17,10 +17,13 @@
 
 
 function isCompatibileBrowser() {
+
+	// TODO: convert into chek of array elems
+	
 	var element = document.createElement("div")
 	console.log("Verifing Compatibility")
-	console.log("Array.prototype.forEach......:"+(Array.prototype.forEach))
-	console.log("NodeList.prototype.forEach...:"+(NodeList.prototype.forEach))
+	console.log("Array.prototype.forEach......:"+(Array.prototype.forEach?true:false))
+	console.log("NodeList.prototype.forEach...:"+(NodeList.prototype.forEach?true:false))
 	console.log("document.querySelector.......:"+(typeof(document['querySelector'])=='function'))
 	console.log("document.querySelectorAll....:"+(typeof(document['querySelectorAll'])=='function'))
 	console.log("element.querySelector........:"+(typeof(element['querySelector'])=='function'))
@@ -30,8 +33,10 @@ function isCompatibileBrowser() {
 	// typeof NodeList.prototype.forEach
 	// illegal invocation
 	// console.log("window.Element.prototype.firstElementChild...:"+(typeof(window.Element.prototype.firstElementChild)!=='function'))
-	if (!Array.prototype.forEach) return false
-	if (!NodeList.prototype.forEach) return false
+	var b = true
+	if (b) b = Array.prototype.forEach?true:false
+	if (b) b = NodeList.prototype.forEach? true:false
+	if (!b) return b
 	// if (!Object.prototype.forEach) return false
 	if (typeof(document['querySelector'])!=='function' || 
 		typeof(document['querySelectorAll'])!=='function' ||
