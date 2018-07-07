@@ -19,6 +19,135 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 "use strict"
 
+/*
+	5.7.2018 first draft
+
+	NTE (in the future ITE (intuitive template engine)) want hide complexity without obly
+	the developer to learn ng-* data-* $scope, or other particular names or paradigm.
+
+	Life motive: "deduct the bonds from the names and behavior from the types".
+
+	We like examples as 
+
+		<input value="@myVariableName">.
+		<p>My name is @myVariableName</p>.
+
+	But a more complex example require a lebel than can be:
+
+		label:<input....>
+
+	or
+
+		<label><input ...>label</label>
+
+	depending on UI
+
+	So a common tag can be:
+
+		<input value="@myVarName" label="label:">
+
+	that require a input(node) function or a <template name="input">... to be rendered into one or other form.
+	Same as <p> require a p(node) to be rendered as <p>My name is <span>@MyVarName</span></p>.
+
+	But when the complexity evolve to 3rd level, things must be grouped and named:
+	
+	== presentation layer ============================
+
+	<!-- 
+		attributes not allowed, because this can be rendered both client or server side
+		depending on how we want balance performances
+	-->
+	
+	<person>
+		<fName></fname>
+		<lName></lname>
+		<bDay><bDay>
+		<fullName></fullName>
+		<splitNames></splitNames>
+		<save></save>
+	</person>
+
+	<persons></persons>
+
+	<script>
+		
+		var person = {
+			fName: "?",
+			lName: "Zaglio",
+			bDay: "1972-02-01",
+			...
+			// functions will wrapped and param names used to link controls to update
+			fullName: function(fName,lName) = { return fName+" "+lName},
+			splitNames: function(fName,lName) { split into fName,lName },
+			save: function() { ajax calls }
+		}
+
+		var persons = []
+
+		nte.viewComponents(
+			{
+				// maybe an external JSON managed by UI console/gui
+				person: {
+					lName: {
+						template: "input",
+						label: "Last name"
+					},
+					save: {
+						class:"btn btn-default"
+					},
+				},
+
+				persons: {
+					template: "table"
+				}
+
+			}
+		)
+		
+		person.fName="Stefano"
+		// person.viewUpdate() -->automatically generated&called 1st time by engine
+
+	</script>
+
+
+	== local components layer =========================
+
+	<template name="fName>
+		<input label="First Name" value="@fName">
+	</template>
+
+	<template name="bDay>
+		<input label="Birthday" type="date" value="@bDay">
+	</template>
+
+	<template name="fullName">
+		Full name:@fullName
+	</template>
+
+	<template name="save">
+		<button></button>
+	</template>
+
+
+	== global component layer =========================
+
+	<template name="input">
+		@label:<input value="@value" type="@type|text">
+	</template>
+
+
+	== engine =========================================
+
+	nte.input = function(node,data) {
+		...
+		node.addEventListener("change",function(ev){
+			eval(node.getAttribute("value") +"='" + ev.value + "'")
+		}
+		...
+	}
+
+*/
+
 var nte = new (function() {
 
 	var self = this
@@ -41,9 +170,28 @@ var nte = new (function() {
     	return document.getElementById(id)
     }
 
-    self.append = function( parent, node ) {
-    	parent.appendChild(node)
-    	return parent
+    self.get = function(node) {
+    	return function(id) {return node.getElementById(id)}
+    }
+
+    self.select = function(node) {
+    	return function(id) {return node.querySelector(id)}
+    }
+
+    self.create = function(tag) {
+    	return document.createElement(tag)
+    }
+
+    self.append = function(parent) {
+    	return function(node) {
+    		if (arguments.length === 1) {
+    			parent.appendChild(node);
+    			return parent
+    		} else {
+    			arguments[0].appendChild(arguments[1])
+    			return arguments[0]
+    		}
+    	}
     }
 
     self.spcIf = function(condition) {

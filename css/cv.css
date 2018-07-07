@@ -31,12 +31,14 @@ thead * {
     text-align: left;
 }
 
-section, companies, stacks, projects, competencies {
+section, briefly, companies, stacks, projects, competencies {
     margin-bottom: 10px;
     font-size: small;
+    display: block;
+    margin-bottom: 4px;
 }
 
-section h2, companies h2, stacks h2, projects h2, competencies h2 {
+section h2, briefly h2, companies h2, stacks h2, projects h2, competencies h2 {
     margin-bottom: 0;
     margin-top: 0;
     font-size: small;

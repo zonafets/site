@@ -167,7 +167,9 @@ var app = new (function() {
 
 		companies: function(node) {
 		
-			var elem = nte.elem, append = nte.append, bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf, node, lnk = nte.lnk
+			var elem = nte.elem, append = nte.append(node), create = nte.create, 
+	    		get = nte.get(node), select = nte.select(node),
+				bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf, lnk = nte.lnk
 			
 			var n = 0, i = 0;
 
@@ -179,7 +181,7 @@ var app = new (function() {
 	    	list.forEach(
 	    		function(it) {
 
-			    	append( node, lg( txt( spcIf(i>0) + it.period ) ) )
+			    	append( lg( txt( spcIf(i>0) + it.period ) ) )
 			    	
 			    	it.companies.forEach(
 			    		function(it) {
@@ -188,16 +190,16 @@ var app = new (function() {
 			    			it.id = id
 			    			i++
 
-			    			append( node, bold( txt( " ●\u00a0"+id+".\u00a0" ) ) )
+			    			append( bold( txt( " ●\u00a0"+id+".\u00a0" ) ) )
 
-		    				append( node, txt("\u00a0") )
+		    				append( txt("\u00a0") )
 			    			if (it.hasOwnProperty("link") && it.link!="") {
-			    				append( node, lnk( it.link, txt(it.name) ) )
+			    				append( lnk( it.link, txt(it.name) ) )
 			    			} else {
-			    				append( node, txt(it.name) )
+			    				append( txt(it.name) )
 			    			}
 			    			if (it.prov)
-		    					append( node, txt(" - " + it.prov + " ") )
+		    					append( txt(" - " + it.prov + " ") )
 			    		}
 			    	)
 		    	}
@@ -210,15 +212,16 @@ var app = new (function() {
 			cv.experiences.forEach(
 	    		function(it,i) {
 
-	    	    	var append = nte.append, bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf
-	    			
+					var append = nte.append(node),
+						txt = nte.txt , spcIf = nte.spcIf, bold = nte.bold
+
 	    			var id = String.fromCharCode( 65 + i )
 	    			it.stackId = id
 	    			var text = " ●\u00a0"+id+" "
 
-			    	append( node, append( lg ( txt(spcIf(i>0)) ), bold( text ) ))
+			    	append( append( lg ( txt(spcIf(i>0)) ), bold( text ) ))
 
-	    			append( node, txt( " " + it.stack + " " ) )
+	    			append( txt( " " + it.stack + " " ) )
 		    	}
 		    )
 	    }, // stacks-idx
@@ -229,9 +232,9 @@ var app = new (function() {
 			cv.competencies.forEach(
 	    		function(it,i) {
 
-			    	var append = nte.append, txt = nte.txt, 
-	    	    		create = (tag)=>document.createElement(tag), get = (id)=>document.getElementById(id), 
-						select = (qry)=>document.querySelector(qry)
+			    	var txt = nte.txt,
+			    		elem = nte.elem, append = nte.append(node), create = nte.create, 
+	    				get = nte.get(node), select = nte.select(node)
 
 					var id,dsc,span,img,tn
 
@@ -256,10 +259,10 @@ var app = new (function() {
 
     	projects: function(node) {
 			var
-	    		elem = nte.elem, append = nte.append, bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf,
-	    		lnk = nte.lnk, trNtd = nte.trNtd, li = nte.li, replyElem = nte.replyElem, 
-	    		create = (tag)=>document.createElement(tag), get = (id)=>node.getElementById(id), 
-				select = (qry)=>node.querySelector(qry)
+	    		elem = nte.elem, append = nte.append(node), create = nte.create, 
+	    		get = nte.get(node), select = nte.select(node),
+	    		bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf,
+	    		lnk = nte.lnk, trNtd = nte.trNtd, li = nte.li, replyElem = nte.replyElem
 
 	    	var table = select("table")
 	    	var tbody = create("tbody")
