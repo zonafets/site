@@ -47,7 +47,7 @@ function isCompatibileBrowser() {
 		) 
 		return false
 
-    if (!('import' in document.createElement('link'))) return false;
+    // if (!('import' in document.createElement('link'))) return false;  // !Firefox
 
 	console.log("Compatibility verified")
 	return true

@@ -182,16 +182,42 @@ var nte = new (function() {
     	return document.createElement(tag)
     }
 
-    self.append = function(parent) {
-    	return function(node) {
-    		if (arguments.length === 1) {
-    			parent.appendChild(node);
-    			return parent
-    		} else {
-    			arguments[0].appendChild(arguments[1])
-    			return arguments[0]
-    		}
-    	}
+    self.append = function() {
+		switch (arguments.length) {
+
+			case 0:
+
+			throw "Wrong init, use only 'var append=nte.append'."
+
+			case 1:
+
+			throw "Maybe you would use nte.add method."
+	
+			case 2:
+
+			arguments[0].appendChild(arguments[1])
+			return arguments[0]
+
+			case 3: 
+
+			arguments[1].appendChild(arguments[2])
+			arguments[0].appendChild(arguments[1])
+			return arguments[0]
+
+			case 4: 
+
+			arguments[2].appendChild(arguments[3])
+			arguments[1].appendChild(arguments[2])
+			arguments[0].appendChild(arguments[1])
+			return arguments[0]
+		}
+	}
+
+	self.add = function(parent) {
+		return function(node) {
+			parent.appendChild(node);
+			return parent
+		}
     }
 
     self.spcIf = function(condition) {

@@ -35,22 +35,27 @@
 	}
 </style>
 
+<!--script type="html/text" name="notifyBar" class="fullPageOverlay" click="message"-->
 <template name="notifyBar" class="fullPageOverlay" click="message">
     <span class="message">
     	<p></p>
     </span>
 </template>
+<!--/script-->
 
 <script>
 	// manual installation
+	// debugger
 	var imp = document.querySelector('link[name="notifyBar"]')
 	imp = imp.import;
 	var tpl = imp.getElementsByTagName("template")[0]
+	// var tpl = imp.getElementsByTagName("script")[0]
 	var div = document.createElement("div")
 	div.id = tpl.attributes.name.value
 	div.className = tpl.className
 	div.setAttribute("click", tpl.attributes.click.value)
-	div.appendChild(tpl.content.firstElementChild) // .cloneNode(true))
+	div.appendChild(tpl.content.firstElementChild) // template
+	// div.innerHTML = tpl.innerHTML
 	document.body.appendChild(div)
 	div = undefined
 	tpl = undefined

@@ -33,6 +33,7 @@
 
 	-- TODO -------------------------------------------------------------------------------
 
+	180711\s.zaglio: Firefox doesn't completelly support import of templates even with webcomponents.js
 	180601\s.zaglio: apply DRY principle to code and convert to NTE
 
 -->
@@ -48,7 +49,6 @@
     <title>Curriculum di Stefano Zaglio</title>
     
     <link rel="stylesheet" type="text/css" href="css/cv.css">
-	<link name="notifyBar" rel="import" href="./notifyBar.htm">
 </head>
     
 <body>
@@ -195,11 +195,84 @@
 		        </tbody>
 		    </table>
 		</template>
+
+		<!--
+		
+			180711\s.zaglio: Firefox doesn't completelly support import of templates even with webcomponents.js
+							 so notifyBar component is implemented here
+
+		-->
+
+		<style>
+			.fullPageOverlay > * {
+				transition: all 1s ease-in-out;
+			}
+
+			.fullPageOverlay {
+			    height:100%;
+			    width:100%;
+			    position:fixed;
+			    left:0;
+			    top:0;
+			    z-index:100 !important;
+			    background-color: rgba(0,0,0,0.5);
+			    display: none;
+				cursor: pointer;
+			}
+
+			.fullPageOverlay .message {
+				display: inline-block;
+			    position: absolute;
+			    left: 0;
+			    right: 0;
+			    margin: auto;
+			    color: white;
+			    height: fit-content;
+			    top: 20%;
+			    text-align: center;
+			    background: slategray;
+			}
+
+			.fullPageOverlay .message p {
+			    font-weight: bold;
+			    font-size: 125%;
+			    padding: 5%;
+			}
+		</style>
+
+		<!--script type="html/text" name="notifyBar" class="fullPageOverlay" click="message"-->
+		<template name="notifyBar" class="fullPageOverlay" click="message">
+		    <span class="message">
+		    	<p></p>
+		    </span>
+		</template>
+		<!--/script-->
+
+		<script>
+			// manual installation
+			// debugger
+			// var imp = document.querySelector('link[name="notifyBar"]')
+			// imp = imp.import;
+			// var tpl = imp.getElementsByTagName("template")[0]
+			// var tpl = imp.getElementsByTagName("script")[0]
+			var tpl = document.querySelector("template[name='notifyBar']")
+			var div = document.createElement("div")
+			div.id = tpl.attributes.name.value
+			div.className = tpl.className
+			div.setAttribute("click", tpl.attributes.click.value)
+			div.appendChild(tpl.content.firstElementChild) // template
+			// div.innerHTML = tpl.innerHTML
+			document.body.appendChild(div)
+			div = undefined
+			tpl = undefined
+			imp = undefined
+		</script>
+
 	</templates>
 
 </body>
 
-<script src="js/nte.js"></script>
+<script src="js/nte.js?dt=1807071148"></script>
 <script src="js/cv-data.js?dt=1807041234"></script>
 <script src="js/compatibility.js"></script>
 <script src="js/proto.js"></script>

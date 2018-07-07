@@ -59,7 +59,7 @@ var app = new (function() {
 			en:"This browser is not fully compatible with the functionality required for dynamic parts.\n\n"
 			  +"This app is designed for Chrome / Opera currently they are the most widespread and fast browsers.\n\n" 
 			  +"You will be redirected to the static version."
-		}
+		},
 	}
 
 	// ----------------------------------------------------------------------------------------------------------------
@@ -167,8 +167,8 @@ var app = new (function() {
 
 		companies: function(node) {
 		
-			var elem = nte.elem, append = nte.append(node), create = nte.create, 
-	    		get = nte.get(node), select = nte.select(node),
+			var elem = nte.elem, append = nte.append, create = nte.create, 
+	    		get = nte.get(node), select = nte.select(node), add = nte.add(node),
 				bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf, lnk = nte.lnk
 			
 			var n = 0, i = 0;
@@ -181,7 +181,7 @@ var app = new (function() {
 	    	list.forEach(
 	    		function(it) {
 
-			    	append( lg( txt( spcIf(i>0) + it.period ) ) )
+			    	add( lg( txt( spcIf(i>0) + it.period ) ) )
 			    	
 			    	it.companies.forEach(
 			    		function(it) {
@@ -190,16 +190,16 @@ var app = new (function() {
 			    			it.id = id
 			    			i++
 
-			    			append( bold( txt( " ●\u00a0"+id+".\u00a0" ) ) )
+			    			add( bold( txt( " ●\u00a0"+id+".\u00a0" ) ) )
 
-		    				append( txt("\u00a0") )
-			    			if (it.hasOwnProperty("link") && it.link!="") {
-			    				append( lnk( it.link, txt(it.name) ) )
-			    			} else {
-			    				append( txt(it.name) )
-			    			}
+		    				add( txt("\u00a0") )
+			    			if (it.hasOwnProperty("link") && it.link!="")
+			    				add( lnk( it.link, txt(it.name) ) )
+			    			else 
+			    				add( txt(it.name) )
+
 			    			if (it.prov)
-		    					append( txt(" - " + it.prov + " ") )
+		    					add( txt(" - " + it.prov + " ") )
 			    		}
 			    	)
 		    	}
@@ -212,16 +212,16 @@ var app = new (function() {
 			cv.experiences.forEach(
 	    		function(it,i) {
 
-					var append = nte.append(node),
+					var append = nte.append, add = nte.add(node),
 						txt = nte.txt , spcIf = nte.spcIf, bold = nte.bold
 
 	    			var id = String.fromCharCode( 65 + i )
 	    			it.stackId = id
 	    			var text = " ●\u00a0"+id+" "
 
-			    	append( append( lg ( txt(spcIf(i>0)) ), bold( text ) ))
+			    	add( append( lg ( txt(spcIf(i>0)) ), bold( text ) ))
 
-	    			append( txt( " " + it.stack + " " ) )
+	    			add( txt( " " + it.stack + " " ) )
 		    	}
 		    )
 	    }, // stacks-idx
@@ -233,7 +233,7 @@ var app = new (function() {
 	    		function(it,i) {
 
 			    	var txt = nte.txt,
-			    		elem = nte.elem, append = nte.append(node), create = nte.create, 
+			    		elem = nte.elem, append = nte.append, add = nte.add(node), create = nte.create, 
 	    				get = nte.get(node), select = nte.select(node)
 
 					var id,dsc,span,img,tn
@@ -249,7 +249,7 @@ var app = new (function() {
 	    			tn = txt(" " + dsc + " ")
 	    			append(span,tn)
 
-	    			append(node,span)
+	    			add(span)
 
 		    	}
 		    )
@@ -259,7 +259,7 @@ var app = new (function() {
 
     	projects: function(node) {
 			var
-	    		elem = nte.elem, append = nte.append(node), create = nte.create, 
+	    		elem = nte.elem, append = nte.append, create = nte.create, 
 	    		get = nte.get(node), select = nte.select(node),
 	    		bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf,
 	    		lnk = nte.lnk, trNtd = nte.trNtd, li = nte.li, replyElem = nte.replyElem
@@ -300,14 +300,12 @@ var app = new (function() {
 			    					}
 
 			    					var tn = txt(dsc)
-			    					append(td,tn)
-			    					append(tr,td)
+			    					append(tr,td,tn)
 
 			    					// stack
 			    					td = create("td")
 			    					tn = txt(exp.stackId)
-			    					append(td,tn)
-			    					append(tr,td)
+			    					append(tr,td,tn)
 
 			    					// competencies
 			    					td = create("td")
@@ -323,8 +321,7 @@ var app = new (function() {
 				    							span.className = "tip" 
 				    							var img = create("img")
 				    							img.src = "images/icons/" + it.toLowerCase() + ".png"
-				    							append(span,img)
-				    							append(td,span)
+				    							append(td,span,img)
 				    						}
 				    					)
 				    					prevComps = comps
@@ -335,9 +332,7 @@ var app = new (function() {
 			    					// company
 			    					td = create("td")
 			    					tn = txt(comp.id)
-			    					append(td,tn)
-			    					append(tr,td)
-			    					append(tbody,tr)
+			    					append(tbody,tr,td,tn)
 			    				}
 			    			)
 	    				}
@@ -556,10 +551,16 @@ var app = new (function() {
 	function changeView() {
 		var hashes = document.querySelectorAll("*[hash]")
 		var hash = location.hash === "" ? [""] : location.hash.split("#").slice(1)
+		
+		/* TODO: (or not TODO) hash path verifier
+		   Actually the correct hash path (tree) is not verified.
+		   But teorically the path is entered by links or preferences, not by hand.
+		   So this is not really necessary.
+		*/
 		hashes.forEach(
 			function(it) {
 				var h = it.attributes.hash.value.substr(1)
-				var val = (hash.indexOf(h)>-1 ? "block":"none") 
+				var val = (hash.indexOf(h)>-1 ? "block" : "none")
 				it.style.display = val
 			}
 		)
