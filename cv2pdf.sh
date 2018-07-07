@@ -4,7 +4,7 @@
 # sudo PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=false npm install -g chromehtml2pdf
 # Note that parameters run-all..., disable-checke...,virtual-time..., fullPage... doesn't work as expected, 
 # waiting for the complete rendering of page with javascript post operation
-echo "Creatin pdf"
+echo "Creating pdf"
 chromehtml2pdf \
 	--headless \
 	--allow-file-access-from-files \
