@@ -28,9 +28,10 @@ var cv = {
 	            "[std&qly] manager",
 		        "specializzato in [tracciabilità], [integrazione di sistemi], [documentazione],"+ 
 	            "ottimizzazione dei processi ([es.1], [es.2], [es.3])",
-	            "Full-Stack Web, Mobile e Desktop Developer, multi-threading, multi-process e multi-platform",
+	            "Full-Stack Desktop, Mobile e Web Developer (multi-threading, multi-process e multi-platform)",
 	        	"disponibile al supporto con telelavoro, gestione delle urgenze, trasferte, anche internazionali di lunga durata",
-	        	"possibilità di assunzione entro 2 settimane", 
+	        	"possibilità di assunzione entro 2 settimane",
+	        	"interessi futuri: Angular o React su web/desktop, Xamarin su desktop/mobile, OpenCV"
 	        	// "RAL 45K(trattabili)"
         	],
         	links:[
@@ -54,29 +55,32 @@ var cv = {
   		},
 
   		introduction: [
-  			"Egregio Responsabile del personale,",
-			"avrei piacere a mettere la mia ventennale esperienza a servizio della Vostra azienda.",
-	
-			"Essa ha visto il raggiungimento e perdurare decennale degli obiettivi, in diversi settori e ruoli. Bilanciando tra gestione tecnica o commerciale, sviluppando soluzioni innovative o adattando le funzionalità sistemiche, mi qualifica come analista programmatore dotato di una famiglia di tecniche adatta ai diversi paradigmi, abile ad anticipare gli effetti collaterali.",
-
-			"**Hard skills**",
-			"Perito elettronico capotecnico con specilizzazione in informatica, diplomato a pieni voti, nei primi dieci anni svolgo alternativamente attività come programmatore, tecnico e docente. Maturando i livelli nei vari ruoli, apprendo ed impiego con successo gli strumenti richiesti dall'azienda.",
-			"Gli ambiti vanno dal firmware al front end, al back office, dal micro dispositivo al main frame, lavorando anche in ambienti differenti da Windows. I settori vanno dall'intrattenimento al manifatturiero con soluzioni anche per l'ottimizzazione delle performance e degli stessi processi di lavoro.",
-			"Le **recenti conoscenze** riguardano:",
-			"  HTML, Javascript, C#, Razor/Asp.Net, Jquery, KnockoutJS.",
-			"Interessi **a breve**:",
-			"  Angular o React su web/desktop, Xamarin su desktop/mobile, OpenCV/Python per video/image processing.",
-			"Interessi **futuri**:",
-			"  blockchain per certificazione e uso AI per analisi dati. ",
-
-			"**Soft skills**",
-			"Negli ultimi dieci anni mi specializzo nell'analisi e sviluppo con momenti di direzione di progetto e team management, non disdegnando supporto tramite helpdesk, da remoto o con trasferte estere.",
-			"Uno studio collaterale mi vede anche personalmente impegnato nella difficile arte della ristrutturazione, la dove i costi obbligano alla conservazione. ",
-			"Per una **visione dettagliata delle abilità**, è possibile visione il mio CV online all'indirizzo: [https://zonafets.github.io/site/curriculum_ita.htm#details#projects] , che è web app esemplificativa con links ai video dei prodotti realizzati e alle referenze.",
+  			{
+  				hash:"",
+  				content:[
+		  			"Egregio Responsabile del personale,",
+					"avrei piacere a mettere la mia ventennale esperienza a servizio della Vostra azienda.",
+					"Secondo il senso comune anglosassone, confermato da studi di psicologia cognitiva, le abilità acquisite da esperienza plurima, migliorano le probabilità di risultati più efficaci.",
 			
-			"Confidando in positivo riscontro,",
-			"porgo distinti saluti.",
-			"s.z."
+					"Essa ha visto il raggiungimento e perdurare decennale degli obiettivi, nei diversi settori e ruoli. Bilanciando tra gestione tecnica o commerciale, sviluppando soluzioni innovative o adattando le funzionalità sistemiche. Ciò mi qualifica come analista programmatore dotato di una famiglia di tecniche adatta ai diversi paradigmi, abile ad anticipare gli effetti collaterali. Brevi esperienze come team leader, project e program manager danno valore aggiunto.",
+
+					"**Hard skills**",
+					"Perito elettronico capotecnico con specilizzazione in informatica, diplomato a pieni voti, nei primi dieci anni svolgo alternativamente attività come programmatore, tecnico e docente. Maturando i livelli nei vari ruoli, apprendo ed impiego con successo gli strumenti richiesti dall'azienda.",
+					"Gli ambiti vanno dal firmware al front end, al back office, dal micro dispositivo al main frame, lavorando anche in ambienti differenti da Windows. I settori vanno dall'intrattenimento al manifatturiero con soluzioni anche per l'ottimizzazione delle performance e degli stessi processi di lavoro.",
+					"Le **recenti conoscenze** riguardano: HTML, Javascript, C#, Razor/Asp.Net, Jquery, KnockoutJS.",
+					"Interessi **a breve**: Angular o React su web/desktop, Xamarin su desktop/mobile, OpenCV/Python per video/image processing.",
+					"Interessi **futuri**: blockchain per certificazione e uso AI per analisi dati.",
+
+					"**Soft skills**",
+					"Negli ultimi dieci anni mi specializzo nell'analisi e sviluppo con momenti di direzione di progetto e team management, non disdegnando supporto tramite helpdesk, da remoto o con trasferte estere.",
+					"Uno studio collaterale mi vede anche personalmente impegnato nella difficile arte della ristrutturazione, bilanciando tra conservazione e innovazione. ",
+					"Per una **visione dettagliata delle abilità**, è possibile visione il mio CV online all'indirizzo: [https://zonafets.github.io/site/curriculum_ita.htm#details#projects] , che è web app esemplificativa con links ai video dei prodotti realizzati e alle referenze.",
+					
+					"Confidando in positivo riscontro,",
+					"porgo distinti saluti.",
+					"s.z."
+				]
+			}
   		],
 	   
         "lasts-kb": {

@@ -317,19 +317,29 @@ var nte = new (function() {
 	    activeElems.forEach(
 	    	function(it) {
 	    		if (typeof(it) !== "object") return
-	    		// var app1 = app
+	    		var done = false
     			var bind = it.attributes.bind.value
-    			var rif = eval(bind)
-    			if (rif === undefined) {
+    			var ref = eval(bind)
+    			if (ref === undefined) {
     				throw "Wrong bind '"+bind+"' in '"+it.nodeName+"'"
     			} else {
-	    			// var rif = app[bind]
-	    			if (typeof(rif) === "function") 
-	    				rif(it)
-	    			else
-	    				replyElem(it,rif) 
-	    		}
-	    	}
+	    			if (typeof(ref) === "function") 
+	    				ref(it)
+	    			else {
+	    				for (var i=0;i<ref.length;i++) {
+	    					var item = ref[i]
+		    				if (item.hasOwnProperty("hash") && item.hasOwnProperty("content")) {
+		    					if (window.location.hash == item.hash) {
+		    						replyElem(it,item.content)
+		    						done = true
+		    					}
+		    				}
+		    			} // for
+	    				if (!done)
+	    					replyElem(it,ref)
+	    				}
+	    		} // test ref
+	    	} // forEach
 	    )
 	} // RenderBinds
 

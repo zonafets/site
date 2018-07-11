@@ -29,7 +29,7 @@ function isCompatibileBrowser() {
 	console.log("element.querySelector........:"+(typeof(element['querySelector'])=='function'))
 	console.log("element.querySelectorAll.....:"+(typeof(element['querySelectorAll'])=='function'))
 	console.log("element.firstElementChild....:"+(typeof(element.firstElementChild)=='object'))
-	console.log("import of link...............:"+('import' in document.createElement('link')))
+	// console.log("import of link...............:"+('import' in document.createElement('link')))
 
 	// typeof NodeList.prototype.forEach
 	// illegal invocation
