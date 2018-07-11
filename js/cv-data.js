@@ -60,9 +60,10 @@ var cv = {
   				content:[
 		  			"Egregio Responsabile del personale,",
 					"avrei piacere a mettere la mia ventennale esperienza a servizio della Vostra azienda.",
-					"Secondo il senso comune anglosassone, confermato da studi di psicologia cognitiva, le abilità acquisite da esperienza plurima, migliorano le probabilità di risultati più efficaci.",
+					"Secondo il senso comune anglosassone, confermato da studi di psicologia cognitiva, le abilità acquisite da esperienza plurima, migliorano le probabilità per risultati più efficaci.",
 			
-					"Essa ha visto il raggiungimento e perdurare decennale degli obiettivi, nei diversi settori e ruoli. Bilanciando tra gestione tecnica o commerciale, sviluppando soluzioni innovative o adattando le funzionalità sistemiche. Ciò mi qualifica come analista programmatore dotato di una famiglia di tecniche adatta ai diversi paradigmi, abile ad anticipare gli effetti collaterali. Brevi esperienze come team leader, project e program manager danno valore aggiunto.",
+					"Essa ha visto il raggiungimento e perdurare decennale degli obiettivi, nei diversi settori e ruoli, bilanciando tra gestione tecnica o commerciale, sviluppando soluzioni innovative o adattando le funzionalità sistemiche.",
+					"Ciò mi qualifica come analista programmatore dotato di una famiglia di tecniche adatta ai diversi paradigmi, abile ad anticipare gli effetti collaterali. Brevi esperienze come team leader, project e program manager danno valore aggiunto.",
 
 					"**Hard skills**",
 					"Perito elettronico capotecnico con specilizzazione in informatica, diplomato a pieni voti, nei primi dieci anni svolgo alternativamente attività come programmatore, tecnico e docente. Maturando i livelli nei vari ruoli, apprendo ed impiego con successo gli strumenti richiesti dall'azienda.",
