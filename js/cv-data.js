@@ -59,15 +59,15 @@ var cv = {
   				hash:"",
   				content:[
 		  			"Egregio Responsabile del personale,",
-					"avrei piacere a mettere la mia ventennale esperienza a servizio della Vostra azienda.",
-					"Secondo il senso comune anglosassone, confermato da studi di psicologia cognitiva, le abilità acquisite da esperienza plurima, migliorano le probabilità per risultati più efficaci.",
+					"avrei piacere a mettere la mia ventennale esperienza a servizio della Vostra azienda,",
+					"tramite le abilità acquisite in diversi settori, ruoli e modi di lavoro.",
 			
-					"Essa ha visto il raggiungimento e perdurare decennale degli obiettivi, nei diversi settori e ruoli, bilanciando tra gestione tecnica o commerciale, sviluppando soluzioni innovative o adattando le funzionalità sistemiche.",
-					"Ciò mi qualifica come analista programmatore dotato di una famiglia di tecniche adatta ai diversi paradigmi, abile ad anticipare gli effetti collaterali. Brevi esperienze come team leader, project e program manager danno valore aggiunto.",
+					"Essa ha visto il raggiungimento e perdurare decennale degli obiettivi, bilanciando tra gestione o soluzione, tra tecnico e commerciale, tra adattamento o innovazione, con il solo obiettivo di cooperare per risolvere.",
+					"Ciò mi qualifica come analista programmatore dotato di una famiglia di tecniche adatta ai diversi paradigmi, abile ad anticipare gli effetti a breve o lungo termine. Brevi esperienze come team leader e project manager danno valore aggiunto.",
 
 					"**Hard skills**",
 					"Perito elettronico capotecnico con specilizzazione in informatica, diplomato a pieni voti, nei primi dieci anni svolgo alternativamente attività come programmatore, tecnico e docente. Maturando i livelli nei vari ruoli, apprendo ed impiego con successo gli strumenti richiesti dall'azienda.",
-					"Gli ambiti vanno dal firmware al front end, al back office, dal micro dispositivo al main frame, lavorando anche in ambienti differenti da Windows. I settori vanno dall'intrattenimento al manifatturiero con soluzioni anche per l'ottimizzazione delle performance e degli stessi processi di lavoro.",
+					"Gli ambiti vanno dal firmware al front end, al back office, dal micro dispositivo al main frame, lavorando anche in ambienti differenti da Windows. I settori vanno dall'intrattenimento/Horeca al manifatturiero con soluzioni anche per l'ottimizzazione delle performance o degli stessi processi di lavoro.",
 					"Le **recenti conoscenze** riguardano: HTML, Javascript, C#, Razor/Asp.Net, Jquery, KnockoutJS.",
 					"Interessi **a breve**: Angular o React su web/desktop, Xamarin su desktop/mobile, OpenCV/Python per video/image processing.",
 					"Interessi **futuri**: blockchain per certificazione e uso AI per analisi dati.",

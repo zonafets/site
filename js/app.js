@@ -41,10 +41,12 @@ var app = new (function() {
 			en:"Follow Microsoft's example. Leave Internet Explorer for something more compatible",
 		},
 		instructions:{
-			it:"Cliccare/toccare sull'email per copiarla nella clipboard\n\n"
+			it:"Questo CV è costituito da una WebApp\n\n"
+			  +"Cliccare/toccare sull'email per copiarla nella clipboard\n\n"
 			  +"Cliccare/toccare questo messaggio per chiuderlo\n\n"
 			  +"Se in 'vista dettagli', cliccare/toccare sulla fotografia per cambiare da elenco progetti a esperienze\n\n",
-			en:"Click / tap on the email to copy it to the clipboard\n\n"
+			en:"This CV consists of a WebApp\n\n"
+			  +"Click / tap on the email to copy it to the clipboard\n\n"
 			  +"Click / tap this message to close it\n\n"
 			  +"If in 'details view', click / tap on the photo to change from projects list to experiences\n\n"
 		},
