@@ -49,7 +49,7 @@ function isCompatibileBrowser() {
 
     // if (!('import' in document.createElement('link'))) return false;  // !Firefox
 
-	console.log("Compatibility verified")
+	console.log("Browser compatibility verified")
 	return true
 }
 

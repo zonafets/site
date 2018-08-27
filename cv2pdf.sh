@@ -18,6 +18,25 @@ chromehtml2pdf \
 	--printBackground=true \
 	--fullPage true \
 	file:///home/stefano/develop/GitHub/site/curriculum_ita.htm?print
+
+echo "Creating pdf for details"
+chromehtml2pdf \
+	--headless \
+	--allow-file-access-from-files \
+	--out=zaglio_stefano_cv_ita_details.pdf \
+	--run-all-compositor-stages-before-draw \
+	--disable-checker-imaging \
+	--disable-gpu \
+	--virtual-time-budget=4000 \
+	--executablePath=/usr/bin/chromium-browser \
+	--marginTop=0.7cm --marginBottom=0.7cm --marginLeft=0.9cm --marginRight=0.9cm \
+	--printBackground=true \
+	--fullPage true \
+	file:///home/stefano/develop/GitHub/site/curriculum_ita.htm?print#details#projects
+
+echo "Creating join of pdf letter and details"
+pdftk zaglio_stefano_cv_ita.pdf zaglio_stefano_cv_ita_details.pdf cat output zaglio_stefano_cv_ita_letter_and_details.pdf
+
 # chromehtml2pdf --out=zs_anonymouse_cv_ita.pdf --executablePath=/usr/bin/chromium-browser --marginTop=0.7cm --marginBottom=0.7cm --marginLeft=0.9cm --marginRight=0.9cm --printBackground=true file:///home/stefano/develop/GitHub/site/curriculum_ita.htm?anonymouse
 # chromehtml2pdf --out=zaglio_stefano_cv_prjs_ita.pdf --executablePath=/usr/bin/chromium-browser --marginTop=0.7cm --marginBottom=0.7cm --marginLeft=0.9cm --marginRight=0.9cm --printBackground=true file:///home/stefano/develop/GitHub/site/curriculum_ita.htm?projects
 echo "Creating static version"

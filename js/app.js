@@ -492,15 +492,19 @@ var app = new (function() {
 		function collect(obj,separators) {
 			var collection = [] 
 			var regStr = ""
-			if (typeof(separators) === "string") separators = [separators,separators] 
+			if (typeof(separators) === "string") 
+				separators = [separators,separators] 
+
 			separators.forEach(
 				function(sep) {
-					if (regStr != "") regStr+=".*"
+					if (regStr != "") regStr+="(.*?)"
 					for (var i=0;i<sep.length;i++) regStr+="["+sep.substr(i,1)+"]"
 				}
 			)
+
 			var regxp = new RegExp(regStr,"g")
 			if (collection === undefined) collection = []
+
 			function innerCollect(obj) {
 				for (var k in obj) {
 					if (k !== "links" && k !== "link" ) {
@@ -543,14 +547,28 @@ var app = new (function() {
 		        html = html.replaceAll( it, i )
 		    }
 		)
+
+	    // collect and replace >>...<< with <center>...</center>
+		var bolds = collect(cv,[">>","<<"])
+	    bolds.forEach(
+	    	function(it) {
+		        var i = '<center>' + it.slice(2,-2) +'</center>'
+		        it = '&gt;&gt;' + it.slice(2,-2) +'&lt;&lt;'
+		        html = html.replaceAll( it, i )
+		    }
+		)
 	    
+	    // todo:180827\s.zaglio: these replacements require generalization
+	    html = html.replaceAll("&lt;br/&gt;","<br/>")
+	    if (location.protocol === "file:")
+	    	html = html.replaceAll("%origin%","file:///home/stefano/develop/GitHub")
 	    document.body.innerHTML = html
 
 	} // renderWikiStyleTags
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-	function changeView() {
+	function changeView(transitionDuration) {
 		var hashes = document.querySelectorAll("*[hash]")
 		var hash = location.hash === "" ? [""] : location.hash.split("#").slice(1)
 		
@@ -571,7 +589,7 @@ var app = new (function() {
 		var experience_view = document.querySelector("[hash='#experiences']")
 		var projects_view = document.querySelector("[hash='#projects']")
 		var style = getComputedStyle(document.querySelector(".slider"))
-		var time = parseInt(style.transitionDuration) * 1000
+		var time = transitionDuration === undefined? parseInt(style.transitionDuration) * 1000 : 0
 		var css = "opened"
 		var last = hash[hash.length-1]
 
@@ -596,18 +614,22 @@ var app = new (function() {
     
     function run(cmds)
     {
+    	// url form: protocol:port/path/page?params=val&paramN=valN#hash1#hashN
+
 	    var cmds = location.search.substring(1).split("&")
 	    
 	    if (cmds.indexOf("anonymouse")>-1) nte.convertLinksToText()
-
-	    changeView()
-
-	    document.body.className='fade-in';
 		
 	    if (cmds.indexOf("print") == -1 && cmds.indexOf("projects") == -1) {
 			// setTimeout( flip, 1050)
+			changeView()
+	    	document.body.className='fade-in';
 			self.message(msgs.instructions[lang])
+		} else {
+	    	document.body.className='fade-in';
+			changeView(0)
 		}
+
 	} // run
 
 

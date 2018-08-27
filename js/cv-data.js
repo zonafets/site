@@ -58,28 +58,33 @@ var cv = {
   			{
   				hash:"",
   				content:[
-		  			"Egregio Responsabile del personale,",
-					"avrei piacere a mettere la mia ventennale esperienza a servizio della Vostra azienda,",
-					"tramite le abilità acquisite in diversi settori, ruoli e modi di lavoro.",
-			
-					"Essa ha visto il raggiungimento e perdurare decennale degli obiettivi, bilanciando tra gestione o soluzione, tra tecnico e commerciale, tra adattamento o innovazione, con il solo obiettivo di cooperare per risolvere.",
-					"Ciò mi qualifica come analista programmatore dotato di una famiglia di tecniche adatta ai diversi paradigmi, abile ad anticipare gli effetti a breve o lungo termine. Brevi esperienze come team leader e project manager danno valore aggiunto.",
-
+  					"<br/>",
+		  			"Egregio Responsabile del personale,<br/><br/>"+
+		  			"avrei piacere a mettere la mia ventennale esperienza a servizio della Vostra azienda,<br/>"+
+		  			"tramite le abilità acquisite in diversi settori, ruoli e modi di lavoro.<br/><br/>"+
+					"Essa ha visto il raggiungimento e perdurare decennale degli obiettivi, bilanciando tra gestione o soluzione tecnica o commerciale dei problemi, tra adattamento o innovazione, con lo scopo di cooperare per risolvere."+
+					"<br/>Ciò mi qualifica come analista programmatore dotato di una famiglia di tecniche adatta ai diversi paradigmi, abile ad anticipare gli effetti a breve o lungo termine."+
+					"<br/>Brevi esperienze come team leader, program manager, coordinatore, responsabile qualità e integrazione, aprono la strada ad eventuale ruolo di project manager."+
+					"",
 					"**Hard skills**",
 					"Perito elettronico capotecnico con specilizzazione in informatica, diplomato a pieni voti, nei primi dieci anni svolgo alternativamente attività come programmatore, tecnico e docente. Maturando i livelli nei vari ruoli, apprendo ed impiego con successo gli strumenti richiesti dall'azienda.",
 					"Gli ambiti vanno dal firmware al front end, al back office, dal micro dispositivo al main frame, lavorando anche in ambienti differenti da Windows. I settori vanno dall'intrattenimento/Horeca al manifatturiero con soluzioni anche per l'ottimizzazione delle performance o degli stessi processi di lavoro.",
-					"Le **recenti conoscenze** riguardano: HTML, Javascript, C#, Razor/Asp.Net, Jquery, KnockoutJS.",
-					"Interessi **a breve**: Angular o React su web/desktop, Xamarin su desktop/mobile, OpenCV/Python per video/image processing.",
-					"Interessi **futuri**: blockchain per certificazione e uso AI per analisi dati.",
-
+					"Le **recenti conoscenze** riguardano: HTML, Javascript, C#, Razor/Asp.Net, Jquery, KnockoutJS."+
+					"<br/>Interessi **a breve**: Angular o React su web/desktop, Xamarin su desktop/mobile, OpenCV/Python per video/image processing."+
+					"<br/>Interessi **futuri**: blockchain per certificazione e uso AI per analisi dati.",
+					"",
 					"**Soft skills**",
-					"Negli ultimi dieci anni mi specializzo nell'analisi e sviluppo con momenti di direzione di progetto e team management, non disdegnando supporto tramite helpdesk, da remoto o con trasferte estere.",
-					"Uno studio collaterale mi vede anche personalmente impegnato nella difficile arte della ristrutturazione, bilanciando tra conservazione e innovazione. ",
-					"Per una **visione dettagliata delle abilità**, è possibile visione il mio CV online all'indirizzo: [https://zonafets.github.io/site/curriculum_ita.htm#details#projects] , che è web app esemplificativa con links ai video dei prodotti realizzati e alle referenze.",
-					
+					"Negli ultimi dieci anni mi specializzo nell'analisi e sviluppo con momenti di direzione di progetto e team management, non disdegnando supporto tramite helpdesk, da remoto o con trasferte estere."+
+					"Uno studio collaterale mi vede anche personalmente impegnato nella difficile arte della ristrutturazione, bilanciando tra conservazione e innovazione. "+
+					"<br/>Per una **visione dettagliata delle abilità**, è possibile visione il mio CV online all'indirizzo: [%origin%/site/curriculum_ita.htm#details#projects],"+
+					" che è web app esemplificativa con links ai video delle mie realizzazioni.",
+					"<br/>",
 					"Confidando in positivo riscontro,",
-					"porgo distinti saluti.",
-					"s.z."
+					"porgo distinti saluti.<br/>",
+					"s.z.",
+					"<br/>",
+					"Castiglione D/S, 24/05/2018<br/>",
+					">>(Autorizzo il trattamento dei dati personali ai sensi del ex D. lgs. 196/2003)<<"
 				]
 			}
   		],
@@ -102,7 +107,9 @@ var cv = {
 
         experiences: [
         	{
+        		// ================================================================================================================
         		period: "2014 - oggi",
+        		// ================================================================================================================
         		comp: 	"IT Consultant, Senior Analyst & Developer",
         		competencies: ["ITC","SAD"],
         		task: 
@@ -138,7 +145,9 @@ var cv = {
 				],
 				stack: 	"Razor, Mvc.Net, C#, KnockoutJS, JQuery, Bootstrap, Sqlite, MSSql, Git, Libreoffice, Linux",
         	},{
+        		// ================================================================================================================
 				period: "2007 - 2014",
+        		// ================================================================================================================
 				comp: 	"Senior Analyst &Developer, Program Manager, Data Integrator, Quality &Standard manager",
 				competencies: ["SAD","PM","DI","QSM"],
 				task:
@@ -164,7 +173,9 @@ var cv = {
 				],
 				stack: 	"ASP.Net, VB.Net, MSSql, SqlCE, SQLite, Svn, MS-Visio, MS-Project, WindowsCe, Windows NT, Motorola, Intermec, Zebra",
 			},{
+        		// ================================================================================================================
 				period: "2000 - 2006",
+        		// ================================================================================================================
 				comp: 	"Senior Analyst / Developer\nTrainer &IT consultant",
 				competencies: ["SAD","TRN","ITC"],
 				task:
@@ -210,7 +221,9 @@ var cv = {
 				],
 				stack: 	"C++, QT Libraries, [Postgresql], CVS, MS-Access, Linux, Windows NT/TE, HP Proliant"
 			},{
+        		// ================================================================================================================
 				period: "1997 - 1999",
+        		// ================================================================================================================
 				comp: 	"Junior ICT Manager",
 				competencies: ["JIT"],
 				task: 
@@ -231,7 +244,9 @@ var cv = {
 
 				stack: "MS-Access, MSSql, IBM Acg, Zetafax, Autocad, PDFCreator, OS/400, Windows NT, AS/400, stampanti Intermec e Zebra"
 			},{
+        		// ================================================================================================================
 				period: "1990 - 1997",
+        		// ================================================================================================================
 				comp: 	"Docente tecnico pratico, tecnico-programmatore",
 				competencies: ["DTP","TP"],
 				task: 
@@ -266,7 +281,9 @@ var cv = {
 				],
 				stack: "Pascal, C, ASMx86, Ventura Publisher, Coreldraw, Autocad, MSOffice, Dos, Novell, Windows"
 			},{
+        		// ================================================================================================================
 				period: "1994 - 1997",
+        		// ================================================================================================================
 				comp: 	"Studente, autodidatta, tecnico-programmatore",
 				competencies: ["TP"],
 				task: 
@@ -397,6 +414,7 @@ var cv = {
 			["Esperienze di Lavoro", "https://goo.gl/XnCjuH"],
 			["video games", "http://digilander.libero.it/bolido/MGSexyTV.htm"],
 			["https://zonafets.github.io/site/curriculum_ita.htm#details#projects","https://zonafets.github.io/site/curriculum_ita.htm#details#projects"],
+    		["%origin%/site/curriculum_ita.htm#details#projects","%origin%/site/curriculum_ita.htm#details#projects"],
     	],
 
 	} // cv
