@@ -76,7 +76,7 @@ var cv = {
 					"**Soft skills**",
 					"Negli ultimi dieci anni mi specializzo nell'analisi e sviluppo con momenti di direzione di progetto e team management, non disdegnando supporto tramite helpdesk, da remoto o con trasferte estere."+
 					"Uno studio collaterale mi vede anche personalmente impegnato nella difficile arte della ristrutturazione, bilanciando tra conservazione e innovazione. "+
-					"<br/>Per una **visione dettagliata delle abilità**, è possibile visione il mio CV online all'indirizzo: [%origin%/site/curriculum_ita.htm#details#projects],"+
+					"<br/>Per una **visione dettagliata delle abilità**, è possibile seguire il mio CV online all'indirizzo: [%origin%/site/curriculum_ita.htm#details#projects],"+
 					" che è web app esemplificativa con links ai video delle mie realizzazioni.",
 					"<br/>",
 					"Confidando in positivo riscontro,",

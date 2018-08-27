@@ -562,13 +562,15 @@ var app = new (function() {
 	    html = html.replaceAll("&lt;br/&gt;","<br/>")
 	    if (location.protocol === "file:")
 	    	html = html.replaceAll("%origin%","file:///home/stefano/develop/GitHub")
+	    else
+	    	html = html.replaceAll("%origin%",location.origin)
 	    document.body.innerHTML = html
 
 	} // renderWikiStyleTags
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-	function changeView(transitionDuration) {
+	function changeView(ev,transitionDuration) {
 		var hashes = document.querySelectorAll("*[hash]")
 		var hash = location.hash === "" ? [""] : location.hash.split("#").slice(1)
 		
@@ -627,7 +629,7 @@ var app = new (function() {
 			self.message(msgs.instructions[lang])
 		} else {
 	    	document.body.className='fade-in';
-			changeView(0)
+			changeView(null,0)
 		}
 
 	} // run
