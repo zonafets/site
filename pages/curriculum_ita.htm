@@ -22,6 +22,7 @@
 
 	-- CHANGELOG --------------------------------------------------------------------------
 
+	180904\s.zaglio: moved html to pages/, changed .links from array to object, eng. version
 	180704\s.zaglio: converting to NTE
 	180616\s.zaglio: tested on Midori and adapted to generate a static version 
 	180612\s.zaglio: split into external files
@@ -45,13 +46,21 @@
     <meta http-equiv="cache-control" content="no-store"/>
     <meta name="keywords" content="analista, programmatore, sistemista, itc, it, manager, pc, as400, castiglione delle stiviere, mantova, brescia, asp, net, razor, mvc, delphi, c/c++, c#, wince, windows, msaccess, tsql, visual, basic, novell, windows, ubuntu, linux"/>
     <meta name="description" content="Curriculum di Stefano Zaglio"/>
-    <link rel="icon" href="favicon.ico"/>
+    <link rel="icon" href="../favicon.ico"/>
     <title>Curriculum di Stefano Zaglio</title>
     
-    <link rel="stylesheet" type="text/css" href="css/cv.css">
+    <link rel="stylesheet" type="text/css" href="../css/cv.css">
 </head>
     
 <body>
+
+    <script>
+    	var config = {
+    		cv_data: {}
+    	}
+    	var cv = null
+    </script>
+
 
 	<person-info></person-info>
     
@@ -176,10 +185,10 @@
 		                	<div class="flip-container" click="flip">
 								<div class="flipper">
 									<div class="front">
-										<img id="foto-cravatta" src="images/io/foto-cravatta-tonda.jpg" >
+										<img id="foto-cravatta" src="../images/io/foto-cravatta-tonda.jpg" >
 									</div>
 									<div class="back">
-										<img id="foto-barba" src="images/io/foto-tonda.jpg" >
+										<img id="foto-barba" src="../images/io/foto-tonda.jpg" >
 									</div>
 								</div>
 							</div>
@@ -187,7 +196,7 @@
 		            </tr>
 		            <tr>
 		                <td style="border-bottom: 1px solid gray;">
-		                    <img id="placeE" alt="myEmail" title="click to get email into clipboard" src="images/ref.svg" click="copyEmail2Clipboard"/><br>
+		                    <img id="placeE" alt="myEmail" title="click to get email into clipboard" src="../images/ref.svg" click="copyEmail2Clipboard"/><br>
 		                    cover letter:&nbsp;[https://goo.gl/7hakDJ]
 		                    &nbsp;-&nbsp;[PDF]-&nbsp;[linkedin]
 		                </td>
@@ -272,10 +281,11 @@
 
 </body>
 
-<script src="js/nte.js?dt=1807071148"></script>
-<script src="js/cv-data.js?dt=1808271252"></script>
-<script src="js/compatibility.js"></script>
-<script src="js/proto.js"></script>
-<script src="js/app.js"></script>
+<script src="../js/nte.js?dt=1807071148"></script>
+<script src="../js/cv-data-it.js?dt=1808271252"></script>
+<script src="../js/cv-data-en.js?dt=1808271252"></script>
+<script src="../js/compatibility.js"></script>
+<script src="../js/proto.js"></script>
+<script src="../js/app.js"></script>
 
 </html>

@@ -1,4 +1,5 @@
 #!/bin/bash
+cd ..
 repo=$(git remote get-url --push origin)
 rm -rf .git
 git init

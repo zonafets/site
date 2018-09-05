@@ -1,27 +1,33 @@
-var cv = {
+// check if loaded from nodejs ...
+if (typeof module !== 'undefined' && module.exports) {
+	module.exports = {cv_data: {}}
+	config = {
+		cv_data: module.exports.cv_data
+	}
+}
+
+(function() {
+
+	var p = document.currentScript.src.indexOf(".js")
+	var lang = document.currentScript.src.substr(p-2,2)
+
+	config.cv_data[lang] = {
 
     	head: {
-    		links: [
-    			["Castiglione D/S", "https://www.google.com/maps/place/46043+Castiglione+delle+Stiviere,+Province+of+Mantua/@45.3888698,10.4731711,14z/data=!3m1!4b1!4m5!3m4!1s0x4781be7b043662f9:0xb4c322fd93a83aeb!8m2!3d45.3873983!4d10.4829578"],
-    			["https://goo.gl/7hakDJ", "https://goo.gl/7hakDJ"],
-    			["PDF", "zaglio_stefano_cv_ita.pdf"],
-    			["linkedin", "https://it.linkedin.com/pub/stefano-zaglio/3b/541/1b7"],
-    		],
+    		links: {
+    			"Castiglione D/S": "https://www.google.com/maps/place/46043+Castiglione+delle+Stiviere,+Province+of+Mantua/@45.3888698,10.4731711,14z/data=!3m1!4b1!4m5!3m4!1s0x4781be7b043662f9:0xb4c322fd93a83aeb!8m2!3d45.3873983!4d10.4829578",
+    			"https://goo.gl/7hakDJ": "https://goo.gl/7hakDJ",
+    			"PDF": "zaglio_stefano_cv_ita.pdf",
+    			"linkedin": "https://it.linkedin.com/pub/stefano-zaglio/3b/541/1b7",
+    		},
     	},
-
-    	"self-nomination":
-    		"Gentile Responsabile,\n\n" +
-        	"sarei lieto di mettere le competenze di costruttore di mezzi oggi scontati dalla formazione,\n" +
-        	"nei vent'anni di esperienza in compagnie di varie dimensioni e settori,\n"+
-        	"a servizio della Vostra Azienda.\n\n"+
-        	"Confidando in un positivo riscontro, porgo distinti saluti.",
 
         briefly: {
         	lines: [
-	            "motivato al problem solving o alla gestione, in sintonia con la politica aziendale",
-	            "con intuito e attenzione a costi/benefici e alle performance",
+	            "motivato al problem solving o alla gestione commerciale, in sintonia con la politica e metodologie aziendali",
+	            "attenzione misurabile a costi/benefici e performance",
 	            "attraverso tutti gli aspetti del ciclo di vita, dalla R&D al post vendita",
-	        	"con soluzioni creative tramite brainstorming, mind maps, //in team o in autonomia//", 
+	        	"soluzioni creative tramite brainstorming, mind maps, //in team o in autonomia//", 
 	        	"cura UI/UX con approfondimenti di p. cognitiva",
 	            "esperienza nei settori [intrattenimento], [manifatturieri], [accoglienza], [automazione d'ufficio e industriale], "+
 	            "come [tecnico, programmatore] junior e senior, sistemista, [analista], [trainer], [ICT manager], program e "+
@@ -34,23 +40,23 @@ var cv = {
 	        	"interessi futuri: Angular o React su web/desktop, Xamarin su desktop/mobile, OpenCV"
 	        	// "RAL 45K(trattabili)"
         	],
-        	links:[
-        		["intrattenimento",						"http://digilander.libero.it/bolido/MGSexyTV.htm"],
-        		["manifatturieri", 						"https://www.youtube.com/watch?v=5KzKdfDnq_o"],
-        		["accoglienza", 						"https://www.youtube.com/watch?v=V1gc_mjGH1I"],
-        		["automazione d'ufficio e industriale", "https://zonafets.github.io/site/responsabile_it_copan_italia_spa.htm"],
-        		["tecnico, programmatore", 				"images/certificates/stefano_referenze_intea.jpg"],
-        		["analista", 							"http://xoomer.virgilio.it/stezagl/io/ita/esempi_estratti_da_mie_analisi.htm"],
-        		["trainer", 							"images/certificates/stefano_referenze_bpascal.jpg"],
-        		["ICT manager", 						"images/certificates/stefano_referenze_copan.jpg"],
-        		["std&qly",								"software_quality_and_standard.htm"],
-        		["tracciabilità", 						"https://youtu.be/t7-qQL8V-zA"],
-        		["integrazione di sistemi", 			"https://youtu.be/qMPB_zsRn1s"],
-        		["documentazione", 						"esempi_estratti_da_mie_analisi.htm"],
-        		["es.1", 								"https://youtu.be/MBP_jCdrCDc?t=4m56s"],
-        		["es.2", 								"https://youtu.be/qMPB_zsRn1s?t=5s"],
-        		["es.3", 								"https://youtu.be/t7-qQL8V-zA?t=5s"],
-        	],
+        	links:{
+        		"intrattenimento":						"http://digilander.libero.it/bolido/MGSexyTV.htm",
+        		"manifatturieri": 						"https://www.youtube.com/watch?v=5KzKdfDnq_o",
+        		"accoglienza": 							"https://www.youtube.com/watch?v=V1gc_mjGH1I",
+        		"automazione d'ufficio e industriale": 	"https://zonafets.github.io/site/responsabile_it_copan_italia_spa.htm",
+        		"tecnico, programmatore": 				"images/certificates/stefano_referenze_intea.jpg",
+        		"analista": 							"http://xoomer.virgilio.it/stezagl/io/ita/esempi_estratti_da_mie_analisi.htm",
+        		"trainer": 								"images/certificates/stefano_referenze_bpascal.jpg",
+        		"ICT manager": 							"images/certificates/stefano_referenze_copan.jpg",
+        		"std&qly":								"software_quality_and_standard.htm",
+        		"tracciabilità": 						"https://youtu.be/t7-qQL8V-zA",
+        		"integrazione di sistemi": 				"https://youtu.be/qMPB_zsRn1s",
+        		"documentazione": 						"esempi_estratti_da_mie_analisi.htm",
+        		"es.1": 								"https://youtu.be/MBP_jCdrCDc?t=4m56s",
+        		"es.2": 								"https://youtu.be/qMPB_zsRn1s?t=5s",
+        		"es.3": 								"https://youtu.be/t7-qQL8V-zA?t=5s",
+        	},
 
   		},
 
@@ -59,7 +65,7 @@ var cv = {
   				hash:"",
   				content:[
   					"<br/>",
-		  			"Egregio Responsabile del personale,<br/><br/>"+
+		  			"Egregio Responsabile,<br/><br/>"+
 		  			"avrei piacere a mettere la mia ventennale esperienza a servizio della Vostra azienda,<br/>"+
 		  			"tramite le abilità acquisite in diversi settori, ruoli e modi di lavoro.<br/><br/>"+
 					"Essa ha visto il raggiungimento e perdurare decennale degli obiettivi, bilanciando tra gestione o soluzione tecnica o commerciale dei problemi, tra adattamento o innovazione, con lo scopo di cooperare per risolvere."+
@@ -76,7 +82,7 @@ var cv = {
 					"**Soft skills**",
 					"Negli ultimi dieci anni mi specializzo nell'analisi e sviluppo con momenti di direzione di progetto e team management, non disdegnando supporto tramite helpdesk, da remoto o con trasferte estere."+
 					"Uno studio collaterale mi vede anche personalmente impegnato nella difficile arte della ristrutturazione, bilanciando tra conservazione e innovazione. "+
-					"<br/>Per una **visione dettagliata delle abilità**, è possibile seguire il mio CV online all'indirizzo: [%origin%/site/curriculum_ita.htm#details#projects],"+
+					"<br/>Per una **visione dettagliata delle abilità**, è possibile seguire il mio CV online all'indirizzo: [%origin%/site/pages/curriculum_ita.htm#details#projects],"+
 					" che è web app esemplificativa con links ai video delle mie realizzazioni.",
 					"<br/>",
 					"Confidando in positivo riscontro,",
@@ -97,12 +103,12 @@ var cv = {
 	        	["[Postgresql], MySQL, Sqlite, Node.js, JQuery",2],
 	        	["MS Project e Visio",1]
 	        ],
-	        links: [
-	        	["es.4",			"https://www.youtube.com/watch?v=X8Bl7z2anok"],
-		        ["es.5",			"https://youtu.be/4UNjBde8e1Q"],
-		        ["MS SQL Server",	"tsql_zaglios_collection.htm"],
-		        ["Postgresql",		"https://www.youtube.com/watch?v=B_c3QVeiCDs"]
-	        ]
+	        links: {
+	        	"es.4":			"https://www.youtube.com/watch?v=X8Bl7z2anok",
+		        "es.5":			"https://youtu.be/4UNjBde8e1Q",
+		        "MS SQL Server":"tsql_zaglios_collection.htm",
+		        "Postgresql":	"https://www.youtube.com/watch?v=B_c3QVeiCDs"
+	        }
         },
 
         experiences: [
@@ -210,7 +216,7 @@ var cv = {
 					},{
 						name:"Friskies Italia Spa", prov:"MN", link:"",
 						projects: [
-							{name:"TPFE",desc:"ottimizzazione consegna e fatturazione",link:"https://www.youtube.com/watch?v=6d7gQ3yM9sk"}
+							{name:"TPFE",desc:"tracciabilità e ottimizzazione distribuzione e fatturazione",link:"https://www.youtube.com/watch?v=6d7gQ3yM9sk"}
 						]
 					},{
 						name:"Enterprise Srl", prov:"MN", link:"",
@@ -229,9 +235,9 @@ var cv = {
 				task: 
 					"Gestione acquisti, supporto su AS400, sviluppo applicazioni CRM, ERP ● [Automatizzazione backoffice e produzione]"+
 					" ● programmazione robot ● rete Wifi e terminali RF ● supporto a ricerca e sviluppo	",
-				links: [
-					["Automatizzazione backoffice e produzione","responsabile_it_copan_italia_spa.htm"]
-				],
+				links: {
+					"Automatizzazione backoffice e produzione":"responsabile_it_copan_italia_spa.htm"
+				},
 				companies: [
 					{
 						name: "Copan Italia Spa", prov: "BS", link:"http://copanitalia.com",
@@ -341,28 +347,28 @@ var cv = {
 		 		["",						"PLC Siemens, PIC18F2420, x86, Z80","1"]	
 	        ],
 
-	        links: [
-	        	["es.6", "https://youtu.be/5KzKdfDnq_o"],
-	        	["es.7", "https://youtu.be/6d7gQ3yM9sk"],
-	        	["es.8", "https://youtu.be/-rfhieKOvR8"],
-	        	["es.9", "responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_"],
-	        	["10", "responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_"],
-	        	["11", "responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_"],
-	        	["12", "responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_"],
-	        	["ACG integration", "https://zonafets.github.io/site/responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_"]
-	        ]
+	        links: {
+	        	"es.6": "https://youtu.be/5KzKdfDnq_o",
+	        	"es.7": "https://youtu.be/6d7gQ3yM9sk",
+	        	"es.8": "https://youtu.be/-rfhieKOvR8",
+	        	"es.9": "responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_",
+	        	"10": "responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_",
+	        	"11": "responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_",
+	        	"12": "responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_",
+	        	"ACG integration": "https://zonafets.github.io/site/responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_"
+	        }
 	    },
 
 	    "extra-info": {
 	    	items: [
 				["Istruzione", "1985-89 Diploma - [Perito Industriale Capotecnico] (spec.informatica) (54/60)"],
 		        ["Lingue", "intermediate english written/spoken, Français élémentaire"],
-		        ["Ultime [letture]", "L'arte di imparare; Professione sceneggiatore"]
+		        ["Ultime [letture]", "L'arte di imparare;"]
 		    ],
-		    links: [
-		    	["Perito Industriale Capotecnico", "images/certificates/diploma_maturita.jpg"],
-		    	["letture", "bibliografia.htm"]
-		    ]
+		    links: {
+		    	"Perito Industriale Capotecnico": "images/certificates/diploma_maturita.jpg",
+		    	"letture": "bibliografia.htm"
+		    }
 		},
 
     	"extra-courses": {
@@ -381,11 +387,11 @@ var cv = {
 		        ['[coordinazione cantiere]',	'gestione progetto con budget limitato: analisi qualità e competenze'],
 		    ],
 
-		    links: [
-		    	["Attività extracurriculari", 	"https://www.youtube.com/watch?v=D48u_Tu-K98"],
-		    	["tecnico-cliente in HP", 		"images/certificates/corso_hp.jpg"],
-		    	["coordinazione cantiere",		"esempi_estratti_da_mie_analisi.htm#Documentation_developed_as_site_coordinator_for_property_renovation_(2015)_"],
-		    ]
+		    links: {
+		    	"Attività extracurriculari": 	"https://www.youtube.com/watch?v=D48u_Tu-K98",
+		    	"tecnico-cliente in HP": 		"images/certificates/corso_hp.jpg",
+		    	"coordinazione cantiere":		"esempi_estratti_da_mie_analisi.htm#Documentation_developed_as_site_coordinator_for_property_renovation_(2015)_",
+		    }
 		},
 
         competencies: [
@@ -410,11 +416,13 @@ var cv = {
         	"RAL 45K(trattabili)",
         ],
 
-		links: [
-			["Esperienze di Lavoro", "https://goo.gl/XnCjuH"],
-			["video games", "http://digilander.libero.it/bolido/MGSexyTV.htm"],
-			["https://zonafets.github.io/site/curriculum_ita.htm#details#projects","https://zonafets.github.io/site/curriculum_ita.htm#details#projects"],
-    		["%origin%/site/curriculum_ita.htm#details#projects","%origin%/site/curriculum_ita.htm#details#projects"],
-    	],
+		links: {
+			"Esperienze di Lavoro": "https://goo.gl/XnCjuH",
+			"video games": "http://digilander.libero.it/bolido/MGSexyTV.htm",
+			"https://zonafets.github.io/site/curriculum_ita.htm#details#projects":"https://zonafets.github.io/site/curriculum_ita.htm#details#projects",
+    		"%origin%/site/pages/curriculum_ita.htm#details#projects":"%origin%/site/pages/curriculum_ita.htm#details#projects",
+    	},
 
 	} // cv
+
+}())

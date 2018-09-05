@@ -245,7 +245,7 @@ var app = new (function() {
 
 			    	span = create("span")
 			    	img = create("img")
-	    			img.src = "images/icons/" + it[0].toLowerCase() + ".png"
+	    			img.src = "../images/icons/" + it[0].toLowerCase() + ".png"
 	    			append(span,img)
 
 	    			tn = txt(" " + dsc + " ")
@@ -296,7 +296,7 @@ var app = new (function() {
 			    							alink = desc
 			    							dsc = "[" + alink +"]"
 										}
-			    						cv.links.push( [ alink, link ] )
+			    						cv.links[alink] = link 
 			    					} else {
 			    						dsc = name ? name+": "+desc : desc
 			    					}
@@ -322,7 +322,7 @@ var app = new (function() {
 				    							span.title = competence_dsc(it)
 				    							span.className = "tip" 
 				    							var img = create("img")
-				    							img.src = "images/icons/" + it.toLowerCase() + ".png"
+				    							img.src = "../images/icons/" + it.toLowerCase() + ".png"
 				    							append(td,span,img)
 				    						}
 				    					)
@@ -454,40 +454,39 @@ var app = new (function() {
 		    }
 		)
 
-		function collect_links(obj, collection) {
-			if (collection === undefined) collection=[]
+		function merge_links(obj,collection) {
+			if (collection === undefined) collection={}
 			for (var k in obj) {
-				if (k === "links")
-					// obj[k].forEach( function (it) {collection.push.apply(it)} )
-					collection.push.apply(collection,obj.links)
+				if (k === "links") {
+					var links = obj[k]
+					for (var j in links) collection[j]=links[j]
+				}
 				if (typeof obj[k] === "object")
-					collect_links(obj[k], collection)
+					merge_links(obj[k], collection)
 			}
 			return collection
 		}
 
-		var links = cv.links
-		links.push.apply(links, collect_links(cv))
+		var links = merge_links(cv)
 
 		// add links from companies
 		cv.experiences.forEach( 
 			function(it) {
 				it.companies.forEach( 
 					function(c) {
-						links.push([c.name,c.link])
+						links[c.name] = c.link
 					}
 				)
 			}
 		)
 
 		// replace [link] with aref
-	    links.forEach(
-	    	function(it) {
-		        var a = '<a href="' + it[1]+'">' + it[0] + '</a>'
-		        var r = "["+it[0].replace("&","&amp;")+"]"
-		        html = html.replaceAll( r, a )
-		    }
-		)
+		for (var key in links) {
+	        var a = '<a href="' + links[key] + '">' + key + '</a>'
+	        var r = "["+key.replace("&","&amp;")+"]"
+	        html = html.replaceAll( r, a )
+	    }
+	
 
 		function collect(obj,separators) {
 			var collection = [] 
@@ -613,16 +612,37 @@ var app = new (function() {
 	}
 
 	// ----------------------------------------------------------------------------------------------------------------
-    
-    function run(cmds)
-    {
+
+	var cmds = new (function() {
     	// url form: protocol:port/path/page?params=val&paramN=valN#hash1#hashN
+   
+    	var self = this
+		self.params = {}
 
 	    var cmds = location.search.substring(1).split("&")
+	    cmds.forEach(
+	    	function(it) {
+	    		var nameAndVal = it.split("=")
+	    		self.params[nameAndVal[0]] = (nameAndVal.length>1 ? nameAndVal[1] : null)
+	    	}
+	    )
+
+	    self.param = function(param) {
+			return self.params[param] || null
+		}
+
+		return self
+	})() // cmds
+
+	// ----------------------------------------------------------------------------------------------------------------
+    
+    function run()
+    {
+    	var cmd = cmds.param
 	    
-	    if (cmds.indexOf("anonymouse")>-1) nte.convertLinksToText()
+	    if (cmd("anonymouse")) nte.convertLinksToText()
 		
-	    if (cmds.indexOf("print") == -1 && cmds.indexOf("projects") == -1) {
+	    if (cmd("print") && cmd("projects")) {
 			// setTimeout( flip, 1050)
 			changeView()
 	    	document.body.className='fade-in';
@@ -638,6 +658,10 @@ var app = new (function() {
 	// ----------------------------------------------------------------------------------------------------------------
 
 	function start() {
+
+	    var lang = cmds.param("lang")
+	    cv = lang? config.cv_data[lang] : config.cv_data.it
+
 		checkIE()
 		window.onhashchange = changeView;
 		renderNodes(this)
