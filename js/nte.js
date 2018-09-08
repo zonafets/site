@@ -319,7 +319,7 @@ var nte = new (function() {
 	    		if (typeof(it) !== "object") return
 	    		var done = false
     			var bind = it.attributes.bind.value
-    			var ref = eval(bind)
+    			var ref = eval("app."+bind)
     			if (ref === undefined) {
     				throw "Wrong bind '"+bind+"' in '"+it.nodeName+"'"
     			} else {

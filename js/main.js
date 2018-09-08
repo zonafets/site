@@ -15,6 +15,7 @@
 
 	-- CHANGELOG --------------------------------------------------------------------------
 
+	180907\s.zaglio: renamed from app.js; refactoring
 	180704\s.zaglio: moving generic DOM fn to nte.js
 	180612\s.zaglio: begin of apply Brian W. Kernighan and P. J. Plaugher principle
 
@@ -25,51 +26,53 @@
 	180601\s.zaglio: apply DRY principle to code and convert to NTE
 
 ***********************************************************************************************************************/
-"use strict"
+// "use strict"
 
-var app = new (function() {
+(function() {
 
-	var self = this
-	var app = this
+	var cv
 
 	// messages
-	var lang = navigator.language.substring(0,2)
+	var browserLang = navigator.language.substring(0,2)
 
-	var msgs = {
-		notForIe: {
-			it:"Segui l'esempio di Microsoft. Abbandona Internet Explorer per qualcosa di più compatibile.",
-			en:"Follow Microsoft's example. Leave Internet Explorer for something more compatible",
+	var messages = {
+		it: {
+			notForIe: "Segui l'esempio di Microsoft. Abbandona Internet Explorer per qualcosa di più compatibile.",
+			instructions:
+				"Questo CV è costituito da una WebApp\n\n"+
+				"Cliccare/toccare sull'email per copiarla nella clipboard\n\n"+
+				"Cliccare/toccare questo messaggio per chiuderlo\n\n"+
+				"Se in 'vista dettagli', cliccare/toccare sulla fotografia per cambiare da elenco progetti a esperienze\n\n",
+			emailCopied:"Email copiata nella clipboard.",
+			redirect:
+				"Questo browser non è completamente compatibile con le funzionalità richieste per le parti dinamiche.\n\n"+
+				"Questa app è disegnata per Chrome/Opera attualmente sono i browser più diffusi e veloci.\n\n"+
+				"Verrete rediretti alla versione statica."
 		},
-		instructions:{
-			it:"Questo CV è costituito da una WebApp\n\n"
-			  +"Cliccare/toccare sull'email per copiarla nella clipboard\n\n"
-			  +"Cliccare/toccare questo messaggio per chiuderlo\n\n"
-			  +"Se in 'vista dettagli', cliccare/toccare sulla fotografia per cambiare da elenco progetti a esperienze\n\n",
-			en:"This CV consists of a WebApp\n\n"
-			  +"Click / tap on the email to copy it to the clipboard\n\n"
-			  +"Click / tap this message to close it\n\n"
-			  +"If in 'details view', click / tap on the photo to change from projects list to experiences\n\n"
-		},
-		emailCopied:{
-			it:"Email copiata nella clipboard.",
-			en:"Email copied into clipboard."
-		},
-		redirect:{
-			it:"Questo browser non è completamente compatibile con le funzionalità richieste per le parti dinamiche.\n\n"
-			  +"Questa app è disegnata per Chrome/Opera attualmente sono i browser più diffusi e veloci.\n\n"
-			  +"Verrete rediretti alla versione statica.",
-			en:"This browser is not fully compatible with the functionality required for dynamic parts.\n\n"
-			  +"This app is designed for Chrome / Opera currently they are the most widespread and fast browsers.\n\n" 
-			  +"You will be redirected to the static version."
-		},
-	}
+		
+		en: {
+			notForIe: "Follow Microsoft's example. Leave Internet Explorer for something more compatible",
+			instructions:
+				"This CV consists of a WebApp\n\n"+
+				"Click / tap on the email to copy it to the clipboard\n\n"+
+				"Click / tap this message to close it\n\n"+
+				"If in 'details view', click / tap on the photo to change from projects list to experiences\n\n",
+			emailCopied: "Email copied into clipboard.",
+			redirect:
+				"This browser is not fully compatible with the functionality required for dynamic parts.\n\n"+
+				"This app is designed for Chrome / Opera currently they are the most widespread and fast browsers.\n\n" +
+				"You will be redirected to the static version."
+		}
+	} // messages
+
+	var msgs = messages[browserLang]
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-	var redirect = "curriculum_ita_static.htm"
+	var redirectedPage = "curriculum_static.htm"
 
 	function wasRedirected() {	
-		return (window.location.href.substr(-redirect.length)===redirect) ? true : false
+		return (window.location.href.substr(-redirectedPage.length)===redirectedPage) ? true : false
 	}
 
 	if (wasRedirected()) {
@@ -81,8 +84,8 @@ var app = new (function() {
 
 	function redirectToStaticVersion() {
 		console.log("Redirecting to static version")
-		alert(msgs.redirect[lang])
-		window.location.href = "curriculum_ita_static.htm"
+		alert(msgs.redirect)
+		window.location.href = redirectedPage
 	}
 
 	if (!isCompatibileBrowser()) 
@@ -106,7 +109,7 @@ var app = new (function() {
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-	self.message = function(textOrClickEvent) {
+	app.message = function(textOrClickEvent) {
 		var bar = document.getElementById("notifyBar")
 		if (typeof textOrClickEvent === "string") {
 			var msg = bar.firstElementChild.firstElementChild // span.p
@@ -127,7 +130,7 @@ var app = new (function() {
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-	self.flip = function(ev) {
+	app.flip = function(ev) {
 		var target = ev?ev.currentTarget:null
 		var photo = document.querySelector(".flip-container")
 		if (target === photo) {
@@ -139,7 +142,7 @@ var app = new (function() {
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-    self.copyEmail2Clipboard = function() {
+    app.copyEmail2Clipboard = function() {
         document.oncopy = function(event) {
             var a = [
             	"z", "a", "g", "l", "i", "o", ".", "s", "t", "e", "f", "a", "n", "o", 
@@ -151,7 +154,7 @@ var app = new (function() {
         ;
         document.execCommand("Copy");
         document.oncopy = undefined;
-        self.message(msgs.emailCopied[lang])
+        app.message(msgs.emailCopied)
     }
 
 
@@ -165,7 +168,7 @@ var app = new (function() {
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-	self.html = {
+	app.html = {
 
 		companies: function(node) {
 		
@@ -356,10 +359,10 @@ var app = new (function() {
 
 	function checkIE() 
 	{	    
-    	if (nte.isIE()) alert(msgs.notForIE[lang])
+    	if (nte.isIE()) alert(msgs.notForIE)
     }
 
-	function renderNodes(app) 
+	function renderNodes() 
 	{
 		var li = nte.li, lnk = nte.lnk, append = nte.append, trNtd = nte.trNtd,
 			create = (tag)=>document.createElement(tag), get = (id)=>document.getElementById(id), 
@@ -423,22 +426,65 @@ var app = new (function() {
 	    	}
 	    )
 
-	    for (var tag in self.html) {
+	    // render stacks, etc.
+	    for (var tag in app.html) {
 	    	var node = select(tag)
 	    	if (!node) {
 	    		console.log("Warning, node '" + tag + "' not found")
 	    	} else 
-	    		self.html[tag](node)
+	    		app.html[tag](node)
 	    }
 
 	} // RenderNodes
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-	function renderWikiStyleTags() 
+	function replaceMacrosAndTextNodes(html) 
 	{
 
-	    var html = document.body.innerHTML
+	    // todo:180827\s.zaglio: these replacements require generalization
+	    // note: https://stackoverflow.com/questions/42040730/faster-way-of-replacing-text-in-all-dom-elements
+
+	    if (location.protocol === "file:")
+	    	app.origin = "file:///home/stefano/develop/GitHub/site/pages/curriculum.htm"
+	    else
+	    	app.origin = location.origin+"/site/pages/curriculum.htm"
+
+	    var itOrigin = app.origin+"?lang=it"
+	    var enOrigin = app.origin+"?lang=en"
+
+	    if (app.lang != "it") app.origin+="?lang="+app.lang
+
+	    var hash = location.hash
+	    app.origin+=hash
+	    itOrigin+=hash
+	    enOrigin+=hash
+
+	    var projects = "#details#projects"
+	    var details = app.origin+(hash!==projects?projects:"")
+	    cv.links[details] = details
+	    cv.links["ITA"] = itOrigin
+	    cv.links["ENG"] = enOrigin
+
+    	html = html.replaceAll("%details%",details)
+    	html = html.replaceAll("%date%",app.date)
+		html = html.replaceAll("%lang-link%", (app.lang == "en"? "[ITA]":"[ENG]"))
+
+    	if (app.cv_data[app.lang].textNodes !== undefined) {
+    		var tn = app.cv_data[app.lang].textNodes
+    		for (var key in tn) {
+		    	html = html.replaceAll(key,tn[key])
+    		}
+	    }
+
+    	return html
+
+	} // replaceMacrosAndTextNodes
+
+	// ----------------------------------------------------------------------------------------------------------------
+
+	function renderWikiStyleTags(html) 
+	{
 
 	    cv.anonymouse.forEach(
 	    	function(it) {
@@ -556,14 +602,10 @@ var app = new (function() {
 		        html = html.replaceAll( it, i )
 		    }
 		)
-	    
-	    // todo:180827\s.zaglio: these replacements require generalization
+
 	    html = html.replaceAll("&lt;br/&gt;","<br/>")
-	    if (location.protocol === "file:")
-	    	html = html.replaceAll("%origin%","file:///home/stefano/develop/GitHub")
-	    else
-	    	html = html.replaceAll("%origin%",location.origin)
-	    document.body.innerHTML = html
+
+	    return html
 
 	} // renderWikiStyleTags
 
@@ -631,7 +673,6 @@ var app = new (function() {
 			return self.params[param] || null
 		}
 
-		return self
 	})() // cmds
 
 	// ----------------------------------------------------------------------------------------------------------------
@@ -646,7 +687,7 @@ var app = new (function() {
 			// setTimeout( flip, 1050)
 			changeView()
 	    	document.body.className='fade-in';
-			self.message(msgs.instructions[lang])
+			app.message(msgs.instructions)
 		} else {
 	    	document.body.className='fade-in';
 			changeView(null,0)
@@ -659,20 +700,35 @@ var app = new (function() {
 
 	function start() {
 
-	    var lang = cmds.param("lang")
-	    cv = lang? config.cv_data[lang] : config.cv_data.it
+		var select = (qry)=>document.querySelector(qry)
+
+		// select data source based on language
+	    app.lang = cmds.param("lang","it")
+	    cv = app.cv_data[app.lang] 
+	    if (!cv) { app.lang="it"; cv = app.cv_data.it }
+	    app.cv = cv
 
 		checkIE()
 		window.onhashchange = changeView;
-		renderNodes(this)
-		// renderWikiStyleTags()
+
+		renderNodes()
 		nte.renderTemplates()
-		nte.renderBinds(self)
-		renderWikiStyleTags()
-		nte.attachEvents(self)
+		nte.renderBinds(app)
+	    
+	    // todo: collect TextNodes
+		var html = document.body.innerHTML
+
+		html = replaceMacrosAndTextNodes(html)
+
+		html = renderWikiStyleTags(html)
+
+		document.body.innerHTML = html
+
+		nte.attachEvents(app)
+
 		run()
 	}
 
 	start()
 
-})() // app
+})() 

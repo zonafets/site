@@ -208,6 +208,11 @@ projects td + td { text-align: center; }
 	}
 }
 
+#uk-flag {
+	height: 2ch;
+    vertical-align: text-bottom;
+}
+
 /****************
  *  scrollbar   *
  ****************/

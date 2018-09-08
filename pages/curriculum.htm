@@ -22,8 +22,9 @@
 
 	-- CHANGELOG --------------------------------------------------------------------------
 
-	180702\s.zaglio: heavy implementation of NTE 
-	180630\s.zaglio: heavy implementation of NTE 
+	180907\s.zaglio: eng. version
+	180904\s.zaglio: moved html to pages/, changed .links from array to object, eng. version
+	180704\s.zaglio: converting to NTE
 	180616\s.zaglio: tested on Midori and adapted to generate a static version 
 	180612\s.zaglio: split into external files
 	180611\s.zaglio: begin of apply of DRY & NTE principles to the code; added message
@@ -34,153 +35,273 @@
 
 	-- TODO -------------------------------------------------------------------------------
 
+	180711\s.zaglio: Firefox doesn't completelly support import of templates even with webcomponents.js
 	180601\s.zaglio: apply DRY principle to code and convert to NTE
 
 -->
 
 <head>
-
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <!--meta name="viewport" content="initial-scale=1, maximum-scale=1"/-->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="cache-control" content="no-store"/>
-    <meta name="keywords" content="analista, programmatore, sistemista, itc, it, manager, pc, as400, castiglione delle stiviere, mantova, brescia, asp, net, razor, mvc, delphi, c/c++, c#, wince, windows, msaccess, tsql, visual, basic, novell, windows, ubuntu, linux"/>
+    <meta name="keywords" content="analista, analyst, programmatore, developer, sistemista, system engineer, ict, it, manager, pc, as400, castiglione delle stiviere, mantova, brescia, asp, net, javascript, knockoutjs, bootstrap, html5, razor, mvc, delphi, c/c++, c#, wince, windows, msaccess, tsql, visual, basic, novell, windows, ubuntu, linux"/>
     <meta name="description" content="Curriculum di Stefano Zaglio"/>
-    <link rel="icon" href="favicon.ico"/>
+    <link rel="icon" href="../favicon.ico"/>
     <title>Curriculum di Stefano Zaglio</title>
-
-    <link rel="stylesheet" type="text/css" href="css/cv.css">
-	<link name="notifyBar" rel="import" href="./notifyBar.htm">
-
+    
+    <link rel="stylesheet" type="text/css" href="../css/cv.css">
 </head>
     
-<body bind = "app">
+<body>
 
-	<person-info></person-info>    
+    <script>
+    	var app = 
+  		{
+    		lang: "",
+    		cv_data: {},
+    		cv: null,
+    		date: Date(2018,9,6).toLocaleString().substr(4,11),
+    		origin: "",
 
-    <!--self-nomination></self-nomination-->
+    		// these don't do nothing, are only for study pourpose
+    		html: {
+    			"%lang-link%": () => (app.lang=="it"?"[ENG]":"[ITA]"),
+    			"lang-link": {
+    				innerHTML: () => "&nbsp;- &nbsp;" + (app.lang=="it"?"[ENG]":"[ITA]")
+    			},
+    			"introduction[hash]": "#",
+    			"introduction p[bind]": "cv.introduction"
+    		}
+    	}
+    </script>
 
-    <introduction>
-    	<p bind="cv.introduction"></p>
-    </introduction>
 
-    <details bind="cv" hash="details">
+	<person-info></person-info>
+    
+    <introduction hash="#">
+	    <p bind="cv.introduction"></p>
+	</introduction>
 
-	    <briefly></briefly>
+    <div hash="#details">
+	    <!--blockquote id="self-nomination"></blockquote-->
 
-	    <view-by-projects hash="projects">
+	    <briefly>
+		    <h2>Brevemente</h2>
+		    <ul>
+		    	<li bind="cv.briefly.lines"></li>
+		    </ul>
+	    </briefly>
+
+	    <div hash="#projects" class="slider">
 	    
-	        <stacks-idx></stacks-idx>
-	            
-	        <competencies-idx></competencies-idx>
+	        <stacks>
+	            <h2>Indice stacks</h2>
+	        </stacks>
 
-	        <projects></projects>
+	        <competencies>
+	            <h2>Indice competenze</h2>
+	        </competencies>
 
-	        <companies-idx></companies-idx>
+	        <projects>
+	        	<table>
+		            <thead>
+		                <tr>
+		                    <td bind="cv.projectsTable.theads"></td>
+		                </tr>
+		            </thead>
+		        </table>
+		    </projects>
 
-	    </view-by-projects>>
+	        <companies>
+	            <h2>Indice aziende</h2>
+	        </companies>
 
-	    <view-by-experiences hash="experiences">
+	    </div>
 
-		    <lasts-kb></lasts-kb>
+	    <div hash="#experiences" class="slider">
 
-	        <experiences></experiences>
+		    <table id="lasts-kb">
+		        <thead>
+		            <tr>
+		                <td>Conoscenze recenti</td>
+		                <td>Anni</td>
+		            </tr>
+		        </thead>
+		    </table>
 
-			<previous-kb></previous-kb>
+	        <section id="experiences">
+	            <b>[Esperienze di Lavoro]&nbsp;(f/p.time, co.co.pro, p.o.)</b>
+	            <table>
+	                <thead>
+	                    <tr>
+	                        <td>Periodo/Comp.</td>
+	                        <td>Attività</td>
+	                        <td>Azienda</td>
+	                    </tr>
+	                </thead>
+	            </table>
+	        </section>
 
-	    </view-by-experiences>>
+			<section id="previous-kb">
+		    <b>Conoscenze pregresse</b>
+		    <table>
+		        <thead>
+		            <tr>
+		                <td>Categoria</td>
+		                <td>Nome</td>
+		                <td>Anni</td>
+		            </tr>
+		        </thead>
+		    </table>
+			</section>
+
+	    </div>
 	        
-	    <extra-info></extra-info>
+	    <section id="extra-info">
+	    	<h2>Informazioni aggiuntive</h2>
+			<table>
+			</table>
+		</section>
 
-		<extra-courses></extra-courses>
+		<table id="extra-courses">
+		    <thead>
+		        <tr>
+		            <td>[Attività extracurriculari]</td>
+		            <td>Competenze acquisite</td>
+		        </tr>
+		    </thead>
+		</table>
 
-		<privacy></privacy>
+		<table id="privacy">
+		    <tbody>
+		        <tr>
+		            <td><i>Autorizzo il trattamento dei dati personali ai sensi del &nbsp;ex D. lgs. 196/2003</i></td>
+		            <td><i>Castiglione D/S, %date%</i></td>
+		        </tr>
+		    </tbody>
+		</table>
 
-	</details>
+	</div>
+
+	<templates>
+		<template name="person-info">
+		    <table id="head" class="anonymouse" >
+		        <tbody>
+		            <tr>
+		                <td template="address">
+		                	<!-- move to: <template id="address"><b>...@address...</template>  -->
+		                    <b>Stefano Zaglio</b>(CV)<br>
+		                    <span>Via Soratino, 8</span><br/>
+		                    46043 [Castiglione D/S] (Italy)<br>
+		                    Nato il 01.02.72 / Sposato
+		                </td>
+		                <td rowspan="2">
+		                	<div class="flip-container" click="flip">
+								<div class="flipper">
+									<div class="front">
+										<img id="foto-cravatta" src="../images/io/foto-cravatta-tonda.jpg" >
+									</div>
+									<div class="back">
+										<img id="foto-barba" src="../images/io/foto-tonda.jpg" >
+									</div>
+								</div>
+							</div>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td style="border-bottom: 1px solid gray;">
+		                    <img id="placeE" alt="myEmail" title="click to get email into clipboard" src="../images/ref.svg" click="copyEmail2Clipboard"/><br>
+		                    cover letter:&nbsp;[https://goo.gl/7hakDJ]
+		                    &nbsp;- &nbsp;[PDF]-&nbsp;[linkedin]
+		                    <lang-link>&nbsp;- &nbsp;%lang-link%</lang-link>
+		                </td>
+		            </tr>
+		        </tbody>
+		    </table>
+		</template>
+
+		<!--
+		
+			180711\s.zaglio: Firefox doesn't completelly support import of templates even with webcomponents.js
+							 so notifyBar component is implemented here
+
+		-->
+
+		<style>
+			.fullPageOverlay > * {
+				transition: all 1s ease-in-out;
+			}
+
+			.fullPageOverlay {
+			    height:100%;
+			    width:100%;
+			    position:fixed;
+			    left:0;
+			    top:0;
+			    z-index:100 !important;
+			    background-color: rgba(0,0,0,0.5);
+			    display: none;
+				cursor: pointer;
+			}
+
+			.fullPageOverlay .message {
+				display: inline-block;
+			    position: absolute;
+			    left: 0;
+			    right: 0;
+			    margin: auto;
+			    color: white;
+			    height: fit-content;
+			    top: 20%;
+			    text-align: center;
+			    background: slategray;
+			}
+
+			.fullPageOverlay .message p {
+			    font-weight: bold;
+			    font-size: 125%;
+			    padding: 5%;
+			}
+		</style>
+
+		<!--script type="html/text" name="notifyBar" class="fullPageOverlay" click="message"-->
+		<template name="notifyBar" class="fullPageOverlay" click="message">
+		    <span class="message">
+		    	<p></p>
+		    </span>
+		</template>
+		<!--/script-->
+
+		<script>
+			// manual installation
+			// debugger
+			// var imp = document.querySelector('link[name="notifyBar"]')
+			// imp = imp.import;
+			// var tpl = imp.getElementsByTagName("template")[0]
+			// var tpl = imp.getElementsByTagName("script")[0]
+			var tpl = document.querySelector("template[name='notifyBar']")
+			var div = document.createElement("div")
+			div.id = tpl.attributes.name.value
+			div.className = tpl.className
+			div.setAttribute("click", tpl.attributes.click.value)
+			div.appendChild(tpl.content.firstElementChild) // template
+			// div.innerHTML = tpl.innerHTML
+			document.body.appendChild(div)
+			div = undefined
+			tpl = undefined
+			imp = undefined
+		</script>
+
+	</templates>
 
 </body>
 
-<templates>
-	<template name="address">
-		<b>Stefano Zaglio</b>(CV)<br>
-		<span>Via Soratino, 8</span><br/>
-		46043 [Castiglione D/S] (Italy)<br>
-		Nato il 01.02.72 / Sposato
-	</template>
-
-	<template name="person-info">
-		<table id="head" class="anonymouse" >
-	        <tbody>
-	            <tr>
-	                <td>
-	                	<address></address>
-	                </td>
-	                <td rowspan="2">
-	                	<div class="flip-container flip" click="flip">
-							<div class="flipper">
-								<div class="front">
-									<img id="foto-cravatta" src="images/io/foto-cravatta-tonda.jpg" >
-								</div>
-								<div class="back">
-									<img id="foto-barba" src="images/io/foto-tonda.jpg" >
-								</div>
-							</div>
-						</div>
-	                </td>
-	            </tr>
-	            <tr>
-	                <td style="border-bottom: 1px solid gray;">
-	                    <img id="placeE" alt="myEmail" title="click to get email into clipboard" src="images/ref.svg" click="copyEmail2Clipboard"/><br>
-	                    this:&nbsp;[https://goo.gl/7hakDJ]
-	                    &nbsp;-&nbsp;[PDF]-&nbsp;[linkedin]
-	                </td>
-	            </tr>
-	        </tbody>
-	    </table>
-	</template>
-
-	<template name="self-nomination">
-	    <blockquote bind="cv.self-nomination"></blockquote>
-	</template>
-
-	<template name="briefly">
-	    <h2>Brevemente</h2>
-	    <ul bind="cv.briefly.lines"></ul>
-	</template>
-
-	<template name="projects">
-        <table id="projects" bind="cv.projects-table">
-            <thead>
-                <tr>
-                	<td bind="thead"></td>
-                    <td>Progetti e attività principali</td>
-                    <td>Stack</td>
-                    <td>Comp.</td>
-                    <td>Az.</td>
-                </tr>
-            </thead>
-            <tbody bind="app.projects">
-            	<tr bind="cv.projects">
-            		<td bind="desc"></td>
-            		<td bind="competencies" tag="img"></td>
-            		<td
-
-            </tbody>
-        </table>
-	</template>
-
-</templates>
-
-<script src="js/nte.js"></script>
-<script src="js/cv-data.js"></script>
-<script src="js/compatibility.js"></script>
-<script src="js/proto.js"></script>
-<!--script src="js/app.js"></script-->
-<script>
-	var app={
-		start: function() {
-		}
-	}
-</script>
+<script src="../js/nte.js?dt=180905.2328"></script>
+<script src="../js/cv-data-it.js?dt=180905.2328"></script>
+<script src="../js/cv-data-en.js?dt=180905.2328"></script>
+<script src="../js/compatibility.js"></script>
+<script src="../js/polyfills.js"></script>
+<script src="../js/main.js?dt=180908.1220"></script>
 
 </html>

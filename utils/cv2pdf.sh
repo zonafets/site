@@ -71,8 +71,8 @@ chromium-browser \
 	--disable-checker-imaging \
 	--disable-gpu \
 	--dump-dom \
-	file:///home/stefano/develop/GitHub/site/curriculum_ita.htm?print \
-	> pages/curriculum_ita_static.htm 
+	file:///home/stefano/develop/GitHub/site/pages/curriculum.htm?print \
+	> pages/curriculum_static.htm 
 
 
 	# --virtual-time-budget=2500 \
