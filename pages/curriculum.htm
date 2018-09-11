@@ -19,25 +19,6 @@
 
 	I know, this is not the better code. DRY principle can be applied more.
 
-
-	-- CHANGELOG --------------------------------------------------------------------------
-
-	180907\s.zaglio: eng. version
-	180904\s.zaglio: moved html to pages/, changed .links from array to object, eng. version
-	180704\s.zaglio: converting to NTE
-	180616\s.zaglio: tested on Midori and adapted to generate a static version 
-	180612\s.zaglio: split into external files
-	180611\s.zaglio: begin of apply of DRY & NTE principles to the code; added message
-	180608\s.zaglio: added self-taught experience; improved links replace with "&"
-	180601\s.zaglio: added todo section
-	180530\s.zaglio: first semi-definitive version
-
-
-	-- TODO -------------------------------------------------------------------------------
-
-	180711\s.zaglio: Firefox doesn't completelly support import of templates even with webcomponents.js
-	180601\s.zaglio: apply DRY principle to code and convert to NTE
-
 -->
 
 <head>
@@ -59,6 +40,7 @@
     	var app = 
   		{
     		lang: "",
+    		langLink: "",
     		cv_data: {},
     		cv: null,
     		date: Date(2018,9,6).toLocaleString().substr(4,11),
@@ -66,16 +48,22 @@
 
     		// these don't do nothing, are only for study pourpose
     		html: {
-    			"%lang-link%": () => (app.lang=="it"?"[ENG]":"[ITA]"),
-    			"lang-link": {
-    				innerHTML: () => "&nbsp;- &nbsp;" + (app.lang=="it"?"[ENG]":"[ITA]")
-    			},
-    			"introduction[hash]": "#",
-    			"introduction p[bind]": "cv.introduction"
+    			lang: {
+	    			"lang-link": () => "&nbsp;- &nbsp;" + (app.lang=="it"?"[ENG]":"[ITA]"),
+    				a: (node) => {
+    					node.innerText = node.originalContent.replace("%lang-link%",app.lang);
+    					node.href = app.langLink 
+					}
+				},
+    			introduction: {
+    				hash: "#",
+    				p: {
+    					bind: "cv.introduction"
+    				}
+    			}
     		}
     	}
     </script>
-
 
 	<person-info></person-info>
     
@@ -214,7 +202,7 @@
 		                    <img id="placeE" alt="myEmail" title="click to get email into clipboard" src="../images/ref.svg" click="copyEmail2Clipboard"/><br>
 		                    cover letter:&nbsp;[https://goo.gl/7hakDJ]
 		                    &nbsp;- &nbsp;[PDF]-&nbsp;[linkedin]
-		                    <lang-link>&nbsp;- &nbsp;%lang-link%</lang-link>
+		                    <lang>&nbsp;- &nbsp;<a></a></lang>
 		                </td>
 		            </tr>
 		        </tbody>

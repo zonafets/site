@@ -14,7 +14,7 @@ app.cv_data.bk = {
         	"nessun interesse oltre allo stipendio e al divertimento",
         	"pratico i social anche durante le ore di lavoro",
         	"non segno correttamente le ore delle attività",
-        	"litigo con tutti e all'occorrenza anche con me stesso",
+        	"in caso di bisogno altrui abbandono la via dell'umanità per dar sfogo agli istinti",
         	"non so prendere impegni a lungo termine",
         	"RAL: il minimo per far spendere il massimo all'azienda in ammortizzatori esterni"
     	],
@@ -73,9 +73,9 @@ app.cv_data.bk = {
     		// ================================================================================================================
 			period: "1997 - 1999",
     		// ================================================================================================================
-			comp: 	"pazzia",
+			comp: 	"stupro e pedofilia",
 			task: 
-				"breve esperienza in manicomio",
+				"con l'ausilio dei social e il supporto dell'immagine data dall'istituzione di appartenenza, ho compiuto atti disumani",
 			companies: [
 				{ 
         			name:"A.C.M.E. Inc.",	prov:"MN", 

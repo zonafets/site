@@ -13,18 +13,6 @@
 	calling/define as NTE (Natural Template Engine) or TBE (template by example).
 
 
-	-- CHANGELOG --------------------------------------------------------------------------
-
-	180907\s.zaglio: renamed from app.js; refactoring
-	180704\s.zaglio: moving generic DOM fn to nte.js
-	180612\s.zaglio: begin of apply Brian W. Kernighan and P. J. Plaugher principle
-
-
-	-- TODO -------------------------------------------------------------------------------
-
-	180602\s.zaglio: optimize multiple string replace in renderWikiStyleTags()
-	180601\s.zaglio: apply DRY principle to code and convert to NTE
-
 ***********************************************************************************************************************/
 // "use strict"
 
@@ -170,10 +158,10 @@
 
 	app.html = {
 
-		companies: function(node) {
-		
+		companies: function() {
+			
 			var elem = nte.elem, append = nte.append, create = nte.create, 
-	    		get = nte.get(node), select = nte.select(node), add = nte.add(node),
+	    		get = nte.get(this), select = nte.select(this), add = nte.add(this),
 				bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf, lnk = nte.lnk
 			
 			var n = 0, i = 0;
@@ -213,7 +201,8 @@
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-    	stacks: function(node) {
+    	stacks: function() {
+    		var node = this
 			cv.experiences.forEach(
 	    		function(it,i) {
 
@@ -233,10 +222,10 @@
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-    	competencies: function(node) {
+    	competencies: function() {
+    		var node = this
 			cv.competencies.forEach(
 	    		function(it,i) {
-
 			    	var txt = nte.txt,
 			    		elem = nte.elem, append = nte.append, add = nte.add(node), create = nte.create, 
 	    				get = nte.get(node), select = nte.select(node)
@@ -262,10 +251,10 @@
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-    	projects: function(node) {
+    	projects: function() {
 			var
 	    		elem = nte.elem, append = nte.append, create = nte.create, 
-	    		get = nte.get(node), select = nte.select(node),
+	    		get = nte.get(this), select = nte.select(this),
 	    		bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf,
 	    		lnk = nte.lnk, trNtd = nte.trNtd, li = nte.li, replyElem = nte.replyElem
 
@@ -345,7 +334,28 @@
 	    		}
 	    	)
 	    	append(table,tbody)
-	    }
+	    },
+
+	// ----------------------------------------------------------------------------------------------------------------
+
+		// <lang>&nbsp;- &nbsp;<a></a></lang>
+		lang: function(a) {
+			window.scrollTo(0,0)
+			var a = this.querySelector("a")
+			var txt
+			var lnk
+			if (app.lang === "it") {
+				txt = "ENG"
+				lnk = location.pathname+"?lang=en"+location.hash
+			} else {
+				txt = "ITA"
+				lnk = location.pathname+"?lang=it"+location.hash
+			}
+			console.log("Setting lang link to (" + txt + "," + lnk + ")")
+			a.innerText = txt
+			a.href = lnk
+			console.log(a)
+		}
 
 	} // html
 
@@ -431,8 +441,13 @@
 	    	var node = select(tag)
 	    	if (!node) {
 	    		console.log("Warning, node '" + tag + "' not found")
-	    	} else 
-	    		app.html[tag](node)
+	    	} else {
+	    		var original = app.html[tag] 
+	    		var params = nte.getParamNames(original)
+	    		if (params.length>0) console.log("Params of '"+tag+"' are:" + params)
+	    		app.html[tag] = original.bind(node)
+	    		app.html[tag]()
+	    	}
 	    }
 
 	} // RenderNodes
@@ -450,25 +465,18 @@
 	    else
 	    	app.origin = location.origin+"/site/pages/curriculum.htm"
 
-	    var itOrigin = app.origin+"?lang=it"
-	    var enOrigin = app.origin+"?lang=en"
-
 	    if (app.lang != "it") app.origin+="?lang="+app.lang
 
 	    var hash = location.hash
-	    app.origin+=hash
-	    itOrigin+=hash
-	    enOrigin+=hash
-
 	    var projects = "#details#projects"
-	    var details = app.origin+(hash!==projects?projects:"")
+
+	    app.origin+=hash
+
+	    var details = app.origin+projects
 	    cv.links[details] = details
-	    cv.links["ITA"] = itOrigin
-	    cv.links["ENG"] = enOrigin
 
     	html = html.replaceAll("%details%",details)
     	html = html.replaceAll("%date%",app.date)
-		html = html.replaceAll("%lang-link%", (app.lang == "en"? "[ITA]":"[ENG]"))
 
     	if (app.cv_data[app.lang].textNodes !== undefined) {
     		var tn = app.cv_data[app.lang].textNodes
@@ -612,6 +620,9 @@
 	// ----------------------------------------------------------------------------------------------------------------
 
 	function changeView(ev,transitionDuration) {
+
+		app.html.lang()
+
 		var hashes = document.querySelectorAll("*[hash]")
 		var hash = location.hash === "" ? [""] : location.hash.split("#").slice(1)
 		
@@ -655,7 +666,7 @@
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-	var cmds = new (function() {
+	app.cmds = new (function() {
     	// url form: protocol:port/path/page?params=val&paramN=valN#hash1#hashN
    
     	var self = this
@@ -679,7 +690,7 @@
     
     function run()
     {
-    	var cmd = cmds.param
+    	var cmd = app.cmds.param
 	    
 	    if (cmd("anonymouse")) nte.convertLinksToText()
 		
@@ -700,10 +711,8 @@
 
 	function start() {
 
-		var select = (qry)=>document.querySelector(qry)
-
-		// select data source based on language
-	    app.lang = cmds.param("lang","it")
+		// select data source based on language param
+	    app.lang = app.cmds.param("lang","it")
 	    cv = app.cv_data[app.lang] 
 	    if (!cv) { app.lang="it"; cv = app.cv_data.it }
 	    app.cv = cv
@@ -711,11 +720,31 @@
 		checkIE()
 		window.onhashchange = changeView;
 
-		renderNodes()
 		nte.renderTemplates()
+		renderNodes()
 		nte.renderBinds(app)
 	    
-	    // todo: collect TextNodes
+	    /* todo: collect TextNodes
+		var node
+		var textNodes=[]
+		var walk=document.createTreeWalker(
+				document.body,NodeFilter.SHOW_TEXT,
+				{ acceptNode: function(node) 
+					{
+						if (node.parentNode.nodeName == "SCRIPT")
+							return NodeFilter.FILTER_REJECT
+						if (node.textContent.indexOf("%")>-1 ||
+							node.textContent.indexOf("[")>-1)
+							return NodeFilter.FILTER_ACCEPT
+						else
+							return NodeFilter.FILTER_SKIP
+					} 
+				},
+				false);
+  		while(node=walk.nextNode()) textNodes.push(node);
+  		debugger
+  		*/
+
 		var html = document.body.innerHTML
 
 		html = replaceMacrosAndTextNodes(html)
@@ -729,6 +758,15 @@
 		run()
 	}
 
+	var time = new Date().getTime()
 	start()
+	var elapsed = (new Date().getTime()) - time
+
+	/*
+		Timings (chrome 65 - ubuntu mate 16 - i5 - 8GB - radeon - hdd)
+		180911\s.zaglio: ~20ms (replacing [%texts%] using body.html)
+	*/
+
+	console.log("Rendering time: " + elapsed + "ms")
 
 })() 
