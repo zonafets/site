@@ -119,7 +119,7 @@ app.cv_data.en.experiences = [
     		},{
 				name:"3DS Team Srl", prov:"BS", link:"http://www.3ds.team/it/",
 				projects:[
-					{ name:"Docuware connector", desc:"interfaccia Docuware -> archiviazione sostitutiva", link:"https://www.youtube.com/watch?v=X8Bl7z2anok"},
+					{ name:"Docuware connector", desc:"Docuware interface -> legally compliant archiving", link:"https://www.youtube.com/watch?v=X8Bl7z2anok"},
 				]
 			},{
 				name:"Video*CV",
@@ -399,7 +399,8 @@ app.cv_data.en.textNodes = {
 	"Indice aziende": 				"Company index",
 	"Conoscenze recenti": 			"Recent knowledge",
 	"Anni": 						"Years",
-	"[Esperienze di Lavoro]&nbsp;(f/p.time, co.co.pro, p.o.)": "[Work experience]&nbsp;(f/p.time, by contract)",
+	"Esperienze di Lavoro":  		"Work experience",
+	"(f/p.time, co.co.pro, p.o.)":  "(f/p.time, by contract)",
 	"Periodo/Comp.": 				"Period/Comp.",
 	"Attività extracurriculari": 	"Extracurricular activities",
 	"Attività": 					"Task",

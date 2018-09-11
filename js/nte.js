@@ -19,135 +19,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 "use strict"
 
-/*
-	5.7.2018 first draft
-
-	NTE (in the future ITE (intuitive template engine)) want hide complexity without obly
-	the developer to learn ng-* data-* $scope, or other particular names or paradigm.
-
-	Life motive: "deduct the bonds from the names and behavior from the types".
-
-	We like examples as 
-
-		<input value="@myVariableName">.
-		<p>My name is @myVariableName</p>.
-
-	But a more complex example require a lebel than can be:
-
-		label:<input....>
-
-	or
-
-		<label><input ...>label</label>
-
-	depending on UI
-
-	So a common tag can be:
-
-		<input value="@myVarName" label="label:">
-
-	that require a input(node) function or a <template name="input">... to be rendered into one or other form.
-	Same as <p> require a p(node) to be rendered as <p>My name is <span>@MyVarName</span></p>.
-
-	But when the complexity evolve to 3rd level, things must be grouped and named:
-	
-	== presentation layer ============================
-
-	<!-- 
-		attributes not allowed, because this can be rendered both client or server side
-		depending on how we want balance performances
-	-->
-	
-	<person>
-		<fName></fname>
-		<lName></lname>
-		<bDay><bDay>
-		<fullName></fullName>
-		<splitNames></splitNames>
-		<save></save>
-	</person>
-
-	<persons></persons>
-
-	<script>
-		
-		var person = {
-			fName: "?",
-			lName: "Zaglio",
-			bDay: "1972-02-01",
-			...
-			// functions will wrapped and param names used to link controls to update
-			fullName: function(fName,lName) = { return fName+" "+lName},
-			splitNames: function(fName,lName) { split into fName,lName },
-			save: function() { ajax calls }
-		}
-
-		var persons = []
-
-		nte.viewComponents(
-			{
-				// maybe an external JSON managed by UI console/gui
-				person: {
-					lName: {
-						template: "input",
-						label: "Last name"
-					},
-					save: {
-						class:"btn btn-default"
-					},
-				},
-
-				persons: {
-					template: "table"
-				}
-
-			}
-		)
-		
-		person.fName="Stefano"
-		// person.viewUpdate() -->automatically generated&called 1st time by engine
-
-	</script>
-
-
-	== local components layer =========================
-
-	<template name="fName>
-		<input label="First Name" value="@fName">
-	</template>
-
-	<template name="bDay>
-		<input label="Birthday" type="date" value="@bDay">
-	</template>
-
-	<template name="fullName">
-		Full name:@fullName
-	</template>
-
-	<template name="save">
-		<button></button>
-	</template>
-
-
-	== global component layer =========================
-
-	<template name="input">
-		@label:<input value="@value" type="@type|text">
-	</template>
-
-
-	== engine =========================================
-
-	nte.input = function(node,data) {
-		...
-		node.addEventListener("change",function(ev){
-			eval(node.getAttribute("value") +"='" + ev.value + "'")
-		}
-		...
-	}
-
-*/
-
 var nte = new (function() {
 
 	var self = this
@@ -158,13 +29,35 @@ var nte = new (function() {
 	var STRIP_COMMENTS = /((\/\/.*$)|(\/\*[\s\S]*?\*\/))/mg;
 	var ARGUMENT_NAMES = /([^\s,]+)/g;
 	
-	this.getParamNames = function(func) {
+	self.getParamNames = function(func) {
 	  var fnStr = func.toString().replace(STRIP_COMMENTS, '');
 	  var result = fnStr.slice(fnStr.indexOf('(')+1, fnStr.indexOf(')')).match(ARGUMENT_NAMES);
 	  if(result === null)
 	     result = [];
 	  return result;
 	}
+
+	// ----------------------------------------------------------------------------------------------------------------
+
+	self.cmds = new (function() {
+    	// url form: protocol:port/path/page?params=val&paramN=valN#hash1#hashN
+   
+    	var self = this
+		self.params = {}
+
+	    var cmds = location.search.substring(1).split("&")
+	    cmds.forEach(
+	    	function(it) {
+	    		var nameAndVal = it.split("=")
+	    		self.params[nameAndVal[0]] = (nameAndVal.length>1 ? nameAndVal[1] : null)
+	    	}
+	    )
+
+	    self.param = function(param) {
+			return self.params[param] || null
+		}
+
+	})() // cmds
 
    	// ----------------------------------------------------------------------------------------------------------------
 	
@@ -324,16 +217,19 @@ var nte = new (function() {
 		// var node
 		// var textNodes=[]
 		walkTextNodes = document.createTreeWalker(
-				document.body,NodeFilter.SHOW_TEXT,
+				document,NodeFilter.SHOW_TEXT,
 				{ acceptNode: function(node) 
 					{
 						if (node.parentNode.nodeName == "SCRIPT")
 							return NodeFilter.FILTER_REJECT
+						/*
 						if (node.textContent.indexOf("%")>-1 ||
 							node.textContent.indexOf("[")>-1)
 							return NodeFilter.FILTER_ACCEPT
 						else
 							return NodeFilter.FILTER_SKIP
+						*/
+						return NodeFilter.FILTER_ACCEPT
 					} 
 				},
 				false);
@@ -343,16 +239,28 @@ var nte = new (function() {
    	// ----------------------------------------------------------------------------------------------------------------
 
    	self.replaceTag = function(tag,value) {
-   		var node = walkTextNodes.root
+   		var node
+   		walkTextNodes.currentNode = walkTextNodes.root
    		while(node=walkTextNodes.nextNode()) {
    			node.textContent = node.textContent.replace(tag,value)
    		}
    		//debugger
    	}
 
+   	// ----------------------------------------------------------------------------------------------------------------
+
+   	self.searchTag = function(tag) {
+   		var node
+   		walkTextNodes.currentNode = walkTextNodes.root
+   		while(node=walkTextNodes.nextNode()) {
+   			if (node.textContent.indexOf(tag)>-1) 
+   				console.log(node.textContent)
+   		}
+   	}
+
 	// ----------------------------------------------------------------------------------------------------------------
 
-	self.attachEvents = function(app) 
+	self.attachEvents = function() 
 	{
 	    var activeElems = document.querySelectorAll("*[click]")
 	    activeElems.forEach(
@@ -366,7 +274,7 @@ var nte = new (function() {
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-	self.renderBinds = function(app)
+	self.renderBinds = function()
 	{
 	    var activeElems = document.querySelectorAll("*[bind]")
 	    activeElems.forEach(
@@ -445,98 +353,14 @@ var nte = new (function() {
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-	self.start = function() { /*
-		var reserved = ["template","templates","script"]
-		var bodyBind = document.body.getAttributes("bind")
-		if (bodyBind) {
-			console.log("Starting application")
+	self.start = function() { 
 
-			// if a html.node has a app.node, run app.node(node)
-			// if a html.node as a html.template, replace html.node with content of html.template
-			// if html.template o its content has a bind/if-parent/click/hash/template attribute, manage it
+		app.init()
 
-			// renderTemplates()
+		self.renderTemplates()
 
-			debugger
-
-			var app = window[bodyBind.value]
-			var hashes = []	// associates elements to hash
-			
-			function renderElem(elem,data,level) {
-				var tag = elem.tagName
-				// console.log(" ".repeat(level)+tag + ":" + id )
-
-				if (reserved.indexOf(tag)>-1) continue
-
-				var hash = elem.getAttribute("hash")
-				if (hash) hashes.push({elem:elem, hash: hash})
-
-				var bind = elem.getAttributes(bind)
-				if (data.hasOwnProperty(bind)) data = data[bind]
-
-				if (elem.childElementCount > 0) forElem(elem.children,data,level+1)
-
-				if (app.hasOwnProperty(tag)) 
-					// if exists app.tag(), render by fn
-					app[tag](elem)
-				else {
-					// if exists a template with same id, replace content
-					var tpl = document.querySelector("template[name='"+tag+"']")
-					if (tpl !== null) {
-						elem.appendChild(tpl.cloneNode(true))
-						// expand content
-						renderElem(elem,data,level)
-					}
-				} else {
-					if (bind !== null) {
-						if (data.constructor === Array) {
-							data.forEach(
-								function(it,i) {
-									switch (tag) {
-										// special rendering
-										case "UL": // repeat LI
-											var li = document.createElement("li")
-											var tn = document.createTextNode(it)
-											li.appendChild(tn)
-											elem.appendChild(li)
-											break
-										case "TABLE": // repeat 
-											break
-										default:
-											if (i===0) elem.innerText = it
-											else {
-												var tn = document.createTextNode(it)
-												var el = document.createElement(tag)
-												el.appendChild(tn)
-												elem.parent.appendChild(el)
-											}
-									}
-								}
-							)
-						}
-					}
-				}
-			}
-
-			// traverse all DOM elements
-			function forElem(elems, data, level) {
-
-				if (level === undefined) level = 0
-				
-				for (var i=0; i<elems.length; i++) 
-					renderElem(elems[i],data,level)
-			}
-
-			forElem(document.body.children)
-
-			app.start()
-		} else {
-			console.log("Try to understand inner code without generate extra variables")
-			// <input id="name"><p>Yout name is: @name</p>
-		}
-	*/ 
-
-		app.html.__proto__.bindNodes = function() {
+		// app.html.__proto__.bindNodes = 
+		self.bindNodes = function() {
 			var select = (tag) => document.querySelector(tag)
 		    for (var tag in app.html) {
 		    	if (app.html.hasOwnProperty(tag)) {
@@ -553,6 +377,25 @@ var nte = new (function() {
 				    		app.html[tag] = original.bind(node)
 				    		if (app.html[tag].prototype === undefined) app.html[tag].prototype = {}
 				    		app.html[tag].prototype.originalFunction = original
+				    		// app.html[tag]() -> nte.renderBindedNodes
+				    	} else 
+				    		console.log("Warning, node '" + tag + "' not a function")
+
+			    	}
+			    } // ownProp
+		    } // for
+		}
+
+		self.renderBindedNodes = function() {
+			var select = (tag) => document.querySelector(tag)
+		    for (var tag in app.html) {
+		    	if (app.html.hasOwnProperty(tag)) {
+			    	var node = select(tag)
+			    	if (!node) {
+			    		console.log("Warning, node '" + tag + "' not found")
+			    	} else {
+			    		var original = app.html[tag]
+			    		if (typeof original === "function") {
 				    		app.html[tag]()
 				    	} else 
 				    		console.log("Warning, node '" + tag + "' not a function")
@@ -562,9 +405,13 @@ var nte = new (function() {
 		    } // for
 		}
 
+		self.bindNodes()
+		self.renderBindedNodes()
+
 		collectTextNodes()
 		app.start()
-	}
+
+	} // self.start
 
 })() // nte
 

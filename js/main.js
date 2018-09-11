@@ -16,9 +16,257 @@
 ***********************************************************************************************************************/
 // "use strict"
 
+// ----------------------------------------------------------------------------------------------------------------
+
+app.init = function() {
+
+	// select data source based on language param
+    app.lang = nte.cmds.param("lang","it")
+    cv = app.cv_data[app.lang] 
+    if (!cv) { app.lang="it"; cv = app.cv_data.it }
+    app.cv = cv
+
+}
+
+// node constructors ==========================================================================================
+
+app.html.__proto__.lg = function(node) {
+	var lg = document.createElement("lg")
+	lg.appendChild(node)
+	return lg
+}
+
+// ----------------------------------------------------------------------------------------------------------------
+
+app.html.companies = function(list) {
+		
+	var select = nte.select(this)
+	var list = select("list")
+	nte.emptyNode(list)
+
+	var add = nte.add(list),
+		bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf, lnk = nte.lnk
+	
+	var n = 0, i = 0;
+
+	var exps = cv.experiences
+	exps.forEach(
+		function(it) { n += it.companies.length }
+	)
+
+	exps.forEach(
+		function(it) {
+
+	    	add( lg( txt( spcIf(i>0) + it.period ) ) )
+	    	
+	    	it.companies.forEach(
+	    		function(it) {
+
+	    			var id = n - i
+	    			it.id = id
+	    			i++
+
+	    			add( bold( txt( " ●\u00a0"+id+".\u00a0" ) ) )
+
+    				add( txt("\u00a0") )
+	    			if (it.hasOwnProperty("link") && it.link!="")
+	    				add( lnk( it.link, txt(it.name) ) )
+	    			else 
+	    				add( txt(it.name) )
+
+	    			if (it.prov)
+    					add( txt(" - " + it.prov + " ") )
+	    		}
+	    	)
+    	}
+    )
+}
+
+// ----------------------------------------------------------------------------------------------------------------
+
+app.html.stacks = function(list) {
+
+	var select = nte.select(this)
+	var list = select("list")
+	nte.emptyNode(list)
+
+	cv.experiences.forEach(
+		function(it,i) {
+
+			var append = nte.append, add = nte.add(list),
+				txt = nte.txt , spcIf = nte.spcIf, bold = nte.bold
+
+			var id = String.fromCharCode( 65 + i )
+			it.stackId = id
+			var text = " ●\u00a0"+id+" "
+
+	    	add( append( lg ( txt(spcIf(i>0)) ), bold( text ) ))
+
+			add( txt( " " + it.stack + " " ) )
+    	}
+    )
+} // stacks-idx
+
+// ----------------------------------------------------------------------------------------------------------------
+
+app.html.competencies = function(list) {
+
+	var select = nte.select(this)
+	var list = select("list")
+	nte.emptyNode(list)
+
+	cv.competencies.forEach(
+		function(it,i) {
+	    	var txt = nte.txt, append = nte.append, add = nte.add(list), create = nte.create
+
+			var id,dsc,span,img,tn
+
+	    	id = it[0].toLowerCase()
+	    	dsc = it[1]
+
+	    	span = create("span")
+	    	img = create("img")
+			img.src = "../images/icons/" + it[0].toLowerCase() + ".png"
+			append(span,img)
+
+			tn = txt(" " + dsc + " ")
+			append(span,tn)
+
+			add(span)
+
+    	}
+    )
+} // competencies-idx
+
+// ----------------------------------------------------------------------------------------------------------------
+
+app.html.projects = function() {
+	var
+		elem = nte.elem, append = nte.append, create = nte.create, 
+		get = nte.get(this), select = nte.select(this),
+		bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf,
+		lnk = nte.lnk, trNtd = nte.trNtd, li = nte.li, replyElem = nte.replyElem
+
+	var table = select("table")
+	var tbody = select("tbody")
+	if (!tbody) tbody = create("tbody")
+	nte.emptyNode(tbody)
+	var prevComps = ""
+
+	function competence_dsc(id) {
+		var dsc = ""
+		cv.competencies.some(
+			function(it) {
+				var b = (it[0] === id)
+				if (b) dsc = it[1]
+				return b
+			}
+		)
+		return dsc
+	}
+
+
+	cv.experiences.forEach(
+		function(exp) {
+			exp.companies.forEach(
+				function(comp) {
+					comp.projects.forEach(
+						function(prj) {
+
+							var name = prj.hasOwnProperty("name") ? prj.name : ""
+							var desc = prj.hasOwnProperty("desc") ? prj.desc : ""
+							var link = prj.hasOwnProperty("link") ? prj.link : ""
+
+			    			var tr = create("tr")
+
+							// project
+	    					var td = create("td")
+	    					var dsc
+
+	    					if (link !== "") {
+	    						var alink
+
+	    						if (name !== "") {
+	    							alink = name
+	    							dsc = "[" + alink + "]: " + desc
+	    						} else {
+	    							alink = desc
+	    							dsc = "[" + alink +"]"
+								}
+	    						cv.links[alink] = link 
+	    					} else {
+	    						dsc = name ? name+": "+desc : desc
+	    					}
+
+	    					var tn = txt(dsc)
+	    					append(tr,td,tn)
+
+	    					// stack
+	    					td = create("td")
+	    					tn = txt(exp.stackId)
+	    					append(tr,td,tn)
+
+	    					// competencies
+	    					td = create("td")
+
+	    					var comps = exp.competencies.join(",")
+	    					if (prevComps == comps) 
+    							append(td,txt("\""))
+	    					else {
+		    					exp.competencies.forEach(
+		    						function(it) {
+		    							var span = create("span") 
+		    							span.title = competence_dsc(it)
+		    							span.className = "tip" 
+		    							var img = create("img")
+		    							img.src = "../images/icons/" + it.toLowerCase() + ".png"
+		    							append(td,span,img)
+		    						}
+		    					)
+		    					prevComps = comps
+		    				}
+
+	    					append(tr,td)
+
+	    					// company
+	    					td = create("td")
+	    					tn = txt(comp.id)
+	    					append(tbody,tr,td,tn)
+	    				}
+	    			)
+				}
+			)
+		}
+	)
+	append(table,tbody)
+} // projects
+
+// ----------------------------------------------------------------------------------------------------------------
+
+// <lang>&nbsp;- &nbsp;<a></a></lang>
+app.html.lang = function(a) {
+	window.scrollTo(0,0)
+	var a = this.querySelector("a")
+	var txt
+	var lnk
+	if (app.lang === "it") {
+		txt = "ENG"
+		lnk = location.pathname+"?lang=en"+location.hash
+	} else {
+		txt = "ITA"
+		lnk = location.pathname+"?lang=it"+location.hash
+	}
+	a.innerText = txt
+	a.href = lnk
+}
+
+// ========================================================================================================
+// APP Start ==============================================================================================
+// ========================================================================================================
+
 app.start = function() {
 
-	var cv
+	var cv = app.cv
 
 	// messages
 	var browserLang = navigator.language.substring(0,2)
@@ -83,18 +331,6 @@ app.start = function() {
 
 	// generic utilities ==============================================================================================
 
-	function competence_dsc(id) {
-		var dsc = ""
-		cv.competencies.some(
-			function(it) {
-				var b = (it[0] === id)
-				if (b) dsc = it[1]
-				return b
-			}
-		)
-		return dsc
-	}
-
 	// ----------------------------------------------------------------------------------------------------------------
 
 	app.message = function(textOrClickEvent) {
@@ -144,225 +380,6 @@ app.start = function() {
         document.oncopy = undefined;
         app.message(msgs.emailCopied)
     }
-
-
-    // node constructors ==========================================================================================
-
-    function lg(node) {
-    	var lg = document.createElement("lg")
-    	lg.appendChild(node)
-    	return lg
-    }
-
-	// ----------------------------------------------------------------------------------------------------------------
-
-	app.html.companies = function(list) {
-			
-		var select = nte.select(this)
-		var list = select("list")
-		nte.emptyNode(list)
-
-		var add = nte.add(list),
-			bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf, lnk = nte.lnk
-		
-		var n = 0, i = 0;
-
-		var exps = cv.experiences
-    	exps.forEach(
-    		function(it) { n += it.companies.length }
-    	)
-
-    	exps.forEach(
-    		function(it) {
-
-		    	add( lg( txt( spcIf(i>0) + it.period ) ) )
-		    	
-		    	it.companies.forEach(
-		    		function(it) {
-
-		    			var id = n - i
-		    			it.id = id
-		    			i++
-
-		    			add( bold( txt( " ●\u00a0"+id+".\u00a0" ) ) )
-
-	    				add( txt("\u00a0") )
-		    			if (it.hasOwnProperty("link") && it.link!="")
-		    				add( lnk( it.link, txt(it.name) ) )
-		    			else 
-		    				add( txt(it.name) )
-
-		    			if (it.prov)
-	    					add( txt(" - " + it.prov + " ") )
-		    		}
-		    	)
-	    	}
-	    )
-	}
-
-	// ----------------------------------------------------------------------------------------------------------------
-
-    app.html.stacks = function(list) {
-
-		var select = nte.select(this)
-		var list = select("list")
-		nte.emptyNode(list)
-
-		cv.experiences.forEach(
-    		function(it,i) {
-
-				var append = nte.append, add = nte.add(list),
-					txt = nte.txt , spcIf = nte.spcIf, bold = nte.bold
-
-    			var id = String.fromCharCode( 65 + i )
-    			it.stackId = id
-    			var text = " ●\u00a0"+id+" "
-
-		    	add( append( lg ( txt(spcIf(i>0)) ), bold( text ) ))
-
-    			add( txt( " " + it.stack + " " ) )
-	    	}
-	    )
-    } // stacks-idx
-
-	// ----------------------------------------------------------------------------------------------------------------
-
-	app.html.competencies = function(list) {
-
-		var select = nte.select(this)
-		var list = select("list")
-		nte.emptyNode(list)
-
-		cv.competencies.forEach(
-    		function(it,i) {
-		    	var txt = nte.txt, append = nte.append, add = nte.add(list), create = nte.create
-
-				var id,dsc,span,img,tn
-
-		    	id = it[0].toLowerCase()
-		    	dsc = it[1]
-
-		    	span = create("span")
-		    	img = create("img")
-    			img.src = "../images/icons/" + it[0].toLowerCase() + ".png"
-    			append(span,img)
-
-    			tn = txt(" " + dsc + " ")
-    			append(span,tn)
-
-    			add(span)
-
-	    	}
-	    )
-    } // competencies-idx
-
-	// ----------------------------------------------------------------------------------------------------------------
-
-	app.html.projects = function() {
-		var
-    		elem = nte.elem, append = nte.append, create = nte.create, 
-    		get = nte.get(this), select = nte.select(this),
-    		bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf,
-    		lnk = nte.lnk, trNtd = nte.trNtd, li = nte.li, replyElem = nte.replyElem
-
-    	var table = select("table")
-    	var tbody = select("tbody")
-    	if (!tbody) tbody = create("tbody")
-    	nte.emptyNode(tbody)
-		var prevComps = ""
-    	cv.experiences.forEach(
-    		function(exp) {
-    			exp.companies.forEach(
-    				function(comp) {
-    					comp.projects.forEach(
-    						function(prj) {
-
-    							var name = prj.hasOwnProperty("name") ? prj.name : ""
-    							var desc = prj.hasOwnProperty("desc") ? prj.desc : ""
-    							var link = prj.hasOwnProperty("link") ? prj.link : ""
-
-				    			var tr = create("tr")
-
-    							// project
-		    					var td = create("td")
-		    					var dsc
-
-		    					if (link !== "") {
-		    						var alink
-
-		    						if (name !== "") {
-		    							alink = name
-		    							dsc = "[" + alink + "]: " + desc
-		    						} else {
-		    							alink = desc
-		    							dsc = "[" + alink +"]"
-									}
-		    						cv.links[alink] = link 
-		    					} else {
-		    						dsc = name ? name+": "+desc : desc
-		    					}
-
-		    					var tn = txt(dsc)
-		    					append(tr,td,tn)
-
-		    					// stack
-		    					td = create("td")
-		    					tn = txt(exp.stackId)
-		    					append(tr,td,tn)
-
-		    					// competencies
-		    					td = create("td")
-
-		    					var comps = exp.competencies.join(",")
-		    					if (prevComps == comps) 
-	    							append(td,txt("\""))
-		    					else {
-			    					exp.competencies.forEach(
-			    						function(it) {
-			    							var span = create("span") 
-			    							span.title = competence_dsc(it)
-			    							span.className = "tip" 
-			    							var img = create("img")
-			    							img.src = "../images/icons/" + it.toLowerCase() + ".png"
-			    							append(td,span,img)
-			    						}
-			    					)
-			    					prevComps = comps
-			    				}
-
-		    					append(tr,td)
-
-		    					// company
-		    					td = create("td")
-		    					tn = txt(comp.id)
-		    					append(tbody,tr,td,tn)
-		    				}
-		    			)
-    				}
-    			)
-    		}
-    	)
-    	append(table,tbody)
-    } // projects
-
-	// ----------------------------------------------------------------------------------------------------------------
-
-		// <lang>&nbsp;- &nbsp;<a></a></lang>
-	app.html.lang = function(a) {
-		window.scrollTo(0,0)
-		var a = this.querySelector("a")
-		var txt
-		var lnk
-		if (app.lang === "it") {
-			txt = "ENG"
-			lnk = location.pathname+"?lang=en"+location.hash
-		} else {
-			txt = "ITA"
-			lnk = location.pathname+"?lang=it"+location.hash
-		}
-		a.innerText = txt
-		a.href = lnk
-	}
 
 	// ----------------------------------------------------------------------------------------------------------------
 
@@ -441,9 +458,6 @@ app.start = function() {
 	    	}
 	    )
 
-	    // render stacks, etc.
-	    app.html.bindNodes()
-
 	} // RenderNodes
 
 	// ----------------------------------------------------------------------------------------------------------------
@@ -474,9 +488,10 @@ app.start = function() {
 
     	if (app.cv_data[app.lang].textNodes !== undefined) {
     		var tn = app.cv_data[app.lang].textNodes
-    		for (var key in tn) {
-		    	nte.replaceTag(key,tn[key])
-    		}
+    		// Object.getOwnPropertyNames(tn).forEach( function(key) 
+    		for (var key in tn) 
+    			if (tn.hasOwnProperty(key)) 
+			    	nte.replaceTag(key,tn[key])
 	    }
 
 	} // replaceMacrosAndTextNodes
@@ -644,31 +659,35 @@ app.start = function() {
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-	app.cmds = new (function() {
-    	// url form: protocol:port/path/page?params=val&paramN=valN#hash1#hashN
-   
-    	var self = this
-		self.params = {}
+	function render() {
 
-	    var cmds = location.search.substring(1).split("&")
-	    cmds.forEach(
-	    	function(it) {
-	    		var nameAndVal = it.split("=")
-	    		self.params[nameAndVal[0]] = (nameAndVal.length>1 ? nameAndVal[1] : null)
-	    	}
-	    )
+		checkIE()
+		window.onhashchange = changeView;
 
-	    self.param = function(param) {
-			return self.params[param] || null
-		}
+		renderNodes()
+		nte.renderBinds()
+	    
+		replaceMacrosAndTextNodes()
 
-	})() // cmds
+		var html = document.body.innerHTML
+
+		// todo: require more work because replace §???§ with a <tag>???<tag>
+		html = renderWikiStyleTags(html)
+
+		document.body.innerHTML = html
+
+		// the direct change of html requery resync nodes<->fn
+		nte.collectTextNodes()
+		nte.bindNodes()
+
+		nte.attachEvents()
+	}
 
 	// ----------------------------------------------------------------------------------------------------------------
     
     function run()
     {
-    	var cmd = app.cmds.param
+    	var cmd = nte.cmds.param
 	    
 	    // if (cmd("anonymouse"))
 		
@@ -684,45 +703,10 @@ app.start = function() {
 
 	} // run
 
-
 	// ----------------------------------------------------------------------------------------------------------------
 
-	function init() {
-
-		// select data source based on language param
-	    app.lang = app.cmds.param("lang","it")
-	    cv = app.cv_data[app.lang] 
-	    if (!cv) { app.lang="it"; cv = app.cv_data.it }
-	    app.cv = cv
-
-		checkIE()
-		window.onhashchange = changeView;
-
-		nte.renderTemplates()
-		renderNodes()
-		nte.renderBinds(app)
-	    
-		replaceMacrosAndTextNodes()
-
-		var html = document.body.innerHTML
-
-		// todo: require more work because replace §???§ with a <tag>???<tag>
-		html = renderWikiStyleTags(html)
-
-		// this change the app.html renders
-		document.body.innerHTML = html
-
-		// the direct change of html requery resync nodes<->fn
-		nte.collectTextNodes()
-		app.html.bindNodes()
-
-		nte.attachEvents(app)
-
-		run()
-	}
-
 	var time = new Date().getTime()
-	init()
+	render()
 	var elapsed = (new Date().getTime()) - time
 
 	/*
@@ -731,5 +715,7 @@ app.start = function() {
 	*/
 
 	console.log("Rendering time: " + elapsed + "ms")
+
+	run()
 
 }

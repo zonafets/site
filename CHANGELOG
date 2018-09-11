@@ -1,0 +1,24 @@
+root
+	180910\s.zaglio: moved changelogs comments to common CHANGELOG file
+
+nte.js
+	180910\s.zaglio: added getParamNames to simplify components function management in the future
+
+main.js
+	180911\s.zaglio: replace of [tag] and %tag% using textNodes
+	180910\s.zaglio: changed <lang-link> and call of html component function
+	180907\s.zaglio: renamed from app.js; refactoring
+	180704\s.zaglio: moving generic DOM fn to nte.js
+	180612\s.zaglio: begin of apply Brian W. Kernighan and P. J. Plaugher principle
+
+curriculum.htm
+	180910\s.zaglio: renamed and restructured <lang-link> tag
+	180907\s.zaglio: eng. version
+	180904\s.zaglio: moved html to pages/, changed .links from array to object, eng. version
+	180704\s.zaglio: converting to NTE
+	180616\s.zaglio: tested on Midori and adapted to generate a static version 
+	180612\s.zaglio: split into external files
+	180611\s.zaglio: begin of apply of DRY & NTE principles to the code; added message
+	180608\s.zaglio: added self-taught experience; improved links replace with "&"
+	180601\s.zaglio: added todo section
+	180530\s.zaglio: first semi-definitive version
