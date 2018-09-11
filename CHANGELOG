@@ -2,16 +2,18 @@ root
 	180910\s.zaglio: moved changelogs comments to common CHANGELOG file
 
 nte.js
+	180911\s.zaglio: added textNodes walker, search&replace; refined logic
 	180910\s.zaglio: added getParamNames to simplify components function management in the future
 
 main.js
-	180911\s.zaglio: replace of [tag] and %tag% using textNodes
+	180911\s.zaglio: replace of [tag] and %tag% using textNodes; adapted to new nte logic
 	180910\s.zaglio: changed <lang-link> and call of html component function
 	180907\s.zaglio: renamed from app.js; refactoring
 	180704\s.zaglio: moving generic DOM fn to nte.js
 	180612\s.zaglio: begin of apply Brian W. Kernighan and P. J. Plaugher principle
 
 curriculum.htm
+	180911\s.zaglio: added <list></list> to some section to identify dynamic part
 	180910\s.zaglio: renamed and restructured <lang-link> tag
 	180907\s.zaglio: eng. version
 	180904\s.zaglio: moved html to pages/, changed .links from array to object, eng. version
