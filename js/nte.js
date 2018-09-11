@@ -151,6 +151,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 var nte = new (function() {
 
 	var self = this
+	var walkTextNodes
 
     // helpers =======================================================================================================
 
@@ -164,6 +165,20 @@ var nte = new (function() {
 	     result = [];
 	  return result;
 	}
+
+   	// ----------------------------------------------------------------------------------------------------------------
+	
+	self.isIE = function() {
+		var div = document.createElement("div")
+		div.innerHTML = "<!--[if IE]><i></i><![endif]-->"
+		var b = (div.getElementsByTagName("i").length == 1)
+		if (b) return b
+		if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) {
+   			return true // MSIE
+		}
+		return false
+	}
+
 
     // DOM helpers ====================================================================================================
 
@@ -282,6 +297,8 @@ var nte = new (function() {
 		return li
     }
 
+   	// ----------------------------------------------------------------------------------------------------------------
+
     var replyElem = function(elem,data) {
     	var parent = elem.parentElement
     	var clone = elem.cloneNode()
@@ -295,18 +312,43 @@ var nte = new (function() {
     	}
     }
 
+    self.emptyNode = function(node) {
+    	while (node.lastChild) {
+   			node.removeChild(node.lastChild);
+		}
+	}
+
    	// ----------------------------------------------------------------------------------------------------------------
 
-	self.isIE = function() {
-		var div = document.createElement("div")
-		div.innerHTML = "<!--[if IE]><i></i><![endif]-->"
-		var b = (div.getElementsByTagName("i").length == 1)
-		if (b) return b
-		if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) {
-   			return true // MSIE
-		}
-		return false
-	}
+    var collectTextNodes = self.collectTextNodes = function() {
+		// var node
+		// var textNodes=[]
+		walkTextNodes = document.createTreeWalker(
+				document.body,NodeFilter.SHOW_TEXT,
+				{ acceptNode: function(node) 
+					{
+						if (node.parentNode.nodeName == "SCRIPT")
+							return NodeFilter.FILTER_REJECT
+						if (node.textContent.indexOf("%")>-1 ||
+							node.textContent.indexOf("[")>-1)
+							return NodeFilter.FILTER_ACCEPT
+						else
+							return NodeFilter.FILTER_SKIP
+					} 
+				},
+				false);
+  		// while(node=walkTextNodes.nextNode()) textNodes.push(node);
+    }
+
+   	// ----------------------------------------------------------------------------------------------------------------
+
+   	self.replaceTag = function(tag,value) {
+   		var node = walkTextNodes.root
+   		while(node=walkTextNodes.nextNode()) {
+   			node.textContent = node.textContent.replace(tag,value)
+   		}
+   		//debugger
+   	}
 
 	// ----------------------------------------------------------------------------------------------------------------
 
@@ -354,6 +396,9 @@ var nte = new (function() {
 	    		} // test ref
 	    	} // forEach
 	    )
+
+	    if (activeElems.length>0) collectTextNodes()
+
 	} // RenderBinds
 
 	// ----------------------------------------------------------------------------------------------------------------
@@ -391,30 +436,12 @@ var nte = new (function() {
 					}	
 		    	} // fn
 			for (var i=0;i<templates.length;i++) replaceTpl(templates[i])
+
+			collectTextNodes()
 		}
 
 	} // renderTemplates
 
-	// ----------------------------------------------------------------------------------------------------------------
-
-    self.convertLinksToText = function() 
-    {
-
-    	// convert links to text
-        var l = document.getElementsByTagName("a")
-        while (l.length > 0) {
-            for (var i = 0; i < l.length; i++) {
-                var mySpan = document.createElement("span")
-                mySpan.innerText = l[i].innerText
-                l[i].replaceWith(mySpan)
-            }
-            l = document.getElementsByTagName("a")
-        }
-        var css = document.createElement("STYLE")
-        css.innerText = ".anonymouse{display:none;}"
-        document.head.append(css)
-	    
-	} // convertLinksToText
 
 	// ----------------------------------------------------------------------------------------------------------------
 
@@ -507,7 +534,37 @@ var nte = new (function() {
 			console.log("Try to understand inner code without generate extra variables")
 			// <input id="name"><p>Yout name is: @name</p>
 		}
-	*/ }
+	*/ 
+
+		app.html.__proto__.bindNodes = function() {
+			var select = (tag) => document.querySelector(tag)
+		    for (var tag in app.html) {
+		    	if (app.html.hasOwnProperty(tag)) {
+			    	var node = select(tag)
+			    	if (!node) {
+			    		console.log("Warning, node '" + tag + "' not found")
+			    	} else {
+			    		var original = app.html[tag]
+			    		if (typeof original === "function") {
+				    		if (original.prototype.originalFunction !== undefined)
+				    			original = original.prototype.originalFunction
+				    		var params = nte.getParamNames(original)
+				    		if (params.length>0) console.log("Params of '"+tag+"' are:" + params)
+				    		app.html[tag] = original.bind(node)
+				    		if (app.html[tag].prototype === undefined) app.html[tag].prototype = {}
+				    		app.html[tag].prototype.originalFunction = original
+				    		app.html[tag]()
+				    	} else 
+				    		console.log("Warning, node '" + tag + "' not a function")
+
+			    	}
+			    } // ownProp
+		    } // for
+		}
+
+		collectTextNodes()
+		app.start()
+	}
 
 })() // nte
 

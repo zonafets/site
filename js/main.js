@@ -16,7 +16,7 @@
 ***********************************************************************************************************************/
 // "use strict"
 
-(function() {
+app.start = function() {
 
 	var cv
 
@@ -156,208 +156,213 @@
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-	app.html = {
-
-		companies: function() {
+	app.html.companies = function(list) {
 			
-			var elem = nte.elem, append = nte.append, create = nte.create, 
-	    		get = nte.get(this), select = nte.select(this), add = nte.add(this),
-				bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf, lnk = nte.lnk
-			
-			var n = 0, i = 0;
+		var select = nte.select(this)
+		var list = select("list")
+		nte.emptyNode(list)
 
-			var list = cv.experiences
-	    	list.forEach(
-	    		function(it) { n += it.companies.length }
-	    	)
+		var add = nte.add(list),
+			bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf, lnk = nte.lnk
+		
+		var n = 0, i = 0;
 
-	    	list.forEach(
-	    		function(it) {
+		var exps = cv.experiences
+    	exps.forEach(
+    		function(it) { n += it.companies.length }
+    	)
 
-			    	add( lg( txt( spcIf(i>0) + it.period ) ) )
-			    	
-			    	it.companies.forEach(
-			    		function(it) {
+    	exps.forEach(
+    		function(it) {
 
-			    			var id = n - i
-			    			it.id = id
-			    			i++
+		    	add( lg( txt( spcIf(i>0) + it.period ) ) )
+		    	
+		    	it.companies.forEach(
+		    		function(it) {
 
-			    			add( bold( txt( " ●\u00a0"+id+".\u00a0" ) ) )
+		    			var id = n - i
+		    			it.id = id
+		    			i++
 
-		    				add( txt("\u00a0") )
-			    			if (it.hasOwnProperty("link") && it.link!="")
-			    				add( lnk( it.link, txt(it.name) ) )
-			    			else 
-			    				add( txt(it.name) )
+		    			add( bold( txt( " ●\u00a0"+id+".\u00a0" ) ) )
 
-			    			if (it.prov)
-		    					add( txt(" - " + it.prov + " ") )
-			    		}
-			    	)
-		    	}
-		    )
-		},
+	    				add( txt("\u00a0") )
+		    			if (it.hasOwnProperty("link") && it.link!="")
+		    				add( lnk( it.link, txt(it.name) ) )
+		    			else 
+		    				add( txt(it.name) )
 
-	// ----------------------------------------------------------------------------------------------------------------
-
-    	stacks: function() {
-    		var node = this
-			cv.experiences.forEach(
-	    		function(it,i) {
-
-					var append = nte.append, add = nte.add(node),
-						txt = nte.txt , spcIf = nte.spcIf, bold = nte.bold
-
-	    			var id = String.fromCharCode( 65 + i )
-	    			it.stackId = id
-	    			var text = " ●\u00a0"+id+" "
-
-			    	add( append( lg ( txt(spcIf(i>0)) ), bold( text ) ))
-
-	    			add( txt( " " + it.stack + " " ) )
-		    	}
-		    )
-	    }, // stacks-idx
+		    			if (it.prov)
+	    					add( txt(" - " + it.prov + " ") )
+		    		}
+		    	)
+	    	}
+	    )
+	}
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-    	competencies: function() {
-    		var node = this
-			cv.competencies.forEach(
-	    		function(it,i) {
-			    	var txt = nte.txt,
-			    		elem = nte.elem, append = nte.append, add = nte.add(node), create = nte.create, 
-	    				get = nte.get(node), select = nte.select(node)
+    app.html.stacks = function(list) {
 
-					var id,dsc,span,img,tn
+		var select = nte.select(this)
+		var list = select("list")
+		nte.emptyNode(list)
 
-			    	id = it[0].toLowerCase()
-			    	dsc = it[1]
+		cv.experiences.forEach(
+    		function(it,i) {
 
-			    	span = create("span")
-			    	img = create("img")
-	    			img.src = "../images/icons/" + it[0].toLowerCase() + ".png"
-	    			append(span,img)
+				var append = nte.append, add = nte.add(list),
+					txt = nte.txt , spcIf = nte.spcIf, bold = nte.bold
 
-	    			tn = txt(" " + dsc + " ")
-	    			append(span,tn)
+    			var id = String.fromCharCode( 65 + i )
+    			it.stackId = id
+    			var text = " ●\u00a0"+id+" "
 
-	    			add(span)
+		    	add( append( lg ( txt(spcIf(i>0)) ), bold( text ) ))
 
-		    	}
-		    )
-	    }, // competencies-idx
+    			add( txt( " " + it.stack + " " ) )
+	    	}
+	    )
+    } // stacks-idx
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-    	projects: function() {
-			var
-	    		elem = nte.elem, append = nte.append, create = nte.create, 
-	    		get = nte.get(this), select = nte.select(this),
-	    		bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf,
-	    		lnk = nte.lnk, trNtd = nte.trNtd, li = nte.li, replyElem = nte.replyElem
+	app.html.competencies = function(list) {
 
-	    	var table = select("table")
-	    	var tbody = create("tbody")
-			var prevComps = ""
-	    	cv.experiences.forEach(
-	    		function(exp) {
-	    			exp.companies.forEach(
-	    				function(comp) {
-	    					comp.projects.forEach(
-	    						function(prj) {
+		var select = nte.select(this)
+		var list = select("list")
+		nte.emptyNode(list)
 
-	    							var name = prj.hasOwnProperty("name") ? prj.name : ""
-	    							var desc = prj.hasOwnProperty("desc") ? prj.desc : ""
-	    							var link = prj.hasOwnProperty("link") ? prj.link : ""
+		cv.competencies.forEach(
+    		function(it,i) {
+		    	var txt = nte.txt, append = nte.append, add = nte.add(list), create = nte.create
 
-					    			var tr = create("tr")
+				var id,dsc,span,img,tn
 
-	    							// project
-			    					var td = create("td")
-			    					var dsc
+		    	id = it[0].toLowerCase()
+		    	dsc = it[1]
 
-			    					if (link !== "") {
-			    						var alink
+		    	span = create("span")
+		    	img = create("img")
+    			img.src = "../images/icons/" + it[0].toLowerCase() + ".png"
+    			append(span,img)
 
-			    						if (name !== "") {
-			    							alink = name
-			    							dsc = "[" + alink + "]: " + desc
-			    						} else {
-			    							alink = desc
-			    							dsc = "[" + alink +"]"
-										}
-			    						cv.links[alink] = link 
-			    					} else {
-			    						dsc = name ? name+": "+desc : desc
-			    					}
+    			tn = txt(" " + dsc + " ")
+    			append(span,tn)
 
-			    					var tn = txt(dsc)
-			    					append(tr,td,tn)
+    			add(span)
 
-			    					// stack
-			    					td = create("td")
-			    					tn = txt(exp.stackId)
-			    					append(tr,td,tn)
+	    	}
+	    )
+    } // competencies-idx
 
-			    					// competencies
-			    					td = create("td")
+	// ----------------------------------------------------------------------------------------------------------------
 
-			    					var comps = exp.competencies.join(",")
-			    					if (prevComps == comps) 
-		    							append(td,txt("\""))
-			    					else {
-				    					exp.competencies.forEach(
-				    						function(it) {
-				    							var span = create("span") 
-				    							span.title = competence_dsc(it)
-				    							span.className = "tip" 
-				    							var img = create("img")
-				    							img.src = "../images/icons/" + it.toLowerCase() + ".png"
-				    							append(td,span,img)
-				    						}
-				    					)
-				    					prevComps = comps
-				    				}
+	app.html.projects = function() {
+		var
+    		elem = nte.elem, append = nte.append, create = nte.create, 
+    		get = nte.get(this), select = nte.select(this),
+    		bold = nte.bold, txt = nte.txt , spcIf = nte.spcIf,
+    		lnk = nte.lnk, trNtd = nte.trNtd, li = nte.li, replyElem = nte.replyElem
 
-			    					append(tr,td)
+    	var table = select("table")
+    	var tbody = select("tbody")
+    	if (!tbody) tbody = create("tbody")
+    	nte.emptyNode(tbody)
+		var prevComps = ""
+    	cv.experiences.forEach(
+    		function(exp) {
+    			exp.companies.forEach(
+    				function(comp) {
+    					comp.projects.forEach(
+    						function(prj) {
 
-			    					// company
-			    					td = create("td")
-			    					tn = txt(comp.id)
-			    					append(tbody,tr,td,tn)
+    							var name = prj.hasOwnProperty("name") ? prj.name : ""
+    							var desc = prj.hasOwnProperty("desc") ? prj.desc : ""
+    							var link = prj.hasOwnProperty("link") ? prj.link : ""
+
+				    			var tr = create("tr")
+
+    							// project
+		    					var td = create("td")
+		    					var dsc
+
+		    					if (link !== "") {
+		    						var alink
+
+		    						if (name !== "") {
+		    							alink = name
+		    							dsc = "[" + alink + "]: " + desc
+		    						} else {
+		    							alink = desc
+		    							dsc = "[" + alink +"]"
+									}
+		    						cv.links[alink] = link 
+		    					} else {
+		    						dsc = name ? name+": "+desc : desc
+		    					}
+
+		    					var tn = txt(dsc)
+		    					append(tr,td,tn)
+
+		    					// stack
+		    					td = create("td")
+		    					tn = txt(exp.stackId)
+		    					append(tr,td,tn)
+
+		    					// competencies
+		    					td = create("td")
+
+		    					var comps = exp.competencies.join(",")
+		    					if (prevComps == comps) 
+	    							append(td,txt("\""))
+		    					else {
+			    					exp.competencies.forEach(
+			    						function(it) {
+			    							var span = create("span") 
+			    							span.title = competence_dsc(it)
+			    							span.className = "tip" 
+			    							var img = create("img")
+			    							img.src = "../images/icons/" + it.toLowerCase() + ".png"
+			    							append(td,span,img)
+			    						}
+			    					)
+			    					prevComps = comps
 			    				}
-			    			)
-	    				}
-	    			)
-	    		}
-	    	)
-	    	append(table,tbody)
-	    },
+
+		    					append(tr,td)
+
+		    					// company
+		    					td = create("td")
+		    					tn = txt(comp.id)
+		    					append(tbody,tr,td,tn)
+		    				}
+		    			)
+    				}
+    			)
+    		}
+    	)
+    	append(table,tbody)
+    } // projects
 
 	// ----------------------------------------------------------------------------------------------------------------
 
 		// <lang>&nbsp;- &nbsp;<a></a></lang>
-		lang: function(a) {
-			window.scrollTo(0,0)
-			var a = this.querySelector("a")
-			var txt
-			var lnk
-			if (app.lang === "it") {
-				txt = "ENG"
-				lnk = location.pathname+"?lang=en"+location.hash
-			} else {
-				txt = "ITA"
-				lnk = location.pathname+"?lang=it"+location.hash
-			}
-			console.log("Setting lang link to (" + txt + "," + lnk + ")")
-			a.innerText = txt
-			a.href = lnk
-			console.log(a)
+	app.html.lang = function(a) {
+		window.scrollTo(0,0)
+		var a = this.querySelector("a")
+		var txt
+		var lnk
+		if (app.lang === "it") {
+			txt = "ENG"
+			lnk = location.pathname+"?lang=en"+location.hash
+		} else {
+			txt = "ITA"
+			lnk = location.pathname+"?lang=it"+location.hash
 		}
-
-	} // html
+		a.innerText = txt
+		a.href = lnk
+	}
 
 	// ----------------------------------------------------------------------------------------------------------------
 
@@ -437,24 +442,13 @@
 	    )
 
 	    // render stacks, etc.
-	    for (var tag in app.html) {
-	    	var node = select(tag)
-	    	if (!node) {
-	    		console.log("Warning, node '" + tag + "' not found")
-	    	} else {
-	    		var original = app.html[tag] 
-	    		var params = nte.getParamNames(original)
-	    		if (params.length>0) console.log("Params of '"+tag+"' are:" + params)
-	    		app.html[tag] = original.bind(node)
-	    		app.html[tag]()
-	    	}
-	    }
+	    app.html.bindNodes()
 
 	} // RenderNodes
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-	function replaceMacrosAndTextNodes(html) 
+	function replaceMacrosAndTextNodes() 
 	{
 
 	    // todo:180827\s.zaglio: these replacements require generalization
@@ -475,17 +469,15 @@
 	    var details = app.origin+projects
 	    cv.links[details] = details
 
-    	html = html.replaceAll("%details%",details)
-    	html = html.replaceAll("%date%",app.date)
+    	nte.replaceTag("%details%",details)
+    	nte.replaceTag("%date%",app.date)
 
     	if (app.cv_data[app.lang].textNodes !== undefined) {
     		var tn = app.cv_data[app.lang].textNodes
     		for (var key in tn) {
-		    	html = html.replaceAll(key,tn[key])
+		    	nte.replaceTag(key,tn[key])
     		}
 	    }
-
-    	return html
 
 	} // replaceMacrosAndTextNodes
 
@@ -493,20 +485,6 @@
 
 	function renderWikiStyleTags(html) 
 	{
-
-	    cv.anonymouse.forEach(
-	    	function(it) {
-		        var span = '<span class="anonymouse">' + it + '</span>'
-		        html = html.replaceAll( it, span )
-		    }
-		)
-
-	    cv.anonymouse.forEach(
-	    	function(it) {
-		        var span = '<span class="anonymouse">' + it + '</span>'
-		        html = html.replaceAll( it, span )
-		    }
-		)
 
 		function merge_links(obj,collection) {
 			if (collection === undefined) collection={}
@@ -692,7 +670,7 @@
     {
     	var cmd = app.cmds.param
 	    
-	    if (cmd("anonymouse")) nte.convertLinksToText()
+	    // if (cmd("anonymouse"))
 		
 	    if (cmd("print") && cmd("projects")) {
 			// setTimeout( flip, 1050)
@@ -709,7 +687,7 @@
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-	function start() {
+	function init() {
 
 		// select data source based on language param
 	    app.lang = app.cmds.param("lang","it")
@@ -724,34 +702,19 @@
 		renderNodes()
 		nte.renderBinds(app)
 	    
-	    /* todo: collect TextNodes
-		var node
-		var textNodes=[]
-		var walk=document.createTreeWalker(
-				document.body,NodeFilter.SHOW_TEXT,
-				{ acceptNode: function(node) 
-					{
-						if (node.parentNode.nodeName == "SCRIPT")
-							return NodeFilter.FILTER_REJECT
-						if (node.textContent.indexOf("%")>-1 ||
-							node.textContent.indexOf("[")>-1)
-							return NodeFilter.FILTER_ACCEPT
-						else
-							return NodeFilter.FILTER_SKIP
-					} 
-				},
-				false);
-  		while(node=walk.nextNode()) textNodes.push(node);
-  		debugger
-  		*/
+		replaceMacrosAndTextNodes()
 
 		var html = document.body.innerHTML
 
-		html = replaceMacrosAndTextNodes(html)
-
+		// todo: require more work because replace §???§ with a <tag>???<tag>
 		html = renderWikiStyleTags(html)
 
+		// this change the app.html renders
 		document.body.innerHTML = html
+
+		// the direct change of html requery resync nodes<->fn
+		nte.collectTextNodes()
+		app.html.bindNodes()
 
 		nte.attachEvents(app)
 
@@ -759,7 +722,7 @@
 	}
 
 	var time = new Date().getTime()
-	start()
+	init()
 	var elapsed = (new Date().getTime()) - time
 
 	/*
@@ -769,4 +732,4 @@
 
 	console.log("Rendering time: " + elapsed + "ms")
 
-})() 
+}
