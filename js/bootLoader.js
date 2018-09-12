@@ -13,7 +13,8 @@
 		var file = ( fixed ? it.slice(0,-1) : it )
 		var src = "../js/" + file + ".js"
 		if (!fixed) src+="?dt=" + new Date().toISOString() 
-		script.setAttribute('src',src);
+		script.src = src
+		script.async = false
 		document.body.appendChild(script);
 	})
 })()
