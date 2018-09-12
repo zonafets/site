@@ -1,6 +1,7 @@
 /*
 	Black CV per ricordare il motivo per cui non ha mai senso, in nessun caso, evityare o licenziare una maestranza di concetto
 */
+if (app.cv_data === undefined) app.cv_data = {}
 app.cv_data.bk = {
 
     briefly: {

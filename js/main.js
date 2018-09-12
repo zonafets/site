@@ -16,6 +16,35 @@
 ***********************************************************************************************************************/
 // "use strict"
 
+nte.define("app")
+
+nte.extend( app,
+	{
+		lang: "",
+		cv_data: {},
+		cv: null,
+		date: Date(2018,9,6).toLocaleString().substr(4,11),
+		origin: "",
+
+		// these don't do nothing, are only for study pourpose
+		html: {
+			lang: {
+				"lang-link": () => "&nbsp;- &nbsp;" + (app.lang=="it"?"[ENG]":"[ITA]"),
+				a: (node) => {
+					node.innerText = node.originalContent.replace("%lang-link%",app.lang);
+					node.href = app.langLink 
+				}
+			},
+			introduction: {
+				hash: "#",
+				p: {
+					bind: "cv.introduction"
+				}
+			}
+		}
+	}
+)
+
 // ----------------------------------------------------------------------------------------------------------------
 
 app.init = function() {
@@ -339,6 +368,7 @@ app.start = function() {
 			var msg = bar.firstElementChild.firstElementChild // span.p
 			msg.innerText = textOrClickEvent
 			bar.style.display = "block"
+			// bar.classList = "block"
 		} else
 			bar.style.display = "none"
 	}
@@ -612,7 +642,7 @@ app.start = function() {
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-	function changeView(ev,transitionDuration) {
+	function hashChange(ev,transitionDuration) {
 
 		app.html.lang()
 
@@ -657,12 +687,16 @@ app.start = function() {
 
 	}
 
+	function changeView() {hashChange()}
+
+	function changeViewImmediatelly() {hashChange(null,0)}
+
 	// ----------------------------------------------------------------------------------------------------------------
 
 	function render() {
 
 		checkIE()
-		window.onhashchange = changeView;
+		window.onhashchange = hashChange;
 
 		renderNodes()
 		nte.renderBinds()
@@ -689,16 +723,16 @@ app.start = function() {
     {
     	var cmd = nte.cmds.param
 	    
-	    // if (cmd("anonymouse"))
-		
-	    if (cmd("print") && cmd("projects")) {
-			// setTimeout( flip, 1050)
+	    if (!cmd("print")) {
 			changeView()
 	    	document.body.className='fade-in';
-			app.message(msgs.instructions)
+	    	if (localStorage["messageViewed"] === undefined) {
+				app.message(msgs.instructions)
+				localStorage["messageViewed"] = true
+			}
 		} else {
 	    	document.body.className='fade-in';
-			changeView(null,0)
+			changeViewImmediatelly()
 		}
 
 	} // run
@@ -719,3 +753,5 @@ app.start = function() {
 	run()
 
 }
+
+nte.start()

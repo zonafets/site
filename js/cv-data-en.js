@@ -1,9 +1,10 @@
-app.cv_data.en = JSON.parse(JSON.stringify(app.cv_data.it))
+nte.define("app.cv_data")
 
+app.cv_data.en = JSON.parse(JSON.stringify(app.cv_data.it))
 
 app.cv_data.en.briefly = {
 	lines: [
-        "motivated to problem solving or commercial management, in tune with the company policy and methodologies",
+        "motivated to problem solving or commercial management, in tune with the company policy and methodologies, in team or autonomy",
         "with balanced attention between costs/benefits and performance",
         "through all aspects of the life cycle, from R&D to post-sales with related tools",
     	"creative solutions through brainstorming, mind maps, //in team or in autonomy//", 

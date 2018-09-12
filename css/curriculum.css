@@ -70,6 +70,10 @@ td {
     font-family: Tahoma;
 }
 
+a {
+	word-wrap: break-word;
+}
+
 body {
 	margin:4px;
 	background-color:#ffffff;

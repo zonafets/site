@@ -10,8 +10,8 @@
 
 	-- SCOPE ------------------------------------------------------------------------------
 
-	Show my CV, rendering content from JSON(cv-data.js) using an experimental template 
-	technique that I'am calling/define as NTE (Natural Template Engine) or TBE (template by example).
+	Show my CV, rendering content from JSON(cv-data-*.js) using an experimental template 
+	technique that I'am calling/defining as NTE (Natural Template Engine) or TBE (templates by example).
 	(https://github.com/zonafets/NTE)
 
 
@@ -31,38 +31,10 @@
     <link rel="icon" href="../favicon.ico"/>
     <title>Curriculum di Stefano Zaglio</title>
     
-    <link rel="stylesheet" type="text/css" href="../css/cv.css">
+    <link rel="stylesheet" type="text/css" href="../css/curriculum.css">
 </head>
     
 <body>
-
-    <script>
-    	var app = 
-  		{
-    		lang: "",
-    		cv_data: {},
-    		cv: null,
-    		date: Date(2018,9,6).toLocaleString().substr(4,11),
-    		origin: "",
-
-    		// these don't do nothing, are only for study pourpose
-    		html: {
-    			lang: {
-	    			"lang-link": () => "&nbsp;- &nbsp;" + (app.lang=="it"?"[ENG]":"[ITA]"),
-    				a: (node) => {
-    					node.innerText = node.originalContent.replace("%lang-link%",app.lang);
-    					node.href = app.langLink 
-					}
-				},
-    			introduction: {
-    				hash: "#",
-    				p: {
-    					bind: "cv.introduction"
-    				}
-    			}
-    		}
-    	}
-    </script>
 
 	<person-info></person-info>
     
@@ -288,13 +260,6 @@
 
 </body>
 
-<!-- todo: dymanically generate the load of scripts to avoid caching problems -->
-
-<script src="../js/nte.js?dt=180911.1750"></script>
-<script src="../js/cv-data-it.js?dt=180911.1750"></script>
-<script src="../js/cv-data-en.js?dt=180911.1750"></script>
-<script src="../js/compatibility.js"></script>
-<script src="../js/polyfills.js"></script>
-<script src="../js/main.js?dt=180911.1750"></script>
+<script src="../js/bootLoader.js?v=1&src=nte|cv-data-it|cv-data-en|compatibility!|polyfills!|main"></script>
 
 </html>

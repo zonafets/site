@@ -26,6 +26,45 @@ var nte = new (function() {
 
     // helpers =======================================================================================================
 
+    self.define = function(varName) {
+    	var vars = varName.split(".")
+    	if (typeof window[vars[0]] === "undefined") 
+    		window[vars[0]] = {}
+    	var path = vars[0]
+    	for (var i = 1; i<vars.length;i++) {
+    		path+="."+vars[i]
+    		if (typeof eval(path) === "undefined") eval( path + "={}" )
+    	}
+    }
+
+	// ----------------------------------------------------------------------------------------------------------------
+
+	self.extend = function(obj1, obj2) {
+
+	  for (var p in obj2) {
+	  	if (obj2.hasOwnProperty(p) && (typeof obj1[p] === "undefined"))
+		    try {
+		      // Property in destination object set; update its value.
+		      if ( obj2[p].constructor==Object ) {
+		        obj1[p] = self.merge(obj1[p], obj2[p]);
+
+		      } else {
+		        obj1[p] = obj2[p];
+
+		      }
+
+		    } catch(e) {
+		      // Property in destination object not set; create it and set its value.
+		      obj1[p] = obj2[p];
+
+		    }
+		  }
+
+	  return obj1;
+	}
+
+	// ----------------------------------------------------------------------------------------------------------------
+
 	var STRIP_COMMENTS = /((\/\/.*$)|(\/\*[\s\S]*?\*\/))/mg;
 	var ARGUMENT_NAMES = /([^\s,]+)/g;
 	
@@ -353,7 +392,7 @@ var nte = new (function() {
 
 	// ----------------------------------------------------------------------------------------------------------------
 
-	self.start = function() { 
+	self.start = function() {
 
 		app.init()
 
