@@ -411,7 +411,7 @@ app.cv_data.en.textNodes = {
 	"Nome": 						"Name",
 	"Informazioni aggiuntive": 		"Additional information",
 	"Competenze acquisite": 		"Acquired skills",
-	"Autorizzo il trattamento dei dati personali ai sensi del &nbsp;ex D. lgs. 196/2003": "In compliance with the Italian D.L. #196-30/06/2003, I authorize to use my personal details",
+	"Autorizzo il trattamento dei dati personali ai sensi del\xa0ex D. lgs. 196/2003": "In compliance with the Italian D.L. #196-30/06/2003,\xa0I authorize to use my personal details",
 	"Via Soratino, 8": 				"8th Soratino Street",
 	"Nato il 01 feb 72 / Sposato": 	"Born on Feb 01 1972 / Married",
 }
