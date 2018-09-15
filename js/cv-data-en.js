@@ -129,7 +129,7 @@ app.cv_data.en.experiences = [
 				]
 			}	
 		],
-		stack: 	"Razor, Mvc.Net, C#, KnockoutJS, JQuery, Bootstrap, Sqlite, MSSql, Git, Libreoffice, Linux",
+		stack: 	"Razor, Mvc.Net, C#, KnockoutJS, JQuery, Bootstrap, Sqlite, MSSql, Git, Libreoffice, G.SketchUp, OpenCV, Linux",
 	},{
 		// ================================================================================================================
 		period: "2007 - 2014",

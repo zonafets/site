@@ -50,7 +50,6 @@ var nte = new (function() {
 
 		      } else {
 		        obj1[p] = obj2[p];
-
 		      }
 
 		    } catch(e) {
