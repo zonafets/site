@@ -8,6 +8,54 @@ N.B.: moved out from nte.js actually this is a little bit obsolete
       ------------------------------------------------------------
 
 
+--- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< ---
+
+
+21.9.2018 second conjecture
+
+When we start with:
+
+	<input type="text" id="TL_A4PM_2DaysW" Placeholder="...">
+
+we end to complicate things with:
+
+	<input type="text" id="TL_A4PM_2DaysW" Placeholder="..." SubType="money" ... >
+
+or
+
+	<money id="TL_A4PM_2DaysW" Placeholder="..." min="..." max="..." ...></money>
+
+What if we keep it KISS:
+
+	<input id="TL_A4PM_2DaysW">
+
+and into a form.js:
+
+	...
+	TL_A4PM_2DaysW: {
+		type: "money",
+		placeholder: "....",
+		min: "...",
+		max: "...",
+		...
+	}
+
+In the old way of CASE, we can complete and/or transform each other to obtain a "normalized" form in any moment.
+
+So as CSS is a mirror of HTML for the representation aspect, JSON become a mirror for the behaviour aspect.
+
+Can be this an application of OOAD concepts? 
+
+But what appen if tomorrow the IETF define a new standard where extra attributes change meaning?
+
+Do we really need some "ng-", "v-" or "data-" prefix to keep us safe? No, because the meaning is detached!
+
+Was this the pourpuse of the OOP? Data + Process = meaning? Is this really useful and practical?
+
+
+--- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< ---
+
+
 5.7.2018 first draft
 
 NTE (in the future ITE (intuitive template engine)) want hide complexity without obly
@@ -133,3 +181,9 @@ nte.input = function(node,data) {
 	}
 	...
 }
+
+
+
+--- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< --- 8< ---
+
+
