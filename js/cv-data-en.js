@@ -148,7 +148,7 @@ app.cv_data.en.experiences = [
 					{desc:"obsolete data partitioning (storing millions of records)"},
 					{name:"SAP connector", desc:"management sw integration with SAP", link:"https://www.youtube.com/watch?v=qMPB_zsRn1s?t=5s"},
 					{name:"Import/Export", desc:"EDI/CSV/FTP Nutricia/Nestlé/Beghelli/TNT Traco", link:"https://www.youtube.com/edit?o=U&video_id=hCIbzP47_0c"},
-					{name:"batch records", desc:"quality certification management", link:"https://www.youtube.com/watch?v=t7-qQL8V-zA"},
+					{name:"batch records", desc:"quality certification management of technical, pure and medical gases", link:"https://www.youtube.com/watch?v=t7-qQL8V-zA"},
 					{desc:"central warehouse management", link:"esempi_estratti_da_mie_analisi.htm#User_and_Developer_guide_(2009)_"},
 					{desc:"international integration", link:"esempi_estratti_da_mie_analisi.htm#Developer_Guide_(2009)"},
 					{desc:"collected and renovated 200+ utilities TSQL", link:"https://youtu.be/D2u5Hn83Uuc"},

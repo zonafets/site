@@ -157,7 +157,7 @@ app.cv_data.it = {
 						{desc:"partizionamento dati obsoleti (storicizzazione milioni di records)"},
 						{name:"SAP connector", desc:"integrazione gestionale con SAP", link:"https://www.youtube.com/watch?v=qMPB_zsRn1s?t=5s"},
 						{name:"Import/Export", desc:"EDI/CSV/FTP Nutricia/Nestlé/Beghelli/TNT Traco", link:"https://www.youtube.com/edit?o=U&video_id=hCIbzP47_0c"},
-						{name:"batch records", desc:"gestione certificazione qualità", link:"https://www.youtube.com/watch?v=t7-qQL8V-zA"},
+						{name:"batch records", desc:"gestione certificazione qualità GAS tecnici, puri e medici", link:"https://www.youtube.com/watch?v=t7-qQL8V-zA"},
 						{desc:"gestione magazzino centrale", link:"esempi_estratti_da_mie_analisi.htm#User_and_Developer_guide_(2009)_"},
 						{desc:"integrazione internazionale", link:"esempi_estratti_da_mie_analisi.htm#Developer_Guide_(2009)"},
 						{desc:"collezionate e ristrutturate 200+ utilities TSQL", link:"https://youtu.be/D2u5Hn83Uuc"},
