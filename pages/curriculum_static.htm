@@ -1,1 +1,289 @@
-<html><head></head><body></body></html>
+<!DOCTYPE html>
+<html><!--<![endif]--><!--
+
+	-- SCOPE ------------------------------------------------------------------------------
+
+	Show my CV, rendering content from JSON(cv-data-*.js) using an experimental template 
+	technique that I'am calling/defining as NTE (Natural Template Engine) or TBE (templates by example).
+	(https://github.com/zonafets/NTE)
+
+
+	-- NOTES ------------------------------------------------------------------------------
+
+	I know, this is not the better code. DRY principle can be applied more.
+
+--><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--meta name="viewport" content="initial-scale=1, maximum-scale=1"/-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="cache-control" content="no-store">
+    <meta name="keywords" content="analista, analyst, programmatore, developer, sistemista, system engineer, ict, it, manager, pc, as400, castiglione delle stiviere, mantova, brescia, asp, net, javascript, knockoutjs, bootstrap, html5, razor, mvc, delphi, c/c++, c#, wince, windows, msaccess, tsql, visual, basic, novell, windows, ubuntu, linux">
+    <meta name="description" content="Curriculum di Stefano Zaglio">
+    <link rel="icon" href="../favicon.ico">
+    <title>Curriculum di Stefano Zaglio</title>
+    
+    <link rel="stylesheet" type="text/css" href="../css/curriculum.css">
+</head>
+    
+<body class="fade-in">
+
+	<table id="person-info" class="anonymouse">
+		        <tbody>
+		            <tr>
+		                <td template="address">
+		                	<!-- move to: <template id="address"><b>...@address...</template>  -->
+		                    <b>Stefano Zaglio</b>(CV)<br>
+		                    <span>Via Soratino, 8</span><br>
+		                    46043 <a href="https://www.google.com/maps/place/46043+Castiglione+delle+Stiviere,+Province+of+Mantua/@45.3888698,10.4731711,14z/data=!3m1!4b1!4m5!3m4!1s0x4781be7b043662f9:0xb4c322fd93a83aeb!8m2!3d45.3873983!4d10.4829578">Castiglione D/S</a> (Italy)<br>
+		                    Nato il 01.02.72 / Sposato
+		                </td>
+		                <td rowspan="2">
+		                	<div class="flip-container" click="flip">
+								<div class="flipper">
+									<div class="front">
+										<img id="foto-cravatta" src="../images/io/foto-cravatta-tonda.jpg">
+									</div>
+									<div class="back">
+										<img id="foto-barba" src="../images/io/foto-tonda.jpg">
+									</div>
+								</div>
+							</div>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td style="border-bottom: 1px solid gray;">
+		                    <img id="placeE" alt="myEmail" title="click to get email into clipboard" src="../images/ref.svg" click="copyEmail2Clipboard"><br>
+		                    cover letter:&nbsp;<a href="https://goo.gl/7hakDJ">https://goo.gl/7hakDJ</a>
+		                    &nbsp;- &nbsp;<a href="../download/zaglio_stefano_cv_ita.pdf">PDF</a>-&nbsp;<a href="https://it.linkedin.com/pub/stefano-zaglio/3b/541/1b7">linkedin</a>
+		                    <lang>&nbsp;- &nbsp;<a href="/home/stefano/develop/GitHub/site/pages/curriculum.htm?lang=en">ENG</a></lang>
+		                </td>
+		            </tr>
+		        </tbody>
+		    </table>
+    
+    <introduction hash="#" style="display: block;">
+	    <p bind="cv.introduction"><br></p>
+	<p>Egregio Responsabile,<br><br>avrei piacere a mettere la mia ventennale esperienza a servizio della Vostra azienda,<br>tramite le abilità acquisite in diversi settori, ruoli e modi di lavoro.<br><br>Essa ha visto il raggiungimento e perdurare decennale degli obiettivi, bilanciando tra gestione o soluzione tecnica o commerciale dei problemi, tra adattamento o innovazione, con lo scopo di cooperare per risolvere.<br>Ciò mi qualifica come analista programmatore dotato di una famiglia di tecniche adatta ai diversi paradigmi, abile ad anticipare gli effetti a breve o lungo termine.<br>Brevi esperienze come team leader, program manager, coordinatore, responsabile qualità e integrazione, aprono la strada ad eventuale ruolo di project manager.</p><p><b>Hard skills</b></p><p>Perito elettronico capotecnico con specilizzazione in informatica, diplomato a pieni voti, nei primi dieci anni svolgo alternativamente attività come programmatore, tecnico e docente. Maturando i livelli nei vari ruoli, apprendo ed impiego con successo gli strumenti richiesti dall'azienda.</p><p>Gli ambiti vanno dal firmware al front end, al back office, dal micro dispositivo al main frame, lavorando anche in ambienti differenti da Windows. I settori vanno dall'intrattenimento/Horeca al manifatturiero con soluzioni anche per l'ottimizzazione delle performance o degli stessi processi di lavoro.</p><p>Le <b>recenti conoscenze</b> riguardano: HTML, Javascript, C#, Razor/Asp.Net, Jquery, KnockoutJS.<br>Interessi <b>a breve</b>: Angular o React su web/desktop, Xamarin su desktop/mobile, OpenCV/Python per video/image processing.<br>Interessi <b>futuri</b>: blockchain per certificazione e uso AI per analisi dati.</p><p></p><p><b>Soft skills</b></p><p>Negli ultimi dieci anni mi specializzo nell'analisi e sviluppo con momenti di direzione di progetto e team management, senza emarginare il supporto tramite helpdesk, da remoto o con trasferte estere.Uno studio collaterale mi vede anche personalmente impegnato nella difficile arte della ristrutturazione, bilanciando tra conservazione e innovazione. <br>Per una <b>visione dettagliata delle abilità</b>, è possibile seguire il mio CV online all'indirizzo: <a href="file:///home/stefano/develop/GitHub/site/pages/curriculum.htm#details#projects">file:///home/stefano/develop/GitHub/site/pages/curriculum.htm#details#projects</a>, che è web app esemplificativa con links ai video delle mie realizzazioni.</p><p><br></p><p>Confidando in positivo riscontro,</p><p>porgo distinti saluti.<br></p><p>s.z.</p><p><br></p><p>Castiglione D/S, 24/05/2018<br></p><p></p><center>(Autorizzo il trattamento dei dati personali ai sensi del ex D. lgs. 196/2003)</center><p></p></introduction>
+
+    <div hash="#details" style="display: none;">
+	    <!--blockquote id="self-nomination"></blockquote-->
+
+	    <briefly>
+		    <h2>Brevemente</h2>
+		    <ul>
+		    	<li bind="cv.briefly.lines">motivato al problem solving o alla gestione commerciale, in sintonia con la politica e metodologie aziendali. in team o autonomia</li>
+		    <li>attenzione bilanciabile tra costi/benefici e performance</li><li>attraverso tutti gli aspetti del ciclo di vita, dalla R&amp;D al post vendita con relativi strumenti</li><li>soluzioni creative tramite brainstorming, mind maps, <i>in team o in autonomia</i></li><li>cura UI/UX con approfondimenti di p. cognitiva</li><li>esperienza nei settori <a href="http://digilander.libero.it/bolido/MGSexyTV.htm">intrattenimento</a>, <a href="https://www.youtube.com/watch?v=5KzKdfDnq_o">manifatturieri</a>, <a href="https://www.youtube.com/watch?v=V1gc_mjGH1I">accoglienza</a>, <a href="https://zonafets.github.io/site/responsabile_it_copan_italia_spa.htm">automazione d'ufficio e industriale</a>, come <a href="images/certificates/stefano_referenze_intea.jpg">tecnico, programmatore</a> junior e senior, sistemista, <a href="http://xoomer.virgilio.it/stezagl/io/ita/esempi_estratti_da_mie_analisi.htm">analista</a>, <a href="images/certificates/stefano_referenze_bpascal.jpg">trainer</a>, <a href="images/certificates/stefano_referenze_copan.jpg">ICT manager</a>, program e <a href="software_quality_and_standard.htm">std&amp;qly</a> manager</li><li>specializzato in <a href="https://youtu.be/t7-qQL8V-zA">tracciabilità</a>, <a href="https://youtu.be/qMPB_zsRn1s">integrazione di sistemi</a>, <a href="esempi_estratti_da_mie_analisi.htm">documentazione</a>,ottimizzazione dei processi (<a href="https://youtu.be/MBP_jCdrCDc?t=4m56s">es.1</a>, <a href="https://youtu.be/qMPB_zsRn1s?t=5s">es.2</a>, <a href="https://youtu.be/t7-qQL8V-zA?t=5s">es.3</a>)</li><li>Full-Stack Desktop, Mobile e Web Developer (multi-threading, multi-process e multi-platform)</li><li>disponibile al supporto con telelavoro, gestione delle urgenze, trasferte, anche internazionali di lunga durata</li><li>possibilità di assunzione entro 2 settimane</li><li>interessi futuri: Angular o React su web/desktop, Xamarin su desktop/mobile, OpenCV</li></ul>
+	    </briefly>
+
+	    <div hash="#projects" class="slider" style="display: none;">
+	    
+	        <stacks>
+	            <h2>Indice stacks</h2>
+	            <list><lg><b> ●&nbsp;A </b></lg> Razor, Mvc.Net, C#, KnockoutJS, JQuery, Bootstrap, Sqlite, MSSql, Git, Libreoffice, G.SketchUp, OpenCV, Linux <lg> <b> ●&nbsp;B </b></lg> ASP.Net, VB.Net, MSSql, SqlCE, SQLite, Svn, MS-Visio, MS-Project, WindowsCe, Windows NT, Motorola, Intermec, Zebra <lg> <b> ●&nbsp;C </b></lg> C++, QT Libraries, <a href="https://www.youtube.com/watch?v=B_c3QVeiCDs">Postgresql</a>, CVS, MS-Access, Linux, Windows NT/TE, HP Proliant <lg> <b> ●&nbsp;D </b></lg> MS-Access, MSSql, IBM Acg, Zetafax, Autocad(12), PDFCreator, OS/400, Windows NT, AS/400, stampanti Intermec e Zebra <lg> <b> ●&nbsp;E </b></lg> Pascal, C, ASMx86, Ventura Publisher, Coreldraw, Autocad(2.7), MSOffice, Dos, Novell, Windows <lg> <b> ●&nbsp;F </b></lg> Turbo Pascal, Page Maker, Ventura Publisher, MSWord(Dos), Dos, CP/M, asmZ80, Windows </list>
+	        </stacks>
+
+	        <competencies>
+	            <h2>Indice competenze</h2>
+	            <list><span><img src="../images/icons/itc.png"> IT Consultant </span><span><img src="../images/icons/sad.png"> Senior Analyst &amp; Developer </span><span><img src="../images/icons/pm.png"> Program Manager </span><span><img src="../images/icons/di.png"> Data Integrator </span><span><img src="../images/icons/qsm.png"> Quality &amp;Standard manager </span><span><img src="../images/icons/trn.png"> Trainer </span><span><img src="../images/icons/jit.png"> Junior ICT Manager </span><span><img src="../images/icons/dtp.png"> Docente tecnico pratico </span><span><img src="../images/icons/tp.png"> tecnico-programmatore </span></list>
+	        </competencies>
+
+	        <projects>
+	        	<table>
+		            <thead>
+		                <tr>
+		                    <td bind="cv.projectsTable.theads">Progetti e attività principali</td>
+		                <td>Stack</td><td>Comp.</td><td>Az.</td></tr>
+		            </thead>
+		            
+		        <tbody><tr><td><a href="https://youtu.be/4UNjBde8e1Q">MicroERP</a>: gestione servizi doposcuola, servizi cloud,Q&amp;A</td><td>A</td><td><span title="IT Consultant" class="tip"><img src="../images/icons/itc.png"></span><span title="Senior Analyst &amp; Developer" class="tip"><img src="../images/icons/sad.png"></span></td><td>21</td></tr><tr><td><a href="https://zonafets.github.io/site/esempi_estratti_da_mie_analisi.htm#Analysis_for_optimization_of_technical_office_processes_(2017)_">consulenza uff. tecnico</a></td><td>A</td><td>"</td><td>20</td></tr><tr><td><a href="https://zonafets.github.io/site/esempi_estratti_da_mie_analisi.htm#Mini_HOWTO_about_SAP_Connector_RFCs/IDOCs_and_porting_to_other_system_">consulenza SAP connector</a></td><td>A</td><td>"</td><td>19</td></tr><tr><td><a href="https://www.youtube.com/watch?v=X8Bl7z2anok">Docuware connector</a>: interfaccia Docuware -&gt; archiviazione sostitutiva</td><td>A</td><td>"</td><td>18</td></tr><tr><td><a href="https://github.com/zonafets/VideoBlurring">Blur di logo casuali in video</a></td><td>A</td><td>"</td><td>17</td></tr><tr><td><a href="https://www.youtube.com/edit?o=U&amp;video_id=MBP_jCdrCDc">ottimizzazione deploy</a>: riduzione tempi e complessità dell'organizzazione</td><td>B</td><td><span title="Senior Analyst &amp; Developer" class="tip"><img src="../images/icons/sad.png"></span><span title="Program Manager" class="tip"><img src="../images/icons/pm.png"></span><span title="Data Integrator" class="tip"><img src="../images/icons/di.png"></span><span title="Quality &amp;Standard manager" class="tip"><img src="../images/icons/qsm.png"></span></td><td>16</td></tr><tr><td>adattamento sw PDA: da Motorola a Intermec con stampante bluet. termica, da SqlCe a Sqlite</td><td>B</td><td>"</td><td>16</td></tr><tr><td>partizionamento dati obsoleti (storicizzazione milioni di records)</td><td>B</td><td>"</td><td>16</td></tr><tr><td><a href="https://www.youtube.com/watch?v=qMPB_zsRn1s?t=5s">SAP connector</a>: integrazione gestionale con SAP</td><td>B</td><td>"</td><td>16</td></tr><tr><td><a href="https://www.youtube.com/edit?o=U&amp;video_id=hCIbzP47_0c">Import/Export</a>: EDI/CSV/FTP Nutricia/Nestlé/Beghelli/TNT Traco</td><td>B</td><td>"</td><td>16</td></tr><tr><td><a href="https://www.youtube.com/watch?v=t7-qQL8V-zA">batch records</a>: gestione certificazione qualità GAS tecnici, puri e medici</td><td>B</td><td>"</td><td>16</td></tr><tr><td><a href="esempi_estratti_da_mie_analisi.htm#User_and_Developer_guide_(2009)_">gestione magazzino centrale</a></td><td>B</td><td>"</td><td>16</td></tr><tr><td><a href="esempi_estratti_da_mie_analisi.htm#Developer_Guide_(2009)">integrazione internazionale</a></td><td>B</td><td>"</td><td>16</td></tr><tr><td><a href="https://youtu.be/D2u5Hn83Uuc">collezionate e ristrutturate 200+ utilities TSQL</a></td><td>B</td><td>"</td><td>16</td></tr><tr><td>sincronizzazione internazionale base dati</td><td>B</td><td>"</td><td>16</td></tr><tr><td>analisi conversione struttura dati da singolo a multi articolo</td><td>B</td><td>"</td><td>16</td></tr><tr><td><a href="https://www.youtube.com/watch?v=V1gc_mjGH1I">Tavolinux</a>: interfaccia desktop gestione ristorazione</td><td>C</td><td><span title="Senior Analyst &amp; Developer" class="tip"><img src="../images/icons/sad.png"></span><span title="Trainer" class="tip"><img src="../images/icons/trn.png"></span><span title="IT Consultant" class="tip"><img src="../images/icons/itc.png"></span></td><td>15</td></tr><tr><td><a href="https://www.youtube.com/watch?v=-rfhieKOvR8">RenCar</a>: gestione noleggio mezzi</td><td>C</td><td>"</td><td>15</td></tr><tr><td>docente corsi ECDL, MS Office, FSE</td><td>C</td><td>"</td><td>14</td></tr><tr><td>docente corsi informatica</td><td>C</td><td>"</td><td>13</td></tr><tr><td><a href="https://www.youtube.com/watch?v=5KzKdfDnq_o">GMarmo</a>: gestione lavorazione e confezionamento marmo</td><td>C</td><td>"</td><td>12</td></tr><tr><td><a href="https://www.youtube.com/watch?v=6d7gQ3yM9sk">TPFE</a>: tracciabilità e ottimizzazione distribuzione e fatturazione</td><td>C</td><td>"</td><td>11</td></tr><tr><td>SuperRicettario: amministrazione rete e supporto allo sviluppo del sito</td><td>C</td><td>"</td><td>10</td></tr><tr><td><a href="responsabile_it_copan_italia_spa.htm">Automazione conferme ordini via email, fax; gestione insoluti, costi, MRP, stampa etichette; progr. robot</a></td><td>D</td><td><span title="Junior ICT Manager" class="tip"><img src="../images/icons/jit.png"></span></td><td>9</td></tr><tr><td><a href="responsabile_it_copan_italia_spa.htm#Risultati">Acquisto/allestimento/manutenzione infrastruttura rete aziendale</a></td><td>D</td><td>"</td><td>9</td></tr><tr><td><a href="images/certificates/stefano_referenze_bpascal.jpg">docente tecnico pratico, manutenzione laboratori e responsabile rete Novell(hw&amp;sw)</a></td><td>E</td><td><span title="Docente tecnico pratico" class="tip"><img src="../images/icons/dtp.png"></span><span title="tecnico-programmatore" class="tip"><img src="../images/icons/tp.png"></span></td><td>8</td></tr><tr><td>raccolta dati via PLC, filtri e statistiche, gestionali per calzaturifici</td><td>E</td><td>"</td><td>7</td></tr><tr><td>tecnico PC/Rete, installazione linee produzione con server Novell</td><td>E</td><td>"</td><td>7</td></tr><tr><td>sviluppo applicazione RFID terminali per AS400</td><td>E</td><td>"</td><td>7</td></tr><tr><td><a href="http://digilander.libero.it/bolido/MGSexyTV.htm">Late Night Sexy TV Show</a>: video game lead programmer </td><td>E</td><td>"</td><td>6</td></tr><tr><td>Editor di scene per videogiochi da edicola DylanDog, Spiderman</td><td>E</td><td>"</td><td>5</td></tr><tr><td>disegnatore tecnico Autocad</td><td>F</td><td><span title="tecnico-programmatore" class="tip"><img src="../images/icons/tp.png"></span></td><td>4</td></tr><tr><td>Desktop Publishing</td><td>F</td><td>"</td><td>3</td></tr><tr><td>Sviluppo sw per trasmissione visure camerali</td><td>F</td><td>"</td><td>2</td></tr><tr><td>Provider BBS Fidonet Nodo 207</td><td>F</td><td>"</td><td>1</td></tr></tbody></table>
+		    </projects>
+
+	        <companies>
+	            <h2>Indice aziende</h2>
+	            <list><lg>2014 - oggi</lg><b> ●&nbsp;21.&nbsp;</b>&nbsp;C.Anspi S.L.G. - MN <b> ●&nbsp;20.&nbsp;</b>&nbsp;<a href="http://www.alpac.it">Alpac Srl</a> - VI <b> ●&nbsp;19.&nbsp;</b>&nbsp;<a href="http://www.solgroup.com">SOL Group Spa</a> - MO <b> ●&nbsp;18.&nbsp;</b>&nbsp;<a href="http://www.3ds.team/it/">3DS Team Srl</a> - BS <b> ●&nbsp;17.&nbsp;</b>&nbsp;Video*CV<lg> 2007 - 2014</lg><b> ●&nbsp;16.&nbsp;</b>&nbsp;<a href="http://www.seltris.eu">Seltris Srl</a> - MN <lg> 2000 - 2006</lg><b> ●&nbsp;15.&nbsp;</b>&nbsp;<a href="http://www.trendservizi.it">Trend Servizi Srl</a> - MN <b> ●&nbsp;14.&nbsp;</b>&nbsp;I.T.I. B.Pascal e C.F.P. - MN <b> ●&nbsp;13.&nbsp;</b>&nbsp;ITC Don Milani - BS <b> ●&nbsp;12.&nbsp;</b>&nbsp;<a href="http://www.ghirardi.it">Marmi Ghirardi Spa</a> - BS <b> ●&nbsp;11.&nbsp;</b>&nbsp;Friskies Italia Spa - MN <b> ●&nbsp;10.&nbsp;</b>&nbsp;Enterprise Srl - MN <lg> 1997 - 1999</lg><b> ●&nbsp;9.&nbsp;</b>&nbsp;<a href="http://copanitalia.com">Copan Italia Spa</a> - BS <lg> 1990 - 1997</lg><b> ●&nbsp;8.&nbsp;</b>&nbsp;<a href="http://www.fondazionecasadelgiovane.it/">I.T.I. Blaise Pascal</a> - MN <b> ●&nbsp;7.&nbsp;</b>&nbsp;<a href="https://www.inteaonline.it/">Intea Snc</a> - MN <b> ●&nbsp;6.&nbsp;</b>&nbsp;<a href="https://it.wikipedia.org/wiki/Dynabyte">Dynabyte Snc</a> - GE <b> ●&nbsp;5.&nbsp;</b>&nbsp;<a href="https://it.wikipedia.org/wiki/Simulmondo">Simulmondo Srl</a> - BO <lg> 1994 - 1997</lg><b> ●&nbsp;4.&nbsp;</b>&nbsp;Marchon - MN <b> ●&nbsp;3.&nbsp;</b>&nbsp;Rapetti - MN <b> ●&nbsp;2.&nbsp;</b>&nbsp;Iannella EDP - CO <b> ●&nbsp;1.&nbsp;</b>&nbsp;Privatamente</list>
+	        </companies>
+
+	    </div>
+
+	    <div hash="#experiences" class="slider" style="display: none;">
+
+		    <table id="lasts-kb">
+		        <thead>
+		            <tr>
+		                <td>Conoscenze recenti</td>
+		                <td>Anni</td>
+		            </tr>
+		        </thead>
+		    <tbody><tr><td>Javascript, HTML, C#/VB/Asp/MVC/Razor, dotNET, KnockoutJS, JQuery, Bootstrap (<a href="https://www.youtube.com/watch?v=X8Bl7z2anok">es.4</a>, <a href="https://youtu.be/4UNjBde8e1Q">es.5</a>)</td><td>5</td></tr><tr><td>SAP/JDEdwards integration</td><td>4</td></tr><tr><td><a href="tsql_zaglios_collection.htm">MS SQL Server</a></td><td>7</td></tr><tr><td><a href="https://www.youtube.com/watch?v=B_c3QVeiCDs">Postgresql</a>, MySQL, Sqlite, Node.js, JQuery</td><td>2</td></tr><tr><td>MS Project e Visio</td><td>1</td></tr></tbody></table>
+
+	        <section id="experiences">
+	            <b><a href="https://goo.gl/XnCjuH">Esperienze di Lavoro</a>&nbsp;(f/p.time, co.co.pro, p.o.)</b>
+	            <table>
+	                <thead>
+	                    <tr>
+	                        <td>Periodo/Comp.</td>
+	                        <td>Attività</td>
+	                        <td>Azienda</td>
+	                    </tr>
+	                </thead>
+	            <tbody><tr><td>2014 - oggi<br>IT Consultant, Senior Analyst &amp; Developer</td><td>consulente, analisi e sviluppo web/webapp/mobile/server (<a href="https://www.youtube.com/watch?v=X8Bl7z2anok">Docuware connector</a>, <a href="https://youtu.be/4UNjBde8e1Q">MicroERP</a> per RaspberryPI) ● approfondimenti personali su Blockchain, AI, smart learning, meta-analisi</td><td>C.Anspi S.L.G. (MN)<br><a href="http://www.alpac.it">Alpac Srl</a> (VI)<br><a href="http://www.solgroup.com">SOL Group Spa</a> (MO)<br><a href="http://www.3ds.team/it/">3DS Team Srl</a> (BS)<br>Video*CV<br></td></tr><tr><td>2007 - 2014<br>Senior Analyst &amp;Developer, Program Manager, Data Integrator, Quality &amp;Standard manager</td><td>direzione, analisi e sviluppo web/webapp/mobile/server per tracciabilità, gestione <a href="https://www.youtube.com/watch?v=t7-qQL8V-zA">batch records</a>, magazzino e integrazione dati EDI, XML, CSV, IDOCs, RFC (JD Edward/SAP/ACG) (<a href="https://www.youtube.com/watch?v=qMPB_zsRn1s?t=5s">SAP connector</a>)</td><td><a href="http://www.seltris.eu">Seltris Srl</a> (MN)<br></td></tr><tr><td>2000 - 2006<br>Senior Analyst / Developer<br>Trainer &amp;IT consultant</td><td>analisi/sviluppo desktop (front-end grafico <a href="https://www.youtube.com/watch?v=V1gc_mjGH1I">Tavolinux</a>); docente corsi ECDL, MS Office, FSE (B.Pascal e C.F.P.); corso MS Office e Info base (ITC Don Milani di Montichiari); analisi /sviluppo applicazione per <a href="https://www.youtube.com/watch?v=6d7gQ3yM9sk">ottimizzazione consegna e fatturazione</a> (Nestlé per fusione friskies S.p.A. e Purina Pet Care); allestimento e manutenzione intranet Win.NT 4/MSSQL (Entreprise s.r.l.)</td><td><a href="http://www.trendservizi.it">Trend Servizi Srl</a> (MN)<br>I.T.I. B.Pascal e C.F.P. (MN)<br>ITC Don Milani (BS)<br><a href="http://www.ghirardi.it">Marmi Ghirardi Spa</a> (BS)<br>Friskies Italia Spa (MN)<br>Enterprise Srl (MN)<br></td></tr><tr><td>1997 - 1999<br>Junior ICT Manager</td><td>Gestione acquisti, supporto su AS400, sviluppo applicazioni CRM, ERP ● <a href="responsabile_it_copan_italia_spa.htm">Automatizzazione backoffice e produzione</a> ● programmazione robot ● rete Wifi e terminali RF ● supporto a ricerca e sviluppo	</td><td><a href="http://copanitalia.com">Copan Italia Spa</a> (BS)<br></td></tr><tr><td>1990 - 1997<br>Docente tecnico pratico, tecnico-programmatore</td><td>B.Pascal (diurno e serale): docente tecnico pratico, tecnico di laboratorio e responsabile rete Novell (hw&amp;sw), corsi Autocad, MSOffice, Dos, Windows;<br>Intea Snc (pomeridiano): programmazione Clipper / MSAccess / PLC / RPG-IV, installazioni servers Novell;<br>Simulmondo/Dynabyte: sviluppo <a href="http://digilander.libero.it/bolido/MGSexyTV.htm">video games</a> in asm x86 / C</td><td><a href="http://www.fondazionecasadelgiovane.it/">I.T.I. Blaise Pascal</a> (MN)<br><a href="https://www.inteaonline.it/">Intea Snc</a> (MN)<br><a href="https://it.wikipedia.org/wiki/Dynabyte">Dynabyte Snc</a> (GE)<br><a href="https://it.wikipedia.org/wiki/Simulmondo">Simulmondo Srl</a> (BO)<br></td></tr><tr><td>1994 - 1997<br>Studente, autodidatta, tecnico-programmatore</td><td>Autodidatta: Assemblaggio PC, Dos, Autocad, BBS (Fidonet Nodo 207), Assembler Z80/X86, C/C++, Object Pascal/Turbo Vision<br>Disegnatore tecnico Autocad (Marchon), Ventura Desktop Publisher (Rapetti), sw per trasmissione visure camerali (EDP Iannella - CO)</td><td>Marchon (MN)<br>Rapetti (MN)<br>Iannella EDP (CO)<br>Privatamente<br></td></tr></tbody></table>
+	        </section>
+
+			<section id="previous-kb">
+		    <b>Conoscenze pregresse</b>
+		    <table>
+		        <thead>
+		            <tr>
+		                <td>Categoria</td>
+		                <td>Nome</td>
+		                <td>Anni</td>
+		            </tr>
+		        </thead>
+		    <tbody></tbody><tbody><tr><td>Server development</td><td>RPG-IV/ABAP, Ibm AS400 <a href="https://zonafets.github.io/site/responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_">ACG integration</a></td><td>1</td></tr><tr><td>Desktop development</td><td>C / C++ (QT Libraries 3.5) / OPascal</td><td>6</td></tr><tr><td></td><td>Microsoft Access (<a href="https://youtu.be/5KzKdfDnq_o">es.6</a>) (<a href="https://youtu.be/6d7gQ3yM9sk">es.7</a>) (<a href="https://youtu.be/-rfhieKOvR8">es.8</a>) (<a href="responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_">es.9</a>, <a href="responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_">10</a>, <a href="responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_">11</a>, <a href="responsabile_it_copan_italia_spa.htm#Ciclo_conferme_ordini:_ACG_">12</a>)</td><td>10</td></tr><tr><td></td><td>VM Ware/VirtualBox</td><td>3</td></tr><tr><td>Source Control Manager</td><td>GIT / SVN</td><td>5</td></tr><tr><td>Help Desk</td><td>Teamviewer/SSH/RemoteDesktop</td><td>5</td></tr><tr><td></td><td>Software Open Source e Free multipiattaforma</td><td>10</td></tr><tr><td>Training</td><td>Metodologie/Strumenti Test software/hardware</td><td>10</td></tr><tr><td></td><td>Documentazione Hardware/Software</td><td>10</td></tr><tr><td>Sistemi operativi</td><td>DOS, Windows 3.x/9x/2k/XP/TE/7/CE/Mobile/Tablet</td><td>12</td></tr><tr><td></td><td>Linux (slackware:1, redhat:1, ubuntu:3)</td><td>5</td></tr><tr><td></td><td>OS/2 e OS/400</td><td>1</td></tr><tr><td>Applications</td><td>Autocad, Google Sketchup</td><td>3</td></tr><tr><td></td><td>MS Office / LibreOffice</td><td>10 / 2</td></tr><tr><td></td><td>Coreldraw/SharePoint/Zetafax</td><td>1</td></tr><tr><td>Hardware</td><td>RaspberryPi, Arduino, Motorola MC75, Intermec CN70, Zebra RW420, Intermec PW50, HP Proliant</td><td>4</td></tr><tr><td></td><td>PLC Siemens, PIC18F2420, x86, Z80</td><td>1</td></tr></tbody></table>
+			</section>
+
+	    </div>
+	        
+	    <section id="extra-info">
+	    	<h2>Informazioni aggiuntive</h2>
+			<table>
+			<tbody><tr><td>Istruzione</td><td>1985-89 Diploma - <a href="images/certificates/diploma_maturita.jpg">Perito Industriale Capotecnico</a> (spec.informatica) (54/60)</td></tr><tr><td>Lingue</td><td>intermediate english written/spoken, Français élémentaire</td></tr><tr><td>Ultime <a href="bibliografia.htm">letture</a></td><td>L'arte di imparare</td></tr></tbody></table>
+		</section>
+
+		<table id="extra-courses">
+		    <thead>
+		        <tr>
+		            <td><a href="https://www.youtube.com/watch?v=D48u_Tu-K98">Attività extracurriculari</a></td>
+		            <td>Competenze acquisite</td>
+		        </tr>
+		    </thead>
+		<tbody><tr><td>approfondimenti personali</td><td>smart-learning, meta-analisi, AI, blockchain</td></tr><tr><td>corso "contabilità automatizzata"</td><td>analisi bilancio, b.p.</td></tr><tr><td>relazione <a href="images/certificates/corso_hp.jpg">tecnico-cliente in HP</a></td><td>gestione obiezioni</td></tr><tr><td>obiettivi e risultati con NLP</td><td>goal setting</td></tr><tr><td>studi su meta-apprendimento</td><td>strategie di apprendimento e trasmissione di concetti</td></tr><tr><td>fotografia b/w, fumettistica e disegno</td><td>aspetti della percezione, rappresentazione</td></tr><tr><td>presepistica/modellazione, cucina, degustazione</td><td>modellamento, esecuzione, rapporto quantità</td></tr><tr><td>brain storming / MindMap</td><td>sviluppo soluzioni creative o empiriche</td></tr><tr><td>focus group</td><td>mantenere focalizzata l'attenzione del gruppo sull'obiettivo/argomento</td></tr><tr><td><a href="esempi_estratti_da_mie_analisi.htm#Documentation_developed_as_site_coordinator_for_property_renovation_(2015)_">coordinazione cantiere</a></td><td>gestione progetto con budget limitato: analisi qualità e competenze</td></tr></tbody></table>
+
+		<table id="privacy">
+		    <tbody>
+		        <tr>
+		            <td><i>Autorizzo il trattamento dei dati personali ai sensi del&nbsp;ex D. lgs. 196/2003</i></td>
+		            <td><i>Castiglione D/S, Sep 22 2018</i></td>
+		        </tr>
+		    </tbody>
+		</table>
+
+	</div>
+
+	<templates>
+		<template name="person-info">
+		    <table id="head" class="anonymouse">
+		        <tbody>
+		            <tr>
+		                <td template="address">
+		                	<!-- move to: <template id="address"><b>...@address...</template>  -->
+		                    <b>Stefano Zaglio</b>(CV)<br>
+		                    <span>Via Soratino, 8</span><br>
+		                    46043 <a href="https://www.google.com/maps/place/46043+Castiglione+delle+Stiviere,+Province+of+Mantua/@45.3888698,10.4731711,14z/data=!3m1!4b1!4m5!3m4!1s0x4781be7b043662f9:0xb4c322fd93a83aeb!8m2!3d45.3873983!4d10.4829578">Castiglione D/S</a> (Italy)<br>
+		                    Nato il 01.02.72 / Sposato
+		                </td>
+		                <td rowspan="2">
+		                	<div class="flip-container" click="flip">
+								<div class="flipper">
+									<div class="front">
+										<img id="foto-cravatta" src="../images/io/foto-cravatta-tonda.jpg">
+									</div>
+									<div class="back">
+										<img id="foto-barba" src="../images/io/foto-tonda.jpg">
+									</div>
+								</div>
+							</div>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td style="border-bottom: 1px solid gray;">
+		                    <img id="placeE" alt="myEmail" title="click to get email into clipboard" src="../images/ref.svg" click="copyEmail2Clipboard"><br>
+		                    cover letter:&nbsp;<a href="https://goo.gl/7hakDJ">https://goo.gl/7hakDJ</a>
+		                    &nbsp;- &nbsp;<a href="../download/zaglio_stefano_cv_ita.pdf">PDF</a>-&nbsp;<a href="https://it.linkedin.com/pub/stefano-zaglio/3b/541/1b7">linkedin</a>
+		                    <lang>&nbsp;- &nbsp;<a></a></lang>
+		                </td>
+		            </tr>
+		        </tbody>
+		    </table>
+		</template>
+
+		<!--
+		
+			180711\s.zaglio: Firefox doesn't completelly support import of templates even with webcomponents.js
+							 so notifyBar component is implemented here
+
+		-->
+
+		<style>
+			.fullPageOverlay > * {
+				transition: all 1s ease-in-out;
+			}
+
+			.fullPageOverlay {
+			    height:100%;
+			    width:100%;
+			    position:fixed;
+			    left:0;
+			    top:0;
+			    z-index:100 !important;
+			    background-color: rgba(0,0,0,0.5);
+			    display: none;
+				cursor: pointer;
+			}
+
+			.fullPageOverlay .message {
+				display: inline-block;
+			    position: absolute;
+			    left: 0;
+			    right: 0;
+			    margin: auto;
+			    color: white;
+			    height: fit-content;
+			    top: 20%;
+			    text-align: center;
+			    background: slategray;
+			}
+
+			.fullPageOverlay .message p {
+			    font-weight: bold;
+			    font-size: 125%;
+			    padding: 5%;
+			}
+		</style>
+
+		<!--script type="html/text" name="notifyBar" class="fullPageOverlay" click="message"-->
+		<template name="notifyBar" class="fullPageOverlay" click="message">
+		    
+		</template>
+		<!--/script-->
+
+		<script>
+			// manual installation
+			// debugger
+			// var imp = document.querySelector('link[name="notifyBar"]')
+			// imp = imp.import;
+			// var tpl = imp.getElementsByTagName("template")[0]
+			// var tpl = imp.getElementsByTagName("script")[0]
+			var tpl = document.querySelector("template[name='notifyBar']")
+			var div = document.createElement("div")
+			div.id = tpl.attributes.name.value
+			div.className = tpl.className
+			div.setAttribute("click", tpl.attributes.click.value)
+			div.appendChild(tpl.content.firstElementChild) // template
+			// div.innerHTML = tpl.innerHTML
+			document.body.appendChild(div)
+			div = undefined
+			tpl = undefined
+			imp = undefined
+		</script>
+
+	</templates><div id="notifyBar" class="fullPageOverlay" click="message" style="display: block;"><span class="message">
+		    	<p>This CV consists of a WebApp<br><br>Click / tap on the email to copy it to the clipboard<br><br>Click / tap this message to close it<br><br>If in 'details view', click / tap on the photo to change from projects list to experiences<br><br></p>
+		    </span></div>
+
+
+
+<script src="../js/bootLoader.js?v=2&amp;src=nte|cv-data-it|cv-data-en|compatibility!|polyfills!|main"></script><script src="../js/nte.js?dt=2018-09-22T13:46:28.740Z"></script><script src="../js/cv-data-it.js?dt=2018-09-22T13:46:28.740Z"></script><script src="../js/cv-data-en.js?dt=2018-09-22T13:46:28.740Z"></script><script src="../js/compatibility.js"></script><script src="../js/polyfills.js"></script><script src="../js/main.js?dt=2018-09-22T13:46:28.740Z"></script>
+
+
+</body></html>
