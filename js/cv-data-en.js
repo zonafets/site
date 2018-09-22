@@ -289,7 +289,7 @@ app.cv_data.en.experiences = [
 			},{
 				name: "Iannella EDP", prov: "CO", 
 				projects: [
-					{desc:"Sviluppo sw for transmission of chambered visure"}
+					{desc:"sw development for transmission of chambered visure"}
 				]
 			},{
 				name: "Privatelly",  
