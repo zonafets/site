@@ -278,12 +278,18 @@ app.html.lang = function(a) {
 	var a = this.querySelector("a")
 	var txt
 	var lnk
-	if (app.lang === "it") {
-		txt = "ENG"
-		lnk = location.pathname+"?lang=en"+location.hash
-	} else {
-		txt = "ITA"
-		lnk = location.pathname+"?lang=it"+location.hash
+	if (nte.cmds.param("print")) {
+		this.firstChild.textContent=""
+		txt=""
+		lnk="" 
+	} else { 
+		if (app.lang === "it") {
+			txt = "ENG"
+			lnk = location.pathname+"?lang=en"+location.hash
+		} else {
+			txt = "ITA"
+			lnk = location.pathname+"?lang=it"+location.hash
+		}
 	}
 	a.innerText = txt
 	a.href = lnk
@@ -513,6 +519,12 @@ app.start = function() {
 	    var details = app.origin+projects
 	    cv.links[details] = details
 
+	    var pdf = "../download/zaglio_stefano_cv_"
+	    if (hash!="") pdf+="details_"
+	    pdf+=app.lang+".pdf"
+	    cv.links["PDF"] = pdf
+
+
     	nte.replaceTag("%details%",details)
     	nte.replaceTag("%date%",app.date)
 
@@ -722,13 +734,12 @@ app.start = function() {
     function run()
     {
     	var cmd = nte.cmds.param
-	    
 	    if (!cmd("print")) {
 			changeView()
 	    	document.body.className='fade-in';
-	    	if (localStorage["messageViewed"] === undefined) {
+	    	if (sessionStorage["messageViewed"] === undefined) {
 				app.message(msgs.instructions)
-				localStorage["messageViewed"] = true
+				sessionStorage["messageViewed"] = true
 			}
 		} else {
 	    	document.body.className='fade-in';

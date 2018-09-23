@@ -7,6 +7,7 @@ nte.js
 	180910\s.zaglio: added getParamNames to simplify components function management in the future
 
 main.js
+	180923\s.zaglio: better link for [PDF]
 	180912\s.zaglio: adapted to bootLoader; removed continuouse show of start message
 	180911\s.zaglio: replace of [tag] and %tag% using textNodes; adapted to new nte logic
 	180910\s.zaglio: changed <lang-link> and call of html component function
@@ -30,3 +31,6 @@ curriculum.htm
 
 bootLoader.js
 	180912\s.zaglio: 1st definition
+
+cv2pdf.sh
+	180923\s.zaglio: a bug that was cause missed rendering and more pdf for cv+details, details only, ita/eng
