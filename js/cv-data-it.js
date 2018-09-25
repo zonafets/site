@@ -18,9 +18,9 @@ app.cv_data.it = {
         	"soluzioni creative tramite brainstorming, mind maps, //in team o in autonomia//", 
         	"cura UI/UX con approfondimenti di p. cognitiva",
             "esperienza nei settori [intrattenimento], [manifatturieri], [accoglienza], [automazione d'ufficio e industriale], "+
-            "come [tecnico, programmatore] junior e senior, sistemista, [analista], [trainer], [ICT manager], program e "+
+            "come [tecnico, programmatore], sistemista, [analista], [trainer], [ICT] program e "+
             "[std&qly] manager",
-	        "specializzato in [tracciabilità], [integrazione di sistemi], [documentazione],"+ 
+	        "specializzato in [tracciabilità], [integrazione dati e sistemi], [documentazione],"+ 
             "ottimizzazione dei processi ([es.1], [es.2], [es.3])",
             "Full-Stack Desktop, Mobile e Web Developer (multi-threading, multi-process e multi-platform)",
         	"disponibile al supporto con telelavoro, gestione delle urgenze, trasferte, anche internazionali di lunga durata",
@@ -36,10 +36,10 @@ app.cv_data.it = {
     		"tecnico, programmatore": 				"images/certificates/stefano_referenze_intea.jpg",
     		"analista": 							"http://xoomer.virgilio.it/stezagl/io/ita/esempi_estratti_da_mie_analisi.htm",
     		"trainer": 								"images/certificates/stefano_referenze_bpascal.jpg",
-    		"ICT manager": 							"images/certificates/stefano_referenze_copan.jpg",
+    		"ICT": 									"images/certificates/stefano_referenze_copan.jpg",
     		"std&qly":								"software_quality_and_standard.htm",
     		"tracciabilità": 						"https://youtu.be/t7-qQL8V-zA",
-    		"integrazione di sistemi": 				"https://youtu.be/qMPB_zsRn1s",
+    		"integrazione dati e sistemi": 			"https://youtu.be/qMPB_zsRn1s",
     		"documentazione": 						"esempi_estratti_da_mie_analisi.htm",
     		"es.1": 								"https://youtu.be/MBP_jCdrCDc?t=4m56s",
     		"es.2": 								"https://youtu.be/qMPB_zsRn1s?t=5s",

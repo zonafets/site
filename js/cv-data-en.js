@@ -10,9 +10,9 @@ app.cv_data.en.briefly = {
     	"creative solutions through brainstorming, mind maps, //in team or in autonomy//", 
     	"UI/UX care thanks to personal training in cognitive psychology",
         "experience in the fields of [entertainment], [manufacturing], [reception], [office and industrial automation], "+
-        "as [technician, developer] junior and senior, systems engineer, [analyst], [trainer], [ICT manager], program and "+
+        "as [technician, developer], systems engineer, [analyst], [trainer], [ICT] program and "+
         "[std&qly] manager",
-        "specialized in [product traceability], [systems integration], [documentation],"+ 
+        "specialized in [product traceability], [systems and data integration], [documentation], "+ 
         "process optimization ([e.g. 1], [e.g. 2], [e.g. 3])",
         "Full-Stack Desktop, Mobile and Web Developer (multi-threading, multi-process and multi-platform)",
     	"availability to support with teleworking, emergency management, transfers, even long-term international ones",
@@ -28,10 +28,10 @@ app.cv_data.en.briefly = {
 		"technician, developer": 				"images/certificates/stefano_referenze_intea.jpg",
 		"analyst": 								"http://xoomer.virgilio.it/stezagl/io/ita/esempi_estratti_da_mie_analisi.htm",
 		"trainer": 								"images/certificates/stefano_referenze_bpascal.jpg",
-		"ICT manager": 							"images/certificates/stefano_referenze_copan.jpg",
+		"ICT": 									"images/certificates/stefano_referenze_copan.jpg",
 		"std&qly":								"software_quality_and_standard.htm",
 		"product traceability":					"https://youtu.be/t7-qQL8V-zA",
-		"systems integration": 					"https://youtu.be/qMPB_zsRn1s",
+		"systems and data integration":			"https://youtu.be/qMPB_zsRn1s",
 		"documentation": 						"esempi_estratti_da_mie_analisi.htm",
 		"e.g. 1": 								"https://youtu.be/MBP_jCdrCDc?t=4m56s",
 		"e.g. 2": 								"https://youtu.be/qMPB_zsRn1s?t=5s",
@@ -394,7 +394,7 @@ app.cv_data.en.links = {
 
 app.cv_data.en.textNodes = {
 	"Curriculum di Stefano Zaglio": "Curriculum of Stefano Zaglio",
-	"Brevemente": 					"Briefly",
+	"In generale": 					"In general",
 	"Indice stacks": 				"Stacks index",
 	"Indice competenze": 			"Skills index",
 	"Indice aziende": 				"Company index",
