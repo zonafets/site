@@ -15,30 +15,44 @@ N.B.: moved out from nte.js actually this is a little bit obsolete
 
 When we start with:
 
-	<input type="text" id="TL_A4PM_2DaysW" Placeholder="...">
+	<input type="text" id="pay" Placeholder="...">
 
-we end to complicate things with:
+we continue to define/expand things with:
 
-	<input type="text" id="TL_A4PM_2DaysW" Placeholder="..." SubType="money" ... >
+	<input type="text" id="pay" Placeholder="..." SubType="money" ... >
 
+and we need to encapsulate in a concept:
+
+	<money id="pay" Placeholder="..." min="..." max="..." ...></money>
+	
 or
 
-	<money id="TL_A4PM_2DaysW" Placeholder="..." min="..." max="..." ...></money>
+	<money ... >@pay</money>
 
-What if we keep it KISS:
+In MSAccess we define a table Person(name text,pay currency) and it automatically generate a form or a table view.
+Then we set properties of single control automatically related to fields.
+So create a prototype is fast as much as review it.
 
-	<input id="TL_A4PM_2DaysW">
+What if we KISS and DRY:
 
-and into a form.js:
+	<input id="pay">
+
+and into a .js:
 
 	...
-	TL_A4PM_2DaysW: {
+	pay: {
 		type: "money",
 		placeholder: "....",
 		min: "...",
 		max: "...",
 		...
 	}
+	
+and into a widgets.money.html:
+
+	<widget name="money">
+		<input id="@id" type="@type">
+	</widget>
 
 In the old way of CASE, we can complete and/or transform each other to obtain a "normalized" form in any moment.
 
