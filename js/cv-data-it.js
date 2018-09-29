@@ -23,7 +23,7 @@ app.cv_data.it = {
 	        "specializzato in [tracciabilità], [integrazione dati e sistemi], [documentazione],"+ 
             "ottimizzazione dei processi ([es.1], [es.2], [es.3])",
             "Full-Stack Desktop, Mobile e Web Developer (multi-threading, multi-process e multi-platform)",
-        	"disponibile al supporto con telelavoro, gestione delle urgenze, trasferte, anche internazionali di lunga durata",
+        	"disponibile al supporto con telelavoro, gestione delle urgenze, trasferte, anche internazionali di lunga durata(Irlanda/Berlino)",
         	"possibilità di assunzione entro 2 settimane",
         	"interessi futuri: Angular o React su web/desktop, Xamarin su desktop/mobile, OpenCV"
         	// "RAL 45K(trattabili)"
@@ -178,7 +178,7 @@ app.cv_data.it = {
 				"corso MS Office e Info base (ITC Don Milani di Montichiari); "+
 				"analisi /sviluppo applicazione per [ottimizzazione consegna e fatturazione] "+
 				"(Nestlé per fusione friskies S.p.A. e Purina Pet Care); "+
-				"allestimento e manutenzione intranet Win.NT 4/MSSQL (Entreprise s.r.l.)",
+				"allestimento e manutenzione intranet Win.NT 4/DBA MSSQL (Entreprise s.r.l.)",
 			companies: [
 				{
 					name:"Trend Servizi Srl", prov:"MN", link:"http://www.trendservizi.it",
@@ -317,6 +317,7 @@ app.cv_data.it = {
     "previous-kb": {
     	items:[
 	        ["Server development",		"RPG-IV/ABAP, Ibm AS400 [ACG integration]", 1],
+	        ["",						"DBA/Developer [SQL Server]", 7],
 			["Desktop development",		"C / C++ (QT Libraries 3.5) / OPascal", 6],	
 			["",						"Microsoft Access ([es.6]) ([es.7]) ([es.8]) ([es.9], [10], [11], [12])", 10],
 			["",						"VM Ware/VirtualBox", 3],
@@ -336,6 +337,7 @@ app.cv_data.it = {
         ],
 
         links: {
+    		"SQL Server": "tsql_zaglios_collection.htm",
         	"es.6": "https://youtu.be/5KzKdfDnq_o",
         	"es.7": "https://youtu.be/6d7gQ3yM9sk",
         	"es.8": "https://youtu.be/-rfhieKOvR8",
