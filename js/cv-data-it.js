@@ -137,7 +137,7 @@ app.cv_data.it = {
 					]
 				}	
 			],
-			stack: 	"Razor, Mvc.Net, C#, KnockoutJS, JQuery, Bootstrap, Sqlite, MSSql, Git, Libreoffice, G.SketchUp, OpenCV, Linux",
+			stack: 	"Razor, Mvc.Net, C#, Knockout, JQuery, Bootstrap, Sqlite, MSSql, Git, Libreoffice, G.SketchUp, Python/OpenCV, Linux, Virtualbox",
     	},{
     		// ================================================================================================================
 			period: "2007 - 2014",
