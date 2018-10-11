@@ -1,36 +1,45 @@
 root
 	180910\s.zaglio: moved changelogs comments to common CHANGELOG file
 
-nte.js
-	180912\s.zaglio: added fn for optional global objects definition and extension 
-	180911\s.zaglio: added textNodes walker, search&replace; refined logic
-	180910\s.zaglio: added getParamNames to simplify components function management in the future
+\js
 
-main.js
-	180923\s.zaglio: better link for [PDF]
-	180912\s.zaglio: adapted to bootLoader; removed continuouse show of start message
-	180911\s.zaglio: replace of [tag] and %tag% using textNodes; adapted to new nte logic
-	180910\s.zaglio: changed <lang-link> and call of html component function
-	180907\s.zaglio: renamed from app.js; refactoring
-	180704\s.zaglio: moving generic DOM fn to nte.js
-	180612\s.zaglio: begin of apply Brian W. Kernighan and P. J. Plaugher principle
+	nte.js
+		180912\s.zaglio: added fn for optional global objects definition and extension 
+		180911\s.zaglio: added textNodes walker, search&replace; refined logic
+		180910\s.zaglio: added getParamNames to simplify components function management in the future
 
-curriculum.htm
-	180912\s.zaglio: adapted to bootLoader; removed app' scripts
-	180911\s.zaglio: added <list></list> to some section to identify dynamic part
-	180910\s.zaglio: renamed and restructured <lang-link> tag
-	180907\s.zaglio: eng. version
-	180904\s.zaglio: moved html to pages/, changed .links from array to object, eng. version
-	180704\s.zaglio: converting to NTE
-	180616\s.zaglio: tested on Midori and adapted to generate a static version 
-	180612\s.zaglio: split into external files
-	180611\s.zaglio: begin of apply of DRY & NTE principles to the code; added message
-	180608\s.zaglio: added self-taught experience; improved links replace with "&"
-	180601\s.zaglio: added todo section
-	180530\s.zaglio: first semi-definitive version
+	main.js
+		180923\s.zaglio: better link for [PDF]
+		180912\s.zaglio: adapted to bootLoader; removed continuouse show of start message
+		180911\s.zaglio: replace of [tag] and %tag% using textNodes; adapted to new nte logic
+		180910\s.zaglio: changed <lang-link> and call of html component function
+		180907\s.zaglio: renamed from app.js; refactoring
+		180704\s.zaglio: moving generic DOM fn to nte.js
+		180612\s.zaglio: begin of apply Brian W. Kernighan and P. J. Plaugher principle
 
-bootLoader.js
-	180912\s.zaglio: 1st definition
+	bootLoader.js
+		180912\s.zaglio: 1st definition
 
-cv2pdf.sh
-	180923\s.zaglio: a bug that was cause missed rendering and more pdf for cv+details, details only, ita/eng
+pages\
+
+	curriculum.htm
+		180912\s.zaglio: adapted to bootLoader; removed app' scripts
+		180911\s.zaglio: added <list></list> to some section to identify dynamic part
+		180910\s.zaglio: renamed and restructured <lang-link> tag
+		180907\s.zaglio: eng. version
+		180904\s.zaglio: moved html to pages/, changed .links from array to object, eng. version
+		180704\s.zaglio: converting to NTE
+		180616\s.zaglio: tested on Midori and adapted to generate a static version 
+		180612\s.zaglio: split into external files
+		180611\s.zaglio: begin of apply of DRY & NTE principles to the code; added message
+		180608\s.zaglio: added self-taught experience; improved links replace with "&"
+		180601\s.zaglio: added todo section
+		180530\s.zaglio: first semi-definitive version
+
+
+utils\
+
+	cv2pdf.sh
+		180923\s.zaglio: a bug that was cause missed rendering and more pdf for cv+details, details only, ita/eng
+	edit.sh
+		181011\s.zaglio: added to simplify edit and link changes to automatic pdf generation

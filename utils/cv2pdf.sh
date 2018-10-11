@@ -114,3 +114,6 @@ chromium-browser \
 	> pages/curriculum_static.htm 
 
 
+echo ""
+echo "End PDF generation"
+echo ""

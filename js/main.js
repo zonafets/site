@@ -7,6 +7,7 @@
 
 	I know, this is not the better code. DRY principle can be applied more.
 
+
 	-- SCOPE ------------------------------------------------------------------------------
 
 	Render content of JSON(cv-data.js) using an experimental template technique that I'am
@@ -516,7 +517,11 @@ app.start = function() {
 
 	    app.origin+=hash
 
-	    var details = app.origin+projects
+	    var details
+	    if (location.protocol === "file:")
+	    	details = app.origin+projects
+	    else
+	    	details = "https://goo.gl/7ogysp"
 	    cv.links[details] = details
 
 	    var pdf = "../download/zaglio_stefano_cv_"
