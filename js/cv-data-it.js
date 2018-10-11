@@ -12,17 +12,17 @@ app.cv_data.it = {
 
     briefly: {
     	lines: [
-            "motivato al problem solving o alla gestione commerciale, in sintonia con la politica e metodologie aziendali. in team o autonomia",
+            "motivato al problem solving o alla gestione commerciale, in sintonia con la politica e metodologie aziendali",
             "attenzione bilanciabile tra costi/benefici e performance",
             "attraverso tutti gli aspetti del ciclo di vita, dalla R&D al post vendita con relativi strumenti",
         	"soluzioni creative tramite brainstorming, mind maps, //in team o in autonomia//", 
         	"cura UI/UX con approfondimenti di p. cognitiva",
-            "esperienza nei settori [intrattenimento], [manifatturieri], [accoglienza], [automazione d'ufficio e industriale], "+
+            "esperienza front/back-office nei settori [intrattenimento], [manifatturieri], [accoglienza], [automazione d'ufficio e industriale], "+
             "come [tecnico, programmatore], sistemista, [analista], [trainer], [ICT] program e "+
             "[std&qly] manager",
 	        "specializzato in [tracciabilità], [integrazione dati e sistemi], [documentazione],"+ 
             "ottimizzazione dei processi ([es.1], [es.2], [es.3])",
-            "Full-Stack Desktop, Mobile e Web Developer (multi-threading, multi-process e multi-platform)",
+            "Front-End/Full-Stack Desktop, Mobile e Web Developer (multi-threading, multi-process e multi-platform)",
         	"disponibile al supporto con telelavoro, gestione delle urgenze, trasferte, anche internazionali di lunga durata(Irlanda/Berlino)",
         	"possibilità di assunzione entro 2 settimane",
         	"interessi futuri: Angular o React su web/desktop, Xamarin su desktop/mobile, OpenCV"

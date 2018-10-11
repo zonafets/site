@@ -4,17 +4,17 @@ app.cv_data.en = JSON.parse(JSON.stringify(app.cv_data.it))
 
 app.cv_data.en.briefly = {
 	lines: [
-        "motivated to problem solving or commercial management, in tune with the company policy and methodologies, in team or autonomy",
+        "motivated to problem solving or commercial management, in tune with the company policy and methodologies",
         "with balanced attention between costs/benefits and performance",
         "through all aspects of the life cycle, from R&D to post-sales with related tools",
     	"creative solutions through brainstorming, mind maps, //in team or in autonomy//", 
     	"UI/UX care thanks to personal training in cognitive psychology",
-        "experience in the fields of [entertainment], [manufacturing], [reception], [office and industrial automation], "+
+        "front/back-office experience in the fields of [entertainment], [manufacturing], [reception], [office and industrial automation], "+
         "as [technician, developer], systems engineer, [analyst], [trainer], [ICT] program and "+
         "[std&qly] manager",
         "specialized in [product traceability], [systems and data integration], [documentation], "+ 
         "process optimization ([e.g. 1], [e.g. 2], [e.g. 3])",
-        "Full-Stack Desktop, Mobile and Web Developer (multi-threading, multi-process and multi-platform)",
+        "Front-End/Full-Stack Desktop, Mobile and Web Developer (multi-threading, multi-process and multi-platform)",
     	"availability to support with teleworking, emergency management, transfers, even long-term international ones(Ireland/Berlin)",
     	"possibility of recruitment within 2 weeks",
     	"future interests: Angular or React on web/desktop, Xamarin on desktop/mobile, Java on server, OpenCV"

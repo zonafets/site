@@ -262,6 +262,7 @@ body::-webkit-scrollbar-thumb {
 .flipper {
 	position: relative;
 	transform-style: preserve-3d;
+	cursor: pointer;
 }
 
 @media screen {
