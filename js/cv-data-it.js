@@ -14,10 +14,11 @@ app.cv_data.it = {
     briefly: {
     	lines: [
             "motivato al problem solving o alla gestione commerciale, in sintonia con la politica e metodologie aziendali",
-            "attenzione bilanciabile tra costi/benefici e performance",
-            "attraverso tutti gli aspetti del ciclo di vita, dalla R&D al post vendita con relativi strumenti",
-        	"soluzioni creative tramite brainstorming, mind maps, //in team o in autonomia//", 
+            "bilanciando tra costi/benefici e performance",
+            "dalla R&D al post vendita",
+        	"soluzioni creative tramite brainstorming, mind maps",
         	"cura UI/UX con approfondimenti di p. cognitiva",
+        	"//in team o in autonomia//", 
             "esperienza front/back-office nei settori [intrattenimento], [manifatturieri], [accoglienza], [automazione d'ufficio e industriale], "+
             "come [tecnico, programmatore], sistemista, [analista], [trainer], [ICT] program e "+
             "[std&qly] manager",
@@ -26,7 +27,7 @@ app.cv_data.it = {
             "Front-End/Full-Stack Desktop, Mobile e Web Developer (multi-threading, multi-process e multi-platform)",
         	"disponibile al supporto con telelavoro, gestione delle urgenze, trasferte, anche internazionali di lunga durata(Irlanda/Berlino)",
         	"possibilità di assunzione entro 2 settimane",
-        	"interessi futuri: Angular o React su web/desktop, Xamarin su desktop/mobile, OpenCV"
+        	"interessi futuri: Angular o React su web/desktop, Xamarin su desktop/mobile, OpenCV, Blockchain"
         	// "RAL 45K(trattabili)"
     	],
     	links:{
@@ -34,10 +35,10 @@ app.cv_data.it = {
     		"manifatturieri": 						"https://www.youtube.com/watch?v=5KzKdfDnq_o",
     		"accoglienza": 							"https://www.youtube.com/watch?v=V1gc_mjGH1I",
     		"automazione d'ufficio e industriale": 	"https://zonafets.github.io/site/responsabile_it_copan_italia_spa.htm",
-    		"tecnico, programmatore": 				"images/certificates/stefano_referenze_intea.jpg",
+    		"tecnico, programmatore": 				"../images/certificates/stefano_referenze_intea.jpg",
     		"analista": 							"http://xoomer.virgilio.it/stezagl/io/ita/esempi_estratti_da_mie_analisi.htm",
-    		"trainer": 								"images/certificates/stefano_referenze_bpascal.jpg",
-    		"ICT": 									"images/certificates/stefano_referenze_copan.jpg",
+    		"trainer": 								"../images/certificates/stefano_referenze_bpascal.jpg",
+    		"ICT": 									"../images/certificates/stefano_referenze_copan.jpg",
     		"std&qly":								"software_quality_and_standard.htm",
     		"tracciabilità": 						"https://youtu.be/t7-qQL8V-zA",
     		"integrazione dati e sistemi": 			"https://youtu.be/qMPB_zsRn1s",
@@ -154,7 +155,7 @@ app.cv_data.it = {
 					projects:[
 						{name:"ottimizzazione deploy", desc:"riduzione tempi e complessità dell'organizzazione", link:"https://www.youtube.com/edit?o=U&video_id=MBP_jCdrCDc"},
 						{name:"adattamento sw PDA", desc:"da Motorola a Intermec con stampante bluet. termica, da SqlCe a Sqlite"},
-						{desc:"partizionamento dati obsoleti (storicizzazione milioni di records)"},
+						{desc:"partizionamento live di milioni di dati storici con DDL events"},
 						{name:"SAP connector", desc:"integrazione gestionale con SAP", link:"https://www.youtube.com/watch?v=qMPB_zsRn1s?t=5s"},
 						{name:"Import/Export", desc:"EDI/CSV/FTP Nutricia/Nestlé/Beghelli/TNT Traco", link:"https://www.youtube.com/edit?o=U&video_id=hCIbzP47_0c"},
 						{name:"batch records", desc:"gestione certificazione qualità GAS tecnici, puri e medici", link:"https://www.youtube.com/watch?v=t7-qQL8V-zA"},
@@ -253,7 +254,7 @@ app.cv_data.it = {
 				{
 					name: "I.T.I. Blaise Pascal", prov: "MN", link:"http://www.fondazionecasadelgiovane.it/",
 					projects: [
-						{desc: "docente tecnico pratico, manutenzione laboratori e responsabile rete Novell(hw&sw)",link:"images/certificates/stefano_referenze_bpascal.jpg"},
+						{desc: "docente tecnico pratico, manutenzione laboratori e responsabile rete Novell(hw&sw)",link:"../images/certificates/stefano_referenze_bpascal.jpg"},
 					]
 				},{
 					name: "Intea Snc", prov: "MN", link:"https://www.inteaonline.it/",
@@ -357,14 +358,14 @@ app.cv_data.it = {
 	        ["Ultime [letture]", "L'arte di imparare"]
 	    ],
 	    links: {
-	    	"Perito Industriale Capotecnico": "images/certificates/diploma_maturita.jpg",
+	    	"Perito Industriale Capotecnico": "../images/certificates/diploma_maturita.jpg",
 	    	"letture": "bibliografia.htm"
 	    }
 	},
 
 	"extra-courses": {
 		items: [
-			['approfondimenti personali',			'smart-learning, meta-analisi, AI, blockchain'],
+			['approfondimenti personali',			'smart-learning, meta-analisi'],
 			['corso "contabilità automatizzata"',	'analisi bilancio, b.p.'],
 	        ['relazione [tecnico-cliente in HP]',	'gestione obiezioni'],
 	        ['obiettivi e risultati con NLP',		'goal setting'],
@@ -380,7 +381,7 @@ app.cv_data.it = {
 
 	    links: {
 	    	"Attività extracurriculari": 	"https://www.youtube.com/watch?v=D48u_Tu-K98",
-	    	"tecnico-cliente in HP": 		"images/certificates/corso_hp.jpg",
+	    	"tecnico-cliente in HP": 		"../images/certificates/corso_hp.jpg",
 	    	"coordinazione cantiere":		"esempi_estratti_da_mie_analisi.htm#Documentation_developed_as_site_coordinator_for_property_renovation_(2015)_",
 	    }
 	},

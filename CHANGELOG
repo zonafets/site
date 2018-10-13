@@ -23,7 +23,7 @@ root
 pages\
 
 	curriculum.htm
-		181013\s.zaglio: added github link
+		181013\s.zaglio: added github link; corrected links sub pages
 		180912\s.zaglio: adapted to bootLoader; removed app' scripts
 		180911\s.zaglio: added <list></list> to some section to identify dynamic part
 		180910\s.zaglio: renamed and restructured <lang-link> tag
