@@ -6,7 +6,8 @@ app.cv_data.it = {
 		links: {
 			"Castiglione D/S": "https://www.google.com/maps/place/46043+Castiglione+delle+Stiviere,+Province+of+Mantua/@45.3888698,10.4731711,14z/data=!3m1!4b1!4m5!3m4!1s0x4781be7b043662f9:0xb4c322fd93a83aeb!8m2!3d45.3873983!4d10.4829578",
 			"https://goo.gl/7hakDJ": "https://goo.gl/7hakDJ",
-			"linkedin": "https://it.linkedin.com/pub/stefano-zaglio/3b/541/1b7",
+			"Linkedin": "https://it.linkedin.com/pub/stefano-zaglio/3b/541/1b7",
+			"GitHub": "https://github.com/zonafets",
 		},
 	},
 
