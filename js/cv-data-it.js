@@ -13,7 +13,7 @@ app.cv_data.it = {
 
     briefly: {
     	lines: [
-            "motivato al problem solving o alla gestione commerciale, in sintonia con la politica e metodologie aziendali",
+            "focalizzato ai risultati o alla gestione commerciale per la soddisfazione del cliente",
             "bilanciando tra costi/benefici e performance",
             "dalla R&D al post vendita",
         	"soluzioni creative tramite brainstorming, mind maps",

@@ -4,7 +4,7 @@ app.cv_data.en = JSON.parse(JSON.stringify(app.cv_data.it))
 
 app.cv_data.en.briefly = {
 	lines: [
-        "motivated to problem solving or commercial management, in tune with the company policy and methodologies",
+        "focused on results or commercial management for customer satisfaction",
         "balancing costs / benefits and performance",
         "from R&D to post-sales",
     	"creative solutions through brainstorming, mind maps", 
