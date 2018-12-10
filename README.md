@@ -2,9 +2,9 @@
 
 - [Home page](https://zonafets.github.io/site/index.htm)
 
-- [CV Web](https://zonafets.github.io/site/curriculum_ita.htm)
+- [CV Web](https://zonafets.github.io/site/pages/curriculum.htm?lang=en#details#projects)
 
-- [CV Pdf](https://zonafets.github.io/site/zaglio_stefano_cv_ita.pdf)
+- [CV Pdf](https://zonafets.github.io/site/download/zaglio_stefano_cv_details_en.pdf)
 
 
 __Notes to me__
