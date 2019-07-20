@@ -1,264 +1,194 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>  <html class="ie ie6 lte9 lte8 lte7"> <![endif]-->
-<!--[if IE 7]>     <html class="ie ie7 lte9 lte8 lte7"> <![endif]-->
-<!--[if IE 8]>     <html class="ie ie8 lte9 lte8"> <![endif]-->
-<!--[if IE 9]>     <html class="ie ie9 lte9"> <![endif]-->
-<!--[if gt IE 9]>  <html> <![endif]-->
-<!--[if !IE]><!--> <html>             <!--<![endif]-->
-
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
 <!--
 
-	-- SCOPE ------------------------------------------------------------------------------
+-- NOTES ------------------------------------------------------------------------------
 
-	Show my CV, rendering content from JSON(cv-data-*.js) using an experimental template 
-	technique that I'am calling/defining as NTE (Natural Template Engine).
-	(https://github.com/zonafets/NTE)
+-- CHANGELOG --------------------------------------------------------------------------
 
+190718\s.zaglio: 1st draft
 
-	-- NOTES ------------------------------------------------------------------------------
-
-	I know, this is not the better code. DRY principle can be applied more.
+-- TODO -------------------------------------------------------------------------------
 
 -->
-
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <!--meta name="viewport" content="initial-scale=1, maximum-scale=1"/-->
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="created" content="2019-07-12T10:28:43.961413848"/>
+	<meta name="changed" content="2019-07-16T13:23:27.724030425"/>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="cache-control" content="no-store"/>
     <meta name="keywords" content="analista, analyst, programmatore, developer, sistemista, system engineer, ict, it, manager, pc, as400, castiglione delle stiviere, mantova, brescia, verona, asp, net, javascript, knockoutjs, bootstrap, html5, razor, mvc, delphi, c/c++, c#, wince, windows, msaccess, tsql, visual, basic, novell, windows, ubuntu, linux"/>
     <meta name="description" content="Curriculum di Stefano Zaglio"/>
     <link rel="icon" href="../favicon.ico"/>
-    <title>Curriculum di Stefano Zaglio</title>
-    
-    <link rel="stylesheet" type="text/css" href="../css/curriculum.css">
+    <title>Stefano Zaglio - Curriculum</title>
+	<link rel="stylesheet" type="text/css" href="../css/curriculum.css">
+	<script src="../js/curriculum.js"></script>
 </head>
-    
-<body>
-
-	<person-info></person-info>
-    
-    <introduction hash="#">
-	    <p bind="cv.introduction"></p>
-	</introduction>
-
-    <div hash="#details">
-	    <!--blockquote id="self-nomination"></blockquote-->
-
-	    <briefly>
-		    <h2>In generale</h2>
-		    <ul>
-		    	<li bind="cv.briefly.lines"></li>
-		    </ul>
-	    </briefly>
-
-	    <div hash="#projects" class="slider">
-	    
-	        <stacks>
-	            <h2>Indice stacks</h2>
-	            <list></list>
-	        </stacks>
-
-	        <competencies>
-	            <h2>Indice competenze</h2>
-	            <list></list>
-	        </competencies>
-
-	        <projects>
-	        	<table>
-		            <thead>
-		                <tr>
-		                    <td bind="cv.projectsTable.theads"></td>
-		                </tr>
-		            </thead>
-		            <tbody></tbody>
-		        </table>
-		    </projects>
-
-	        <companies>
-	            <h2>Indice aziende</h2>
-	            <list></list>
-	        </companies>
-
-	    </div>
-
-	    <div hash="#experiences" class="slider">
-
-		    <table id="lasts-kb">
-		        <thead>
-		            <tr>
-		                <td>Conoscenze recenti</td>
-		                <td>Anni</td>
-		            </tr>
-		        </thead>
-		    </table>
-
-	        <section id="experiences">
-	            <b>[Esperienze di Lavoro]&nbsp;(f/p.time, co.co.pro, p.o.)</b>
-	            <table>
-	                <thead>
-	                    <tr>
-	                        <td>Periodo/Comp.</td>
-	                        <td>Attività</td>
-	                        <td>Azienda</td>
-	                    </tr>
-	                </thead>
-	            </table>
-	        </section>
-
-			<section id="previous-kb">
-		    <b>Conoscenze pregresse</b>
-		    <table>
-		        <thead>
-		            <tr>
-		                <td>Categoria</td>
-		                <td>Nome</td>
-		                <td>Anni</td>
-		            </tr>
-		        </thead>
-		    </table>
-			</section>
-
-	    </div>
-	        
-	    <section id="extra-info">
-	    	<h2>Informazioni aggiuntive</h2>
+<body lang="en-US">
+	<content>
+		<personal-info>
+			<legend>Stefano Zaglio (CV)</legend>
 			<table>
-			</table>
-		</section>
-
-		<table id="extra-courses">
-		    <thead>
-		        <tr>
-		            <td>[Attività extracurriculari]</td>
-		            <td>Competenze acquisite</td>
-		        </tr>
-		    </thead>
-		</table>
-
-		<table id="privacy">
-		    <tbody>
-		        <tr>
-		            <td><i>Autorizzo il trattamento dei dati personali ai sensi del&nbsp;ex D. lgs. 196/2003</i></td>
-		            <td><i>Castiglione D/S, %date%</i></td>
-		        </tr>
-		    </tbody>
-		</table>
-
-	</div>
-
-	<templates>
-		<template name="person-info">
-		    <table id="head" class="anonymouse" >
-		        <tbody>
-		            <tr>
-		                <td template="address">
-		                	<b>Stefano Zaglio</b>(CV)<br>
-		                    <span>Via Soratino, 8</span><br/>
-		                    46043 [Castiglione D/S] (Italy)<br>
-		                    Nato il 01.02.72 / Sposato
-		                </td>
-		                <td rowspan="2">
-		                	<div class="flip-container" click="flip">
-								<div class="flipper">
-									<div class="front">
-										<img id="foto-cravatta" src="../images/io/foto-cravatta-tonda.jpg" >
-									</div>
-									<div class="back">
-										<img id="foto-barba" src="../images/io/foto-tonda.jpg" >
-									</div>
+				<tr>
+					<td>
+						8th Soratino Street, 46043 Castiglione D/S (Italy)<br>
+						<img onclick="copy2clipboard()" title="click to copy to clipboard" src="../images/contact_info_email.jpg">
+						<img src="../images/contact_info_phone.jpg"><br>
+						Industrial Engineer in Compurer Science (not graduated)<br>
+						Intermediate english, français élémentaire<br>
+						<p class="noprint">
+							<input id="private-info" type="checkbox" onclick="toggle(this)">show private info<br>
+						</p>
+						<private-info hidden><img src="../images/private_info.jpg"></private-info>
+					</td>
+					<td>
+						<group>
+							<products>
+								<div>
+									<img src="../images/windows.png"> 
+									<img src="../images/ubuntu.png"> 
+									<img src="../images/rpi.png"> 
+									<img src="../images/esp8266.png"> 
+									<img src="../images/csharp.png"> 
+									<img src="../images/aspnet.png"> 
+									<img src="../images/knockout.png"> 
+									<img src="../images/bootstrap.png"> 
 								</div>
-							</div>
-		                </td>
-		            </tr>
-		            <tr>
-		                <td style="border-bottom: 1px solid gray;">
-		                    <img id="placeE" alt="myEmail" title="click to get email into clipboard" src="../images/ref.svg" click="copyEmail2Clipboard"/><br>
-		                    letter:&nbsp;[https://goo.gl/7hakDJ]
-		                    &nbsp;- &nbsp;[PDF]-&nbsp;[Linkedin] - [GitHub] 
-		                    <lang>&nbsp;- &nbsp;<a></a></lang>
-		                </td>
-		            </tr>
-		        </tbody>
-		    </table>
-		</template>
+								<div> 
+									<img src="../images/github.png">
+									<img src="../images/mssql.png">
+									<img src="../images/sqlite.png">
+									<img src="../images/mysql.png">
+									<img src="../images/postgres.png">
+									<img src="../images/python.png">
+									<img src="../images/cpp.png"> 
+								</div>
+							</products>
+							<faces hidden>
+								<game-developer>
+									<img src="../images/me/photo-game.jpg">
+									<p>firmware & <br>game dev.</p>
+								</game-developer>
+								<technician>
+									<img src="../images/me/photo-dev.jpg">
+									<p>technician & <br>developer</p>
+								</technician>
+								<expert>
+									<img src="../images/me/photo-mng.jpg">
+									<p>sr. analyst-dev & jr.manager</p>
+								</expert>
+							</faces>
+						</group>
+						<p class="noprint">
+							<input id="faces" type="checkbox" onclick="toggle(this)">show photo of me
+						</p>
+					</td>
+				</tr>
+			</table>
+		</personal-info>
 
-		<!--
-		
-			180711\s.zaglio: Firefox doesn't completelly support import of templates even with webcomponents.js
-							 so notifyBar component is implemented here
+		<br>
+		<legend>Briefly</legend>
+		<briefly>
+			<p>
+				I have a 20 year experience as a full-stack developer in different industrial and service sectors with various IT platforms and devices. I'm very keen on team work and strongly focused on achieving goals, through creative solutions. I also have good management and teaching skills.
+			</p>
+		</briefly>
 
-		-->
+		<br>
+		<experiences>
+			<table>
+				<body>
+					<tr>
+						<td colspan=3>
+							<legend>Most important experiences as developer</legend>
+						</td>
+						<td class="tright" colspan=3>
+							<legend class="tright">Platforms & Dev tool</legend>
+						</td>
+					</tr>
+					<tr class="bbottom">
+						<td>2014-19</td>
+						<td>Micro ERP/CRM<br>IOT<br>facility</td>
+						<td>Docuware<br>connector<br>(webapp)</td>
+						<td class="tright" colspan=3>RaspberryPI, ESP8266, C#, KnockoutJS,<br> Bootstrap, Razor/ASP.NET, Sqlite, MySQL,<br> Python, Git</td>
+					</tr>
+					<tr class="bbottom">
+						<td>2007-14</td>
+						<td>SAP Connector<br>(middleware)</td>
+						<td>Tavolinux<br>(hospitality)</td>
+						<td class="tright" colspan=3>Windows CE/NT, Linux, PDA, POS, C#, C++,<br> MSSQL, PostgreSQL, SVN, dotNET</td>
+					</tr>
+					<tr>
+						<td class="full-list tright" colspan=6>
+							For full list of projects & company with links to s-shots & video please go to: goo.gl/7hakDJ
+						</td>
+					</tr>
+				</body>
+			</table>
+		</experiences>
+		<br>
 
-		<style>
-			.fullPageOverlay > * {
-				transition: all 1s ease-in-out;
-			}
+		<roles>
+			<table>
+				<body>
+					<tr>
+						<td colspan=2>
+							<legend>Roles</legend>
+						</td>
+						<td>
+							<legend class="tright">Platform, D.Tools, Companies</legend>
+						</td>
+					</tr>
+					<tr class="bbottom">
+						<td>2014-18</td>
+						<td>consultant, freelance, technical support</td>
+						<td class="tright">SOL Group Spa, Alpac Srl</td>
+					</tr>
+					<tr class="bbottom">
+						<td>2007-14</td>
+						<td>Project Manager, Team Leader, Senior Dev.</td>
+						<td class="tright">MS Visio, Project, SharePoint, MSWord</td>
+					</tr>
+					<tr class="bbottom">
+						<td>1998-00</td>
+						<td>Junior ICT Manager, System Engineer</td>
+						<td class="tright">Copan Italia Spa, HP Proliant</td>
+					</tr>
+					<tr class="bbottom">
+						<td>1990-98</td>
+						<td>Technician, PLC developer, technical teacher in high school</td>
+						<td class="tright">CompaQ, 3com, Windows NT, Novell, Nixdorf, Zetafax, Intermec</td>
+					</tr>
+					<tr class="bbottom">
+						<td class="full-list tright" colspan="3">
+							For full list of experiences with links to s-shot & video please go to: goo.gl/7hakDJ
+						</td>
+					</tr>
+				</body>
+			</table>
+		</roles>
 
-			.fullPageOverlay {
-			    height:100%;
-			    width:100%;
-			    position:fixed;
-			    left:0;
-			    top:0;
-			    z-index:100 !important;
-			    background-color: rgba(0,0,0,0.5);
-			    display: none;
-				cursor: pointer;
-			}
+		<extra-activities>
+			<legend>Extracurricular activities</legend>
+			<p>
+				Trekking, "automated accounting" course, technician-customer relationship in HP, goals& results with PNL, studies on meta-learning, bw photography, comics drawing, modeling, cooking, tasting, site coordinator
+			</p>
+		</extra-activities>
 
-			.fullPageOverlay .message {
-				display: inline-block;
-			    position: absolute;
-			    left: 0;
-			    right: 0;
-			    margin: auto;
-			    color: white;
-			    height: fit-content;
-			    top: 20%;
-			    text-align: center;
-			    background: slategray;
-			}
+		<acquired-skills class="bbottom">
+			<legend>Acquired extra skills</legend>
+			<p>
+				smart-learning, meta-analysis, budget analysis, objection management, goal setting, aspects of perceptions, cost benefit analysis with limited budget
+			</p>
+		</acquired-skills>	
 
-			.fullPageOverlay .message p {
-			    font-weight: bold;
-			    font-size: 125%;
-			    padding: 5%;
-			}
-		</style>
+		<privacy>
+			<p>In comliance with the Italian D.L. #196-30/06/2003, I authorize to use my personal details</p>
+		</privacy>
 
-		<!--script type="html/text" name="notifyBar" class="fullPageOverlay" click="message"-->
-		<template name="notifyBar" class="fullPageOverlay" click="message">
-		    <span class="message">
-		    	<p></p>
-		    </span>
-		</template>
-		<!--/script-->
-
-		<script>
-			// manual installation
-			// debugger
-			// var imp = document.querySelector('link[name="notifyBar"]')
-			// imp = imp.import;
-			// var tpl = imp.getElementsByTagName("template")[0]
-			// var tpl = imp.getElementsByTagName("script")[0]
-			var tpl = document.querySelector("template[name='notifyBar']")
-			var div = document.createElement("div")
-			div.id = tpl.attributes.name.value
-			div.className = tpl.className
-			div.setAttribute("click", tpl.attributes.click.value)
-			div.appendChild(tpl.content.firstElementChild) // template
-			// div.innerHTML = tpl.innerHTML
-			document.body.appendChild(div)
-			div = undefined
-			tpl = undefined
-			imp = undefined
-		</script>
-
-	</templates>
+	</content>
 
 </body>
-
-<script src="../js/bootLoader.js?v=2&src=nte|cv-data-it|cv-data-en|compatibility!|polyfills!|main"></script>
-
 </html>

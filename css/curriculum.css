@@ -1,51 +1,27 @@
 /*
 
-    -- NOTES ------------------------------------------------------------------------------
+-- NOTES ------------------------------------------------------------------------------
 
-    This isn't only a page with my CV, but also a place where I'll refine the code to test 
-    the concepts of NTE (https://github.com/zonafets/NTE)
+-- CHANGELOG --------------------------------------------------------------------------
 
-    I know, this is not the better code. DRY principle can be applied more.
+190718\s.zaglio: 1st draft
 
-    -- CHANGELOG --------------------------------------------------------------------------
-
-	180703\s.zaglio: changed ref. from #ID to TAG and from generic SECTION to specifics
-					 NB: A class, B class, D class or css(A,B,C)?
-    180612\s.zaglio: slitted from curriculum_ita.htm
-
-    -- TODO -------------------------------------------------------------------------------
-
-    180601\s.zaglio: apply DRY principle to code and convert to NTE
+-- TODO -------------------------------------------------------------------------------
 
 */
 @-ms-viewport { width: device-width; }
+
+@media print { .noprint { display: none ! important; } }
 
 lg {
     background: #DDD;                
 }
 
 thead * {
-    color: #FFF;
+    color: #ddd;
     background-color: darkgray;
     font-weight: bold;
     text-align: left;
-}
-
-section, briefly, companies, stacks, projects, competencies {
-    margin-bottom: 10px;
-    font-size: small;
-    display: block;
-    margin-bottom: 4px;
-}
-
-section h2, briefly h2, companies h2, stacks h2, projects h2, competencies h2 {
-    margin-bottom: 0;
-    margin-top: 0;
-    font-size: small;
-    font-weight: bold;
-    background: darkgray;
-    color: white;
-    padding-left: 1;
 }
 
 table {
@@ -61,13 +37,19 @@ table {
 }
 
 td {
-	padding: 0px 2px 0px 2px;
+	padding: 2px 0px 2px 0px;
 	vertical-align: middle;
 }
 
 * {
-    font-size: small;
+    /*font-size: small;*/
     font-family: Tahoma;
+    font-size: 11pt;
+    /*border-color: #fee;
+    border-style: solid;
+    border-width: 1px 1px 1px;*/
+    line-height: 150%;
+
 }
 
 a {
@@ -80,6 +62,7 @@ body {
 	color:#000000;
 }
 
+/*
 @media screen {
 	body {
 		opacity: 0;
@@ -88,7 +71,7 @@ body {
 	    opacity: 1;
 	    transition: 0.6s opacity;
 	}
-}
+}*/
 
 :link {
     color: #663399 !important;
@@ -105,271 +88,138 @@ body {
     text-decoration: none;
 }
 
-tr {
+p {
+    padding: 2px;
+    margin: 0px;
+}
+
+row {
+    display: block;
+}
+
+content {
+    display: block;
+}
+
+legend {
+    background-color: #ddd;
+    font-weight: bold;
+    text-align: left;
+    display: block;
+    padding: 6px 2px 2px 2px;
+    /*margin-top: 4px; doesn't work well into table headers */
+    white-space: nowrap;
+    color: black;
+}
+
+contact-info {
+    width: 100%;
+    display: block;
+    text-align: justify;
+}
+
+personal-info table td:last-child {
+    width: 60%;
+    text-align: center;
+}
+
+personal-info > img {
+    width: 44ch;
+}
+
+private-info > img {
+    width: 35ch;
+} 
+
+images {
+    min-width: 50%;
+    display: inline-block;
+}
+
+briefly {
+    display: block;
+    text-align: justify;
+}
+
+experiences {
+    display: inline-block;
+    width: 100%;
     vertical-align: top;
 }
 
-ul,li {
-    margin: 0;
-    padding: 0;
+experiences p {
+    display: inline-block;
 }
 
-ul {
-    display: table;
+.bbottom {
+    border-bottom-color: #c7c7c7;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
 }
 
-li {
-    list-style: none;
-    display: table-row;
-    line-height: 1.3em;
-}
-
-li::before {
-    content: "●";
-    display: table-cell;
+.tright {
     text-align: right;
-    padding-right: .3em;
-    padding-left: .3em;
 }
 
-introduction p {
-	text-align: justify;
-	text-indent: 2em;
-	line-height: 1.5em;
-	padding-right: 2em;
-    padding-left: 2em;
+.full-list {
+    text-align: right;
+    font-style: italic;   
 }
 
-#self-nomination {
-    text-align: left;
-    font-size: medium;
+products {
+    display: inline-block;
+    text-align: center;
 }
 
-#placeE {
-	cursor: pointer;
-	margin-left: 1;
-	width: 40ch;
+products img {
+    display: inline-block;
+    width: 4ch;
 }
 
-#previous-kb td + td + td, #experiences td + td + td,
-#lasts-kb td + td, #head td + td {
-	text-align: right;
+products p {
+    display: inline-block;
 }
 
-#previous-kb td + td + td {
-	width: 10%;
+platforms {
+    display: inline-block;
+    min-width: 50%;
+    vertical-align: top;
 }
 
-@media (min-width: 321px) {
-    #lasts-kb td + td 			{ width:fit-content; }
-    
-    #previous-kb td 			{ width: 20%; }
-    #previous-kb td + td 		{ width: 64%; }
-
-    #experiences td 			{ width: 20%;}
-    #experiences td + td		{ width: 60%;}
-    #experiences td + td + td	{ width: 20%; text-align: right; }
+platforms * {
+    text-align: right;
 }
 
-#privacy { border-top: 1px solid gray; }
-#privacy td + td { text-align: right; }
-
-competencies img, projects img { width: 2ch; vertical-align: middle; padding: 2px; }
-competencies span { display: inline-block; margin: 0 2px 0 2px; }
-
-projects tbody tr { border-bottom: 1px solid lightgray; }
-projects td + td { text-align: center; }
-
-#experiences tbody tr { border-bottom: 1px solid lightgray; }
-
-#extra-courses tbody tr { border-bottom: 1px solid lightgray; }
-
-.flip-container, .from, .back {
-    position: absolute;
-	top: 4px;
-	right: 4px;
+group {
+    display: block;
+    width: 100%;
 }
 
-@media (min-width: 361px) {
-	#foto-barba,#foto-cravatta {
-		width:104px;
-		height:102px;
-	}
-	.flip-container, .front, .back {
-		width: 104px;
-		height: 102px;
-	}
+game-developer, technician, expert {
+    display: inline-block;
+    width: 30%;
 }
 
-@media (max-width: 360px) {
-	#foto-barba,#foto-cravatta {
-		width:64px;
-		height:63px;
-	}
-	.flip-container, .front, .back {
-		width: 64px;
-		height: 63px;
-	}
+game-developer, technician, expert {
+    text-align: center;
+} 
+
+game-developer img, technician img, expert img {
+    width: 60%;
+} 
+
+extra-activities, acquired-skills, privacy {
+    display: block;
 }
 
-#uk-flag {
-	height: 2ch;
-    vertical-align: text-bottom;
+extra-activities {
+    text-align: justify;
 }
 
-/****************
- *  scrollbar   *
- ****************/
-html {
-    overflow: -moz-scrollbars-vertical; 
-    overflow-y: scroll;
+acquired-skills {
+    text-align: justify;
 }
 
-body::-webkit-scrollbar {
-    width: 1em;
+privacy {
+    text-align: center;
 }
- 
-body::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-}
- 
-body::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
-  outline: 1px solid slategrey;
-}
-
-/******************************
- *  filp animation for photo  *
- ******************************/
-
-/* entire container, keeps perspective */
-.flip-container {
-	perspective: 1000px;
-	display: inline-table;
-}
-
-.flip-container.flip .flipper {
-	transform: rotateY(180deg);
-}
-
-/* avoid wrong print of front image */
-.flip-container.flip .flipper .front {
-	visibility:hidden;
-	transition: 1s;
-}
-
-/* flip speed goes here */
-.flipper {
-	position: relative;
-	transform-style: preserve-3d;
-	cursor: pointer;
-}
-
-@media screen {
-	.flipper {
-		transition: transform 0.6s;
-	}
-	.flip-container.flip .flipper .front {
-		transition: 1s;
-	}
-}
-
-/* hide back of pane during swap */
-.front, .back {
-	backface-visibility: hidden;
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-size: contain;
-}
-
-/* front pane, placed above back */
-.front {
-	z-index: 2;
-	/*background-image: url("images/io/foto-cravatta-tonda.jpg");*/
-	/* for firefox 31 */
-	transform: rotateY(0deg);
-}
-
-/* back, initially hidden pane */
-.back {
-	/*background-image: url("images/io/foto-tonda.jpg");*/
-	transform: rotateY(180deg);
-}
-
-.vertical.flip-container {
-	position: relative;
-}
-
-.vertical .back {
-	transform: rotateX(180deg);
-}
-
-.vertical.flip-container .flipper {
-	transform-origin: 100% 51px; /* half of height */
-}
-
-.vertical.flip-container:hover .flipper {
-	transform: rotateX(-180deg);
-}
-
-/****************************************************************
- *  slider animation for views experiencies/projects animation  *
- ****************************************************************/
-
-.slider {
-	max-height: 0;
-	overflow: hidden;
-}
-
-@media screen {
-	.slider {
-		transition: max-height 1s ease-in-out;
-	}
-}
-
-.slider.opened {
-	max-height: 1000ch;
-}
-
-/****************
- * nice tooltip *
- ****************/
-
-.tip {
-	display: inline;
-	position: relative;
-}
-
-.tip:hover:after{
-	background: #333;
-	background: rgba(0,0,0,.8);
-	border-radius: 5px;
-	bottom: 26px;
-	color: #fff;
-	content: attr(title);
-	left: -200%;
-	padding: 5px 15px;
-	position: absolute;
-	z-index: 98;
-}
-
-.tip:hover:before{
-	border: solid;
-	border-color: #333 transparent;
-	border-width: 6px 6px 0 6px;
-	bottom: 20px;
-	content: "";
-	left: 10%;
-	position: absolute;
-	z-index: 99;
-}
-
-
-/**************
- *    nte     *
- **************/
-
- *[hash] {
- 	display:none;
- }

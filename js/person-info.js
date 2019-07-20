@@ -20,7 +20,7 @@ app["person-info"] =
 							class:"front",
 							img: {
 								id: "foto-cravatta",
-								src: "images/io/foto-cravatta-tonda.jpg"
+								src: "images/me/photo-mng.jpg"
 							}
 						},
 					},
@@ -28,7 +28,7 @@ app["person-info"] =
 						class: "back",
 						img: {
 							id: "foto-barba",
-							src: "images/io/foto-tonda.jpg"
+							src: "images/me/photo-dev.jpg"
 						}
 					}
 				}

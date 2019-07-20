@@ -53,7 +53,7 @@ app.init = function() {
 	// select data source based on language param
     app.lang = nte.cmds.param("lang","it")
     cv = app.cv_data[app.lang] 
-    if (!cv) { app.lang="it"; cv = app.cv_data.it }
+    if (!cv) { app.lang="en"; cv = app.cv_data.en }
     app.cv = cv
 
 }
@@ -671,6 +671,7 @@ app.start = function() {
 		   But teorically the path is entered by links or preferences, not by hand.
 		   So this is not really necessary.
 		*/
+		debugger
 		hashes.forEach(
 			function(it) {
 				var h = it.attributes.hash.value.substr(1)
@@ -692,12 +693,12 @@ app.start = function() {
 			opened[i].classList.remove(css)
 
 		if (last == "experiences" || last == "") {
-			flipper.classList.remove("flip")
+			if (flipper) flipper.classList.remove("flip")
 			projects_view.classList.remove(css)
 			setTimeout(function(){experience_view.classList.add(css)}, time)
 		}
 		if (last == "projects") {
-			flipper.classList.add("flip")
+			if (flipper) flipper.classList.add("flip")
 			experience_view.classList.remove(css)
 			setTimeout(function(){projects_view.classList.add(css)}, time)
 		}

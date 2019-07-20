@@ -431,6 +431,8 @@ var nte = new (function() {
 			    	var node = select(tag)
 			    	if (!node) {
 			    		console.log("Warning, node '" + tag + "' not found")
+			    		// this avoid (some) runtime error
+			    		app.html[tag] = function() {}
 			    	} else {
 			    		var original = app.html[tag]
 			    		if (typeof original === "function") {
