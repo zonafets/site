@@ -25,7 +25,7 @@ function toggle(sender) {
 		case "private-info":
 			var info = document.querySelector("private-info")
 			if (sender.checked)
-				info.style.display = "inline-block"
+				info.style.display = "block"
 			else
 				info.style.display = "none"
 			break

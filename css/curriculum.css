@@ -142,6 +142,10 @@ images {
     text-align: center;
 }
 
+images label {
+    display: block;
+}
+
 briefly {
     display: block;
     text-align: justify;
