@@ -671,7 +671,6 @@ app.start = function() {
 		   But teorically the path is entered by links or preferences, not by hand.
 		   So this is not really necessary.
 		*/
-		debugger
 		hashes.forEach(
 			function(it) {
 				var h = it.attributes.hash.value.substr(1)
@@ -743,10 +742,12 @@ app.start = function() {
 	    if (!cmd("print")) {
 			changeView()
 	    	document.body.className='fade-in';
+	    	/*
 	    	if (sessionStorage["messageViewed"] === undefined) {
 				app.message(msgs.instructions)
 				sessionStorage["messageViewed"] = true
 			}
+			*/
 		} else {
 	    	document.body.className='fade-in';
 			changeViewImmediatelly()

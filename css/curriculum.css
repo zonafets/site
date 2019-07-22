@@ -13,6 +13,7 @@
 
 @media print { .noprint { display: none ! important; } }
 
+
 lg {
     background: #DDD;                
 }
@@ -37,7 +38,7 @@ table {
 }
 
 td {
-	padding: 2px 0px 2px 0px;
+	padding: 2px;
 	vertical-align: middle;
 }
 
@@ -62,7 +63,6 @@ body {
 	color:#000000;
 }
 
-/*
 @media screen {
 	body {
 		opacity: 0;
@@ -71,7 +71,7 @@ body {
 	    opacity: 1;
 	    transition: 0.6s opacity;
 	}
-}*/
+}
 
 :link {
     color: #663399 !important;
@@ -128,7 +128,7 @@ personal-info > img {
 }
 
 private-info > img {
-    width: 35ch;
+    width: 20ch;
 } 
 
 images {
@@ -158,7 +158,7 @@ experiences p {
 }
 
 .tright {
-    text-align: right;
+    text-align: right !important;
 }
 
 .full-list {
@@ -195,9 +195,27 @@ group {
     width: 100%;
 }
 
-game-developer, technician, expert {
-    display: inline-block;
-    width: 30%;
+@media screen and (min-width: 500px) {
+    game-developer, technician, expert {
+        display: inline-block;
+        width: 30%;
+    }
+    roles table tbody tr td:first-child {
+        white-space: nowrap;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    technician {
+        display: inline-block;
+        width: 60%;
+    }
+    game-developer, expert {
+        display: none;
+    }
+    roles table tbody tr td:first-child {
+        text-align: center;
+    }
 }
 
 game-developer, technician, expert {
