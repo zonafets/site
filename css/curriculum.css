@@ -164,6 +164,14 @@ experiences p {
     display: inline-block;
 }
 
+experiences table tbody tr:first-child {
+    background-color: #ddd;
+}
+
+roles table tbody tr:first-child {
+    background-color: #ddd;
+}
+
 .bbottom {
     border-bottom-color: #c7c7c7;
     border-bottom-style: solid;
