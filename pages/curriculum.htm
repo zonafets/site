@@ -16,7 +16,7 @@
 	<title></title>
 	<meta name="created" content="2019-07-12T10:28:43.961413848"/>
 	<meta name="changed" content="2019-07-16T13:23:27.724030425"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
     <meta http-equiv="cache-control" content="no-store"/>
     <meta name="keywords" content="analista, analyst, programmatore, developer, sistemista, system engineer, ict, it, manager, pc, as400, castiglione delle stiviere, mantova, brescia, verona, asp, net, javascript, knockoutjs, bootstrap, html5, razor, mvc, delphi, c/c++, c#, wince, windows, msaccess, tsql, visual, basic, novell, windows, ubuntu, linux"/>
     <meta name="description" content="Curriculum di Stefano Zaglio"/>
@@ -27,77 +27,74 @@
 </head>
 <body lang="en-US">
 	<content>
-		<personal-info>
+		<div style="display:inline">
 			<legend>Stefano Zaglio (CV)</legend>
-			<table>
-				<tr>
-					<td>
-						8th Soratino Street, 46043&nbsp;Castiglione&nbsp;D/S&nbsp;(Italy)<br>
-						<img onclick="copy2clipboard()" title="click to copy to clipboard" src="../images/contact_info_email.jpg">
-						<img src="../images/contact_info_phone.jpg"><br>
-						Industrial Engineer in Compurer Science (not graduated)<br>
-						Intermediate english, français élémentaire<br>
-						<p class="noprint">
-							<input id="private-info" type="checkbox" onclick="toggle(this)">show private info<br>
-						</p>
-						<private-info hidden>
-							<img src="../images/private_info_birthday.jpg">
-							<img src="../images/private_info_family.jpg">
-						</private-info>
-					</td>
-					<td>
-						<group>
-							<products>
-								<div>
-									<img src="../images/windows.png"> 
-									<img src="../images/ubuntu.png"> 
-									<img src="../images/rpi.png"> 
-									<img src="../images/esp8266.png"> 
-									<img src="../images/csharp.png"> 
-									<img src="../images/aspnet.png"> 
-									<img src="../images/knockout.png"> 
-									<img src="../images/bootstrap.png"> 
-								</div>
-								<div> 
-									<img src="../images/github.png">
-									<img src="../images/mssql.png">
-									<img src="../images/sqlite.png">
-									<img src="../images/mysql.png">
-									<img src="../images/postgres.png">
-									<img src="../images/python.png">
-									<img src="../images/cpp.png"> 
-								</div>
-							</products>
-							<faces hidden>
-								<game-developer>
-									<img src="../images/me/photo-game.jpg">
-									<p>firmware & <br>game dev.</p>
-								</game-developer>
-								<technician>
-									<img src="../images/me/photo-dev.jpg">
-									<p>technician & <br>developer</p>
-								</technician>
-								<expert>
-									<img src="../images/me/photo-mng.jpg">
-									<p>sr. analyst-dev & <br>jr.manager</p>
-								</expert>
-							</faces>
-						</group>
-						<p class="noprint">
-							<input id="faces" type="checkbox" onclick="toggle(this)">show photo of me
-						</p>
-					</td>
-				</tr>
-			</table>
-		</personal-info>
+			<personal-info>
+				8th Soratino Street, 46043&nbsp;Castiglione&nbsp;D/S&nbsp;(Italy)<br>
+				<img onclick="copy2clipboard()" title="click to copy to clipboard" src="../images/contact_info_email.jpg">
+				<img src="../images/contact_info_phone.jpg"><br>
+				Industrial Engineer in Compurer Science (not graduated)<br>
+				Intermediate english, français élémentaire<br>
+				<p class="noprint">
+					<input id="private-info" type="checkbox" onclick="toggle(this)">show private info<br>
+				</p>
+				<private-info hidden>
+					<img src="../images/private_info_birthday.jpg">
+					<img src="../images/private_info_family.jpg"><br>
+				</private-info>
+			</personal-info>
+			<images>
+				<products>
+					<div>
+						<img src="../images/windows.png"> 
+						<img src="../images/ubuntu.png"> 
+						<img src="../images/rpi.png"> 
+						<img src="../images/esp8266.png"> 
+						<img src="../images/csharp.png"> 
+						<img src="../images/aspnet.png"> 
+						<img src="../images/knockout.png"> 
+						<img src="../images/bootstrap.png"> 
+					</div>
+					<div> 
+						<img src="../images/github.png">
+						<img src="../images/mssql.png">
+						<img src="../images/sqlite.png">
+						<img src="../images/mysql.png">
+						<img src="../images/postgres.png">
+						<img src="../images/python.png">
+						<img src="../images/cpp.png"> 
+					</div>
+				</products>
+				<faces hidden>
+					<game-developer>
+						<img src="../images/me/photo-game.jpg">
+						<p>firmware & <br>game dev.</p>
+					</game-developer>
+					<technician>
+						<img src="../images/me/photo-dev.jpg">
+						<p>technician & <br>developer</p>
+					</technician>
+					<expert>
+						<img src="../images/me/photo-mng.jpg">
+						<p>sr. analyst-dev & <br>jr.manager</p>
+					</expert>
+				</faces>
+				<p class="noprint">
+					<input id="faces" type="checkbox" onclick="toggle(this)">show photo of me
+				</p>
+			</images>
+		</div>
 
 		<br>
-		<legend>Briefly</legend>
-		<briefly>
-			<p>
-				I have a 20 year experience as a full-stack developer in different industrial and service sectors with various IT platforms and devices. I'm very keen on team work and strongly focused on achieving goals, through creative solutions. I also have good management and teaching skills.
-			</p>
-		</briefly>
+		
+		<div style="display:inline-block">
+			<legend>Briefly</legend>
+			<briefly>
+				<p>
+					I have a 20 year experience as a full-stack developer in different industrial and service sectors with various IT platforms and devices. I'm very keen on team work and strongly focused on achieving goals, through creative solutions. I also have good management and teaching skills.
+				</p>
+			</briefly>
+		</div>
 
 		<br>
 		<experiences>
@@ -105,10 +102,10 @@
 				<body>
 					<tr>
 						<td colspan=3>
-							<legend>Most important experiences as developer</legend>
+							<legend>Most important<br class="xs-screen">experiences as developer</legend>
 						</td>
 						<td class="tright" colspan=3>
-							<legend class="tright">Platforms & Dev tool</legend>
+							<legend class="tright">Platforms <br class="xs-screen">& Dev tool</legend>
 						</td>
 					</tr>
 					<tr class="bbottom">

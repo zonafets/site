@@ -108,7 +108,7 @@ legend {
     display: block;
     padding: 6px 2px 2px 2px;
     /*margin-top: 4px; doesn't work well into table headers */
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     color: black;
 }
 
@@ -118,13 +118,18 @@ contact-info {
     text-align: justify;
 }
 
+personal-info {
+    display: inline-block;
+    float:left;
+}
+
 personal-info table td:last-child {
     width: 60%;
     text-align: center;
 }
 
 personal-info > img {
-    width: 44ch;
+    width: 21ch;
 }
 
 private-info > img {
@@ -132,8 +137,9 @@ private-info > img {
 } 
 
 images {
-    min-width: 50%;
+    width: 50%;
     display: inline-block;
+    text-align: center;
 }
 
 briefly {
@@ -203,6 +209,12 @@ group {
     roles table tbody tr td:first-child {
         white-space: nowrap;
     }
+    .xs-screen {
+        display:none;
+    }
+    .normal-screen {
+        display:inline-block;
+    }
 }
 
 @media all and (max-width: 499px) {
@@ -215,6 +227,12 @@ group {
     }
     roles table tbody tr td:first-child {
         text-align: center;
+    }
+    .xs-screen {
+        display:inline-block;
+    }
+    .normal-screen {
+        display:none;
     }
 }
 
