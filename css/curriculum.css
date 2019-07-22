@@ -137,13 +137,16 @@ private-info > img {
 } 
 
 images {
-    width: 50%;
     display: inline-block;
     text-align: center;
 }
 
 images label {
     display: block;
+}
+
+faces p {
+    white-space: nowrap;
 }
 
 briefly {
@@ -205,7 +208,7 @@ group {
     width: 100%;
 }
 
-@media all and (min-width: 500px) {
+@media all and (min-width: 600px) {
     game-developer, technician, expert {
         display: inline-block;
         width: 30%;
@@ -221,7 +224,7 @@ group {
     }
 }
 
-@media all and (max-width: 499px) {
+@media all and (max-width: 599px) {
     technician {
         display: inline-block;
         width: 60%;
