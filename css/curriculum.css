@@ -195,7 +195,7 @@ group {
     width: 100%;
 }
 
-@media screen and (min-width: 500px) {
+@media all and (min-width: 500px) {
     game-developer, technician, expert {
         display: inline-block;
         width: 30%;
@@ -205,7 +205,7 @@ group {
     }
 }
 
-@media screen and (max-width: 499px) {
+@media all and (max-width: 499px) {
     technician {
         display: inline-block;
         width: 60%;
