@@ -10,16 +10,16 @@
 
 */
 function toggle(sender) {
-	switch (sender.id) {
-		case "faces":
-			var faces = document.querySelector("faces")
+	switch (sender.id || sender.name) {
+		case "show-photo":
+			var photo = document.querySelector("photo")
 			var products = document.querySelector("products")
 			if (sender.checked) {
 				products.style.display="none"
-				faces.style.display="inline-block"
+				photo.style.display="inline-block"
 			} else {
 				products.style.display="inline-block"
-				faces.style.display="none"				
+				photo.style.display="none"				
 			}
 			break
 		case "private-info":
@@ -28,6 +28,27 @@ function toggle(sender) {
 				info.style.display = "block"
 			else
 				info.style.display = "none"
+			break
+		case "faces":
+			var game_dev = document.querySelector("#game-developer")
+			var technician = document.querySelector("#technician")
+			var manager = document.querySelector("#manager")
+			var show = "inline-block" 
+			var hide = "none"
+			game_dev.style.display = hide
+			technician.style.display = hide
+			manager.style.display = hide
+			switch (sender.value) {
+				case "1":
+					game_dev.style.display = show
+					break
+				case "2":
+					technician.style.display = show
+					break
+				case "3":
+					manager.style.display = show
+					break
+			}
 			break
 	}
 }
