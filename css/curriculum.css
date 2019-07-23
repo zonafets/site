@@ -43,9 +43,9 @@ td {
 }
 
 * {
-    /*font-size: small;*/
+    font-size: large;
     font-family: Tahoma;
-    font-size: 11pt;
+    /*font-size: 11pt;*/
     /*border-color: #fee;
     border-style: solid;
     border-width: 1px 1px 1px;*/
@@ -153,6 +153,10 @@ photo img {
     width:60%;
 }
 
+choice label {
+    display: inline-flex;
+}
+
 briefly {
     display: block;
     text-align: justify;
@@ -197,7 +201,7 @@ choice {
 
 products {
     display: inline-block;
-    text-align: center;
+    text-align: left;
 }
 
 products img {
