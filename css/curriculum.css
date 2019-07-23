@@ -11,8 +11,26 @@
 */
 @-ms-viewport { width: device-width; }
 
-@media print { .noprint { display: none ! important; } }
+@media print { 
 
+    .noprint { 
+        display: none ! important; 
+    }
+
+    * {
+        font-size: normal;
+        font-family: Tahoma;
+        line-height: 150%;
+    }
+}
+
+@media screen { 
+    * {
+        font-size: large;
+        font-family: Tahoma;
+        line-height: 150%;
+    }
+}
 
 lg {
     background: #DDD;                
@@ -42,16 +60,6 @@ td {
 	vertical-align: middle;
 }
 
-* {
-    font-size: large;
-    font-family: Tahoma;
-    /*font-size: 11pt;*/
-    /*border-color: #fee;
-    border-style: solid;
-    border-width: 1px 1px 1px;*/
-    line-height: 150%;
-
-}
 
 a {
 	word-wrap: break-word;
@@ -72,6 +80,13 @@ body {
 	    transition: 0.6s opacity;
 	}
 }
+
+@media screen and (min-width: 1000px) {
+    body {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+} 
 
 :link {
     color: #663399 !important;
@@ -136,9 +151,19 @@ private-info > img {
     width: 20ch;
 } 
 
-images {
-    display: inline-block;
-    text-align: center;
+
+@media print {
+    images {
+        display: inline-block;
+        text-align: right;
+    }
+}
+
+@media screen {
+    images {
+        display: inline-block;
+        text-align: center;
+    }
 }
 
 images label {
@@ -202,6 +227,7 @@ choice {
 products {
     display: inline-block;
     text-align: left;
+    padding: 4px;
 }
 
 products img {
