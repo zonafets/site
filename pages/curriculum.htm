@@ -2,6 +2,10 @@
 <html>
 <!--
 
+-- COPYRIGHT  -------------------------------------------------------------------------
+
+All rights reserved
+
 -- NOTES ------------------------------------------------------------------------------
 
 -- CHANGELOG --------------------------------------------------------------------------
@@ -13,7 +17,6 @@
 -->
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
 	<meta name="created" content="2019-07-12T10:28:43.961413848"/>
 	<meta name="changed" content="2019-07-16T13:23:27.724030425"/>
     <meta name="viewport" content="width=device-width, initial-scale=0.6">
@@ -27,16 +30,22 @@
 </head>
 <body lang="en-US">
 	<content>
-		<div style="display:inline">
-			<legend>Stefano Zaglio (CV)</legend>
+		<legend>Stefano<span name="hide-references"> Zaglio (CV)</span></legend>
+		<div style="display:inline-block; width:100%;margin-top:3px">
 			<personal-info>
-				8th Soratino Street, 46043&nbsp;Castiglione&nbsp;D/S&nbsp;(Italy)<br>
-				<img onclick="copy2clipboard()" title="click to copy to clipboard" src="../images/contact_info_email.jpg">
-				<img src="../images/contact_info_phone.jpg"><br>
-				Industrial Engineer in Compurer Science (not graduated)<br>
+				<p name="hide-references">
+					8th Soratino Street, 46043&nbsp;Castiglione&nbsp;D/S&nbsp;(Italy)<br>
+					<img onclick="copy2clipboard()" title="click to copy to clipboard" src="../images/contact_info_email.jpg">
+					<img src="../images/contact_info_phone.jpg"><br>
+					<img src="../images/github.png" style="width:1.5ch">&nbsp;<a href="https://github.com/zonafets">github.com/zonafets</a>
+				</p>
+				Industrial Engineer in Compurer Science (not&nbsp;graduated)<br>
 				Intermediate english, français élémentaire<br>
 				<label class="noprint">
 					show private info <input id="private-info" type="checkbox" onclick="toggle(this)">
+				</label>
+				<label class="noprint">
+					hide references <input id="hide-references" type="checkbox" onclick="toggle(this)">
 				</label>
 				<private-info hidden>
 					<img src="../images/private_info_birthday.jpg">
@@ -48,17 +57,17 @@
 				<group>
 				<pictures>
 					<products>
-						<div>
-							<img src="../images/windows.png"> 
-							<img src="../images/ubuntu.png"> 
-							<img src="../images/rpi.png"> 
-							<img src="../images/esp8266.png"> 
-							<img src="../images/csharp.png"> 
-							<img src="../images/aspnet.png"> 
-							<img src="../images/knockout.png"> 
-							<img src="../images/bootstrap.png"> 
-						</div>
-						<div> 
+						<!--div-->
+							<img src="../images/windows.png">
+							<img src="../images/ubuntu.png">
+							<img src="../images/rpi.png">
+							<img src="../images/esp8266.png">
+							<img src="../images/csharp.png">
+							<img src="../images/aspnet.png">
+							<img src="../images/knockout.png">
+							<img src="../images/bootstrap.png"><br>
+						<!--/div>
+						<div--> 
 							<img src="../images/github.png">
 							<img src="../images/mssql.png">
 							<img src="../images/sqlite.png">
@@ -66,7 +75,7 @@
 							<img src="../images/postgres.png">
 							<img src="../images/python.png">
 							<img src="../images/cpp.png"> 
-						</div>
+						<!--/div-->
 					</products>
 
 					<photo hidden>
@@ -75,6 +84,7 @@
 						<img id="manager" src="../images/me/photo-mng.jpg" hidden>
 					</photo>
 				</pictures>
+
 				<label class="noprint">
 					<input id="show-photo" type="checkbox" onclick="toggle(this)">
 					show a photo of me as ...
@@ -124,7 +134,7 @@
 					<tr class="bbottom">
 						<td>2014 - 2019</td>
 						<td>Micro ERP/CRM<br>IOT facility</td>
-						<td>Docuware<br>connector<br>(webapp)</td>
+						<td>Docuware connector<br>(webapp)</td>
 						<td class="tright" colspan=3>RaspberryPI, ESP8266, C#, KnockoutJS,<br> Bootstrap, Razor/ASP.NET, Sqlite, MySQL,<br> Python, Git</td>
 					</tr>
 					<tr class="bbottom">
@@ -156,8 +166,8 @@
 						</td>
 					</tr>
 					<tr class="bbottom">
-						<td>2014 - 2018</td>
-						<td>consultant, freelance, technical support</td>
+						<td>2014 - 2019</td>
+						<td>consultant, full-stack developer, technical support</td>
 						<td class="tright">SOL Group Spa, Alpac Srl</td>
 					</tr>
 					<tr class="bbottom">

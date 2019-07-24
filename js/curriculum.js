@@ -1,4 +1,7 @@
 /*
+-- COPYRIGHT  -------------------------------------------------------------------------
+
+All rights reserved
 
 -- NOTES ------------------------------------------------------------------------------
 
@@ -49,6 +52,14 @@ function toggle(sender) {
 					manager.style.display = show
 					break
 			}
+			break
+		case "hide-references":
+			var hidepi=document.querySelectorAll('[name="hide-references"]')
+			for (var i=0;i<hidepi.length;i++)
+				if (sender.checked)
+					hidepi[i].style.display=""
+				else
+					hidepi[i].style.display="none"
 			break
 	}
 }

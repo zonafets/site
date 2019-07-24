@@ -1,4 +1,7 @@
 /*
+-- COPYRIGHT  -------------------------------------------------------------------------
+
+All rights reserved
 
 -- NOTES ------------------------------------------------------------------------------
 
@@ -11,29 +14,99 @@
 */
 @-ms-viewport { width: device-width; }
 
-@media print { 
+* {
+    font-size: medium;
+    font-family: Tahoma;
+    line-height: 150%;
+}
 
+@media print and (orientation: landscape) {
+    * {
+        line-height: 120%;
+    }
+}
+
+@media print { 
     .noprint { 
         display: none ! important; 
     }
 
-    * {
-        font-size: normal;
-        font-family: Tahoma;
-        line-height: 150%;
+    .nowrap {
+        white-space: nowrap;
+    }
+    roles table tbody tr td:first-child {
+        white-space: nowrap;
+    }
+
+}
+
+@media screen {
+    body {
+        opacity: 0;
+    }
+    body.fade-in {
+        opacity: 1;
+        transition: 0.6s opacity;
     }
 }
 
-@media screen { 
-    * {
-        font-size: large;
-        font-family: Tahoma;
-        line-height: 150%;
+@media screen and (min-width: 1000px) {
+    body {
+        margin-left: 10%;
+        margin-right: 10%;
     }
 }
 
-lg {
-    background: #DDD;                
+pictures {
+    display: inline-block;
+    width: 100%;
+} 
+
+images {
+    width: 45%;
+    display: inline-block;
+    text-align: center;
+}
+
+@media print {
+    images {
+        text-align: right;
+    }
+}
+
+@media all and (min-width: 600px) {
+    game-developer, technician, expert {
+        display: inline-block;
+        width: 30%;
+    }
+    roles table tbody tr td:first-child {
+        white-space: nowrap;
+    }
+    .xs-screen {
+        display:none;
+    }
+    .normal-screen {
+        display:inline-block;
+    }
+}
+
+@media all and (max-width: 599px) {
+    technician {
+        display: inline-block;
+        width: 60%;
+    }
+    game-developer, expert {
+        display: none;
+    }
+    roles table tbody tr td:first-child {
+        text-align: center;
+    }
+    .xs-screen {
+        display:inline-block;
+    }
+    .normal-screen {
+        display:none;
+    }
 }
 
 thead * {
@@ -70,23 +143,6 @@ body {
 	background-color:#ffffff;
 	color:#000000;
 }
-
-@media screen {
-	body {
-		opacity: 0;
-	}
-	body.fade-in {
-	    opacity: 1;
-	    transition: 0.6s opacity;
-	}
-}
-
-@media screen and (min-width: 1000px) {
-    body {
-        margin-left: 10%;
-        margin-right: 10%;
-    }
-} 
 
 :link {
     color: #663399 !important;
@@ -134,6 +190,7 @@ contact-info {
 }
 
 personal-info {
+    min-width: 50%;
     display: inline-block;
     float:left;
 }
@@ -151,21 +208,6 @@ private-info > img {
     width: 20ch;
 } 
 
-
-@media print {
-    images {
-        display: inline-block;
-        text-align: right;
-    }
-}
-
-@media screen {
-    images {
-        display: inline-block;
-        text-align: center;
-    }
-}
-
 images label {
     display: block;
 }
@@ -175,7 +217,7 @@ faces p {
 }
 
 photo img {
-    width:60%;
+    width:50%;
 }
 
 choice label {
@@ -224,9 +266,8 @@ choice {
     font-style: italic;   
 }
 
-products {
-    display: inline-block;
-    text-align: left;
+products, photo {
+    text-align: center; /*left;*/
     padding: 4px;
 }
 
@@ -252,41 +293,6 @@ platforms * {
 group {
     display: block;
     width: 100%;
-}
-
-@media all and (min-width: 600px) {
-    game-developer, technician, expert {
-        display: inline-block;
-        width: 30%;
-    }
-    roles table tbody tr td:first-child {
-        white-space: nowrap;
-    }
-    .xs-screen {
-        display:none;
-    }
-    .normal-screen {
-        display:inline-block;
-    }
-}
-
-@media all and (max-width: 599px) {
-    technician {
-        display: inline-block;
-        width: 60%;
-    }
-    game-developer, expert {
-        display: none;
-    }
-    roles table tbody tr td:first-child {
-        text-align: center;
-    }
-    .xs-screen {
-        display:inline-block;
-    }
-    .normal-screen {
-        display:none;
-    }
 }
 
 game-developer, technician, expert {
