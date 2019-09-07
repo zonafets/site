@@ -1,1724 +1,646 @@
-<html xmlns:v="urn:schemas-microsoft-com:vml"
-xmlns:o="urn:schemas-microsoft-com:office:office"
-xmlns:w="urn:schemas-microsoft-com:office:word"
-xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
-xmlns="http://www.w3.org/TR/REC-html40">
-
+<html>
 <head>
-<meta http-equiv=Content-Type content="text/html; charset=utf-8">
-<meta name=ProgId content=Word.Document>
-<meta name=Generator content="Microsoft Word 12">
-<meta name=Originator content="Microsoft Word 12">
-<link rel=File-List href="software_quality_file/filelist.xml">
-<link rel=Edit-Time-Data href="software_quality_file/editdata.mso">
-<!--[if !mso]>
-<style>
-v\:* {behavior:url(#default#VML);}
-o\:* {behavior:url(#default#VML);}
-w\:* {behavior:url(#default#VML);}
-.shape {behavior:url(#default#VML);}
-</style>
-<![endif]-->
-<title>Software testing: come il concetto ne influenza la qualità.</title>
-<!--[if gte mso 9]><xml>
- <o:DocumentProperties>
-  <o:Author>stefano</o:Author>
-  <o:LastAuthor>stefano</o:LastAuthor>
-  <o:Revision>5</o:Revision>
-  <o:TotalTime>511</o:TotalTime>
-  <o:Created>2019-09-07T15:38:00Z</o:Created>
-  <o:LastSaved>2019-09-07T16:10:00Z</o:LastSaved>
-  <o:Pages>6</o:Pages>
-  <o:Words>2797</o:Words>
-  <o:Characters>15949</o:Characters>
-  <o:Lines>132</o:Lines>
-  <o:Paragraphs>37</o:Paragraphs>
-  <o:CharactersWithSpaces>18709</o:CharactersWithSpaces>
-  <o:Version>12.00</o:Version>
- </o:DocumentProperties>
- <o:OfficeDocumentSettings>
-  <o:AllowPNG/>
-  <o:PixelsPerInch>120</o:PixelsPerInch>
-  <o:TargetScreenSize>1024x768</o:TargetScreenSize>
- </o:OfficeDocumentSettings>
-</xml><![endif]-->
-<link rel=themeData href="software_quality_file/themedata.thmx">
-<link rel=colorSchemeMapping href="software_quality_file/colorschememapping.xml">
-<!--[if gte mso 9]><xml>
- <w:WordDocument>
-  <w:Zoom>75</w:Zoom>
-  <w:SpellingState>Clean</w:SpellingState>
-  <w:GrammarState>Clean</w:GrammarState>
-  <w:TrackMoves>false</w:TrackMoves>
-  <w:TrackFormatting/>
-  <w:HyphenationZone>14</w:HyphenationZone>
-  <w:ValidateAgainstSchemas/>
-  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
-  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
-  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
-  <w:DoNotPromoteQF/>
-  <w:LidThemeOther>IT</w:LidThemeOther>
-  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
-  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
-  <w:Compatibility>
-   <w:BreakWrappedTables/>
-   <w:SnapToGridInCell/>
-   <w:WrapTextWithPunct/>
-   <w:UseAsianBreakRules/>
-   <w:DontGrowAutofit/>
-   <w:SplitPgBreakAndParaMark/>
-   <w:DontVertAlignCellWithSp/>
-   <w:DontBreakConstrainedForcedTables/>
-   <w:DontVertAlignInTxbx/>
-   <w:Word11KerningPairs/>
-   <w:CachedColBalance/>
-  </w:Compatibility>
-  <w:DoNotOptimizeForBrowser/>
-  <m:mathPr>
-   <m:mathFont m:val="Cambria Math"/>
-   <m:brkBin m:val="before"/>
-   <m:brkBinSub m:val="&#45;-"/>
-   <m:smallFrac m:val="off"/>
-   <m:dispDef/>
-   <m:lMargin m:val="0"/>
-   <m:rMargin m:val="0"/>
-   <m:defJc m:val="centerGroup"/>
-   <m:wrapIndent m:val="1440"/>
-   <m:intLim m:val="subSup"/>
-   <m:naryLim m:val="undOvr"/>
-  </m:mathPr></w:WordDocument>
-</xml><![endif]--><!--[if gte mso 9]><xml>
- <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
-  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
-  LatentStyleCount="267">
-  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
-   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
-  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
-   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
-  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
-   UnhideWhenUsed="false" QFormat="true" Name="heading 2"/>
-  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
-  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
-  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
-  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
-  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
-  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
-  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
-  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
-  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
-  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
-  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
-  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
-  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
-  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
-  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
-  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
-  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
-  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
-   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
-  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
-  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
-   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
-  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
-   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
-  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
-   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
-  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Table Grid"/>
-  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
-  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
-   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
-  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Light Shading"/>
-  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Light List"/>
-  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Light Grid"/>
-  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Shading 1"/>
-  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Shading 2"/>
-  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium List 1"/>
-  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium List 2"/>
-  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Grid 1"/>
-  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Grid 2"/>
-  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Grid 3"/>
-  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Dark List"/>
-  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Colorful Shading"/>
-  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Colorful List"/>
-  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Colorful Grid"/>
-  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
-  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Light List Accent 1"/>
-  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
-  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
-  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
-  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
-  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
-  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
-   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
-  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
-   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
-  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
-   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
-  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
-  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
-  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
-  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
-  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
-  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
-  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
-  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
-  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
-  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Light List Accent 2"/>
-  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
-  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
-  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
-  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
-  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
-  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
-  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
-  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
-  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
-  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
-  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
-  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
-  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
-  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Light List Accent 3"/>
-  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
-  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
-  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
-  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
-  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
-  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
-  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
-  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
-  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
-  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
-  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
-  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
-  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
-  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Light List Accent 4"/>
-  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
-  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
-  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
-  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
-  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
-  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
-  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
-  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
-  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
-  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
-  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
-  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
-  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
-  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Light List Accent 5"/>
-  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
-  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
-  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
-  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
-  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
-  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
-  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
-  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
-  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
-  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
-  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
-  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
-  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
-  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Light List Accent 6"/>
-  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
-  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
-  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
-  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
-  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
-  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
-  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
-  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
-  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
-  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
-  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
-  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
-   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
-  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
-   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
-  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
-   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
-  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
-   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
-  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
-   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
-  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
-   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
-  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
-  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
- </w:LatentStyles>
-</xml><![endif]-->
-<style>
-<!--
- /* Font Definitions */
- @font-face
-	{font-family:"Cambria Math";
-	panose-1:2 4 5 3 5 4 6 3 2 4;
-	mso-font-charset:1;
-	mso-generic-font-family:roman;
-	mso-font-format:other;
-	mso-font-pitch:variable;
-	mso-font-signature:0 0 0 0 0 0;}
-@font-face
-	{font-family:Tahoma;
-	panose-1:2 11 6 4 3 5 4 4 2 4;
-	mso-font-charset:0;
-	mso-generic-font-family:swiss;
-	mso-font-pitch:variable;
-	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
- /* Style Definitions */
- p.MsoNormal, li.MsoNormal, div.MsoNormal
-	{mso-style-unhide:no;
-	mso-style-qformat:yes;
-	mso-style-parent:"";
-	margin:0cm;
-	margin-bottom:.0001pt;
-	mso-pagination:widow-orphan;
-	font-size:12.0pt;
-	font-family:"Times New Roman","serif";
-	mso-fareast-font-family:"Times New Roman";
-	mso-fareast-theme-font:minor-fareast;}
-h2
-	{mso-style-priority:9;
-	mso-style-unhide:no;
-	mso-style-qformat:yes;
-	mso-style-link:"Titolo 2 Carattere";
-	mso-margin-top-alt:auto;
-	margin-right:0cm;
-	mso-margin-bottom-alt:auto;
-	margin-left:0cm;
-	mso-pagination:widow-orphan;
-	mso-outline-level:2;
-	font-size:18.0pt;
-	font-family:"Times New Roman","serif";
-	mso-fareast-font-family:"Times New Roman";
-	mso-fareast-theme-font:minor-fareast;
-	font-weight:bold;}
-a:link, span.MsoHyperlink
-	{mso-style-noshow:yes;
-	mso-style-priority:99;
-	color:blue;
-	text-decoration:underline;
-	text-underline:single;}
-a:visited, span.MsoHyperlinkFollowed
-	{mso-style-noshow:yes;
-	mso-style-priority:99;
-	color:purple;
-	text-decoration:underline;
-	text-underline:single;}
-p
-	{mso-style-priority:99;
-	mso-margin-top-alt:auto;
-	margin-right:0cm;
-	mso-margin-bottom-alt:auto;
-	margin-left:0cm;
-	mso-pagination:widow-orphan;
-	font-size:12.0pt;
-	font-family:"Times New Roman","serif";
-	mso-fareast-font-family:"Times New Roman";
-	mso-fareast-theme-font:minor-fareast;}
-pre
-	{mso-style-noshow:yes;
-	mso-style-priority:99;
-	mso-style-link:"Preformattato HTML Carattere";
-	margin:0cm;
-	margin-bottom:.0001pt;
-	mso-pagination:widow-orphan;
-	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
-	font-size:10.0pt;
-	font-family:"Courier New";
-	mso-fareast-font-family:"Times New Roman";}
-p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
-	{mso-style-noshow:yes;
-	mso-style-priority:99;
-	mso-style-link:"Testo fumetto Carattere";
-	margin:0cm;
-	margin-bottom:.0001pt;
-	mso-pagination:widow-orphan;
-	font-size:8.0pt;
-	font-family:"Tahoma","sans-serif";
-	mso-fareast-font-family:"Times New Roman";
-	mso-fareast-theme-font:minor-fareast;}
-span.Titolo2Carattere
-	{mso-style-name:"Titolo 2 Carattere";
-	mso-style-noshow:yes;
-	mso-style-priority:9;
-	mso-style-unhide:no;
-	mso-style-locked:yes;
-	mso-style-link:"Titolo 2";
-	mso-ansi-font-size:13.0pt;
-	mso-bidi-font-size:13.0pt;
-	font-family:"Cambria","serif";
-	mso-ascii-font-family:Cambria;
-	mso-ascii-theme-font:major-latin;
-	mso-fareast-font-family:"Times New Roman";
-	mso-fareast-theme-font:major-fareast;
-	mso-hansi-font-family:Cambria;
-	mso-hansi-theme-font:major-latin;
-	mso-bidi-font-family:"Times New Roman";
-	mso-bidi-theme-font:major-bidi;
-	color:#4F81BD;
-	mso-themecolor:accent1;
-	font-weight:bold;}
-span.PreformattatoHTMLCarattere
-	{mso-style-name:"Preformattato HTML Carattere";
-	mso-style-noshow:yes;
-	mso-style-priority:99;
-	mso-style-unhide:no;
-	mso-style-locked:yes;
-	mso-style-link:"Preformattato HTML";
-	font-family:"Courier New";
-	mso-ascii-font-family:"Courier New";
-	mso-hansi-font-family:"Courier New";
-	mso-bidi-font-family:"Courier New";}
-span.TestofumettoCarattere
-	{mso-style-name:"Testo fumetto Carattere";
-	mso-style-noshow:yes;
-	mso-style-priority:99;
-	mso-style-unhide:no;
-	mso-style-locked:yes;
-	mso-style-link:"Testo fumetto";
-	mso-ansi-font-size:8.0pt;
-	mso-bidi-font-size:8.0pt;
-	font-family:"Tahoma","sans-serif";
-	mso-ascii-font-family:Tahoma;
-	mso-fareast-font-family:"Times New Roman";
-	mso-fareast-theme-font:minor-fareast;
-	mso-hansi-font-family:Tahoma;
-	mso-bidi-font-family:Tahoma;}
-span.pl-smi
-	{mso-style-name:pl-smi;
-	mso-style-unhide:no;}
-span.pl-en
-	{mso-style-name:pl-en;
-	mso-style-unhide:no;}
-span.pl-k
-	{mso-style-name:pl-k;
-	mso-style-unhide:no;}
-span.pl-c1
-	{mso-style-name:pl-c1;
-	mso-style-unhide:no;}
-span.pl-s
-	{mso-style-name:pl-s;
-	mso-style-unhide:no;}
-span.pl-pds
-	{mso-style-name:pl-pds;
-	mso-style-unhide:no;}
-span.SpellE
-	{mso-style-name:"";
-	mso-spl-e:yes;}
-span.GramE
-	{mso-style-name:"";
-	mso-gram-e:yes;}
-.MsoChpDefault
-	{mso-style-type:export-only;
-	mso-default-props:yes;
-	font-size:10.0pt;
-	mso-ansi-font-size:10.0pt;
-	mso-bidi-font-size:10.0pt;}
-@page WordSection1
-	{size:595.3pt 841.9pt;
-	margin:70.85pt 2.0cm 2.0cm 2.0cm;
-	mso-header-margin:35.4pt;
-	mso-footer-margin:35.4pt;
-	mso-paper-source:0;}
-div.WordSection1
-	{page:WordSection1;}
--->
-</style>
-<!--[if gte mso 10]>
-<style>
- /* Style Definitions */
- table.MsoNormalTable
-	{mso-style-name:"Tabella normale";
-	mso-tstyle-rowband-size:0;
-	mso-tstyle-colband-size:0;
-	mso-style-noshow:yes;
-	mso-style-priority:99;
-	mso-style-qformat:yes;
-	mso-style-parent:"";
-	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
-	mso-para-margin:0cm;
-	mso-para-margin-bottom:.0001pt;
-	mso-pagination:widow-orphan;
-	font-size:10.0pt;
-	font-family:"Times New Roman","serif";}
-</style>
-<![endif]-->
-<meta name=viewport content="initial-scale=1, maximum-scale=1">
-<meta http-equiv=Content-Language content=it>
-<meta name=keywords
-content="iso9000, kaizen, test distruttivi,programmazione, linguaggi, framework">
-<meta name=description
-content="E' la qualità ad essere alla base dei tests del software o è il test la base della qualità?">
-<!--[if gte mso 9]><xml>
- <o:shapedefaults v:ext="edit" spidmax="3074"/>
-</xml><![endif]--><!--[if gte mso 9]><xml>
- <o:shapelayout v:ext="edit">
-  <o:idmap v:ext="edit" data="1"/>
- </o:shapelayout></xml><![endif]-->
+   <meta http-equiv="content-type" content="text/html; charset=utf-8">
+   <meta name="created" content="2019-09-08T00:08:00">
+   <meta name="changed" content="2019-09-08T00:08:00">
+   <meta name="viewport" content="width=device-width, initial-scale=0.6">
+
+   <style>
+      h {
+         font-size:1.3em;
+         font-weight: bold;
+      }
+      p {
+         text-align: justify;
+      }
+      code {
+         padding:10px;
+         font-family: monospace;
+         display: block;
+         white-space: pre;
+      }
+   </style>
 </head>
+<body style="margin:4px 5% 4px 5%">
+<h>
+   COPYRIGHT
+</h>
+<p>
+   Se volete usare quanto segue, lo fate a rischio di
+   incartamento. Altrimenti citate la fonte.
+</p>
+<h>
+   Tributo a Alan Turing
+</h>
+<p>
+   A scuola si studia che le idee di Hitler hanno causato una
+   guerra di cinque anni e venti milioni di morti. Non si dice però che la
+   genialità di uno dei padri dell'informatica ha ridotto la durata di due
+   anni, salvando quattordici milioni di vite, tra cui probabilmente il
+   nostro avo.
+</p>
+<h>
+   Il principio di indeterminazione di Heisemberg
+</h>
+<p>
+   Comunemente lo chiamiamo "non si può avere la botte piena e la moglie
+   ubriaca". Ci sono delle <b>realtà date da piaceri psicologici</b> che non
+   corrispondono alle realtà fisiologiche. La prima è che il
+   fatto non si possa provare qualcosa ne il suo contrario, ci porta
+   a credere all'esistenza di una qualche forma di entità superiore.
+</p>
+<p>
+   Secondo Heisemberg il valore di qualcosa e il suo cambiamento non sono
+   misurabili contemporaneamente. Se lo fosse, probabilmente saremmo fermi alla ruota di
+   pietra.
+</p>
+<h>
+   Il rapporto 80/20
+</h>
+<p>
+   Nel '700 il matematico statista A.Pareto, stimò che le relazioni tra
+   gli elementi di un dominio finiscono sempre in rapporto 
+   80/20 (più o meno). Può essere che il 20% dei prodotti rendano per l'80% piuttosto
+   che il 20% del codice costituisca l'80% delle performance e così via.
+   IBM fece proprio questo principio negli anni '80 dichiarando che basta
+   scrivere il 20% del codice in un linguaggio a basso livello.
+</p>
+<p>
+   Facile dirsi ma ovviamente tra teoria e pratica, c'è sempre di mezzo la
+   pratica.
+</p>
+<h>
+   Paperless non è informatizzare
+</h>
+<p>
+   Su questo basta guardare al significato della parola "informatica".
+   Word, Excel e le emails fanno più casini di un modulo web o di un'app.
+</p>
 
-<body lang=IT link=blue vlink=purple style='tab-interval:35.4pt'>
+<h>
+   I principi DRY & KISS
+</h>
+<p>
+   "Do Not Repeat Yourself" e "Keep It Simple And Stupid" sono capi saldi
+   della programmazione. C'è chi si spinge oltre con "non commentate il
+   codice, riscrivetelo" ossia scrivere codice autoesplicante. Vedremo
+   degli esempi.
+</p>
+<h>
+   In principio erano i memory leak
+</h>
+<p>
+   Quando la programmazione era solo strutturata e lo sviluppo software
+   partiva quasi dal nulla, il <b>programmatore</b> doveva necessariamente <b>sviluppare diligenza</b> e
+   chiudere tutto ciò che apriva.
+</p>
+<p>
+   Poi vennero il <b>Garbage Collector e nuovi paradigmi di programmazione
+   astratta</b>. L'OOP prometteva al programmatore
+   di dimenticarsi tutta una serie di cose fastidiose. Il concetto
+   dell'OOP nasce da un'idea di Alan Kay che però ha dichiarato di non
+   aver mai voluto deviare i principi della programmazione. Il suo
+   accostamento alla biologia era solo un'analogia. In realtà la biologia
+   è fatta da più di due o tre livelli (classe/istanza o
+   modello/classe/istanza). Con famiglia, regno e quant'altro ne ha almeno
+   nove. Ridurre questa complessità comporta delle limitazioni.
+</p>
+<p>
+   Sapere di sapere qualcosa di nuovo che gli altri non sanno, ci fa sentire più importanti. 
+</p> 
+<p>
+   Tra le evoluzioni, scoperte o invenzioni che siano, seguirono le <b>interface</b>, poi i delegate, le promise etc. 
+   Il codice con le interface, di fatto non fa niente. E' come dire che le
+   scatole si faranno tutte quadrate perché dovranno contenere solo cose
+   quadrate per <b>preservare l'ordine</b> (o contenere il disordine).
+</p>
+<p>
+   La fuori ci sono gegni che non possono competere con la massa di
+   limitati di cui faccio parte io. Sappiamo fin da bambini che c'è chi
+   vuole far stare i triangoli nello spazio del cerchio e che le cose
+   piccole stanno anche in quelle grandi. Però a volte i gegni trovano
+   mega compagnie americane che investono milioni di dollari per
+   evangelizzare il mondo.
+</p>
+<p>
+   Il vero problema dell'astrazione è che da un grande potere [spiderman
+   copyright], poiché si possono fare grandi danni.
+</p>
+<h>
+   Come ammazzare un QuadCore con due righe di codice
+</h>
+<pre>
+   S = "", I = 0
+   WHILE ( I++ < 5000000 ) DO S = S + "0123456789"
+</pre>
+<p>
+   Questo semplice programma che esegue il concatenamento di 10 caratteri
+   per 5 milioni di volte, richiede solo 5MB di memoria, dei GB di cui sono dotati i computer moderni. 
+   E' un esempio forzato, ma su un
+   processore a 3GHz, verrebbe eseguito in un millesimo di secondo
+   (1/3000000000*5000000).
+</p>
+<p>
+   In pratica arriverà invece a saturare anche un computer potente,
+   poiché quella che dovrebbe essere un concatenamento (progressivo) è in
+   realtà una somma, ossia un'operazione ripetitiva che si porta dietro il
+   lavoro precedente (vorrei sapere come Haskell risolve questa
+   cosa, se lo fa).
+</p>
+<p>
+   Chi NON ha esperienza di programmazione assembler o C potrebbe non
+   scoprirlo mai, concludendo che sia necessario scalare l'hardware.
+</p>
+<h>
+   GUID per ogni occasione
+</h>
+<p>
+   Vedo spesso usare il GUID come chiave per ovvie ragioni di
+   unicità. E' utile soprattutto in previsione di una sincronizzazione tra
+   sistemi diversi anche se appartenenti alla stessa soluzione (es.
+   mobile<->server). Anche questa è una soluzione psicologicamente di
+   comodo. Un INT indirizza quattro miliardi di records ed è più che
+   sufficiente.
+</p>
+<p>
+   Quel che un programmatore sa è che un INT occupa 4bytes e un GUID
+   16bytes. Può non sapere è che un
+   processore a 32 o 64 bit ha una word di registro che contiene l'INT ma
+   ne deve impiegare 2 o 4 per un GUID. Ciò vuol dire che (sempre per esempio
+   forzato), un processore a 3GHz può gestire 3 miliardi di ID di tipo INT
+   al secondo. La metà o 1/4 se GUID.
+</p>
+</p>
+   Le implicazioni sono tante. Ho potuto però dimostrare ai membri del mio
+   team che una sincronizzazione PDA/SERVER che mandava in crash il PDA
+   con 3000 records con GUID, raggiungeva i 15000 con l'INT. Poi
+   abbiamo risolto mandando l'intero archivio, ma non ho detto loro che si
+   poteva migliorare di un fattore 10 le prestazioni con un semplice [segreto].
+</p>
+<h>
+   La ricerca è lenta, aggiungiamo un indice
+</h>
+<p>
+   Rimanendo in tema databases, mi è capitato tanto di dover spiegare cosa
+   e come aggiungere indici, quanto perché toglierli o fare a meno. Se da
+   una parte è abbastanza intuibile che un indice appesantisce la fase di
+   scrittura, si pensa meno che una scrittura può implicare una
+   lettura e comunque la concorrenza con altre letture in un ambiente
+   condiviso e con hardware monolitico.
+</p>
+<p>
+   Per questioni di scelte progettuali, questo problema può rendere
+   addirittura un prodotto gratuito come <b>Postresql più interessante di una
+   licenza MSSql</b> Server Enterprise da 150.000€.
+</p>
+<p>
+   Ma <b>quel che sfugge</b> per carenza di knowledge base (KB) è che una lettura
+   tramite indice può sfociare in una ricerca di una pagina come fosse
+   <b>sparpagliata in una stanza assieme alle altre</b>. Per capire è
+   necessaria la grafica.
+</p>
+<p>
+   Convenzionalmente ci raffiguriamo un indice con la sua tabella come da
+   seguente figura.
+</p>
 
-<div class=WordSection1>
+   <img src="../images/dbidxtbl.png">  fig.1
 
-<table class=MsoNormalTable border=0 cellpadding=0 width="100%"
- style='width:100.0%;mso-cellspacing:1.5pt;mso-yfti-tbllook:1184;mso-padding-alt:
- 0cm 5.4pt 0cm 5.4pt'>
- <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
-  <td width="10%" style='width:10.0%;padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='mso-fareast-font-family:"Times New Roman"'>&nbsp;<o:p></o:p></span></p>
-  </td>
-  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
-  <table class=MsoNormalTable border=0 cellpadding=0 width="100%"
-   style='width:100.0%;mso-cellspacing:1.5pt;background:#FFCC00;mso-yfti-tbllook:
-   1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
-   <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
-    <td width="10%" style='width:10.0%;background:#FF9900;padding:.75pt .75pt .75pt .75pt'>
-    <p align=center style='text-align:center'>&nbsp;</p>
-    </td>
-    <td style='background:#FF9900;padding:.75pt .75pt .75pt .75pt'>
-    <p align=center style='text-align:center'><b><span style='font-size:18.0pt;
-    font-family:"Tahoma","sans-serif";color:white;text-transform:uppercase'>SOFTWARE
-    QUALITY</span></b></p>
-    </td>
-    <td width="10%" style='width:10.0%;background:#FF9900;padding:.75pt .75pt .75pt .75pt'>
-    <p align=right style='text-align:right'><b><span style='font-family:"Tahoma","sans-serif";
-    color:white'>06.08.2018</span></b></p>
-    </td>
-   </tr>
-  </table>
-  </td>
-  <td width="10%" style='width:10.0%;padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='mso-fareast-font-family:"Times New Roman"'>&nbsp;<o:p></o:p></span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:1'>
-  <td width="10%" style='width:10.0%;padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='mso-fareast-font-family:"Times New Roman"'>&nbsp;<o:p></o:p></span></p>
-  </td>
-  <td colspan=2 style='padding:.75pt .75pt .75pt .75pt'>
-  <p style='line-height:150%'><b><span style='font-size:14.0pt;mso-bidi-font-size:
-  12.0pt;line-height:150%;font-family:"Tahoma","sans-serif";mso-bidi-font-style:
-  italic'>COPYRIGHT<o:p></o:p></span></b></p>
-  <p style='line-height:150%'><span style='font-family:"Tahoma","sans-serif";
-  mso-bidi-font-weight:bold;mso-bidi-font-style:italic'>Se volete <span
-  class=GramE>usare</span> quanto segue per farvi belli, lo fate a rischio di
-  incartamento. Altrimenti citate la fonte.<o:p></o:p></span></p>
-  <p style='line-height:150%'><b><span style='font-size:14.0pt;mso-bidi-font-size:
-  12.0pt;line-height:150%;font-family:"Tahoma","sans-serif";mso-bidi-font-style:
-  italic'>Tributo <span class=GramE>a</span> Alan <span class=SpellE>Turing</span><o:p></o:p></span></b></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif";
-  mso-bidi-font-weight:bold;mso-bidi-font-style:italic'>Nei libri di scuola si studia
-  che le idee di Hitler hanno causato una guerra di cinque anni e venti milioni
-  di morti. Non si dice però che la genialità di uno dei padri <span
-  class=GramE>dell'</span>informatica ha ridotto la durata di due anni,
-  salvando quattordici milioni di vite, tra cui probabilmente il nostro bis
-  nonno. <o:p></o:p></span></p>
-  <p style='line-height:150%'><b><span style='font-size:14.0pt;mso-bidi-font-size:
-  12.0pt;line-height:150%;font-family:"Tahoma","sans-serif";mso-bidi-font-style:
-  italic'>Il principio <span class=GramE>di </span>indeterminazione di <span
-  class=SpellE>Heisemberg</span></span></b><span style='font-size:14.0pt;
-  mso-bidi-font-size:12.0pt;line-height:150%'><o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Comunemente
-  diremmo che &quot;non si può avere la botte piena e la moglie ubriaca&quot;.
-  Ci sono delle <b style='mso-bidi-font-weight:normal'>realtà date da piaceri
-  psicologici</b> che non corrispondono alle realtà fisiologiche. La prima fra
-  tutte è che il fatto che qualcosa o il suo contrario non si possano provare,
-  ci porta a credere all'esistenza di una qualche forma di entità superiore.<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Secondo
-  <span class=SpellE>Heisemberg</span> il valore di qualcosa e il suo
-  cambiamento non sono misurabili contemporaneamente. Se lo fosse <span
-  class=GramE>saremmo</span> fermi alla ruota di pietra. <o:p></o:p></span></p>
-  <p style='line-height:150%'><b style='mso-bidi-font-weight:normal'><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
-  font-family:"Tahoma","sans-serif"'>Il rapporto 80/20<o:p></o:p></span></b></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Il
-  matematico statista <span class=SpellE><span class=GramE>A.Pareto</span></span>,
-  stimò nel '700 che le relazioni tra gli elementi di un dominio finiscono
-  sempre in rapporto più o meno 80/20. Può essere che il 20% dei prodotti <span
-  class=GramE>rendano</span> per l'80% piuttosto che il 20% del codice
-  costituisca l'80% delle performance e così via. IBM fece proprio questo
-  principio negli anni '80 dichiarando che basta scrivere il 20% del codice in
-  un linguaggio a basso livello. <o:p></o:p></span></p>
-  <p style='line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Facile
-  dirsi ma ovviamente tra teoria e pratica, c'è sempre di mezzo la pratica.<o:p></o:p></span></p>
-  <p style='line-height:150%'><span class=SpellE><b style='mso-bidi-font-weight:
-  normal'><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;line-height:
-  150%;font-family:"Tahoma","sans-serif"'>Paperless</span></b></span><b
-  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
-  12.0pt;line-height:150%;font-family:"Tahoma","sans-serif"'> non è
-  informatizzare<o:p></o:p></span></b></p>
-  <p style='line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Su
-  questo basta guardare al significato della parola &quot;informatica&quot;.<o:p></o:p></span></p>
-  <p style='line-height:150%'><b style='mso-bidi-font-weight:normal'><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
-  font-family:"Tahoma","sans-serif"'>I principi <span class=GramE>DRY</span>
-  &amp; KISS<o:p></o:p></span></b></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif";
-  mso-bidi-font-weight:bold'>&quot;Do <span class=SpellE>Not</span> <span
-  class=SpellE>Repeat</span> <span class=SpellE>Yourself</span>&quot; e &quot;<span
-  class=SpellE>Keep</span> <span class=SpellE>It</span> <span class=SpellE>Simple</span>
-  And <span class=SpellE>Stupid</span>&quot; sono capi saldi della
-  programmazione. C'è chi si spinge oltre con &quot;non commentate il codice,
-  riscrivetelo&quot; ossia scrivere <span class=GramE>codice</span> <span
-  class=SpellE>autoesplicante</span>. Vedremo negli esempi che è molto facile
-  ad esempio violare il principio <span class=GramE>DRY</span>, volendo
-  rispettare il KISS.</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><b style='mso-bidi-font-weight:
-  normal'><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;line-height:
-  150%;font-family:"Tahoma","sans-serif"'>In principio erano i <span
-  class=SpellE>memory</span> <span class=SpellE>leak</span><o:p></o:p></span></b></p>
-  <p style='line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Quando
-  la programmazione era solo strutturata e lo sviluppo software partiva quasi
-  dal nulla, il <b style='mso-bidi-font-weight:normal'>programmatore</b> che
-  potesse definirsi degno di questo titolo, doveva necessariamente <b
-  style='mso-bidi-font-weight:normal'>sviluppare diligenza</b> e chiudere tutto
-  ciò che apriva. <o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Poi
-  <span class=GramE>vennero</span> il <span class=SpellE><b style='mso-bidi-font-weight:
-  normal'>Garbage</b></span><b style='mso-bidi-font-weight:normal'> <span
-  class=SpellE>Collector</span> e nuovi paradigmi di programmazione</b> <b
-  style='mso-bidi-font-weight:normal'>più astratta</b> tra cui la famosa OOP,
-  che promettevano al programmatore di dimenticarsi tutta una serie di cose
-  fastidiose. Il concetto dell'OOP nasce da un'idea di Alan Kay che però ha
-  dichiarato di non aver mai voluto deviare i principi della programmazione. Il
-  suo accostamento alla biologia era solo un'analogia. In realtà la biologia è
-  fatta da più di due o tre livelli (classe/<span class=GramE>istanza</span> o
-  modello/classe/istanza). Con famiglia, regno e quant'altro ne ha almeno nove.
-  Ridurre questa complessità comporta delle limitazioni.<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Tra
-  le evoluzioni che <span class=GramE>seguirono</span> arrivarono le <b
-  style='mso-bidi-font-weight:normal'>interface</b>. Preparare del codice che<span
-  class=GramE> di fatto</span> non fa niente con le interface, è come dire che
-  le scatole si faranno tutte quadrate perché dovranno contenere solo cose
-  quadrate <b style='mso-bidi-font-weight:normal'>per preservare l'ordine</b>. <o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Ci
-  sono <span class=SpellE>gegni</span> la fuori che non possono competere con
-  la massa <span class=GramE>di </span>ignoranti di cui faccio parte io.
-  Sappiamo fin da bambini che c'è chi vuole far stare i triangoli nello spazio
-  del cerchio e che le cose piccole stanno anche in quelle grandi. <span
-  class=GramE>Però</span> a volte i <span class=SpellE>gegni</span> trovano
-  mega compagnie americane che investono milioni di dollari per evangelizzare
-  il mondo. <o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Il
-  vero problema dell'astrazione è che da un grande potere [<span class=SpellE>spiderman</span>
-  copyright], poiché si possono fare grandi danni. <o:p></o:p></span></p>
-  <p style='line-height:150%'><b style='mso-bidi-font-weight:normal'><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
-  font-family:"Tahoma","sans-serif"'>Come ammazzare un <span class=SpellE>QuadCore</span>
-  con due righe di <span class=GramE>codice</span><o:p></o:p></span></b></p>
-  <p style='margin-left:35.4pt;line-height:150%'><span style='font-family:"Courier New"'>S
-  = <span class=GramE><span style='color:red'>&quot;&quot;</span></span>, I = 0<br>
-  <b style='mso-bidi-font-weight:normal'>WHILE</b> <span class=GramE><b
-  style='mso-bidi-font-weight:normal'><span style='color:#1F497D;mso-themecolor:
-  text2'>(</span></b> </span>I++ &lt; 5000000 <b style='mso-bidi-font-weight:
-  normal'><span style='color:#1F497D;mso-themecolor:text2'>)</span></b> <b
-  style='mso-bidi-font-weight:normal'>DO</b> S = S + <span style='color:red'>&quot;0123456789&quot;</span><o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Questo
-  semplice programma che esegue il concatenamento di <span class=GramE>10</span>
-  caratteri per 5 milioni di volte, richiede solo 5MB di memoria (è un esempio
-  forzato), dei GB di cui sono dotati i computer moderni. Su un processore a
-  3GHz, <span class=GramE>viene</span> eseguito in un millesimo di secondo
-  (1/3000000000*5000000). <o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>In
-  pratica arriverà invece a saturare anche un computer molto potente, poiché
-  quella che dovrebbe essere un concatenamento (progressivo) è in realtà una
-  somma, ossia un'operazione ripetitiva che si porta dietro il calcolo
-  precedente (se lo fa, vorrei sapere come <span class=SpellE>Haskell</span>
-  risolve questa cosa).<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Chi
-  NON ha esperienza di programmazione <span class=SpellE>assembler</span> o C
-  potrebbe non scoprirlo mai, <span class=GramE>concludendo</span> che vada
-  scalato l'hardware.<o:p></o:p></span></p>
-  <p style='line-height:150%'><b style='mso-bidi-font-weight:normal'><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
-  font-family:"Tahoma","sans-serif"'>GUID per ogni occasione<o:p></o:p></span></b></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Vedo
-  spesso usare il GUID come chiave primaria per ovvie ragioni di unicità. E'
-  utile soprattutto in previsione di una sincronizzazione tra sistemi diversi
-  anche se appartenenti alla stessa soluzione (es. mobile&lt;-&gt;server).
-  Anche questa è una soluzione psicologicamente di comodo. Un INT indirizza
-  quattro miliardi di <span class=SpellE>records</span> ed è più che
-  sufficiente.<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Quel
-  che un programmatore sa è che un <b style='mso-bidi-font-weight:normal'>INT
-  occupa 4bytes</b> mentre un <b style='mso-bidi-font-weight:normal'>GUID</b>
-  ne impiega <span class=GramE><b style='mso-bidi-font-weight:normal'>16</b></span>.
-  Quel che per <span class=GramE>carenze</span> di ASM/C non può sapere è che
-  un processore a 32 o 64 bit ha una word di registro che contiene l'INT ma ne
-  deve impiegare 2 o 4 per un GUID. Ciò vuol dire che (sempre esempio forzato),
-  <b style='mso-bidi-font-weight:normal'>un processore a 3GHz può gestire <span
-  class=GramE>3</span> miliardi di ID</b> di tipo INT al secondo. La metà o 1/4
-  se GUID.<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Le
-  implicazioni sono tante. Ho potuto però dimostrare ai membri del mio team che
-  una sincronizzazione PDA/SERVER che <span class=GramE>mandava</span> in <b
-  style='mso-bidi-font-weight:normal'>crash il PDA con 3000</b> <span
-  class=SpellE>records</span> con <b style='mso-bidi-font-weight:normal'>GUID</b>,
-  raggiungeva i <b style='mso-bidi-font-weight:normal'>15000</b> impiegando <b
-  style='mso-bidi-font-weight:normal'>l'INT</b>. Poi abbiamo risolto mandando
-  l'intero archivio, ma non ho detto loro che si poteva migliorare di un
-  fattore <span class=GramE>10</span> le prestazioni con un [segreto].<o:p></o:p></span></p>
-  <p style='line-height:150%'><b style='mso-bidi-font-weight:normal'><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
-  font-family:"Tahoma","sans-serif"'>La ricerca è lenta, aggiungiamo un indice<o:p></o:p></span></b></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Rimanendo
-  in tema <span class=SpellE>databases</span>, mi è capitato tanto di dover
-  spiegare cosa e come aggiungere indici, quanto perché toglierli o fare a
-  meno. Se da una parte è abbastanza intuibile che <b style='mso-bidi-font-weight:
-  normal'>un indice <span class=GramE>appesantisce</span> la</b> fase di <b
-  style='mso-bidi-font-weight:normal'>scrittura</b>, un poco meno si pensa che una
-  scrittura può implicare una lettura e comunque la <b style='mso-bidi-font-weight:
-  normal'>concorrenza con altre letture in un ambiente molto condiviso</b> con
-  hardware monolitico<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Per
-  questioni di scelte progettuali, questo problema può rendere addirittura un
-  prodotto gratuito come <span class=SpellE><b style='mso-bidi-font-weight:
-  normal'>Postresql</b></span><b style='mso-bidi-font-weight:normal'> più interessante
-  di una licenza <span class=SpellE>MSSql</span></b> Server <span class=SpellE>Enterprise</span>
-  da 150.000€.<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Ma
-  <b style='mso-bidi-font-weight:normal'>quel che sfugge </b>per <span
-  class=GramE>carenza</span> di <span class=SpellE>knowledge</span> base (KB) è
-  che una lettura tramite indice può sfociare in una ricerca di <b
-  style='mso-bidi-font-weight:normal'>una pagina</b> di cui si conosce
-  esattamente il numero grazie all'indice, ma questa si trova come <b
-  style='mso-bidi-font-weight:normal'>sparpagliata in una stanza assieme alle
-  altre</b>. Per capire è necessaria la grafica.<o:p></o:p></span></p>
-  <p style='line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Convenzionalmente
-  ci raffiguriamo un indice con la sua tabella come da seguente figura.<u><o:p></o:p></u></span></p>
-  <p style='line-height:150%'><span style='font-family:"Tahoma","sans-serif";
-  mso-no-proof:yes'><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
-   coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
-   filled="f" stroked="f">
-   <v:stroke joinstyle="miter"/>
-   <v:formulas>
-    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
-    <v:f eqn="sum @0 1 0"/>
-    <v:f eqn="sum 0 0 @1"/>
-    <v:f eqn="prod @2 1 2"/>
-    <v:f eqn="prod @3 21600 pixelWidth"/>
-    <v:f eqn="prod @3 21600 pixelHeight"/>
-    <v:f eqn="sum @0 0 1"/>
-    <v:f eqn="prod @6 1 2"/>
-    <v:f eqn="prod @7 21600 pixelWidth"/>
-    <v:f eqn="sum @8 21600 0"/>
-    <v:f eqn="prod @7 21600 pixelHeight"/>
-    <v:f eqn="sum @10 21600 0"/>
-   </v:formulas>
-   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
-   <o:lock v:ext="edit" aspectratio="t"/>
-  </v:shapetype><v:shape id="Immagine_x0020_13" o:spid="_x0000_i1028" type="#_x0000_t75"
-   style='width:299.25pt;height:389.25pt;visibility:visible;mso-wrap-style:square'>
-   <v:imagedata src="software_quality_file/image007.wmz" o:title=""/>
-  </v:shape><![endif]--><![if !vml]><img width=499 height=649
-  src="software_quality_file/image004.png" v:shapes="Immagine_x0020_13"><![endif]></span><span
-  style='font-family:"Tahoma","sans-serif"'><span
-  style='mso-spacerun:yes'> </span><span class=GramE>fig</span>.1<o:p></o:p></span></p>
-  <p style='line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Nel
-  vecchio <span class=SpellE><span class=GramE>dBase</span></span> o <span
-  class=SpellE>Firefox</span>, queste due strutture costituivano due <span
-  class=SpellE>files</span>. Per questioni di comodità, oggi finiscono in un
-  unico file che <span class=GramE>viene</span> rappresentato come segue.<o:p></o:p></span></p>
-  <p style='line-height:150%'><span style='font-family:"Tahoma","sans-serif";
-  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Immagine_x0020_30" o:spid="_x0000_i1027"
-   type="#_x0000_t75" style='width:133.5pt;height:421.5pt;visibility:visible;
-   mso-wrap-style:square'>
-   <v:imagedata src="software_quality_file/image009.wmz" o:title=""/>
-  </v:shape><![endif]--><![if !vml]><img width=222 height=702
-  src="software_quality_file/image005.png" v:shapes="Immagine_x0020_30"><![endif]></span><span
-  style='font-family:"Tahoma","sans-serif"'><span
-  style='mso-spacerun:yes'> </span><span class=GramE>fig</span>.2<o:p></o:p></span></p>
-  <p style='line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>La
-  figura <span class=GramE>2</span> verrebbe utile per far capire perché MSSQL
-  richiede meno risorse di Oracle ma allo stesso tempo degrada esponenzialmente
-  in performance. Non è questo però l'oggetto del paragrafo.<o:p></o:p></span></p>
-  <p style='line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Questa
-  vista logica, nella realtà diventa qualcosa simile alla seguente immagine.<o:p></o:p></span></p>
-  <p style='line-height:150%'><span style='font-family:"Tahoma","sans-serif";
-  mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Immagine_x0020_32" o:spid="_x0000_i1026"
-   type="#_x0000_t75" style='width:169.5pt;height:171pt;visibility:visible;
-   mso-wrap-style:square'>
-   <v:imagedata src="software_quality_file/image011.wmz" o:title=""/>
-  </v:shape><![endif]--><![if !vml]><img width=282 height=285
-  src="software_quality_file/image006.png" v:shapes="Immagine_x0020_32"><![endif]></span><span
-  class=GramE><span style='font-family:"Tahoma","sans-serif"'>fig</span></span><span
-  style='font-family:"Tahoma","sans-serif"'>.3<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Ricordo
-  che sono delle rappresentazioni forzate e che quindi hanno sia valore
-  positivo <span class=GramE>che</span> negativo. Lo sparpagliamento può essere
-  minore, grazie alle proprietà del file system o alle capacità del sistema
-  operativo ma può essere anche maggiore <span class=GramE>a seconda della</span>
-  configurazione software o hardware. <o:p></o:p></span></p>
-  <p style='line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Questo
-  vale sia <span class=GramE>che</span> si parli di SQL che di <span
-  class=SpellE>noSQL</span>. Già qualche ex sostenitore del <span class=SpellE>noSQL</span>
-  ci sta ripensando.<o:p></o:p></span></p>
-  <p style='line-height:150%'><b style='mso-bidi-font-weight:normal'><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
-  font-family:"Tahoma","sans-serif"'>JSON? <span class=SpellE>Mmh</span>, <span
-  class=SpellE>maybe</span> <span class=SpellE>later</span><o:p></o:p></span></b></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Adoro
-  il formato <span class=GramE>JSON.</span> Semplice ed elegante da scrivere,
-  comodo da modificare, impossibile da ristrutturare. Alla fine consuma quanto
-  l'XML. Lo so perché ci ho fatto il mio CV dinamico per le esigenze di ogni
-  possibile datore. Poi ho capito che era impossibile cercare di far capire a chi
-  non vuol sapere e l'ho <span class=GramE>voluto</span> semplificare. E' stato
-  più facile rifare o riciclare che tentare di trasformare. Se lo <span
-  class=GramE>rifacessi</span> userei dei CSV.<o:p></o:p></span></p>
-  <p style='line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Ho
-  provato <span class=GramE>ad</span> immaginare un tabella con milioni di <span
-  class=SpellE>records</span> JSON con indice su un campo rispetto
-  all'equivalente struttura normalizzata. Un bel dilemma.<o:p></o:p></span></p>
-  <p style='line-height:150%'><b style='mso-bidi-font-weight:normal'><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
-  font-family:"Tahoma","sans-serif"'>E poi vennero Web e <span class=SpellE>Cloud</span><o:p></o:p></span></b></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Sento
-  spesso lamentare del fatto che il browser web impegna la CPU al 100% o l'aver
-  timore delle applicazioni web, soprattutto single <span class=SpellE>pages</span>
-  (SPA), per il consumo di memoria. Eppure curiosamente le applicazioni web,
-  per la loro natura distribuita, dovrebbero ridurre questi problemi rispetto
-  alle vecchie applicazioni client/server.<span style='mso-spacerun:yes'> 
-  </span>Perché non è così?<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Partiamo
-  dalla CPU. Perché è lecito comprare una Ferrari che fa i 300Km/h quando i
-  limiti di velocità sono inferiori, ma non va bene se un'unità di calcolo <span
-  class=GramE>viene</span> sfruttata al massimo?<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>L'applicazione
-  web gira in uno dei <span class=SpellE>tab</span> del browser che è
-  un'applicazione che gira nel sistema operativo assieme ai venti fogli Excel o
-  documenti Word aperti contemporaneamente. Quel che una vecchia applicazione
-  client nativa faceva senza dire niente a nessuno era spesso impiegare tanti <span
-  class=SpellE>files</span> temporanei senza pulire.<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Con
-  questo voglio solo <span class=GramE>concludere</span> che per il principio
-  di <span class=SpellE>Heisemberg</span>, non si può fare un'applicazione a
-  prova di <span class=SpellE>utonto</span> o <span class=SpellE>webete</span>.<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>O
-  meglio, se lo chiedete a me, ve la posso fare, ma per onestà intellettuale vi
-  chiederei:<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>&quot;Siete
-  pronti a spendere più di quanto costerebbe scrivere due documenti in croce e
-  fare formazione, magari implementando CMS e <span class=SpellE>softwares</span>
-  documentali o di <span class=SpellE>knowledge</span> <span class=SpellE>sharing</span>
-  di genere?&quot;<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Certo
-  bisogna assumere le persone giuste, soprattutto quelle che si <span
-  class=GramE>occupano</span> dell'assunzione delle persone giuste.<o:p></o:p></span></p>
-  <p style='line-height:150%'><b style='mso-bidi-font-weight:normal'><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
-  font-family:"Tahoma","sans-serif"'>Ho visto cose che voi umani...<o:p></o:p></span></b></p>
-  <p style='line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Abbiamo
-  visto tutti almeno una volta usare eccezioni a modo di: &quot;<span
-  class=SpellE>Chissenefrega</span>, basta che non si spacchi che puoi vendere <span
-  class=SpellE>bugs</span> come <span class=GramE>fossero</span> <span
-  class=SpellE>features</span>&quot;:<o:p></o:p></span></p>
-  <p style='margin-left:35.4pt;line-height:150%'><b style='mso-bidi-font-weight:
-  normal'><span style='font-family:"Courier New"'>TRY<o:p></o:p></span></b></p>
-  <p style='margin-left:70.8pt;line-height:150%'><span style='font-family:"Courier New"'>VARIABILE
-  = <span class=SpellE>ALTRA_VARIABILE</span><o:p></o:p></span></p>
-  <p style='margin-left:35.4pt;line-height:150%'><b style='mso-bidi-font-weight:
-  normal'><span style='font-family:"Courier New"'>END TRY<o:p></o:p></span></b></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Ho
-  visto programmi C++ che facevano un uso raffinato dei <span class=SpellE>templates</span>,
-  quasi inebriante (AGG). Quando è venuto il momento di usarli ho <span
-  class=GramE>lasciato perdere</span> dopo essermi accorto anche che quando il
-  gioco si fa duro, solo l'hardware può giocare.<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Ho
-  visto programmi fare uso <span class=GramE>di </span>interface in maniera
-  magistrale, in un potpourri di codice auto esplicante. Poi è arrivato il <b
-  style='mso-bidi-font-weight:normal'>neolaureato con esperienza</b> (o <span
-  class=SpellE><b style='mso-bidi-font-weight:normal'>NcE</b></span>, che non
-  esiste ma che il 60% degli annunci italiani ricerca) assunto da un/<span
-  class=GramE>una</span> selezionatore/<span class=SpellE>trice</span>,
-  anch'egli/ella <span class=SpellE>NcE</span>, in barba ad <span class=SpellE>Heisemberg</span>.
-  Naturalmente c'è un referente che sa <span class=GramE>tutto</span> ma non
-  dice niente e non ha mai avuto il tempo di scrivere l'ABC. Anch'egli è pagato
-  per fare più che raccontare. Altro che metodo Toyota o principio 80/20. Tra
-  teoria e pratica non c'è nient'altro che un muro.<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Il
-  nostro <span class=SpellE>NcE</span> guarda il problema diritto negli occhi e
-  capisce che ha bisogno di <span class=SpellE><span class=GramE>weaponX</span></span>().
-  Funzione, classe o metodo che sia, la implementa. Un colpo al cerchio e uno
-  alla botte e via che si usa che è un piacere. Quando diventa esperto anche
-  dell'applicazione, scopre che esisteva già e si chiamava <span class=SpellE>weapon_YX</span><span
-  class=GramE>(</span>). Ormai è tardi per riscrivere il codice perché c'è un
-  nuovo problema all'orizzonte o addirittura un nuovo lavoro. <span
-  class=GramE>Così il nuovo <span class=SpellE>NcE</span> <span class=SpellE>wrappa</span>
-  <span class=SpellE>weaponX</span> su <span class=SpellE>weapon_YX</span>
-  giusto per mettere un poco di ordine senza sconvolgere</span>. Poi arriva il
-  nuovo <span class=SpellE>NcE</span> etc. etc.<o:p></o:p></span></p>
-  <p style='line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Ho
-  visto banali &quot;SELECT qualcosa FROM tabella WHERE campo = parametro&quot;
-  seppellita sotto strati e strati di codice da far piangere (è la cosiddetta
-  programmazione a cipolla :-<span class=GramE>)</span> <o:p></o:p></span></p>
-  <p style='line-height:150%'><span class=SpellE><b style='mso-bidi-font-weight:
-  normal'><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt;line-height:
-  150%;font-family:"Tahoma","sans-serif"'>Jenkins</span></b></span><b
-  style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt;mso-bidi-font-size:
-  12.0pt;line-height:150%;font-family:"Tahoma","sans-serif"'> e gli <span
-  class=SpellE>Hyper</span> <span class=SpellE>Tests</span><o:p></o:p></span></b></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Per
-  quanto sopra (frammentazione del codice) e per questioni di sicurezza (con
-  tutta la gente che si assume e si licenzia ingiustamente), si sono resi
-  necessari i sistemi automatizzati di compilazione e test. Proprio come facevo
-  quando programmavo in C che ho dovuto abbandonare per mancanza di tempo (e
-  quindi soldi).<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>A
-  quel tempo le grosse applicazioni si dividevano verticalmente in librerie e
-  orizzontalmente in <span class=SpellE>chunks</span> di funzioni. Oggi si
-  chiamano <span class=SpellE>namespaces</span> e classi ma dobbiamo mettere i
-  progetti nei posti sbagliati solo perché le soluzioni non prevedono <span
-  class=GramE>link</span> simbolici.<o:p></o:p></span></p>
-  <p style='line-height:150%'><b style='mso-bidi-font-weight:normal'><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
-  font-family:"Tahoma","sans-serif"'>Complichiamoci la vita<o:p></o:p></span></b></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>L'ho
-  fatto <span class=GramE>anche </span>io. Nel tentativo di semplificarmi la
-  vita, per amore della scoperta, <span class=GramE>per poter</span> dormire di
-  notte anziché studiare, per compensare la paga inferiore a quella di un
-  operaio da catena di montaggio o di un data entry, mi sono complicato la
-  vita.<o:p></o:p></span></p>
-  <p style='line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Cosa
-  c'è di male in:<o:p></o:p></span></p>
-  <p style='text-indent:35.4pt;line-height:150%'><span class=SpellE><b
-  style='mso-bidi-font-weight:normal'><span style='font-family:"Courier New"'>function</span></b></span><span
-  style='font-family:"Courier New"'> <span class=SpellE>ClientiInsolventi</span><span
-  class=GramE>( </span>filtro ) {<o:p></o:p></span></p>
-  <p style='margin-left:70.8pt;line-height:150%'><span class=SpellE><span
-  class=GramE><b style='mso-bidi-font-weight:normal'><span style='font-family:
-  "Courier New"'>return</span></b></span></span><span style='font-family:"Courier New"'>
-  db(&quot;SELECT <span class=SpellE>campoA</span>, <span class=SpellE>campoB</span>,
-  <span class=SpellE>campoC</span> FROM tabella WHERE <span class=SpellE>campoD</span>
-  = {filtro}&quot;)<o:p></o:p></span></p>
-  <p style='margin-left:70.8pt;line-height:150%'><span style='font-family:"Courier New"'>}<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span class=GramE><span
-  style='font-family:"Tahoma","sans-serif"'>che</span></span><span
-  style='font-family:"Tahoma","sans-serif"'> è compatibile con il 90% dei db <span
-  class=SpellE>engine</span> compatibili SQL92? Al più si mette un IF <span
-  class=SpellE>dbEngine=X</span> THEN ... ELSE ... se si vuole differenziare,
-  ottimizzare o specializzare a piacere in funzione del rapporto di <span
-  class=SpellE>Pareto</span>. Soprattutto è comprensibile da vecchi e bambini
-  per i principi <span class=GramE>DRY</span>, KISS.<o:p></o:p></span></p>
-  <p style='line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Perché
-  <span class=GramE>anche </span>io ho preferito qualcosa tipo:<o:p></o:p></span></p>
-  <p style='margin-left:35.4pt;line-height:150%'><span class=SpellE><span
-  style='font-family:"Courier New"'>ClientiInsolventi</span></span><span
-  style='font-family:"Courier New"'> Insolventi = <span class=SpellE>db.<span
-  class=GramE><span style='color:#1F497D;mso-themecolor:text2'>From</span></span></span>&lt;<span
-  class=SpellE>ClientiInsolventi</span>&gt;()<o:p></o:p></span></p>
-  <p style='margin-left:35.4pt;line-height:150%'><span style='font-family:"Courier New"'><span
-  style='mso-spacerun:yes'>          </span>.<span class=SpellE><span
-  class=GramE><span style='color:#1F497D;mso-themecolor:text2'>Where</span></span></span>(x
-  =&gt; <span class=SpellE>x.campoD</span> = filtro)<o:p></o:p></span></p>
-  <p style='margin-left:35.4pt;line-height:150%'><span style='font-family:"Courier New"'><span
-  style='mso-spacerun:yes'>          </span>.<span class=SpellE><span
-  class=GramE><span style='color:#1F497D;mso-themecolor:text2'>Select</span></span></span>(x
-  =&gt; <span class=SpellE><b style='mso-bidi-font-weight:normal'><span
-  style='color:#1F497D;mso-themecolor:text2'>new</span></b></span> { <span
-  class=SpellE>x.campoA</span>, <span class=SpellE>x.CampoB</span>, <span
-  class=SpellE>x.CampoC</span> }<o:p></o:p></span></p>
-  <p style='margin-left:70.8pt;text-align:justify;line-height:150%'><span
-  style='font-family:"Courier New"'>)<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span class=GramE><span
-  style='font-family:"Tahoma","sans-serif"'>che</span></span><span
-  style='font-family:"Tahoma","sans-serif"'> è compatibile con il <span
-  class=SpellE>syntax</span> <span class=SpellE>check</span> dell'IDE ma
-  difficile da scrivere e specifico di uno dei tanti linguaggi <span
-  class=SpellE>general</span> <span class=SpellE>pourpose</span>? Poi comunque
-  diviene la SELECT di sopra o non si sa cosa, perché nessuno ha ancora scritto
-  il driver ORM per il prossimo <span class=SpellE>engine</span> SQL, <span
-  class=SpellE>noSQL</span>, a colonne o <span class=SpellE>cloud</span>.<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><b style='mso-bidi-font-weight:
-  normal'><span style='font-family:"Tahoma","sans-serif"'>Gli ORM come l'OOP
-  danno quel piacere psicologico non verificabile. Non penso che SAP, che se lo
-  potrebbe permettere, riscriverebbe SAP solo per il gusto di provare se è vero
-  che ORM e OOP semplificano e migliorano la vita. <span class=SpellE>JdEdwards</span>
-  ci ha provato e sono falliti prima di finire e SAP ha gioito.<o:p></o:p></span></b></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Comunque
-  se usiamo le moderne tecniche con <span class=SpellE><b style='mso-bidi-font-weight:
-  normal'>Jenkins</b></span><b style='mso-bidi-font-weight:normal'> e la sua
-  band</b>, un metodo vale l'altro, ma il primo è preferibile perché <span
-  class=GramE>lo si</span> riscrive 10 volte più velocemente. Questo solo per
-  dire che anche <b style='mso-bidi-font-weight:normal'>lo sviluppo software è
-  un eco-sistema</b>.<o:p></o:p></span></p>
-  <p style='line-height:150%'><b style='mso-bidi-font-weight:normal'><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
-  font-family:"Tahoma","sans-serif"'>Vedo il tuo <span class=GramE>bug</span> e
-  rilancio con un <span class=SpellE>deadlock</span> di classi<o:p></o:p></span></b></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Qualsiasi
-  linguaggio è un sistema circolare per natura. La &quot;parola&quot; non è la
-  &quot;cosa&quot;. A parole, tutto può diventare il suo contrario. Non c'è
-  astrazione che lo impedisca. Anzi, proprio noi italiani siamo maestri in
-  questo.<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Un'azienda
-  da un servizio tramite i suoi membri che lo danno anche privatamente. Solo
-  pensare agli eventuali conflitti, alle conseguenze e alla loro gestione è un
-  costo non indifferente che cozzerà anche con il sistema di livello superiore
-  (il contenitore).<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Tutto
-  comincia da un individuo che fa una cosa. Un'altro lo vede e lo fa anche lui.
-  Arriva l'osservatore che dice<span class=GramE>:</span>&quot;<span
-  class=SpellE>Hei</span>, ci sono due entità che adottano comportamenti
-  comuni. <span class=GramE>Facciamone un modello!&quot;</span>. Fatto il
-  modello, <span class=GramE>lo si</span> applica in scala e diventa un
-  disastro che sta in piedi solo per inerzia.<o:p></o:p></span></p>
-  <p style='line-height:150%'><b style='mso-bidi-font-weight:normal'><span
-  style='font-size:14.0pt;mso-bidi-font-size:12.0pt;line-height:150%;
-  font-family:"Tahoma","sans-serif"'>Non bastano due gambe per tenere in piedi
-  un <span class=GramE>tavolo</span><o:p></o:p></span></b></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Per
-  rispondere all'opinione di un Duca, i matematici hanno impiegato 600 anni per
-  dimostrare che non era matematicamente possibile stivare le palle di cannone <span
-  class=GramE>meglio</span> di come i contadini facevano con le arance.<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>A
-  quanto vedo, la tridimensionalità è una condizione minima per non incappare
-  in errori concettuali. Per altro è una regola che applico anche nell'UI
-  design, ma questo è <span class=GramE>un </span>altra questione. <o:p></o:p></span></p>
-  <h2 style='line-height:150%'><span class=SpellE><span style='font-size:14.0pt;
-  mso-bidi-font-size:18.0pt;line-height:150%;font-family:"Tahoma","sans-serif";
-  mso-fareast-font-family:"Times New Roman"'>Kiss</span></span><span
-  style='font-size:14.0pt;mso-bidi-font-size:18.0pt;line-height:150%;
-  font-family:"Tahoma","sans-serif";mso-fareast-font-family:"Times New Roman"'>
-  <span class=GramE>me</span> the code</span><span style='font-size:14.0pt;
-  mso-bidi-font-size:18.0pt;line-height:150%;mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></h2>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Il
-  seguente esempio è tratto dal testo &quot;<span class=SpellE>Clean</span>
-  Code&quot;. <span style='background:#CCFF99'>In alto a destra</span> c'è il
-  codice d'origine. <span style='background:#CCCCFF'>A sinistra</span> la <span
-  class=GramE>revisione</span> dell'autore. <span style='background:#FFFF66'>In
-  basso a destra</span> la mia versione.<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>L'autore
-  spezza <span class=GramE>il</span> funzioni più piccole, auto-esplicanti. Non
-  tutti i linguaggi consentono <span class=SpellE>nested</span> <span
-  class=SpellE>functions</span>. Una classe non avrebbe senso (figuriamoci
-  condita <span class=GramE>di </span><span class=SpellE>interfaces</span> :-)<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>La
-  mia versione sembra <span class=GramE>solo scritta</span> da un bambino molto
-  ordinato, ma fa di più. Sempre per il principio di <span class=SpellE>Heisemberg</span>,
-  non si può ottimizzare sia per tempo <span class=GramE>che</span> per spazio.
-  Quindi ho usato &quot;più memoria&quot; replicando parti di stringa, in
-  violazione del principio <span class=GramE>DRY</span>. Il codice è più
-  compatto, leggibile, capibile dai vecchi come me e dai <span class=SpellE>NcE</span>.
-  Con il tempo risparmiato, l'ho reso internazionalizzabile.<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Rimane
-  incasinabile a piacere ma lo trovo improbabile. Si fa prima a rifare tutto,
-  impiegando questo codice come <span class=SpellE>pseudo-code</span>.<o:p></o:p></span></p>
-  <p style='text-align:justify;line-height:150%'><span style='font-family:"Tahoma","sans-serif"'>Ho
-  detto di aver violato il principio <span class=GramE>DRY</span> ma ritengo
-  che, a livello strutturale, anche l'autore lo ha fatto usando più funzioni.
-  La mia violazione del <span class=GramE>DRY</span> preserva il KISS. </span><o:p></o:p></p>
-  <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
-   style='width:100.0%;mso-cellspacing:0cm;mso-yfti-tbllook:1184;mso-padding-alt:
-   5.25pt 5.25pt 5.25pt 5.25pt'>
-   <colgroup><col width="286"><col width="286"></colgroup>
-   <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
-    <td width="50%" rowspan=2 valign=top style='width:50.0%;border:solid black 1.0pt;
-    border-bottom:none;background:#CCCCFF;padding:5.1pt 5.1pt 5.1pt 5.1pt'>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:teal'>// source <span class=SpellE>from</span>
-    &quot;<span class=SpellE>Clean</span> code&quot; (<span class=SpellE>pg</span>.
-    28,29)</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=GramE><b><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif"'>private</span></b></span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><b><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>void</span></b></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'> <span
-    class=SpellE>printGuessStatistics</span><span class=GramE>(</span></span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><span
-    class=GramE><b><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>char</span></b></span></span><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:black'> candidate, <span
-    class=SpellE><b>int</b></span> <span class=SpellE>count</span></span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif"'>)</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    </blockquote>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif"'>{</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><b><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>string</span></b></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'> <span
-    class=SpellE>number</span>;</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><b><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>string</span></b></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'> <span
-    class=SpellE>verb</span>;</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><b><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>string</span></b></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'> <span
-    class=SpellE>pluralModifier</span>;</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span style='font-family:"Tahoma","sans-serif"'>&nbsp;<o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=GramE><b><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>public</span></b></span><b><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'> <span
-    class=SpellE>string</span></span></b><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:black'> <span class=SpellE>make</span>(</span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><span
-    class=GramE><b><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>char</span></b></span></span><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:black'> candidate, <span
-    class=SpellE><b>int</b></span> <span class=SpellE>count</span></span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif"'>)</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    </blockquote>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif"'>{</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><span
-    class=GramE><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>createPluralDependentMessageParts</span></span></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>(<span
-    class=SpellE>count</span>);</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><b><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>string</span></b></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'> <span
-    class=SpellE>guessMessage</span> = <span class=SpellE>string.format</span><span
-    class=GramE>(</span></span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:#980000'>&quot;<span class=SpellE>There</span>
-    <span class=SpellE>%s</span> <span class=SpellE>%s</span> %s%s&quot;</span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>,</span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><span
-    class=GramE><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>verb</span></span></span><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:black'>, <span class=SpellE>number</span>,
-    candidate,</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><span
-    class=GramE><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>pluralModifier</span></span></span><span style='font-family:
-    "Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=GramE><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif"'>);</span></span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    </blockquote>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><span
-    class=GramE><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>print</span></span></span><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:black'>(<span class=SpellE>guessMessage</span>);</span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    </blockquote>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif"'>}</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=GramE><b><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>private</span></b></span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><b><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>void</span></b></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'> <span
-    class=SpellE>createPluralDependentMessageParts</span><span class=GramE>(</span></span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><span
-    class=GramE><b><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>int</span></b></span></span><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:black'> <span class=SpellE>count</span></span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif"'>)</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    </blockquote>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif"'>{</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><span
-    class=GramE><b><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>if</span></b></span></span><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:black'> (<span class=SpellE>count</span>
-    == 0) <span class=SpellE>thereAreNoLetters</span>();</span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=GramE><b><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>else</span></b></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'> <span
-    class=SpellE>if</span> (<span class=SpellE>count</span> == 1) <span
-    class=SpellE>thereIsOneLetter</span>();</span><span style='font-family:
-    "Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=GramE><b><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>else</span></b></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'> <span
-    class=SpellE>thereAreManyLetters</span>(<span class=SpellE>count</span>);</span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    </blockquote>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=GramE><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>}</span><span
-    style='font-family:"Tahoma","sans-serif"'> </span></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:teal'>// <span
-    class=SpellE>createPluralDependentMessageParts</span></span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span style='font-family:"Tahoma","sans-serif"'>&nbsp;<o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=GramE><b><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>private</span></b></span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><b><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>void</span></b></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'> <span
-    class=SpellE>thereAreManyLetters</span><span class=GramE>(</span><span
-    class=SpellE>int</span> <span class=SpellE>count</span>)</span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif"'>{</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><span
-    class=GramE><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>number</span></span></span><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:black'> = <span class=SpellE>integer.toString</span>(<span
-    class=SpellE>count</span>);</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><span
-    class=GramE><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>verb</span></span></span><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:black'> =</span><span
-    style='font-family:"Tahoma","sans-serif"'> </span><span style='font-size:
-    10.0pt;font-family:"Tahoma","sans-serif";color:#980000'>&quot;are&quot;</span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>;</span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><span
-    class=GramE><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>pluralModifier</span></span></span><span style='font-size:
-    10.0pt;font-family:"Tahoma","sans-serif";color:black'> =</span><span
-    style='font-family:"Tahoma","sans-serif"'> </span><span style='font-size:
-    10.0pt;font-family:"Tahoma","sans-serif";color:#980000'>&quot;s&quot;</span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>;</span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    </blockquote>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=GramE><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>}</span><span
-    style='font-family:"Tahoma","sans-serif"'> </span></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:teal'>// <span
-    class=SpellE>thereAreManyLetters</span></span><span style='font-family:
-    "Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span style='font-family:"Tahoma","sans-serif"'>&nbsp;<o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=GramE><b><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>private</span></b></span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><b><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>void</span></b></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'> <span
-    class=SpellE>thereIsOneLetter</span><span class=GramE>(</span>)</span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif"'>{</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><span
-    class=GramE><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>number</span></span></span><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:black'> =</span><span
-    style='font-family:"Tahoma","sans-serif"'> </span><span style='font-size:
-    10.0pt;font-family:"Tahoma","sans-serif";color:#980000'>&quot;1&quot;</span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>;</span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><span
-    class=GramE><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>verb</span></span></span><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:black'> =</span><span
-    style='font-family:"Tahoma","sans-serif"'> </span><span style='font-size:
-    10.0pt;font-family:"Tahoma","sans-serif";color:#980000'>&quot;<span
-    class=SpellE>is</span></span><span style='font-size:10.0pt;font-family:
-    "Tahoma","sans-serif";color:black'>&quot;;</span><span style='font-family:
-    "Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><span
-    class=GramE><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>pluralModifier</span></span></span><span style='font-size:
-    10.0pt;font-family:"Tahoma","sans-serif";color:black'> = &quot;&quot;;</span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    </blockquote>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif"'>}</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span style='font-family:"Tahoma","sans-serif"'>&nbsp;<o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=GramE><b><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>private</span></b></span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><b><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>void</span></b></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'> <span
-    class=SpellE>thereAreNoLetters</span><span class=GramE>(</span>)</span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif"'>{</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><span
-    class=GramE><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>number</span></span></span><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:black'> =</span><span
-    style='font-family:"Tahoma","sans-serif"'> </span><span style='font-size:
-    10.0pt;font-family:"Tahoma","sans-serif";color:#980000'>&quot;no&quot;</span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>;</span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><span
-    class=GramE><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>verb</span></span></span><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:black'> =</span><span
-    style='font-family:"Tahoma","sans-serif"'> </span><span style='font-size:
-    10.0pt;font-family:"Tahoma","sans-serif";color:#980000'>&quot;are&quot;</span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>;</span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><span
-    class=GramE><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>pluralModifier</span></span></span><span style='font-size:
-    10.0pt;font-family:"Tahoma","sans-serif";color:black'> =</span><span
-    style='font-family:"Tahoma","sans-serif"'> </span><span style='font-size:
-    10.0pt;font-family:"Tahoma","sans-serif";color:#980000'>&quot;s&quot;</span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>;</span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    </blockquote>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=GramE><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>}</span><span
-    style='font-family:"Tahoma","sans-serif"'> </span></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:teal'>// <span
-    class=SpellE>thereAreNoLetters</span></span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    </blockquote>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=GramE><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>}</span><span
-    style='font-family:"Tahoma","sans-serif"'> </span></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:#4A86E8'>//
-    <span class=SpellE>printGuessStatistics</span></span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    </td>
-    <td width="50%" valign=top style='width:50.0%;border:solid black 1.0pt;
-    background:#CCFF99;padding:5.1pt 5.1pt 5.1pt 5.1pt'>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:teal'>// <span class=SpellE>this</span>
-    <span class=SpellE>was</span> the <span class=SpellE>original</span> code</span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'><br>
-    <b id=docs-internal-guid-2de4470c-ac33-901e-3203-ef6f82c93c4c>private</b></span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><b
-    id=docs-internal-guid-2de4470c-ac33-901e-3203-ef6f82c93c4c><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>void</span></b></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'> <span
-    class=SpellE>printGuessStatistics</span><span class=GramE>(</span></span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><span
-    class=GramE><b id=docs-internal-guid-2de4470c-ac33-901e-3203-ef6f82c93c4c><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>char</span></b></span></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>
-    candidate, <span class=SpellE><b
-    id=docs-internal-guid-2de4470c-ac33-901e-3203-ef6f82c93c4c>int</b></span> <span
-    class=SpellE>count</span></span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:black'>)</span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    </blockquote>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:black'>{</span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><b
-    id=docs-internal-guid-2de4470c-ac33-901e-3203-ef6f82c93c4c><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>string</span></b></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'> <span
-    class=SpellE>number</span>;</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><b
-    id=docs-internal-guid-2de4470c-ac33-901e-3203-ef6f82c93c4c><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>string</span></b></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'> <span
-    class=SpellE>verb</span>;</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><b
-    id=docs-internal-guid-2de4470c-ac33-901e-3203-ef6f82c93c4c><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>string</span></b></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'> <span
-    class=SpellE>pluralModifier</span>;</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p><span class=SpellE><span class=GramE><b><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:black'>if</span></b></span></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'> (<span
-    class=SpellE>count</span> == 0) {</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
-    <p><span class=SpellE><span class=GramE><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:black'>number</span></span></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'> = </span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:#980000'>&quot;no&quot;</span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>;<br>
-    <span class=SpellE>verb</span> = </span><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:#980000'>&quot;are&quot;</span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>;<br>
-    <span class=SpellE>pluralModifier</span> = </span><span style='font-size:
-    10.0pt;font-family:"Tahoma","sans-serif";color:#980000'>&quot;s&quot;</span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>;</span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    </blockquote>
-    <p><span class=GramE><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>} </span></span><span class=SpellE><b><span style='font-size:
-    10.0pt;font-family:"Tahoma","sans-serif";color:black'>if</span></b></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'> (<span
-    class=SpellE>count</span> == 1) {</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
-    <p><span class=SpellE><span class=GramE><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:black'>number</span></span></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'> =</span><span
-    style='font-family:"Tahoma","sans-serif"'> </span><span style='font-size:
-    10.0pt;font-family:"Tahoma","sans-serif";color:#980000'>&quot;1&quot;</span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>;<br>
-    <span class=SpellE>verb</span> =</span><span style='font-family:"Tahoma","sans-serif"'>
-    </span><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:#980000'>&quot;<span class=SpellE>is</span>&quot;</span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>;<br>
-    <span class=SpellE>pluralModifier</span> =</span><span style='font-family:
-    "Tahoma","sans-serif"'> </span><span style='font-size:10.0pt;font-family:
-    "Tahoma","sans-serif";color:#980000'>&quot;&quot;</span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>;</span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    </blockquote>
-    <p><span class=GramE><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>} </span></span><b><span style='font-size:10.0pt;font-family:
-    "Tahoma","sans-serif";color:black'>else</span></b><span style='font-size:
-    10.0pt;font-family:"Tahoma","sans-serif";color:black'> {</span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
-    <p><span class=SpellE><span class=GramE><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:black'>number</span></span></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'> = <span
-    class=SpellE>integer.toString</span>(<span class=SpellE>count</span>);;<br>
-    <span class=SpellE>verb</span> =</span><span style='font-family:"Tahoma","sans-serif"'>
-    </span><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:#980000'>&quot;are&quot;</span><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:black'>;<br>
-    <span class=SpellE>pluralModifier</span> =</span><span style='font-family:
-    "Tahoma","sans-serif"'> </span><span style='font-size:10.0pt;font-family:
-    "Tahoma","sans-serif";color:#980000'>&quot;s&quot;</span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>;</span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    </blockquote>
-    <p><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>}</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>string</span></span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'> <span
-    class=SpellE>guessMessage</span> = <span class=SpellE>string.format</span><span
-    class=GramE>(</span></span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:#980000'>&quot;<span class=SpellE>There</span>
-    <span class=SpellE>%s</span> <span class=SpellE>%s</span> %s%s&quot;</span><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>,</span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><span
-    class=GramE><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>verb</span></span></span><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:black'>, <span class=SpellE>number</span>,
-    candidate,</span><span style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><span
-    class=GramE><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>pluralModifier</span></span></span><span style='font-family:
-    "Tahoma","sans-serif"'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=GramE><span
-    style='font-size:10.0pt;font-family:"Tahoma","sans-serif";color:black'>);</span></span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    </blockquote>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><span
-    class=GramE><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>print</span></span></span><span style='font-size:10.0pt;
-    font-family:"Tahoma","sans-serif";color:black'>(<span class=SpellE>guessMessage</span>);</span><span
-    style='font-family:"Tahoma","sans-serif"'><o:p></o:p></span></p>
-    </blockquote>
-    <p><span style='font-size:10.0pt;font-family:"Tahoma","sans-serif";
-    color:black'>}<o:p></o:p></span></p>
-    </td>
-   </tr>
-   <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes;height:315.7pt'>
-    <td width="50%" valign=top style='width:50.0%;border:solid black 1.0pt;
-    border-bottom:none;background:#FBD4B4;mso-background-themecolor:accent6;
-    mso-background-themetint:102;padding:5.1pt 5.1pt 5.1pt 5.1pt;height:315.7pt'>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:14.0pt;
-    mso-bidi-font-size:10.0pt;font-family:"Courier New";color:teal'>// source <span
-    class=SpellE>from</span> me</span><span style='font-size:18.0pt;mso-bidi-font-size:
-    12.0pt'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=SpellE><b><span
-    style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
-    color:black'>void</span></b></span><span style='font-size:14.0pt;
-    mso-bidi-font-size:10.0pt;font-family:"Courier New";color:black'> <span
-    class=SpellE>printGuessStatistics</span><span class=GramE>( </span><o:p></o:p></span></p>
-    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:
-    35.4pt;margin-bottom:.0001pt'><span class=SpellE><span class=GramE><b><span
-    style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
-    color:black'>char</span></b></span></span><span style='font-size:14.0pt;
-    mso-bidi-font-size:10.0pt;font-family:"Courier New";color:black'>
-    candidate, <o:p></o:p></span></p>
-    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:
-    35.4pt;margin-bottom:.0001pt'><span class=SpellE><span class=GramE><b><span
-    style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
-    color:black'>int</span></b></span></span><span style='font-size:14.0pt;
-    mso-bidi-font-size:10.0pt;font-family:"Courier New";color:black'> <span
-    class=SpellE>count</span> <o:p></o:p></span></p>
-    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:
-    35.4pt;margin-bottom:.0001pt'><span style='font-size:14.0pt;mso-bidi-font-size:
-    10.0pt;font-family:"Courier New";color:black'>)<o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span style='font-size:14.0pt;
-    mso-bidi-font-size:10.0pt;font-family:"Courier New"'>{</span><span
-    style='font-size:18.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
-    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:
-    35.4pt;margin-bottom:.0001pt'><span class=SpellE><b><span style='font-size:
-    14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";color:black'>string</span></b></span><span
-    style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
-    color:black'> <span class=SpellE>msg</span>;</span><span style='font-size:
-    18.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
-    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:
-    35.4pt;margin-bottom:.0001pt'><span class=SpellE><span class=GramE><b><span
-    style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
-    color:black'>if</span></b></span></span><span style='font-size:18.0pt;
-    mso-bidi-font-size:12.0pt;font-family:"Courier New";color:black'> </span><span
-    style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
-    color:black'>(<span class=SpellE>count</span> == 0)</span><span
-    style='font-size:18.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
-    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:
-    70.8pt;margin-bottom:.0001pt'><span class=SpellE><span class=GramE><span
-    style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
-    color:black'>msg</span></span></span><span style='font-size:14.0pt;
-    mso-bidi-font-size:10.0pt;font-family:"Courier New";color:black'> = TR(</span><span
-    style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
-    color:#980000'>&quot;<span class=SpellE>There</span> are no {0}s&quot;</span><span
-    style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
-    color:black'>,candidate);</span><span style='font-size:18.0pt;mso-bidi-font-size:
-    12.0pt'><o:p></o:p></span></p>
-    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:
-    35.4pt;margin-bottom:.0001pt'><span class=SpellE><span class=GramE><b><span
-    style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
-    color:black'>if</span></b></span></span><span style='font-size:18.0pt;
-    mso-bidi-font-size:12.0pt;font-family:"Courier New";color:black'> </span><span
-    style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
-    color:black'>(<span class=SpellE>count</span> == 1)</span><span
-    style='font-size:18.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
-    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:
-    70.8pt;margin-bottom:.0001pt'><span class=SpellE><span class=GramE><span
-    style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
-    color:black'>msg</span></span></span><span style='font-size:14.0pt;
-    mso-bidi-font-size:10.0pt;font-family:"Courier New";color:black'> = TR(</span><span
-    style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
-    color:#980000'>&quot;<span class=SpellE>There</span> <span class=SpellE>is</span>
-    1 {0}&quot;</span><span style='font-size:14.0pt;mso-bidi-font-size:10.0pt;
-    font-family:"Courier New";color:black'>,candidate);</span><span
-    style='font-size:18.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
-    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:
-    35.4pt;margin-bottom:.0001pt'><span class=SpellE><span class=GramE><b><span
-    style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
-    color:black'>if</span></b></span></span><span style='font-size:14.0pt;
-    mso-bidi-font-size:10.0pt;font-family:"Courier New";color:black'> (<span
-    class=SpellE>count</span> &gt; 1)</span><span style='font-size:18.0pt;
-    mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
-    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:
-    70.8pt;margin-bottom:.0001pt'><span class=SpellE><span class=GramE><span
-    style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
-    color:black'>msg</span></span></span><span style='font-size:14.0pt;
-    mso-bidi-font-size:10.0pt;font-family:"Courier New";color:black'> = TR(</span><span
-    style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
-    color:#980000'>&quot;<span class=SpellE>There</span> are {0} {1}s&quot;</span><span
-    style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
-    color:black'>, <span class=SpellE>count</span>, candidate);</span><span
-    style='font-size:18.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
-    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:
-    35.4pt;margin-bottom:.0001pt'><span class=SpellE><span class=GramE><span
-    style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
-    color:black'>print</span></span></span><span style='font-size:14.0pt;
-    mso-bidi-font-size:10.0pt;font-family:"Courier New";color:black'>(<span
-    class=SpellE>msg</span>);</span><span style='font-size:18.0pt;mso-bidi-font-size:
-    12.0pt'><o:p></o:p></span></p>
-    <p style='margin:0cm;margin-bottom:.0001pt'><span class=GramE><span
-    style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:"Courier New";
-    color:black'>}</span><span style='font-size:18.0pt;mso-bidi-font-size:12.0pt'>
-    </span></span><span style='font-size:14.0pt;mso-bidi-font-size:10.0pt;
-    font-family:"Courier New";color:teal'>// <span class=SpellE>printGuessStatistics</span></span><span
-    style='font-size:10.0pt;font-family:"Courier New";color:teal'><o:p></o:p></span></p>
-    </td>
-   </tr>
-  </table>
-  <p style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:150%'><span
-  style='font-family:"Tahoma","sans-serif"'><br>
-  06.08.2018 Stefano Zaglio<br>
-  &nbsp;</span></p>
-  <div class=MsoNormal align=center style='text-align:center'><span
-  style='mso-fareast-font-family:"Times New Roman"'>
-  <hr size=2 width="100%" align=center>
-  </span></div>
-  <p style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:115%'><b><span
-  style='font-family:"Tahoma","sans-serif"'>Fonti bibliografiche</span></b><span
-  style='font-family:"Tahoma","sans-serif"'><br>
-  </span><span style='font-size:10.0pt;line-height:115%;font-family:"Tahoma","sans-serif"'>&quot;Software
-  <span class=SpellE>sytems</span>, <span class=SpellE>failure</span> and
-  success&quot; <span class=SpellE>Pattersons</span>, <span class=SpellE><span
-  class=GramE>C.Jones</span></span><br>
-  &quot;<span class=SpellE>Clean</span> code&quot; <span class=SpellE>Prentice</span>
-  Hall, <span class=SpellE><span class=GramE>R.C.Martin</span></span><br>
-  &quot;Programmazione orientata agli oggetti&quot; <span class=SpellE>Addison</span>
-  Wesley, Brad <span class=SpellE><span class=GramE>J.Cox</span></span><br>
-  &quot;<span class=SpellE>Pragmatic</span> <span class=SpellE>Programmer</span>:
-  <span class=SpellE>From</span> <span class=SpellE>Journeyman</span> <span
-  class=SpellE>to</span> master&quot; <span class=SpellE>Addison</span> Wesley,
-  <span class=SpellE><span class=GramE>A.Hunt</span></span>, <span
-  class=SpellE>D.Thomas</span><br>
-  “<span class=SpellE>Tinycc-devel</span> - mailing <span class=SpellE>list</span>”<br>
-  &quot;Da software house a impresa di servizi&quot; Mondadori, <span
-  class=SpellE><span class=GramE>M.Bolognani</span></span><br>
-  &quot;Dai sistemi al pensiero sistemico&quot; <span class=SpellE>FrancoAngeli</span>,
-  <span class=SpellE><span class=GramE>P.Mella</span></span><br>
-  &quot;Oltre la qualità totale&quot; <span class=SpellE>FrancoAngeli</span>, <span
-  class=SpellE><span class=GramE>G.Dellacasa</span></span>, <span class=SpellE>S.Moncini</span><br>
-  <span class=GramE>&quot;Il principio 80/20</span>. Il segreto per ottenere di
-  più con meno&quot; <span class=SpellE>FrancoAngeli</span>, <span
-  class=SpellE><span class=GramE>R.Koch</span></span><br>
-  &quot;Usiamo la testa&quot; e &quot;Mappe mentali&quot; Frassinelli, Tony <span
-  class=SpellE><span class=GramE>Buzan</span></span><br>
-  &quot;<span class=SpellE>Change</span>&quot; Astrolabio, <span class=SpellE><span
-  class=GramE>P.Watzlawick</span></span>, <span class=SpellE>J.H.Weakland</span>,
-  <span class=SpellE>R.Fish</span><br>
-  &quot;<span class=SpellE>Perchè</span> non possiamo non dirci
-  darwinisti&quot; Rizzoli, <span class=SpellE><span class=GramE>E.Boncinelli</span></span>
-  (2009)<br>
-  <span class=GramE>&quot;Il computer di Dio&quot; e &quot;Il diavolo in
-  cattedra&quot; di Piergiorgio <span class=SpellE>Odifreddi</span> (2000-2003)</span><br>
-  &quot;Verso un'ecologia della mente&quot; Adelphi, <span class=SpellE><span
-  class=GramE>G.Bateson</span></span> (1977)<br>
-  “Sviluppare il pensiero nel ritardo mentale” <span class=SpellE>Erickson</span>,
-  <span class=GramE>P.L.</span> Baldi<br>
-  &quot;L'arte di imparare&quot; Mondadori, <span class=SpellE><span
-  class=GramE>B.Carey</span></span><br>
-  </span><span style='font-family:"Tahoma","sans-serif"'><a
-  href="https://youtu.be/MBP_jCdrCDc"><span style='font-size:10.0pt;line-height:
-  115%'>Esperienza personale</span></a></span><span style='font-size:10.0pt;
-  line-height:115%;font-family:"Tahoma","sans-serif"'><br>
-  </span><span style='font-family:"Tahoma","sans-serif"'><br>
-  &nbsp;</span></p>
-  </td>
-  <td width="10%" style='width:10.0%;padding:.75pt .75pt .75pt .75pt'></td>
- </tr>
- <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
-  <td width="10%" style='width:10.0%;padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='mso-fareast-font-family:"Times New Roman"'>&nbsp;<o:p></o:p></span></p>
-  </td>
-  <td style='background:#FF9900;padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><b><span style='font-family:"Tahoma","sans-serif";
-  mso-fareast-font-family:"Times New Roman"'><a href="curriculum_ita.htm">Back <span
-  class=SpellE>to</span> curriculum</a></span></b><span style='mso-fareast-font-family:
-  "Times New Roman"'><o:p></o:p></span></p>
-  </td>
-  <td style='background:#FF9900;padding:.75pt .75pt .75pt .75pt'>
-  <p align=right style='text-align:right'><b><a href="../../index.htm"><span
-  style='font-family:"Tahoma","sans-serif"'>Back <span class=SpellE>to</span>
-  Home <span class=SpellE>Page</span></span></a></b></p>
-  </td>
-  <td width="10%" style='width:10.0%;padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal><span style='mso-fareast-font-family:"Times New Roman"'>&nbsp;<o:p></o:p></span></p>
-  </td>
- </tr>
- <![if !supportMisalignedColumns]>
- <tr height=0>
-  <td width=62 style='border:none'></td>
-  <td width=454 style='border:none'></td>
-  <td width=361 style='border:none'></td>
-  <td width=62 style='border:none'></td>
- </tr>
- <![endif]>
-</table>
+<p>
+   Nel vecchio dBase o Firefox, queste due strutture costituivano due
+   files. Per questioni di comodità, oggi finiscono in un unico file che
+   viene rappresentato come segue.
+</p>
 
-<p class=MsoNormal><span style='mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+   <img src="../images/dbsinglefile.png"> fig.2
 
+<p>
+   La figura 2 verrebbe utile per far capire perché MSSQL richiede meno
+   risorse di Oracle ma allo stesso tempo degrada esponenzialmente in
+   performance. Non è questo però l'oggetto del paragrafo.
+</p>
+<p>
+   Questa vista logica, nella realtà diventa qualcosa di simile alla seguente
+   immagine.
+</p>
+
+   [image006.png] fig.3
+
+<p>
+   Ricordo che sono delle rappresentazioni forzate. Lo sparpagliamento può essere minore,
+   grazie alle proprietà del file system o alle capacità del sistema
+   operativo ma può essere anche maggiore a seconda della configurazione
+   software o hardware.
+</p>
+<p>
+   Questo vale sia che si parli di SQL che di noSQL. Già qualche ex
+   sostenitore del noSQL si sta ricredendo.
+</p>
+
+<h>
+   JSON? Mmh, maybe later
+</h>
+<p>
+   Adoro il formato JSON. Semplice ed elegante da scrivere, comodo da
+   modificare, impossibile da ristrutturare e non supporta stringhe multi riga. 
+   Alla fine consuma quanto l'XML. 
+   L'ho usato per realizzare il CV dinamico. Poi l'ho voluto semplificare. E' stato più
+   facile rifare o riciclare che trasformare. Se lo rifacessi
+   userei dei TXT formattati come mi pare, ma sarebbe un altro delirio.
+</p>
+<p>
+   JSON in SQL o noSQL? Un bel dilemma? Mmh, Javascript è nato per rappresentare, non per trasformare.<br>
+   Poi uno è libero di portarsi tutti i dati lato client e fargli fare gli WHERE e i GROUPBY che vuole.
+</p>
+
+<h>
+   E poi vennero Web e Cloud
+</h>
+<p>
+   Sento spesso lamentare del fatto che il browser web impegna la CPU al
+   100% o del timore delle applicazioni web, soprattutto SPA, per il consumo di memoria. 
+   Eppure le applicazioni
+   web, per la loro natura distribuita, dovrebbero ridurre questi problemi
+   rispetto alle vecchie applicazioni client/server.  Perché non è così?
+</p>
+<p>
+   Partiamo dalla CPU. Perché è lecito comprare una Ferrari che fa i
+   300Km/h quando i limiti di velocità sono inferiori, ma non va bene se
+   un'unità di calcolo viene sfruttata al massimo?
+</p>
+<p>
+   L'applicazione web gira in uno dei tab del browser che è
+   un'applicazione che gira nel sistema operativo assieme ai venti fogli
+   Excel o documenti Word aperti contemporaneamente. Quel che una vecchia
+   applicazione client nativa faceva senza dire niente a nessuno era
+   spesso impiegare tanti files temporanei senza poi pulire.
+</p>
+<p>
+   Con questo voglio solo concludere che per il principio di Heisemberg,
+   non si può fare un'applicazione a prova di utonto o webete.
+</p>
+<p>
+   O meglio, se lo chiedete a me, ve la posso fare, ma per onestà
+   intellettuale vi chiederei:
+</p>
+<p>
+   "Siete pronti a spendere più di quanto costerebbe scrivere due
+   documenti in croce e fare formazione, magari implementando CMS o
+   documentali o di knowledge sharing in genere?"
+</p>
+<p>
+   Certo bisogna assumere le persone giuste, soprattutto quelle che si
+   occupano dell'assunzione delle persone giuste.
+</p>
+
+<h>
+   Ho visto cose che voi umani...
+</h>
+<pre>
+   <b>TRY</b>
+
+         VARIABILE = ALTRA_VARIABILE
+
+   <b>END TRY</b>
+</pre>
+<p>
+   Abbiamo visto tutti almeno una volta usare eccezioni a modo di:
+   "Chissenefrega, basta che non si spacchi che puoi vendere bugs come
+   fossero features":
+</p>
+<p>
+   Ho visto programmi C++ che facevano un uso raffinato, quasi inebriante, dei templates
+   (AGG). Quando è venuto il momento di usarli ho
+   lasciato perdere dopo essermi accorto anche che quando il gioco si fa
+   duro, solo l'hardware può giocare e non c'è ottimizzazione software che tenga.
+</p>
+<p>
+   Ho visto programmi fare uso di interface in maniera magistrale, in un
+   potpourri di codice auto esplicante. Poi è arrivato il <b>neolaureato con
+   esperienza</b> (o <b>NcE</b>, che non esiste ma che il 60% degli annunci italiani
+   ricerca) assunto da selezionatore altrettanto Nce, in
+   barba ad Heisemberg. Naturalmente c'è un referente che sa tutto ma non
+   dice niente e non ha mai avuto il tempo di scrivere l'ABC. Anch'egli è
+   pagato per fare più che raccontare. Altro che metodo Toyota o principio
+   80/20. Tra teoria e pratica non c'è nient'altro che un muro.
+</p>
+<p>
+   Il nostro NcE guarda il problema diritto negli occhi e capisce che ha
+   bisogno di weaponX(). Funzione, classe o metodo che sia, la implementa.
+   Un colpo al cerchio e uno alla botte e va che è un piacere.
+   Quando diventa esperto anche dell'applicazione, scopre che esisteva già
+   e si chiamava weapon_YX(). Ormai è tardi per riscrivere il codice
+   perché c'è un nuovo problema all'orizzonte o addirittura un nuovo
+   lavoro. Così il nuovo NcE wrappa weaponX su weapon_YX giusto per
+   mettere un poco di ordine senza sconvolgere. Poi arriva il nuovo NcE.
+</p>
+<p>
+   Ho provato a imporre il prefisso TMP alle tabelle temporanee ma alla fine
+   l'azienda ha preferito licenziarmi e investire il ricavato in apprendisti.
+</p>
+<p>
+   E poi ho visto banali "SELECT qualcosa FROM tabella WHERE condizione"
+   seppellite sotto strati e strati di codice da far piangere (è la
+   cosiddetta programmazione a cipolla :-)
+</p>
+
+<h>
+   Jenkins e gli Hyper Tests
+</h>
+<p>
+   Per quanto sopra (frammentazione del codice) e per questioni di
+   sicurezza (con tutta la gente che si assume e se ne va), 
+   si sono resi necessari i sistemi automatizzati di
+   compilazione e test. Proprio come facevo 25 anni fa quando programmavo in C.
+   Poi per mancanza di tempo (cioé soldi) ho dovuto abbandonare.
+</p>
+<p>
+   A quel tempo le grosse applicazioni si dividevano verticalmente in
+   librerie e orizzontalmente in chunks di funzioni. Oggi ci sono i
+   namespaces e le classi ma dobbiamo mettere i progetti nei posti sbagliati
+   solo perché le soluzioni non prevedono links simbolici.
+</p>
+
+<h>
+   Complichiamoci la vita
+</h>
+<p>
+   Nel tentativo di semplificarmi la vita, per amore
+   della scoperta e tanti altri motivi ignobili, mi sono complicato la vita.
+</p>
+<p>
+   Cosa c'era di male in:
+</p>
+<pre>
+   <b>function</b> ClientiInsolventi( filtro ) {
+
+      <b>return</b> db("SELECT campoA, campoB, campoC FROM tabella WHERE campoD = {filtro}")
+
+   }
+</pre>
+<p>
+   che è compatibile con il 90% dei db engine compatibili SQL92? Al più si
+   mette un IF dbEngine=X THEN ... ELSE ... in funzione del rapporto di
+   Pareto. Soprattutto rispetta i principi DRY, KISS.
+</p>
+<p>
+   Ma anche io ho preferito qualcosa tipo:
+</p>
+<pre>
+   ClientiInsolventi Insolventi = db.From&lt;ClientiInsolventi&gt;()
+
+             .Where(x => x.campoD = filtro)
+
+             .Select(x => <b>new</b> { x.campoA, x.CampoB, x.CampoC }
+
+   )
+</pre>
+<p>
+   che è compatibile con il semanthic check dell'IDE ma difficile da scrivere
+   e specifico di uno dei tanti linguaggi general pourpose. Poi comunque
+   diviene la SELECT di sopra o non si sa cosa, perché nessuno ha ancora
+   scritto il driver ORM completo per questo o il prossimo engine SQL, noSQL, a colonne o
+   cloud.
+</p>
+<p>
+   <b>Gli ORM come l'OOP danno quel piacere psicologico non verificabile.</b> Non
+   penso che SAP, che se lo potrebbe permettere, riscriverebbe SAP solo
+   per il gusto di provare se è vero che ORM e OOP semplificano e
+   migliorano la vita. JdEdwards ci ha provato e sono falliti prima di
+   finire.
+</p>
+<p>
+   Con le moderne tecniche di Jenkins e la sua band, un
+   metodo vale l'altro. Il primo è preferibile perché lo si riscrive 10
+   volte più velocemente. Questo solo per dire che anche lo sviluppo
+   software è un eco-sistema.
+</p>
+
+<h>
+   Vedo il tuo bug e rilancio con un deadlock di classi
+</h>
+<p>
+   Qualsiasi linguaggio è un sistema circolare per natura. La "parola" non
+   è la "cosa". A parole, tutto può diventare il suo contrario. Non c'è
+   astrazione che lo impedisca. Proprio noi italiani siamo maestri
+   in questo.
+</p>
+<p>
+   Un'azienda da un servizio tramite i suoi membri che lo danno anche
+   privatamente. Solo pensare agli eventuali conflitti, alle conseguenze e
+   alla loro gestione è un costo non indifferente che cozzerà anche con il
+   sistema di livello superiore (il contenitore).
+</p>
+<p>
+   Tutto parteda un individuo che fa una cosa. Un'altro lo vede e lo
+   fa anche lui. Arriva l'osservatore che dice:"Hei, ci sono due entità
+   che adottano comportamenti comuni. Facciamone un modello!". Fatto il
+   modello, lo si applica in scala e diventa un disastro che sta in piedi
+   solo per inerzia.
+</p>
+<p>
+   Non bastano due gambe per tenere in piedi un tavolo
+</p>
+<p>
+   Per rispondere all'opinione di un Duca, i matematici hanno impiegato
+   600 anni per dimostrare che non era matematicamente possibile stivare
+   le palle di cannone meglio di come i contadini facevano con le arance.
+</p>
+<p>
+   La tridimensionalità è una condizione minima per non
+   incappare in errori concettuali. E' una regola che applico
+   anche nell'UI design, ma questo è un altra questione.
+</p>
+
+<h>
+Kiss me the code
+</h>
+<p>
+   Il seguente esempio è tratto dal testo "Clean Code". In alto a destra
+   c'è il codice d'origine. A sinistra la revisione dell'autore. In basso
+   a destra la mia versione.
+</p>
+<p>
+   L'autore spezza il funzioni più piccole, auto-esplicanti. Non tutti i
+   linguaggi consentono nested functions. Una classe non avrebbe senso
+   (figuriamoci condita di interfaces :-)
+</p>
+<p>
+   La mia versione sembra scritta da un bambino ordinato, ma fa
+   di più. Sempre per il principio di Heisemberg, non si può ottimizzare
+   sia per tempo che per spazio. Quindi ho usato "più memoria" replicando
+   parti di stringa, in violazione del principio DRY. Il codice è più
+   compatto, leggibile, capibile dai vecchi come me e dai NcE. Con il
+   tempo risparmiato, ho aggiunto l'internazionalizzabilità.
+</p>
+<p>
+   Rimane incasinabile ma lo trovo improbabile. Si fa prima a
+   rifare tutto, riciclando questo codice come pseudo-code.
+</p>
+<p>
+   Ho detto di aver violato il principio DRY ma ritengo che, a livello
+   strutturale, lo è anche fare più funzioni. La mia
+   violazione del DRY preserva il KISS.
+</p>
+<div style="display:inline-block; width:100%">
+   <code style="background-color: #2196f3; float:left; display: inline-block; vertical-align: top;">
+   <b>// "Clean code" (pg. 28,29)</b>
+
+   <b>private</b>
+   <b>void</b> printGuessStatistics(
+     <b>char</b> candidate, <b>int</b> count
+     )
+   {
+     <b>string</b> number;
+     <b>string</b> verb;
+     <b>string</b> pluralModifier;
+
+     <b>public</b> string make(
+         <b>char</b> candidate, <b>int</b> count
+     )
+     {
+        createPluralDependentMessageParts(count);
+
+        <b>string</b> guessMessage = string.format(
+           "There %s %s %s%s",
+           verb, number, candidate,
+           pluralModifier
+           );
+
+        print(guessMessage);
+     }
+
+     <b>private
+     void</b> createPluralDependentMessageParts(
+         <b>int</b> count
+     )
+     {
+        <b>if</b> (count == 0) thereAreNoLetters();
+        <b>else if</b> (count == 1) thereIsOneLetter();
+        <b>else</b> thereAreManyLetters(count);
+     } // createPluralDependentMessageParts
+
+     <b>private
+     void</b> thereAreManyLetters(<b>int</b> count)
+     {
+        number = integer.toString(count);
+        verb = "are";
+        pluralModifier = "s";
+     } // thereAreManyLetters
+
+     <b>private
+     void</b> thereIsOneLetter()
+     {
+        number = "1";
+        verb = "is";
+        pluralModifier = "";
+     }
+
+     <b>private
+     void</b> thereAreNoLetters()
+     {
+        number = "no";
+        verb = "are";
+        pluralModifier = "s";
+     } // thereAreNoLetters
+
+   } // printGuessStatistics
+   </code>
+
+   <div style="float:left; display:grid;">
+
+   <code style="background-color: #8bc34a; display: inline-block; vertical-align: top;">
+   <b>// the original code</b>
+
+   <b>private
+   void</b> printGuessStatistics(
+     <b>char</b> candidate, <b>int</b> count
+     )
+   {
+     <b>string</b> number;
+     <b>string</b> verb;
+     <b>string</b> pluralModifier;
+
+     <b>if</b> (count == 0) {
+        
+        number = "no";
+        verb = "are";
+        pluralModifier = "s";
+
+     } <b>if</b> (count == 1) {
+
+        number = "1";
+        verb = "is";
+        pluralModifier = "";
+
+     } <b>else</b> {
+
+        number = integer.toString(count);;
+        verb = "are";
+        pluralModifier = "s";
+
+     }
+
+     <b>string</b> guessMessage = string.format(
+        "There %s %s %s%s",
+        verb, number, candidate,
+        pluralModifier
+        );
+
+     print(guessMessage);
+   }
+   </code>
+
+   <code style="background-color: #ffeb3b; display: inline-block; vertical-align: top;">
+   <b>// my revision</b>
+
+   <b>void</b> printGuessStatistics( 
+      <b>char</b> candidate, 
+      <b>int</b> count 
+      )
+   {
+      string msg;
+
+      <b>if</b> (count == 0)
+         msg = TR("There are no {0}s",candidate);
+
+      <b>else if</b> (count == 1)
+         msg = TR("There is 1 {0}",candidate);
+
+      <b>else if</b> (count > 1)
+         msg = TR("There are {0} {1}s", count, candidate);
+
+      print(msg);
+   } // printGuessStatistics
+   </code>
+   </div>
 </div>
+<p>
+   Se volete commentare, contattatemi <img src="../images/contact_info_email.jpg">
+   06.08.2018 Stefano Zaglio
+</p>
+<pre>
+   _______________________________________________________________________
 
+   Fonti bibliografiche
+   "Software sytems, failure and success" Pattersons, C.Jones
+   "Clean code" Prentice Hall, R.C.Martin
+   "Programmazione orientata agli oggetti" Addison Wesley, Brad J.Cox
+   "Pragmatic Programmer: From Journeyman to master" Addison Wesley,A.Hunt, D.Thomas
+   “Tinycc-devel - mailing list”
+   "Da software house a impresa di servizi" Mondadori, M.Bolognani
+   "Dai sistemi al pensiero sistemico" FrancoAngeli, P.Mella
+   "Oltre la qualità totale" FrancoAngeli, G.Dellacasa, S.Moncini
+   "Il principio 80/20. Il segreto per ottenere di più con meno" FrancoAngeli, R.Koch
+   "Usiamo la testa" e "Mappe mentali" Frassinelli, Tony Buzan
+   "Change" Astrolabio, P.Watzlawick, J.H.Weakland, R.Fish
+   "Perchè non possiamo non dirci darwinisti" Rizzoli, E.Boncinelli (2009)
+   "Il computer di Dio" e "Il diavolo in cattedra" di Piergiorgio Odifreddi (2000-2003)
+   "Verso un'ecologia della mente" Adelphi, G.Bateson (1977)
+   “Sviluppare il pensiero nel ritardo mentale” Erickson, P.L. Baldi
+   "L'arte di imparare" Mondadori, B.Carey
+   [1]Esperienza personale
+
+</pre>
 </body>
-
 </html>
