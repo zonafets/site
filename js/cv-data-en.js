@@ -30,7 +30,7 @@ app.cv_data.en.briefly = {
 		"analyst": 								"http://xoomer.virgilio.it/stezagl/io/ita/esempi_estratti_da_mie_analisi.htm",
 		"trainer": 								"../images/certificates/stefano_referenze_bpascal.jpg",
 		"ICT": 									"../images/certificates/stefano_referenze_copan.jpg",
-		"std&qly":								"software_quality_and_standard.htm",
+		"std&qly":								"software_quality.htm",
 		"product traceability":					"https://youtu.be/t7-qQL8V-zA",
 		"systems and data integration":			"https://youtu.be/qMPB_zsRn1s",
 		"documentation": 						"esempi_estratti_da_mie_analisi.htm",
@@ -111,12 +111,12 @@ app.cv_data.en.experiences = [
     		},{
     			name:"Alpac Srl", prov:"VI", link:"http://www.alpac.it",
     			projects:[
-    				{ desc:"business consultancy for technical office", link:"https://zonafets.github.io/site/esempi_estratti_da_mie_analisi.htm#Analysis_for_optimization_of_technical_office_processes_(2017)_" },
+    				{ desc:"business consultancy for technical office", link:"https://zonafets.github.io/site/pages/esempi_estratti_da_mie_analisi.htm#Analysis_for_optimization_of_technical_office_processes_(2017)_" },
     			]
     		},{
     			name:"SOL Group Spa", prov:"MO", link:"http://www.solgroup.com",
     			projects:[
-    				{ desc:"workshop for SAP connector", link:"https://zonafets.github.io/site/esempi_estratti_da_mie_analisi.htm#Mini_HOWTO_about_SAP_Connector_RFCs/IDOCs_and_porting_to_other_system_"},
+    				{ desc:"workshop for SAP connector", link:"https://zonafets.github.io/site/pages/esempi_estratti_da_mie_analisi.htm#Mini_HOWTO_about_SAP_Connector_RFCs/IDOCs_and_porting_to_other_system_"},
     			]
     		},{
 				name:"3DS Team Srl", prov:"BS", link:"http://www.3ds.team/it/",
