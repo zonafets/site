@@ -60,10 +60,10 @@
 <p>
    Nel '700 il matematico statista A.Pareto, stimò che le relazioni tra
    gli elementi di un dominio finiscono sempre in rapporto 
-   80/20 (più o meno). Può essere che il 20% dei prodotti rendano per l'80% piuttosto
+   80/20 (più o meno). Può essere che il 20% dei prodotti rendano per l'80% come
    che il 20% del codice costituisca l'80% delle performance e così via.
    IBM fece proprio questo principio negli anni '80 dichiarando che basta
-   scrivere il 20% del codice in un linguaggio a basso livello.
+   scrivere il 20% del codice in un linguaggio a basso livello (C a quei tempi).
 </p>
 <p>
    Facile dirsi ma ovviamente tra teoria e pratica, c'è sempre di mezzo la
@@ -154,8 +154,8 @@
    pregresso.
 </p>
 <p>
-   Il C++ ottimizza, C# non lo faceva fino alla versione 6.
-   Vorrei sapere come Haskell risolve questa cosa, se lo fa.
+   Il C++ capisce che la somma è un concatenamento ed ottimizza. C# non lo faceva, almeno fino alla versione 6.
+   Vorrei sapere se Haskell lo fa e come risolve questa situazione.
 </p>
 <p>
    Chi NON ha esperienza di programmazione assembler o C potrebbe non
@@ -174,11 +174,11 @@
 </p>
 <p>
    Quel che un programmatore sa è che un INT occupa 4bytes e un GUID
-   16bytes. Può non sapere è che un
-   processore a 32 o 64 bit ha una word di registro che contiene l'INT ma
-   ne deve impiegare 2 o 4 per un GUID. Ciò vuol dire che (sempre per esempio
-   forzato), un processore a 3GHz può gestire 3 miliardi di ID di tipo INT
-   al secondo. La metà o 1/4 se GUID.
+   16bytes. Può non sapere che un
+   processore a 32 ha una word di registro che contiene l'INT ma
+   ne deve impiegare 4 per un GUID. Ciò vuol dire che (sempre esempio
+   forzato), un processore a 3GHz potrebbe gestire 3 miliardi di ID di tipo INT
+   al secondo. Diventano 700 milioni in caso di GUID. Ovviamente sappiamo che già questo numero va ben oltre la realtà.
 </p>
 </p>
    Le implicazioni sono tante. Ho potuto però dimostrare ai membri del mio
@@ -195,8 +195,7 @@
    e come aggiungere indici, quanto <b>perché toglierli o fare a meno</b>. Se da
    una parte è abbastanza intuibile che un indice appesantisce la fase di
    scrittura, si pensa meno che una scrittura può implicare una
-   lettura. Comunque c'è la concorrenza con altre letture in un ambiente
-   condiviso e con hardware monolitico.
+   lettura. Figuriamoci in ambiente ad alta concorrenza, magari su server monolitico.
 </p>
 <p>
    Per questioni di scelte progettuali, questo problema può rendere
@@ -205,21 +204,18 @@
 </p>
 <p>
    Ma <b>quel che sfugge</b> per carenza di knowledge base (KB) è che una lettura
-   tramite indice può sfociare in una ricerca di una pagina anche conosciuta, ma come fosse
-   <b>sparpagliata in una stanza assieme alle altre</b>. Per capire è
-   necessaria la grafica.
+   tramite indice può sfociare certamente in una letura diretta di una pagina, ma questa è come
+   <b>sparpagliata in una stanza assieme alle altre</b>. Vediamo la grafica.
 </p>
 <p>
-   Convenzionalmente ci raffiguriamo un indice con la sua tabella come da
-   seguente figura.
+   La figura 1 è una raffigurazione convenzione di indice a sinistra e tabella a destra.
 </p>
 
    <img src="../images/dbidxtbl.png">  fig.1
 
 <p>
-   Nel vecchio dBase o Firefox, queste due strutture costituivano due
-   files. Per questioni di comodità, oggi finiscono in un unico file che
-   viene rappresentato come segue.
+   Nel vecchio dBase, queste due strutture costituivano due
+   files. Oggi finiscono in un unico file rappresentabile come in figura 2.
 </p>
 
    <img src="../images/dbsinglefile.png"> fig.2
@@ -230,8 +226,7 @@
    performance. Non è questo però l'oggetto del paragrafo.
 </p>
 <p>
-   Questa vista logica, nella realtà diventa qualcosa di simile alla seguente
-   immagine.
+   Questa vista logica, nella realtà diventa qualcosa di simile alla figura 3.
 </p>
 
    <img src="../images/dbdisk.png"> fig.3
@@ -240,11 +235,15 @@
    Ricordo che sono delle rappresentazioni forzate. Lo sparpagliamento può essere minore,
    grazie alle proprietà del file system o alle capacità del sistema
    operativo ma può essere anche maggiore a seconda della configurazione
-   software o hardware.
+   software o hardware. Quando non sono HP e Oracle a lavorare assieme, 
+   spesso le configurazioni software e hardware non c'entrano nulla l'una con l'altra.
 </p>
 <p>
-   Questo vale sia che si parli di SQL che di noSQL. Già qualche
-   sostenitore del noSQL si sta ricredendo (senza considerare i problemi di security).
+   Questo vale sia per SQL che noSQL. Già qualche
+   sostenitore del noSQL si sta ricredendo. Ne ho visti tanti di entusiasmi smorzarsi dopo il primo decennio.
+   Se ci sono più di 800 linguaggi di programmazione ma il C rimane tra i primi 10 più usati, ci sarà un motivo.
+   Mi stupisce sempre sentire di performance eccelse di strumenti quali ad esempio Node.js.
+   Azzarderei a dire che le performance di sviluppo sono inversamente proporzionali alle prestazioni di runtime.
 </p>
 
 <h>
@@ -256,7 +255,7 @@
    Alla fine consuma quanto l'XML. 
    L'ho usato per realizzare il mio CV dinamico. Poi l'ho voluto semplificare. E' stato più
    facile rifare o riciclare che trasformare. Se lo rifacessi
-   userei dei TXT formattati come mi pare, ma sarebbe un altro delirio. Javascript non era nato per trasformare.
+   userei dei TXT formattati come mi pare, ma sarebbe un altro delirio perché Javascript non è nato per questo.
 </p>
 <p>
    JSON in SQL o noSQL? Un bel dilemma? Javascript era nato per rappresentare.<br>
@@ -494,6 +493,14 @@
    La tridimensionalità è una condizione minima per non
    incappare in errori concettuali. E' una regola che applico
    anche nell'UI design, ma questo è un altra questione.
+</p>
+
+<h>
+George A. Miller e il magico numero 7+-2
+</h>
+<p>
+	Ho usato questa regola per anni, assieme alla teoria dei sistemi, per raggiungere gli obiettivi nei tempi e costi stimati, senza ritrovarmi grossi problemi in post produzione.
+	I programmi come G-Marmo, Tavolinux e SAP Connector che sono sopravvissuti o sopravvivono per otto o più anni senza modifiche, ne sono una testimonianza.
 </p>
 
 <h>
