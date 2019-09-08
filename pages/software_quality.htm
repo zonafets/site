@@ -22,6 +22,12 @@
 	  .orange {
 		color: orange;
 	  }
+	  cmd {
+		color: purple;
+	  }
+	  op {
+		color: red;
+	  }
    </style>
 </head>
 <body style="margin:4px 5% 4px 5%">
@@ -352,7 +358,10 @@
    cosiddetta programmazione a cipolla :-)
 </p>
 <p>
-	<b>Ho visto</b> utenti dichiarare che il programma era andato in errore X ma non ha visualizzato il messaggio.
+	<b>Ho visto</b> professionisti scrivere codice inutilmente suvrastrutturato, perché erano abituati così e per loro era più facile e veloce.
+</p>
+<p>
+	<b>Ho visto</b> utenti dichiarare che il programma aveva dato errore X ma senza visualizzare il messaggio.
 </p>
 <p>
 	<b>Ho visto</b> l'help desk segnalare malfunzionamenti per errori di programmazione, legati a difetti di progettazione, venir risolti con interventi di programmazione, lasciando il difetto. 
@@ -414,7 +423,7 @@
 <pre>
    <b>function</b> ClientiInsolventi( filtro ) {
 
-      <b>return</b> db(<span class="orange">"SELECT campoA, campoB, campoC FROM tabella WHERE campoD = {filtro}"</span>)
+      <b>return</b> db($<span class="orange">"SELECT campoA, campoB, campoC FROM tabella WHERE campoD = {filtro}"</span>)
 
    }
 </pre>
@@ -424,14 +433,13 @@
    Pareto. In oltre rispetta i principi DRY e KISS.
 </p>
 <p>
-   Ma anche io ho preferito qualcosa di più <span class="orange">colorito</span> come:
+   Ma anche io ho preferito qualcosa di più <span class="orange">colorato</span> come:
 </p>
 <pre>
-   ClientiInsolventi Insolventi = db.From&lt;ClientiInsolventi&gt;()
-
-             .Where(x => x.campoD = filtro)
-
-             .Select(x => <b>new</b> { x.campoA, x.CampoB, x.CampoC }
+   ClientiInsolventi <b>Insolventi</b> <op>=</op> db
+            .<cmd>From</cmd>&lt;<cmd>ClientiInsolventi</cmd>&gt;()
+            .<cmd>Where</cmd>(x <op>=></op> x.campoD <op>=</op> filtro)
+            .<cmd>Select</cmd>(x <op>=> <b>new</op></b> { x.campoA, x.CampoB, x.CampoC }
 
    )
 </pre>
@@ -666,8 +674,17 @@ Kiss me the code
    </code>
    </div>
 </div>
+<h>
+	Tributo a Federico Faggin
+</h>
 <p>
-   Se volete commentare, contattatemi <img src="../images/contact_info_email.jpg"><br><br>
+	Dopo un mese, il BASIC già mi stava stretto. Ho così appreso l'assembler Z80 e le fasi di trasformazione di un codice sorgente in binario, o linguaggio macchina.
+	Qualche mese fa mio figlio, in prima elementare, mi ha stupito nel saper fare conti complessi e bloccarsi chiedendogli di procedere passo passo togliendo o aggiungendo 1, N volte.
+	Ricordo con piacere il registro A dello Z80. A sta per accumulatore. Penso che dovremmo introdurre la programmazione dalla prima elementare come già fanno all'estero.
+	Benedetto sia Faggin, padre del processore. Se me ne desse la possibilità lavorerei per lui come Hari Seldom fece per R. Daneel Olivaw.  
+</p>
+<p>
+   Se volete, contattatemi <img src="../images/contact_info_email.jpg"><br><br>
    06.08.2018 Stefano Zaglio
 </p>
 <pre>
