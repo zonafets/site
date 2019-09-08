@@ -19,6 +19,9 @@
          display: block;
          white-space: pre;
       }
+	  .orange {
+		color: orange;
+	  }
    </style>
 </head>
 <body style="margin:4px 5% 4px 5%">
@@ -43,13 +46,13 @@
    Il principio di indeterminazione di Heisemberg
 </h>
 <p>
-   Comunemente lo chiamiamo "non si può avere la botte piena e la moglie
-   ubriaca". Ci sono delle <b>realtà date da piaceri psicologici</b> che non
-   corrispondono alle realtà fisiologiche. 
+   Quando non possiamo provare o negare qualcosa, si crea una credenza basata sul piacere psicologico che più l'attrae.
+<p>
+   Heisemberg ha determinato che il valore di qualcosa e il suo cambiamento non sono
+   misurabili contemporaneamente. 
 </p>
 <p>
-   Secondo Heisemberg il valore di qualcosa e il suo cambiamento non sono
-   misurabili contemporaneamente. Ciò fa bene all'evoluzione.
+	Quindi non esiste niente di meglio di qualcos'altro, soprattutto, come si vedrà, i sistemi linguistici.
 </p>
 <h>
    Il rapporto 80/20
@@ -70,8 +73,16 @@
    Paperless non è informatizzare
 </h>
 <p>
-   Il significato della parola "informatica" non è:"togliamo la carta", come si è fatto con pergamena e tavola di pietra.
+   Il significato della parola "informatica" non è:"togliamo la carta", come è accaduto con pergamene e tavole di pietra.
    Word, Excel ed emails sono stati utili ma fanno più casini di un modulo web o di un'app.
+</p>
+
+<h>
+	Chiudere la porta
+</h>
+<p>
+	"Chiudere la porta" è un comando che non esprime il processo. Poiché i miei figli la sbattono e la mia auto è vecchiotta,
+	ho spiegato loro di "accompagnarla fino a 10cm dalla chiusura e poi chiuderla".
 </p>
 
 <h>
@@ -93,56 +104,58 @@
 </p>
 <p>
    Poi vennero il <b>Garbage Collector e nuovi paradigmi di programmazione
-   astratta</b>. L'OOP prometteva al programmatore
-   di dimenticarsi tutta una serie di cose fastidiose. Il concetto
+   astratta</b> che ancora oggi promettono al programmatore
+   di poter dimenticare di tutta una serie di fastidiosi doveri. Il concetto
    dell'OOP nasce da un'idea di Alan Kay che però ha dichiarato di non
-   aver mai voluto deviare i principi della programmazione. Il suo
-   accostamento alla biologia era solo un'analogia. In realtà la biologia
-   è fatta da più di due o tre livelli (classe/istanza o
+   aver mai voluto deviare dai principi della programmazione. Il suo
+   accostamento alla biologia era solo un'analogia. La biologia
+   tratta più di due o tre livelli (classe/istanza o
    modello/classe/istanza). Con famiglia, regno e quant'altro ne ha almeno
-   nove. Ridurre questa complessità comporta delle limitazioni.
+   nove. Semplificare questa complessità ha delle conseguenze.
 </p>
-<p>
-   Sapere di sapere qualcosa di nuovo che gli altri non sanno, ci fa sentire più importanti. 
-</p> 
 <p>
    Tra le evoluzioni, scoperte o invenzioni che siano, seguirono le <b>interface</b>, poi i delegate, le promise etc. 
    Il codice con le interface, di fatto non fa niente. E' come dire che le
    scatole si faranno tutte quadrate perché dovranno contenere solo cose
-   quadrate per <b>preservare l'ordine</b> (o contenere il disordine).
+   quadrate per preservare l'ordine ossia <b>contenere il disordine</b>.
 </p>
 <p>
    La fuori ci sono gegni che non possono competere con la massa di
-   limitati di cui faccio parte io. Sappiamo fin da bambini che c'è chi
+   limitati di cui faccio parte io. Sappiamo dai bambini che c'è chi
    vuole far stare i triangoli nello spazio del cerchio e che le cose
    piccole stanno anche in quelle grandi. Però a volte i gegni trovano
    mega compagnie americane che investono milioni di dollari per
    evangelizzare il mondo.
 </p>
 <p>
-   Il vero problema dell'astrazione è che da un grande potere [spiderman
+   Il problema dell'astrazione è che da un grande potere [spiderman
    copyright], poiché si possono fare grandi danni.
 </p>
 <h>
    Come ammazzare un QuadCore con due righe di codice
 </h>
+<p>
+	Quando ho cominciato questo mestiere, le CPU erano a 4Mhz e i computer avevano 16KB di RAM, grafica inclusa.
+</p>
 <pre>
    S = "", I = 0
-   WHILE ( I++ < 5000000 ) DO S = S + "0123456789"
+   <b>WHILE</b> ( I++ < 5000000 ) <b>DO</b> S = S + "0123456789"
 </pre>
 <p>
-   Questo semplice programma che esegue il concatenamento di 10 caratteri
-   per 5 milioni di volte, richiede solo 5MB di memoria, dei GB di cui sono dotati i computer moderni. 
-   E' un esempio forzato, ma su un
-   processore a 3GHz, verrebbe eseguito in un millesimo di secondo
+   Questo semplice programma esegue il concatenamento di 10 caratteri
+   per 5 milioni di volte. Richiede solo 1/1000 della memoria di cui sono dotati i computer moderni. 
+   E' un esempio forzato, ma su un processore a 3GHz, verrebbe eseguito in un millesimo di secondo
    (1/3000000000*5000000).
 </p>
 <p>
    In pratica arriverà invece a saturare anche un computer potente,
    poiché quella che dovrebbe essere un concatenamento (progressivo) è in
    realtà una somma, ossia un'operazione ripetitiva che si porta dietro il
-   lavoro precedente (vorrei sapere come Haskell risolve questa
-   cosa, se lo fa).
+   pregresso.
+</p>
+<p>
+   Il C++ ottimizza, C# non lo faceva fino alla versione 6.
+   Vorrei sapere come Haskell risolve questa cosa, se lo fa.
 </p>
 <p>
    Chi NON ha esperienza di programmazione assembler o C potrebbe non
@@ -179,10 +192,10 @@
 </h>
 <p>
    Rimanendo in tema databases, mi è capitato tanto di dover spiegare cosa
-   e come aggiungere indici, quanto perché toglierli o fare a meno. Se da
+   e come aggiungere indici, quanto <b>perché toglierli o fare a meno</b>. Se da
    una parte è abbastanza intuibile che un indice appesantisce la fase di
    scrittura, si pensa meno che una scrittura può implicare una
-   lettura e comunque la concorrenza con altre letture in un ambiente
+   lettura. Comunque c'è la concorrenza con altre letture in un ambiente
    condiviso e con hardware monolitico.
 </p>
 <p>
@@ -192,7 +205,7 @@
 </p>
 <p>
    Ma <b>quel che sfugge</b> per carenza di knowledge base (KB) è che una lettura
-   tramite indice può sfociare in una ricerca di una pagina come fosse
+   tramite indice può sfociare in una ricerca di una pagina anche conosciuta, ma come fosse
    <b>sparpagliata in una stanza assieme alle altre</b>. Per capire è
    necessaria la grafica.
 </p>
@@ -230,8 +243,8 @@
    software o hardware.
 </p>
 <p>
-   Questo vale sia che si parli di SQL che di noSQL. Già qualche ex
-   sostenitore del noSQL si sta ricredendo.
+   Questo vale sia che si parli di SQL che di noSQL. Già qualche
+   sostenitore del noSQL si sta ricredendo (senza considerare i problemi di security).
 </p>
 
 <h>
@@ -241,12 +254,12 @@
    Adoro il formato JSON. Semplice ed elegante da scrivere, comodo da
    modificare, impossibile da ristrutturare e non supporta stringhe multi riga. 
    Alla fine consuma quanto l'XML. 
-   L'ho usato per realizzare il CV dinamico. Poi l'ho voluto semplificare. E' stato più
+   L'ho usato per realizzare il mio CV dinamico. Poi l'ho voluto semplificare. E' stato più
    facile rifare o riciclare che trasformare. Se lo rifacessi
-   userei dei TXT formattati come mi pare, ma sarebbe un altro delirio.
+   userei dei TXT formattati come mi pare, ma sarebbe un altro delirio. Javascript non era nato per trasformare.
 </p>
 <p>
-   JSON in SQL o noSQL? Un bel dilemma? Mmh, Javascript è nato per rappresentare, non per trasformare.<br>
+   JSON in SQL o noSQL? Un bel dilemma? Javascript era nato per rappresentare.<br>
    Poi uno è libero di portarsi tutti i dati lato client e fargli fare gli WHERE e i GROUPBY che vuole.
 </p>
 
@@ -306,39 +319,44 @@
    fossero features":
 </p>
 <p>
-   Ho visto programmi C++ che facevano un uso raffinato, quasi inebriante, dei templates
+   <b>Ho visto</b> programmi C++ che facevano un uso raffinato, quasi inebriante, dei templates
    (AGG). Quando è venuto il momento di usarli ho
    lasciato perdere dopo essermi accorto anche che quando il gioco si fa
    duro, solo l'hardware può giocare e non c'è ottimizzazione software che tenga.
 </p>
 <p>
-   Ho visto programmi fare uso di interface in maniera magistrale, in un
+   <b>Ho visto</b> programmi fare uso di interface in maniera magistrale, in un
    potpourri di codice auto esplicante. Poi è arrivato il <b>neolaureato con
-   esperienza</b> (o <b>NcE</b>, che non esiste ma che il 60% degli annunci italiani
-   ricerca) assunto da selezionatore altrettanto Nce, in
-   barba ad Heisemberg. Naturalmente c'è un referente che sa tutto ma non
-   dice niente e non ha mai avuto il tempo di scrivere l'ABC. Anch'egli è
-   pagato per fare più che raccontare. Altro che metodo Toyota o principio
-   80/20. Tra teoria e pratica non c'è nient'altro che un muro.
+   esperienza</b>. Il <b>NcE</b> esiste per convenzione del 60% degli annunci di ricerca italiani.
+   In barba ad Heisemberg viene assunto da selezionatori Nce. 
+   Naturalmente c'è un referente che sa tutto ma non
+   dice niente e non ha mai avuto il tempo di scrivere l'ABC. 
+   Altro che metodo Toyota o principio 80/20. Tra teoria e pratica non c'è nient'altro che un muro.
 </p>
 <p>
-   Il nostro NcE guarda il problema diritto negli occhi e capisce che ha
+   Fresco di tutte le sante neo teorie accademiche, il nostro NcE guarda il problema diritto negli occhi e capisce che ha
    bisogno di weaponX(). Funzione, classe o metodo che sia, la implementa.
    Un colpo al cerchio e uno alla botte e va che è un piacere.
    Quando diventa esperto anche dell'applicazione, scopre che esisteva già
    e si chiamava weapon_YX(). Ormai è tardi per riscrivere il codice
    perché c'è un nuovo problema all'orizzonte o addirittura un nuovo
    lavoro. Così il nuovo NcE wrappa weaponX su weapon_YX giusto per
-   mettere un poco di ordine senza sconvolgere. Poi arriva il nuovo NcE.
+   mettere un poco di ordine senza sconvolgere. Poi arriva il nuovo-nuovo NcE.
 </p>
 <p>
-   Ho provato a imporre il prefisso TMP alle tabelle temporanee ma alla fine
-   l'azienda ha preferito licenziarmi e investire il ricavato in apprendisti.
+   <b>Ho visto</b> usare prefissi "XXX_","AAA_" e altro alle tabelle temporanee dove avevo imposto il prefisso TMP. Alla fine
+   l'azienda ha preferito licenziarmi e investire il ricavato in altri apprendisti. Tutto questo mentre stavo sviluppando triggers DDL che istruissero gli apprendisti all'uso corretto di nomi e commenti.
 </p>
 <p>
-   E poi ho visto banali "SELECT qualcosa FROM tabella WHERE condizione"
+   <b>Ho visto</b> banali <span class="orange">"SELECT qualcosa FROM tabella WHERE condizione"</span>
    seppellite sotto strati e strati di codice da far piangere (è la
    cosiddetta programmazione a cipolla :-)
+</p>
+<p>
+	<b>Ho visto</b> utenti dichiarare che il programma era andato in errore X ma non ha visualizzato il messaggio dell'errore X.
+</p>
+<p>
+	<b>Ho visto</b> l'help desk segnalare malfunzionamenti per errori di programmazione legati a difetti di progettazione, risolversi con interventi di programmazione, lasciando il difetto di progettazione.
 </p>
 
 <h>
@@ -357,12 +375,38 @@
    namespaces e le classi ma dobbiamo mettere i progetti nei posti sbagliati
    solo perché le soluzioni non prevedono links simbolici.
 </p>
+<p>
+	Testare è una scienza o un'arte? Mi chiedo questo perché la scienza sa di non sapere ciò che a volte i tests presuppongono di conoscere. 
+	<ul>
+		<li>
+			Quanto costa, testare le differenze di rappresentazione tra Firefox e Chrome?
+		</li>
+		<li>
+			Come fare a testare una procedura basata su un input casuale dell'utente?
+		</li>
+		<li>
+			Ha senso fare un test su una funzione deterministica? O una funzione tipo ADD(X,Y)?
+		</li>
+		<li>
+			Come fare a testare la mancanza di formazione nell'utente che dice che il programma non va perché manca la carta nella stampante?
+		</li>
+		<li>
+			E quando l'utente dice che il programma è andato in errore ma non lo ha visualizzato?
+		</li>
+		<li>
+			Ha senso scrivere un test per un problema da difetto di progettazione di cui l'analista (NcE) non si rende conto?
+		</li>
+	</ul>
+	Sembra essere comunque corretto assegnare anche questa attività ad un NcE. 
+	Il computer più potente del mondo, sviluppato da Google e IBM, raggiunge appena il 4.5% delle capacità del cervello umano.
+	Quindi prendiamo un super computer biologico e ne riduciamo la capacità al 4,5% per fargli scrivere piccoli programmi, per testare grandi programmi, che cambiano nel tempo.
+</p>
 
 <h>
    Complichiamoci la vita
 </h>
 <p>
-   Nel tentativo di semplificarmi la vita, per amore
+   Nel tentativo di semplificare, per amore
    della scoperta e tanti altri motivi ignobili, mi sono complicato la vita.
 </p>
 <p>
@@ -371,17 +415,17 @@
 <pre>
    <b>function</b> ClientiInsolventi( filtro ) {
 
-      <b>return</b> db("SELECT campoA, campoB, campoC FROM tabella WHERE campoD = {filtro}")
+      <b>return</b> db(<span class="orange">"SELECT campoA, campoB, campoC FROM tabella WHERE campoD = {filtro}"</span>)
 
    }
 </pre>
 <p>
-   che è compatibile con il 90% dei db engine compatibili SQL92? Al più si
-   mette un IF dbEngine=X THEN ... ELSE ... in funzione del rapporto di
-   Pareto. Soprattutto rispetta i principi DRY, KISS.
+   che è compatibile con il 100% dei db engine compatibili SQL92? Al più si
+   mette un <b>IF dbEngine=X THEN ... ELSE ...</b> in funzione del rapporto di
+   Pareto. In oltre rispetta i principi DRY e KISS.
 </p>
 <p>
-   Ma anche io ho preferito qualcosa tipo:
+   Ma anche io ho preferito qualcosa di più <span class="orange">colorito</span> come:
 </p>
 <pre>
    ClientiInsolventi Insolventi = db.From&lt;ClientiInsolventi&gt;()
@@ -393,11 +437,11 @@
    )
 </pre>
 <p>
-   che è compatibile con il semanthic check dell'IDE ma difficile da scrivere
+   che è compatibile con il semantic check dell'IDE ma difficile da scrivere
    e specifico di uno dei tanti linguaggi general pourpose. Poi comunque
-   diviene la SELECT di sopra o non si sa cosa, perché nessuno ha ancora
-   scritto il driver ORM completo per questo o il prossimo engine SQL, noSQL, a colonne o
-   cloud.
+   diviene la SELECT di sopra o non si sa cosa. Nessuno ha ancora
+   completato il driver ORM della prossima versione di engine SQL, noSQL, a colonne o
+   quella ancora non esiste.
 </p>
 <p>
    <b>Gli ORM come l'OOP danno quel piacere psicologico non verificabile.</b> Non
@@ -407,10 +451,13 @@
    finire.
 </p>
 <p>
-   Con le moderne tecniche di Jenkins e la sua band, un
+   Grazie alle moderne tecniche di Jenkins e la sua band, un
    metodo vale l'altro. Il primo è preferibile perché lo si riscrive 10
    volte più velocemente. Questo solo per dire che anche lo sviluppo
    software è un eco-sistema.
+</p>
+<p>
+	Ma più stratificazioni vuol dire più flessibilità, più personale, più skills e più+più=meno, al-meno nella testa di qualcuno.
 </p>
 
 <h>
@@ -429,7 +476,7 @@
    sistema di livello superiore (il contenitore).
 </p>
 <p>
-   Tutto parteda un individuo che fa una cosa. Un'altro lo vede e lo
+   Tutto parte da un individuo che fa una cosa. Un'altro lo vede e lo
    fa anche lui. Arriva l'osservatore che dice:"Hei, ci sono due entità
    che adottano comportamenti comuni. Facciamone un modello!". Fatto il
    modello, lo si applica in scala e diventa un disastro che sta in piedi
@@ -439,9 +486,9 @@
    Non bastano due gambe per tenere in piedi un tavolo
 </p>
 <p>
-   Per rispondere all'opinione di un Duca, i matematici hanno impiegato
-   600 anni per dimostrare che non era matematicamente possibile stivare
-   le palle di cannone meglio di come i contadini facevano con le arance.
+   Per rispondere alla richiesta (originata ad un'opinione) di un Duca, i matematici hanno impiegato
+   600 anni per dimostrare che non era matematicamente possibile stivare meglio
+   le palle di cannone, di come i contadini facevano con le arance. Con più palle di cannone la nave poi sarebbe andata più lenta e quindi bah!
 </p>
 <p>
    La tridimensionalità è una condizione minima per non
@@ -480,7 +527,7 @@ Kiss me the code
    violazione del DRY preserva il KISS.
 </p>
 <div style="display:inline-block; width:100%">
-   <code style="background-color: #2196f3; float:left; display: inline-block; vertical-align: top;">
+   <code style="background-color: #78c1fb; float:left; display: inline-block; vertical-align: top;">
    <b>// "Clean code" (pg. 28,29)</b>
 
    <b>private</b>

@@ -17,7 +17,7 @@ All rights reserved
 * {
     font-size: medium;
     font-family: Tahoma;
-    line-height: 150%;
+    line-height: 140%;
 }
 
 @media print and (orientation: landscape) {
