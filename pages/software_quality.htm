@@ -1,8 +1,8 @@
 <html>
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-   <meta name="created" content="2019-09-09T00:08:00">
-   <meta name="changed" content="2019-09-09T00:08:00">
+   <meta name="created" content="2019-09-09T00:09:00">
+   <meta name="changed" content="2019-09-09T00:09:00">
    <meta name="viewport" content="width=device-width, initial-scale=0.6">
 
    <style>
@@ -453,36 +453,24 @@
 <p>
 	Ovviamente c'è un perché. L'obiettivo è partire da una struttura comune (una <b>CLASS</b>) e da li arrivare a 
 	un <b>CREATE TABLE</b> sul server, ad una <b>PROPERTY</b> Data nella <b>FORM</b> sul client, serializzazione->deserializzazione 
-	grazie alla reflection e finire con <b>INSERT/UPDATE</b> e ricominciare con SELECT per chiudere il cerchio della vita. 
-	Ciò sembra fantastico, stupendio, meraviglioso!
+	grazie alla reflection e finire con <b>INSERT/UPDATE</b> e ricominciare con SELECT per chiudere il cerchio in modo da preservare l'integrità.
 </p>
 <p>
-	Si poteva fare anche 20 anni fa con un parser della STRUCT del C, senza dover inventare un nuovo linguaggio, 
-	ma o nessuno ci ha pensato oppure i tempi non erano maturi, non c'erano le GET/SET, l'overloading o altro. Cosa altro poteva essere?
+	Si poteva fare anche 20 anni fa? Si. Lo si faceva? Si, però bisognava costruire tutti gli script etc. etc. Perché oggi è meglio? 
 	Lo vediamo dopo un breve stacchetto publicitario.
 </p>
 <p>
    <b>Gli ORM come l'OOP danno quel piacere psicologico non verificabile.</b>
 </p>
 <p>
-	La prima che mi viene in mente è che se a livello logico la strutture della parti rimangono identiche, a livello fisico (istanza), differiscono sicuramente per luogo.
-	Per altro i due processi in test sulla stessa macchina di sviluppo creeranno locking di risorse ma questo è un altro problema.
-	Prima o poi arriveranno a differire per versione. Ecco perché si arriva facilmente alle applicazioni web e allo scambio di JSON (dopo averci provato con gli XML). 
-	Risolti o ridotti i problemi di incompatibilità, ecco che ripartono quelli delle performance e della sicurezza e si pensa al webASM che altro non è che che PCode su Javascript VM. 
-	Infatti qualcuno ha facilmente convertito i compilatori C in webASM ma poi il debugging visuale è un delirio. Comunque PCode su VM c'era già e si chiamava Java. 
-	Era però proprietario e pieno di bug di sicurezza. Invece Firefox, Chrome o Edge, col tempo, faranno meglio. Intanto almeno i dati viaggiano crittografati anche in lan locale.
+	Perché dovrebbe esserlo? Per il syntax highlight? Per il semantic check? Perché c'è l'IDE che ci assiste e ci sono linguaggi più IDE oriented?
+	Forse si ma allora perché siamo arrivati ad aver bisogno di Jenkins e la sua band che lavorano dietro le quinte come i processi batch di una volta?
 </p>
 <p>
-	Insomma ce n'è di cose da considerare. Per questo quando chiama il selezionatore NcE e chiede:"Da 1 a 10 quanto conosce C#?", conviene chiudere subito.
+   Il software è un eco-sistema e se si delega o lo si sporca, finisce prima o poi per congestionarsi.
 </p>
 <p>
-   Comunque, grazie alle moderne tecniche di Jenkins e la sua band, un
-   metodo vale l'altro. Il primo è preferibile perché lo si riscrive 10
-   volte più velocemente. Questo solo per dire che anche lo sviluppo
-   software è un eco-sistema.
-</p>
-<p>
-	Ma più stratificazioni vuol dire più flessibilità, più personale, più skills e più+più=meno, al-meno nella testa di qualcuno.
+	Ma più stratificazioni vuol dire più flessibilità, più personale, più skills, più soldi dall'help-desk e più+più=meno, al-meno nella testa di qualcuno.
 </p>
 
 <h>
