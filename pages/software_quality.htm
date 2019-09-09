@@ -459,11 +459,24 @@
 <p>
 	Si poteva fare anche 20 anni fa con un parser della STRUCT del C, senza dover inventare un nuovo linguaggio, 
 	ma o nessuno ci ha pensato oppure i tempi non erano maturi, non c'erano le GET/SET, l'overloading o altro. Cosa altro poteva essere?
+	Lo vediamo dopo un breve stacchetto publicitario.
+</p>
 <p>
    <b>Gli ORM come l'OOP danno quel piacere psicologico non verificabile.</b>
 </p>
 <p>
-   Grazie alle moderne tecniche di Jenkins e la sua band, un
+	La prima che mi viene in mente è che se a livello logico la strutture della parti rimangono identiche, a livello fisico (istanza), differiscono sicuramente per luogo.
+	Per altro i due processi in test sulla stessa macchina di sviluppo creeranno locking di risorse ma questo è un altro problema.
+	Prima o poi arriveranno a differire per versione. Ecco perché si arriva facilmente alle applicazioni web e allo scambio di JSON (dopo averci provato con gli XML). 
+	Risolti o ridotti i problemi di incompatibilità, ecco che ripartono quelli delle performance e della sicurezza e si pensa al webASM che altro non è che che PCode su Javascript VM. 
+	Infatti qualcuno ha facilmente convertito i compilatori C in webASM ma poi il debugging visuale è un delirio. Comunque PCode su VM c'era già e si chiamava Java. 
+	Era però proprietario e pieno di bug di sicurezza. Invece Firefox, Chrome o Edge, col tempo, faranno meglio. Intanto almeno i dati viaggiano crittografati anche in lan locale.
+</p>
+<p>
+	Insomma ce n'è di cose da considerare. Per questo quando chiama il selezionatore NcE e chiede:"Da 1 a 10 quanto conosce C#?", conviene chiudere subito.
+</p>
+<p>
+   Comunque, grazie alle moderne tecniche di Jenkins e la sua band, un
    metodo vale l'altro. Il primo è preferibile perché lo si riscrive 10
    volte più velocemente. Questo solo per dire che anche lo sviluppo
    software è un eco-sistema.
