@@ -2,7 +2,7 @@
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8">
    <meta name="created" content="2018-08-10609:00:00">
-   <meta name="changed" content="2019-09-11T00:14:00">
+   <meta name="changed" content="2019-09-12T00:14:00">
    <meta name="viewport" content="width=device-width, initial-scale=0.6">
 
    <style>
@@ -92,17 +92,21 @@
 <h>L'astrazione</h>
 <p>
    L'OOP (nata negli USA) ha diffuso l'idea che l'astrazione sia la madre delle soluzioni.
-   Tipicamente, chi crede di sapere, in realtà conosce solo qualcuno che sa (il docente che ci ha istruito).
-   Ma se l'astrazione ha degli effetti nel concreto, allora non è astrazione oppure deve essere vero anche il contrario. No?
+   Sfortunatamente ne sappiamo tutti poco, tutt'al più conosciamo qualcuno che sa (il docente o l'articolo che ci hanno istruito).
    La pratica ci ha dimostrato che l'astrazione non ha ridotto l'entropia del software. 
    Alla quarta review, un sistema di classi subisce uno sconvolgimento. Si salvano quelle più simili a dei tipi base.
    Infatti la programmazione Object Based non è da eludere.
    Ma ogni linguaggio di programmazione è pur sempre un linguaggio e per questo gravido degli stessi limiti.
 </p>
+<p>
+	Uno di questi è la circolarità. Possiamo infatti definire una variabile <b>white</b> di tipo <b>Color</b> e assegnarle valore <b>black</b>.
+	Non è invece possibile creare una variabile di nome <b>True</b> e assegnarle valore <b>False</b> (forse in smalltalk si può anche questo).
+	Se con la programmazione strutturata si poteva incappare nello spaghetti code, con l'OOP abbiamo il cipolla code. 
+</p>
 <h>I commenti del codice</h>
 <p>
    Quante parole spese su questo tema. Certamente abbiamo capito che i giudizi sono da evitare. 
-   Si vuole un codice autoesplicante, chiamando anche le vecchie variabili "i" dei piccoli contesti con "FieldIndex".
+   Si vuole un codice autoesplicante, chiamando anche le vecchie variabili "i" dei piccoli contesti con "FieldIndexOfSourceTable".
    Eppure nessuno spiega come commentare codice da 2.000.000 di righe.
    Si potrebbe cominciare considerando il 20% e ... (chiamatemi).
 </p>
@@ -119,7 +123,7 @@
 </h>
 <p>
    Il significato della parola "informatica" non è:"togliamo la carta", come è accaduto con pergamene e tavole di pietra.
-   Word, Excel ed emails sono stati utili ma fanno più casini di un modulo web o di un'app.
+   Sebbene il costo si riduce a 1/10, i software di simulazione documentale come Word e Excel e le emails rappresentano un limite che il web supera.
 </p>
 <h>
 	Il pair programming
@@ -322,12 +326,10 @@
    Adoro il formato JSON. Semplice ed elegante da scrivere, comodo da
    modificare, impossibile da ristrutturare e non supporta stringhe multi riga. 
    Alla fine consuma quanto l'XML. 
-   L'ho usato per realizzare il mio CV dinamico. Poi l'ho voluto semplificare. E' stato più
-   facile rifare o riciclare che trasformare. Se lo rifacessi
-   userei dei TXT formattati come mi pare, ma sarebbe un altro delirio perché Javascript non è nato per questo.
+   Ma è quanto di meglio c'è e lo possiamo far generare lato server.
 </p>
 <p>
-   JSON in SQL o noSQL? Un bel dilemma? Javascript era nato per rappresentare.<br>
+   JSON in SQL o noSQL? Un bel dilemma. Javascript era nato per rappresentare.<br>
    Poi uno è libero di portarsi tutti i dati lato client e fargli fare gli WHERE e i GROUPBY che vuole.
 </p>
 
@@ -419,7 +421,7 @@
 </p>
 <p>
    <b>Ho visto</b> banali <span class="orange">"SELECT qualcosa FROM tabella WHERE condizione"</span>
-   seppellite sotto strati e strati di codice da far piangere (è la nuova programmazione a cipolla dopo quella a spaghetti:-)
+   seppellite sotto strati e strati di codice da far piangere (è la nuova programmazione a cipolla)
 </p>
 <p>
 	<b>Ho visto</b> professionisti scrivere codice inutilmente suvrastrutturato, perché erano abituati così e per loro era più facile e veloce.
@@ -428,13 +430,12 @@
 	<b>Ho visto</b> utenti dichiarare che il programma aveva dato errore X ma senza visualizzare il messaggio.
 </p>
 <p>
-	<b>Ho visto</b> l'help desk segnalare malfunzionamenti per errori di programmazione, legati a difetti di progettazione, venir risolti con interventi di programmazione, lasciando il difetto. 
-	Mi suona un poco come mettere la colla tra parti in metallo o i freni di una bicicletta ad un jumbo.
+	<b>Ho visto</b> tanti workaround di difetti di progettazione produrre qualcosa tipo un jumbo con i freni di una bicicletta.
 </p>
 <p>
-   <b>Ho lavorato</b> alla manutenzione di 2.000.000 di righe di codice scritto con tutti i crismi dei patterns,
-   concludento aimé, che con un codice più semplice, tre programmatori pagati un terzo, avrebbero reso per 9. 
-   N.B. non sto dicendo che bisogna pagare meno i programmatori, ma che bisogna spendere meglio i soldi.
+   <b>Ho lavorato</b> alla manutenzione di 2.000.000 di righe di codice scritto con tutti i crismi OO e dei patterns & C.. e mi sono chiesto se 
+   sia più facile cercare una scatola tra 4.000.000 disposte in piano o una sola in 2.000.000 disposte a piramide, di cui per di più alcune 
+   contengono solo un riferimento astratto alla vera scatola.
 </p>
 <h>
    Jenkins e gli Hyper Tests
@@ -535,7 +536,8 @@
 	Si poteva fare anche 20 anni fa? Si. Lo si faceva? Si, perché i programmatori sapevano fare quel che oggi fa l'IDE. Magari si partiva dalla TABLE per ottenere la CLASS e le costanti per i riferimenti.
 </p>
 <p>
-   <b>Gli ORM riducono l'engine a semplice repository intercambiabile e questo da il piacere psicologico della facile scalabilità.</b>
+   <b>Gli ORM riducono l'engine a semplice repository intercambiabile e questo da il piacere psicologico della facile scalabilità. 
+   Poi non implementano l'atomicità, l'integrità, i trigger DDL e quant'altro maturato in 20 anni di evoluzione, ma ci piace la scalabilità.</b>
 </p>
 <p>
 	Soluzione che sia, in coda partono Jenkins e la sua band che lavorano dietro le quinte, proprio come i vecchi processi batch.
