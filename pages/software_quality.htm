@@ -2,7 +2,7 @@
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8">
    <meta name="created" content="2018-08-10609:00:00">
-   <meta name="changed" content="2019-09-12T00:14:00">
+   <meta name="changed" content="2019-09-12T00:17:00">
    <meta name="viewport" content="width=device-width, initial-scale=0.6">
 
    <style>
@@ -89,13 +89,30 @@
 <p>
    Facile dirsi ma ovviamente tra teoria e pratica, c'è sempre di mezzo l'applicazione pratica.
 </p>
+
+
+<h>Evoluzione di Hello World!</h>
+<p><img src="../images/evolution.png"></p>
+<p>
+	<ul>
+	<li><pre>print(<com>"hello!"</com>)</pre></li>
+	<li><pre><b>const</b> greeting = <com>"hello!"</com>;<br>print(greeting)</pre></li>
+	<li><pre><b>var</b> dynamicGreeting <op>=</op> get(greeting);<br>print(dynamicGreeting)</pre></li>
+	<li><pre>console<op>.</op>print( dynamicGreeting )</pre></li>
+	<li><pre>greetingType dynamicGreeting( greeting);<br>console<op>.</op>print( dynamicGreeting<op>.</op>get() )</pre></li>
+	<li><pre>greetingType dynamicGreeting( greetings<op>.</op>hello );<br>console<op>.</op>print( dynamicGreeting.verb )</pre></li>
+	<li><pre>greetingType dynamicGreeting( greetings<op>.</op>hello, console );<br>dynamicGreeting<op>.</op>say()</pre></li>
+	<li><pre>print(<com>"hello Dr. Falken!"</com>)</pre></li>
+	</ul>
+</p>
+
 <h>L'astrazione</h>
 <p>
    L'OOP (nata negli USA) ha diffuso l'idea che l'astrazione sia la madre delle soluzioni.
    Sfortunatamente ne sappiamo tutti poco, tutt'al più conosciamo qualcuno che sa (il docente o l'articolo che ci hanno istruito).
    La pratica ci ha dimostrato che l'astrazione non ha ridotto l'entropia del software. 
    Alla quarta review, un sistema di classi subisce uno sconvolgimento. Si salvano quelle più simili a dei tipi base.
-   Infatti la programmazione Object Based non è da eludere.
+   Infatti la programmazione <b>Object Based</b> non è da eludere.
    Ma ogni linguaggio di programmazione è pur sempre un linguaggio e per questo gravido degli stessi limiti.
 </p>
 <p>
@@ -433,10 +450,22 @@
 	<b>Ho visto</b> tanti workaround di difetti di progettazione produrre qualcosa tipo un jumbo con i freni di una bicicletta.
 </p>
 <p>
-   <b>Ho lavorato</b> alla manutenzione di 2.000.000 di righe di codice scritto con tutti i crismi OO e dei patterns & C.. e mi sono chiesto se 
-   sia più facile cercare una scatola tra 4.000.000 disposte in piano o una sola in 2.000.000 disposte a piramide, di cui per di più alcune 
-   contengono solo un riferimento astratto alla vera scatola.
+	<img src="../images/pyramid-boxes.jpg"><img src="../images/colour-boxes.jpg">
 </p>
+<p>
+   <b>Ho lavorato</b> alla manutenzione di 2.000.000 di righe di codice scritto con tutti i crismi OO e dei patterns & C.. e mi sono chiesto se 
+   sia più facile cercare una scatola tra 4.000.000 disposte in piano, 
+   oppure una in 2.000.000 disposte a piramide, che per di più contiene solo un riferimento astratto alla vera scatola.
+</p>
+<p>
+	<b>Ho inseguito</b> oggetti dentro metodi annidati che ritornavano un oggetto <b>result</b>. Messi in fila farebbero:
+	<pre>
+		Return(Return(Return(Return(Return(Return(Return(object)))))))
+	</pre>
+	Poi ho dovuto fare una modifica al 4° livello. Questa richiedeva il risultato per sapere se andare oltre.
+	Si, lo so, non si capisce. Immaginate di essere al 4° piano di un edificio e di dover salire all'ultimo per sapere se potere proseguire oltre il 4°.
+</p>
+</b>
 <h>
    Jenkins e gli Hyper Tests
 </h>
