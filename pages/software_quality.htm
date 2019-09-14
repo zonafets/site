@@ -246,6 +246,18 @@
    Chi NON ha esperienza di programmazione a basso livello, potrebbe non
    scoprirlo mai, concludendo che sia necessario scalare l'hardware.
 </p>
+<h>Polimorfismo</h>
+<p>
+   Prima dell'OOP si vedeva codice tipo:
+   <pre>
+      if action = costante then
+      else if action = ...
+   </pre>
+   Dopo l'OOP si vede codice tipo:
+   <pre>
+      if typeOf action is ....
+   </pre>
+</p>
 <h>
    GUID per ogni occasione
 </h>
@@ -336,18 +348,24 @@
 <p>
 	10 piccole query su mono processo possono essere più veloci di una query complessa ottimizzata in automatico dall'engine su CPU multithread.
 </p>
+<h>DRY e normalizzazione</h>
+<p>
+   La <b>"normalizzazione"</b> è il principio DRY per i databases. Tuttavia la descrizione dell'articolo deve essere duplicata
+   nella bolla/fattura perche sono documenti ufficiali. Nel mondo noSQL la ridondanza dei dati fa anche bene alla distribuzione, per il
+   bilanciamento di carico etc. <br>
+   Ci sono anche casi in cui è bene duplicare il codice. Ad esempio, per chi si è imbattuto in ORM fai da te, che omettono tutta una serie di features degli engine DB tipo la gestione delle transazioni, eseguire un'operazione di copia con versionamento risulta in 4 operazioni di I/O anziché in una transazione unica.
+   Se l'ORM è stato scritto con tutti i crismi, le 4 operazioni risulteranno in un unica classe od oggetto riciclato 4 volte ma con problemi di gestione della concorrenza. La storia è lunga ma la conclusione è che è più utile ridondare il codice per ridurre la complessità (più chiarezza e semplicità).   
+</p>
 <h>
-   JSON? Mmh, maybe later
+   JSON?
 </h>
 <p>
-   Adoro il formato JSON. Semplice ed elegante da scrivere, comodo da
-   modificare, impossibile da ristrutturare e non supporta stringhe multi riga. 
-   Alla fine consuma quanto l'XML. 
+   Adoro il formato JSON. Semplice da  scrivere, sempre elegante, comodo da
+   modificare, impossibile da ristrutturare, non supporta stringhe multi riga e consuma quanto l'XML. 
    Ma è quanto di meglio c'è e lo possiamo far generare lato server.
 </p>
 <p>
-   JSON in SQL o noSQL? Un bel dilemma. Javascript era nato per rappresentare.<br>
-   Poi uno è libero di portarsi tutti i dati lato client e fargli fare gli WHERE e i GROUPBY che vuole.
+   JSON in SQL o noSQL? Un bel dilemma. Javascript era nato per rappresentare più che per trasformare. L'analisi richiede almeno 4 livelli di revisione.<br>
 </p>
 
 <h>
