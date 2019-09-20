@@ -261,6 +261,10 @@ choice {
     text-align: right !important;
 }
 
+.tjustify {
+    text-align: justify !important;
+}
+
 .full-list {
     text-align: right;
     font-style: italic;   

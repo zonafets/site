@@ -2,7 +2,7 @@
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8">
    <meta name="created" content="2018-08-10609:00:00">
-   <meta name="changed" content="2019-09-12T00:17:00">
+   <meta name="changed" content="2019-09-19T00:17:00">
    <meta name="viewport" content="width=device-width, initial-scale=0.6">
 
    <style>
@@ -64,6 +64,13 @@
    Gli informatici hanno una missione sociale.
    La storia non ci aiuta, a parte che sta diventando una babele di linguaggi e di cloni.
 </p>
+<h>E=MC^2</h>
+<p>
+	Ecco, ora che sappiamo la formula della relatività speciale, siamo tutti scienziati.
+	Invece, tanto per cominciare, quella non è altro che una semplificazione.
+	Noi informatici non dovremmo farci abbagliare troppo facilmente dall'ultimo articolo di giornale che parla dell'ultimo silver bullet,
+	come se fosse la soluzione delle soluzioni.
+</p>
 <h>
    Il principio di indeterminazione di Heisemberg
 </h>
@@ -76,17 +83,24 @@
 <p>
 	Ciò vale anche per la comprensione, soprattutto per il difetto della circolarità dei sistemi linguistici.
 </p>
+<p>
+	Personalmente ritengo che questa vada a braccetto con i teoremi di incompletezza di Gödel. 
+	Sostanzialmente essi dicono che la matematica da sola non basta a descrivere la realtà. 
+	Ci vorrà talvolta una descrizione letterale. Probabilmente è per questo che molti credono che la matematica sia un'opinione.
+	Altri credono che la realtà sia una convinzione collettiva.
+</p>
 <h>
-   Il rapporto 80/20
+   80%Basic/20%C
 </h>
 <p>
    Nel '700 il matematico A.Pareto, stimò che le relazioni tra
    gli elementi di un dominio (non ottimizzato) finiscono in rapporto 
    80/20 (più o meno). Il 20% del prodotto, rende l'80%.
    Nell'80 IBM fece proprio questo principio dichiarando che basta
-   scrivere il 20% del codice in un linguaggio a basso livello (C a quei tempi).
+   scrivere il 20% del codice in un linguaggio a basso livello.
 </p>
 <p>
+   Questo principio si può applicare anche all'organizzazione del codice e non solo al tipo.
    Facile dirsi ma ovviamente tra teoria e pratica, c'è sempre di mezzo l'applicazione pratica.
 </p>
 
@@ -140,7 +154,8 @@
 </h>
 <p>
    Il significato della parola "informatica" non è:"togliamo la carta", come è accaduto con pergamene e tavole di pietra.
-   Sebbene il costo si riduce a 1/10, i software di simulazione documentale come Word e Excel e le emails rappresentano un limite che il web supera.
+   Sebbene paperless riduca i costi a 1/10, aumentano i costi del processo.
+   I software di simulazione documentale come Word e Excel e le emails rappresentano un limite che il web supera.
 </p>
 <h>
 	Il pair programming
@@ -152,10 +167,10 @@
 	Parliamo del sesso degli angeli
 </h>
 <p>
-	Come dicevo dell'OOP, parlare di "albero", "casa" è come parlare del sesso degli angeli.
-	Ne risulta un discorso miope o astigmatico. A scuola non lo insegnano ma la matematica va acquisita tramite il canale visivo anziché auditivo. 
+	Come dicevo dell'OOP, parlare di "albero", "casa" è come parlare del sesso degli angeli. Non ha nulla di concreto.
+	Ne risulta un discorso astigmatico. A scuola non lo insegnano ma la matematica va acquisita tramite il canale visivo anziché auditivo. 
 	Avere un disegno comune vuol dire avere un riferimento. Se ascoltiamo un film in una lingua sconosciuta, non capiremo niente. Se vediamo le 
-	scene, intuiremo qualcosa o almeno potremo inferire delle discrepanze utili al chiarimento.   
+	scene, intuiremo qualcosa o almeno potremo inferire delle discrepanze utili al chiarimento. Più avanti affronterò il problema dell'ereditarietà.   
 </p>
 <h>
 	Il principio della profezia autorealizzante
@@ -353,9 +368,23 @@
    La <b>"normalizzazione"</b> è il principio DRY per i databases. Tuttavia la descrizione dell'articolo deve essere duplicata
    nella bolla/fattura perche sono documenti ufficiali. Nel mondo noSQL la ridondanza dei dati fa anche bene alla distribuzione, per il
    bilanciamento di carico etc. <br>
-   Ci sono anche casi in cui è bene duplicare il codice. Ad esempio, per chi si è imbattuto in ORM fai da te, che omettono tutta una serie di features degli engine DB tipo la gestione delle transazioni, eseguire un'operazione di copia con versionamento risulta in 4 operazioni di I/O anziché in una transazione unica.
-   Se l'ORM è stato scritto con tutti i crismi, le 4 operazioni risulteranno in un unica classe od oggetto riciclato 4 volte ma con problemi di gestione della concorrenza. La storia è lunga ma la conclusione è che è più utile ridondare il codice per ridurre la complessità (più chiarezza e semplicità).   
+   Ci sono anche casi in cui è bene duplicare il codice. Ad esempio, per chi si è imbattuto in ORM fai da te, 
+   che omettono tutta una serie di features degli engine DB tipo la gestione delle transazioni o 
+   la gestione delle dipendenze, eseguire un'operazione di copia con versionamento risulta in 4 operazioni di I/O anziché in una transazione unica.
+   Se l'ORM è stato scritto con tutti i crismi, le 4 operazioni risulteranno in un unica classe od oggetto riciclato 4 volte ma con problemi di gestione della concorrenza. 
+   Per farla breve è più utile ridondare il codice per ridurre la complessità (più chiarezza e semplicità) ed equalizzare la cultura del team.   
 </p>
+<h>By-Design</h>
+<p>
+Quando bisognava modificare un programma, 20 anni fa, si aggiungeva un parametro o un campo ad una struttura e poi il relativo codice.
+A volte poteva bastare aggiungere un ID ed espandere uno switch o appliare l'uso della parte variabile della struttura. Oppure in C c'erano le UNION, ma è acqua passata.
+Poi qualcuno ha detto che così non andava bene perché tra puntatori e chi metteva i campi in mezzo e il cast etc., insomma si spaccava tutto.
+Così ha inventato l'OOP e poi le interface. Rimane il problema che tra chi chiede, chi prende in carico e chi esegue, non devono conoscere per il principio di disaccoppiamento, al fine di mantenere gli oggetti riciclabili.
+Ad ognuno viene dato il set di informazioni limitato a ciò che lo interessa. Ad esempio chi salva un dato, non sa che è nel contesto di una copia carbone.
+Ed ecco che quel che è originato come un dato di tipo CopiaCarbone, finisce con un tipo SalvaRecord intermediato da un tipo SalvaConCopiaSorgente tutti in religioso rispetto dell'interfaccia comune.
+</p>
+
+
 <h>
    JSON?
 </h>
@@ -601,22 +630,21 @@
    Vedo il tuo bug e rilancio con un deadlock di classi
 </h>
 <p>
-   Qualsiasi linguaggio è un sistema circolare per natura. La "parola" non
-   è la "cosa". A parole, tutto può diventare il suo contrario. Non c'è
-   astrazione che lo impedisca. Proprio noi italiani siamo maestri
-   in questo.
+   Qualsiasi linguaggio è un sistema circolare per natura poiché il "nome" non
+   è l'"oggetto". A parole, tutto può diventare il suo contrario. 
+   Nulla poteva e può impedirci di costruire una funzione A che chiama B che richiama A.
+   Non c'è astrazione che lo impedisca. <b>Nulla deve impedirci di creare dal nulla.</b>
 </p>
 <p>
-   Un'azienda da un servizio tramite i suoi membri che lo danno anche
-   privatamente. Solo pensare agli eventuali conflitti, alle conseguenze e
-   alla loro gestione è un costo non indifferente che cozzerà anche con il
-   sistema di livello superiore (il contenitore).
+   Più aumenta la distanza tra le funzioni come il numero di livelli di astrazione, meno individuabile sarà il problema.
+   Gli errori semantici possono essere introvabili perché li abbiamo davanti agli occhi.
+   Se un sistema pubblico da gli stessi servizi in privato, c'è un conflitto logico.
 </p>
 <p>
    Tutto parte da un individuo che fa una cosa. Un'altro lo vede e lo
-   fa anche lui. Arriva l'osservatore che dice:"Hei, ci sono due entità
+   replica variando qualcosa. Arriva l'osservatore che dice:"Hei, ci sono due entità
    che adottano comportamenti comuni. Facciamone un modello!". Fatto il
-   modello, lo si applica in scala e diventa un disastro che sta in piedi
+   modello, lo si applica in scala e diventa un disastro che starà in piedi
    solo per inerzia.
 </p>
 <p>
@@ -631,6 +659,16 @@
    La tridimensionalità è una condizione minima per non
    incappare in errori concettuali. E' una regola che applico
    anche nell'UI design, ma questo è un altra questione.
+</p>
+
+<h>Team</h>
+<p>
+	Lavorare in team è meraviglioso. Se non ci credete, guardatevi Lego Movie.
+	Bisogna stare attenti però perché la distinzione tra team e pool è sottile.
+	Una volta dissi al membro del mio team di porre delle istruzioni sotto una procedura.
+	Il responsabile tecnico, nonché titolare dell'azienda (in italia una persona riveste più ruoli, tanto per incasinare ben bene),
+	lo vide e lo ammonì. La sera lo dovetti convincere a rimanere in azienda. Era il più dotato che avevamo.
+	Anni dopo criticava le mie proposte. Dopo che l'azienda decise di non avvalersi più di me, anche lui se ne andò.
 </p>
 
 <h>
@@ -804,9 +842,57 @@ Kiss me the code
    </code>
    </div>
 </div>
-<h>
-	Tributo a Federico Faggin
-</h>
+<h>Commenti e finezze da programmatore</h>
+<p>
+	Questo codice iniziava così:
+	<pre>
+		Public Overridable ReadOnly Property Outcome() As IResult.OutcomeCode Implements IResult.Outcome
+	</pre>
+	ed era very huge per quel che fa.
+	L'ho semplificato per lo scopo didattico:
+	<pre>
+		function OutCome
+			failure = 0, success = 0
+			
+			For Each result In Me
+				If result.Outcome = Success Then success += 1
+				If result.Outcome = Failure Then failure += 1
+
+			If failure = Count Then Return Failure
+			If success = Count Then Return Success
+			Return Partial
+	</pre>
+	La finezza consiste nel considerare che se Count è zero, il risultato sarà Failure. Ma è voluto o è una fortuita svista?
+	In questo caso un commento ci vorrebbe, ma ancora una volta quanto detto da Ritchie("Don't comment code, rewrite it") è valido:
+	<pre>
+		function OutCome
+			failure = 0, success = 0
+			if Count = 0 Then Return Failure
+			. . .
+	</pre>
+	Non solo toglie ogni dubbio, ottimizzando la lettura, ma risulta anche più veloce in esecuzione.
+</p>
+<p>
+	Questo esempio è interessante anche per vedere che il codice più prolisso, in termini di descrizione, non è necessariamente più corretto od ottimizzabile dal compilatore.
+	
+</p>
+<h>Reddito da lavoro, da eredita(rietà) e di cittadinanza</h>
+<p>
+Come nella vita, anche nella programmazione si vuol "ottimizzare" e lavorare meno.
+Quindi facciamo una classe in cui si prevede tutto. 
+Poi finisce che un dato va riacquisito dinamicamente dall'origine, quando viene usato.
+Per tagliar corto, quando un membro di un oggetto è valorizzato con quello di un altro, per ogni evenienza, bisognerebbe portarsi dietro tutto l'oggetto originale.
+Questo va fatto in cascata con tutti i membri di tutti gli oggetti. Non a caso risulterebbe in una cascata che risale.
+</p>
+<h>To OOP or not to OOP, this is the problem</h>
+<p>
+	Se organizzare il codice in classi, interfacce e namespaces sarà un bene, quando si è dentro una classe, rimangono i vecchi dilemmi di come strutturare il codice in e nei metodi.
+</p><p>
+	Ad esempio, nel caso di tre <b>login</b>: da utente dell'applicazione, da utente intranet/dominio e da internet/web, cosa facciamo? Un metodo <b>login(tipo)</b>? 
+	Tre metodi <b>LocalLogin, DomainLogin, WebLogin</b>? Questi nomi poi prenderanno forma OOPizzata: DoNormalAuthentication, DoDomainAuthentication, etc.
+	Oppure ne facciamo 3 classi con comune interfaccia o classe base con metodo virtuale o overridable o come diavolo lo chiama il linguaggio di turno?
+</p>
+<h>Tributo a Federico Faggin</h>
 <p>
 	Dopo un mese, il BASIC già mi stava stretto. Ho così appreso l'assembler Z80 e le fasi di trasformazione di un codice sorgente in binario, o linguaggio macchina.
 	Qualche mese fa mio figlio, in prima elementare, mi ha stupito nel saper fare conti complessi e bloccarsi chiedendogli di procedere passo passo togliendo o aggiungendo 1, N volte.

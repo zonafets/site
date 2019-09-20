@@ -269,7 +269,7 @@ app.cv_data.en.experiences = [
 		stack: "Pascal, C, ASMx86, Ventura Publisher, Coreldraw, Autocad, MSOffice, Dos, Novell, Windows"
 	},{
 		// ================================================================================================================
-		period: "1994 - 1997",
+		period: "1986 - 1990",
 		// ================================================================================================================
 		comp: 	"Student, self-taught, technician - programmer",
 		competencies: ["TP"],
