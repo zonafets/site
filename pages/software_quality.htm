@@ -161,16 +161,29 @@
 	Il pair programming
 </h>
 <p>
-	Funziona. Dicono faccia risparmiare il 30%. Si, nel mondo anglosassone, nel mondo latino arriverà anche al 50%.
+	Funziona. Dicono faccia risparmiare il 30%. Si, nel mondo "organizzato" anglosassone, nel mondo "italiano" latino, arriverà anche al 50%.
 </p>
 <h>
 	Parliamo del sesso degli angeli
 </h>
 <p>
 	Come dicevo dell'OOP, parlare di "albero", "casa" è come parlare del sesso degli angeli. Non ha nulla di concreto.
-	Ne risulta un discorso astigmatico. A scuola non lo insegnano ma la matematica va acquisita tramite il canale visivo anziché auditivo. 
-	Avere un disegno comune vuol dire avere un riferimento. Se ascoltiamo un film in una lingua sconosciuta, non capiremo niente. Se vediamo le 
-	scene, intuiremo qualcosa o almeno potremo inferire delle discrepanze utili al chiarimento. Più avanti affronterò il problema dell'ereditarietà.   
+   Prr altro, sempre di comunicazione si tratta, con tutti i vincoli. Tra questi c'è il problema del sesto livello di narrazione.
+   A questo livello, qualsiasi contenuto avesse l'origine, sarà completamente cambiato (n.d.p.: Angular già alla seconda versione).
+	Avere un disegno comune vuol dire avere un riferimento. Mi è capitato comunque di vedere interpretare al contrario il senso della freccia di "A dipende da B".    
+</p>
+<h>Bugs e comunicazione: tutti i bugs sono implementazioni</h>
+<p>
+   Se non ci sono dubbi che "2+2=4", già ci vengono con:"4=2+2". Il primo dice che "causa->effetto". Non so gli arabi, ma per chi è abituato a leggere da sinistra a destra, questo è il processo che svolgerà il cervello in automatico.
+</p><p>
+   Il testo di un bug, redatto da un ex "tecnicamente competente" programmatore, si strutturava così:<br>
+   1. contesto del problema<br>
+   2. esempio di soluzione temporanea adottata<br>
+   3. nota tecnica di implementazione<br>
+   4. nota tecnica di altra implementazione analoga<br>
+   Il risultato è stato che, pure per un "esperto" come me, ho implementato i punti 2 e 4. Questo perché, voi per fretta, vuoi per sonnolenza, vuoi qualsiasi lecito motivo, ma non certo la volontà di creare danno o extra lavoro, il punto 2 era una ridondanza del punto 3.<br>
+   Un'implementazione non ne dovrebbe includere due e chiamarsi bug, ma mi adeguo.<br>
+   I bugs sono:"Non ho avuto/dedicato abbastanza tempo all'analisi/test". Meno tempo significa soldi non spesi. Poi ci può essere chi per esperienza, evita a priori di scrivere codice "aperto" alla nascita di bugs, ma questa è un'altra storia. 
 </p>
 <h>
 	Il principio della profezia autorealizzante
@@ -221,11 +234,9 @@
    nove. Ogni semplificazione implica una riduzione.
 </p>
 <p>
-   Il codice con le interface, di fatto non fa niente. E' come dire che le
-   scatole si faranno tutte quadrate perché dovranno contenere solo cose
-   quadrate per preservare l'ordine ossia <b>contenere il disordine</b>.
-   Ma ogni contenimento è un limite e l'ereditarietà non ha affinità con  
-   l'elasticità della scomposizione e ricomposizione delle Lego.
+   Il codice con le interface, di fatto non fa niente. Servono per <b>contenere il disordine</b>.
+   Teoricamente vogliono evitare che un programmatore la pensi diversamente da un altro.
+   Quindi se qulcuno trova un modo migliore o un linguaggio diverso ...
 </p>
 <p>
    Se i mattoncini rappresentano il carattere e la loro combinazione forma la personalità.
@@ -453,10 +464,9 @@ Ed ecco che quel che è originato come un dato di tipo CopiaCarbone, finisce con
    fossero features":
 </p>
 <p>
-   <b>Ho visto</b> programmi C++ che facevano un uso raffinato, quasi inebriante, dei templates
-   (AGG). Quando è venuto il momento di usarli ho
-   lasciato perdere dopo essermi accorto anche che quando il gioco si fa
-   duro, solo l'hardware può giocare e non c'è ottimizzazione software che tenga.
+   <b>Ho visto</b> programmi C++ che facevano un uso raffinato dei templates
+   (AGG). Al momento di usarli ho lasciato perdere. Troppo complessi. Poi mi sono accorto anche che quando il gioco si fa
+   duro, solo l'hardware può giocare e non c'è ottimizzazione software che possa competere.
 </p>
 <p>
    <b>Ho visto</b> programmi fare uso di interface in maniera magistrale, in un
