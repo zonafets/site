@@ -146,7 +146,8 @@ app.cv_data.en.experiences = [
 				projects:[
 					{name:"deploy optimization", desc:"reduction of organization time and complexity", link:"https://www.youtube.com/edit?o=U&video_id=MBP_jCdrCDc"},
 					{name:"adaption sw PDA", desc:"from Motorola to Intermec with bluet. thermal printer, from SqlCe to Sqlite"},
-					{desc:"live partitioning of millions of historical data with DDL events"},
+					{name:"migration analysis", desc:"from SqlCe to Sqlite, from VB.NET to C#, from WinForms to Xamarin.Forms"},
+					{desc:"live partitioning of millions of historical data with DDL events to automatically adapt to unaware structural alterations"},
 					{name:"SAP connector", desc:"management sw integration with SAP", link:"https://www.youtube.com/watch?v=qMPB_zsRn1s?t=5s"},
 					{name:"Import/Export", desc:"EDI/CSV/FTP Nutricia/Nestlé/Beghelli/TNT Traco", link:"https://www.youtube.com/edit?o=U&video_id=hCIbzP47_0c"},
 					{name:"batch records", desc:"quality certification management of technical, pure and medical gases", link:"https://www.youtube.com/watch?v=t7-qQL8V-zA"},

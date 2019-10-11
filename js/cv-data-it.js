@@ -155,7 +155,8 @@ app.cv_data.it = {
 					projects:[
 						{name:"ottimizzazione deploy", desc:"riduzione tempi e complessità dell'organizzazione", link:"https://www.youtube.com/edit?o=U&video_id=MBP_jCdrCDc"},
 						{name:"adattamento sw PDA", desc:"da Motorola a Intermec con stampante bluet. termica, da SqlCe a Sqlite"},
-						{desc:"partizionamento live di milioni di dati storici con DDL events"},
+						{name:"analisi migrazione", desc:"da SqlCe a Sqlite, da VB.NET a C#, da Winforms a Xamarin.Forms"},
+						{desc:"partizionamento live di milioni di dati storici con DDL events per adattamento a inconsapevoli cambiamenti strutturali"},
 						{name:"SAP connector", desc:"integrazione gestionale con SAP", link:"https://www.youtube.com/watch?v=qMPB_zsRn1s?t=5s"},
 						{name:"Import/Export", desc:"EDI/CSV/FTP Nutricia/Nestlé/Beghelli/TNT Traco", link:"https://www.youtube.com/edit?o=U&video_id=hCIbzP47_0c"},
 						{name:"batch records", desc:"gestione certificazione qualità GAS tecnici, puri e medici", link:"https://www.youtube.com/watch?v=t7-qQL8V-zA"},
