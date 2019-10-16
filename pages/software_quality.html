@@ -548,10 +548,12 @@ Ed ecco che quel che è originato come un dato di tipo CopiaCarbone, finisce con
 </p>
 <p>
    <b>Ho visto</b> banali <span class="orange">"SELECT qualcosa FROM tabella WHERE condizione"</span>
-   seppellite sotto strati e strati di codice da far piangere (è la nuova programmazione a cipolla)
+   seppellite sotto strati e strati di codice da far piangere (è la nuova programmazione a cipolla),
+   10 passaggi, alcuni ricorsivi, di 30 istruzioni, equivalenti ad 1 passaggio di 10 istruzioni SQL92. 
 </p>
 <p>
-	<b>Ho visto</b> professionisti scrivere codice inutilmente suvrastrutturato, perché erano abituati così e per loro era più facile e veloce.
+	<b>Ho visto</b> professionisti(che di fatto sono solo lavoratori autonomi) scrivere codice inutilmente suvrastrutturato, 
+	perché erano abituati così e quindi per loro era più facile e veloce.
 </p>
 <p>
 	<b>Ho visto</b> utenti dichiarare che il programma aveva dato errore X ma senza visualizzare il messaggio.
@@ -564,7 +566,7 @@ Ed ecco che quel che è originato come un dato di tipo CopiaCarbone, finisce con
 </p>
 <p>
    <b>Ho lavorato</b> alla manutenzione di 2.000.000 di righe di codice scritto con tutti i crismi OO e dei patterns & C.. e mi sono chiesto se 
-   sia più facile cercare una scatola tra 4.000.000 disposte in piano, 
+   sia più facile cercare una scatola tra 4.000.000 disposte in piano ad array, 
    oppure una in 2.000.000 disposte a piramide, che per di più contiene solo un riferimento astratto alla vera scatola.
 </p>
 <p>
@@ -738,6 +740,22 @@ Ed ecco che quel che è originato come un dato di tipo CopiaCarbone, finisce con
 	Ho usato questa regola per anni, assieme alla teoria dei sistemi, per raggiungere gli obiettivi nei tempi e costi stimati, senza ritrovarmi grossi problemi in post produzione.
 	I programmi come G-Marmo, Tavolinux e SAP Connector che sono sopravvissuti o sopravvivono per otto o più anni senza modifiche, ne sono una testimonianza.
 </p>
+</project>
+
+<project title="Autoelettriche ibride e LINQ" date="2019-10-16">
+<p>Personalmente, e non solo io, trovo la macchina elettrica ibrida uno spreco, anche se probabilmente è un passaggio necessario per far cassa da investire in innovazione.
+Credo che un'auto elettrica ibrida non dovrebbe essere un bimotore, bicircuito, etc. con il doppio della complessità. Sarebbe più utile e semplice una macchina totalmente elettrica, 
+con un piccolo motore a benzina che fa da generatore di riserva.</p>
+<p>Pensiamo a cosa fa un ORM. Partiamo da un engine DB. Esso viene scritto in un linguaggio a basso livello. 
+Definisce una struttura comune che si porta dietro i comandi CRUD da eseguire sui records. 
+Poi viene costruito un parser che trasforma costrutti SQL in istruzioni che popolano la struttura base con la finale chiamata alla funzione esecutrice.
+</p>
+<p>L'ORM usa il linguaggio di basso livello (JAVA,C#,etc.) come astrazione del linguaggio SQL, che è un'astrazione del linguaggio a basso livello.</p>
+<p>E' vero che riduce la complessità linguistica. LINQ riesce addirittura ad unificare le modalità di gestione dei dati, dimostrando, per altro, che i costrutti simil-SQL sono più comodi.
+E' possibile che se nessuno avesse creato un ORM, oggi LINQ sarebbe solo un'idea vaga. Però qualcuno lamenta problemi di performance. Personalmente 
+all'ORM avrei preferito dei templates, ossia una macro soluzione.</p>
+<p>Tuttavia ancora una volta il principio di indeterminazione di Heisemberg ci mostra che l'alternanza tra due soluzioni (CISC o RISC?) sarà eterna.
+L'HTML è fantastico ma troppo verboso quando infarcito di attributi per fargli fare qualcosa di diverso dalla sua natura.</p>
 </project>
 
 <project title="Kiss me the code">
