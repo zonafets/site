@@ -144,12 +144,12 @@ app.cv_data.en.experiences = [
 			{ 
 				name:"Seltris Srl", prov:"MN", link:"http://www.seltris.eu",
 				projects:[
-					{name:"deploy optimization", desc:"reduction of organization time and complexity", link:"https://www.youtube.com/edit?o=U&video_id=MBP_jCdrCDc"},
+					{name:"deploy optimization", desc:"reduction of organization time and complexity", link:"https://www.youtube.com/watch?v=MBP_jCdrCDc"},
 					{name:"adaption sw PDA", desc:"from Motorola to Intermec with bluet. thermal printer, from SqlCe to Sqlite"},
 					{name:"migration analysis", desc:"from SqlCe to Sqlite, from VB.NET to C#, from WinForms to Xamarin.Forms"},
 					{desc:"live partitioning of millions of historical data with DDL events to automatically adapt to unaware structural alterations"},
 					{name:"SAP connector", desc:"management sw integration with SAP", link:"https://www.youtube.com/watch?v=qMPB_zsRn1s?t=5s"},
-					{name:"Import/Export", desc:"EDI/CSV/FTP Nutricia/Nestlé/Beghelli/TNT Traco", link:"https://www.youtube.com/edit?o=U&video_id=hCIbzP47_0c"},
+					{name:"Import/Export", desc:"EDI/CSV/FTP Nutricia/Nestlé/Beghelli/TNT Traco", link:"https://www.youtube.com/watch?v=hCIbzP47_0c"},
 					{name:"batch records", desc:"quality certification management of technical, pure and medical gases", link:"https://www.youtube.com/watch?v=t7-qQL8V-zA"},
 					{desc:"central warehouse management", link:"esempi_estratti_da_mie_analisi.htm#User_and_Developer_guide_(2009)_"},
 					{desc:"international integration", link:"esempi_estratti_da_mie_analisi.htm#Developer_Guide_(2009)"},

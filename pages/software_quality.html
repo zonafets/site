@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="created" content="2018-08-10609:00:00">
-	<meta name="changed" content="2019-10-09T00:17:00">
+	<meta name="changed" content="2019-11-26T00:17:00">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Zaglio CV: Technical culture</title>
 
@@ -167,7 +167,7 @@
 <p>
    L'OOP (nata negli USA) ha diffuso l'idea che l'astrazione sia la madre delle soluzioni.
    Sfortunatamente ne sappiamo tutti poco, tutt'al più conosciamo qualcuno che sa (il docente o l'articolo che ci hanno istruito).
-   La pratica ci ha dimostrato che l'astrazione non ha ridotto l'entropia del software. 
+   La pratica ci ha dimostrato che l'astrazione non ha ridotto l'entropia del software come il type strict non riduce significativamente i bugs. 
    Alla quarta review, un sistema di classi subisce uno sconvolgimento. Si salvano quelle più simili a dei tipi base.
    Infatti la programmazione <b>Object Based</b> non è da eludere.
    Ma ogni linguaggio di programmazione è pur sempre un linguaggio e per questo gravido degli stessi limiti.
@@ -213,9 +213,9 @@
 <project title="Parliamo del sesso degli angeli">
 <p>
 	Come dicevo dell'OOP, parlare di "albero", "casa" è come parlare del sesso degli angeli. Non ha nulla di concreto.
-   Prr altro, sempre di comunicazione si tratta, con tutti i vincoli. Tra questi c'è il problema del sesto livello di narrazione.
+   Per altro, sempre di comunicazione si tratta, con tutti i vincoli. Tra questi c'è il problema del sesto livello di narrazione.
    A questo livello, qualsiasi contenuto avesse l'origine, sarà completamente cambiato (n.d.p.: Angular già alla seconda versione).
-	Avere un disegno comune vuol dire avere un riferimento. Mi è capitato comunque di vedere interpretare al contrario il senso della freccia di "A dipende da B".    
+	Avere un disegno comune vuol dire avere un riferimento anche se (o perché) non è chiaro che senso dare alla freccia per rappresentare "A dipende da B".    
 </p>
 </project>
 
@@ -272,22 +272,19 @@
 <p>
    Poi vennero il <b>Garbage Collector e nuovi paradigmi di programmazione
    astratta</b> che ancora oggi promettono al programmatore
-   di poter dimenticare di tutta una serie di fastidiosi doveri. Il concetto
+   di poter dimenticare tutta una serie di fastidiosi doveri. Il concetto
    dell'OOP nasce da un'idea di Alan Kay che ha dichiarato di non 
    aver mai pensato ad un linguaggio. Il suo
    accostamento alla biologia era solo un'analogia. La biologia
    tratta più di due o tre livelli (classe/istanza o
    modello/classe/interfaccia). Con famiglia, regno e quant'altro ne ha almeno
-   nove. Ogni semplificazione implica una riduzione.
+   nove. Ogni semplificazione implica una riduzione e ogni obbligo è anche un impedimento.
 </p>
 <p>
-   Il codice con le interface, di fatto non fa niente. Servono per <b>contenere il disordine</b>.
-   Teoricamente vogliono evitare che un programmatore la pensi diversamente da un altro.
-   Quindi se qulcuno trova un modo migliore o un linguaggio diverso ...
-</p>
-<p>
-   Se i mattoncini rappresentano il carattere e la loro combinazione forma la personalità.
-   Se funzioni e tipi base sono i mattoncini, la loro combinazione da personalità al programma.
+   Nel linguaggio delle LEGO, se i mattoncini rappresentano il carattere e la loro combinazione forma la personalità.
+   Se funzioni e tipi base sono i mattoncini. Le LEGO moderne sono più bene in quanto più vicine al prodotto rappresentato.
+   L'aumento dei micro-pezzettini e la loro specializzazione ha ridotto la creatività. Probabilmente si possono fare anche
+   più cose, ma è richiesta maggiore creatività ed immaginazione. Ciò scoraggia l'inventiva.
 </p>
 </project>
 
@@ -318,6 +315,9 @@
 <p>
    Chi NON ha esperienza di programmazione a basso livello, potrebbe non
    scoprirlo mai, concludendo che sia necessario scalare l'hardware.
+</p>
+<p>
+	Questo problema affligge maggiormente nell'uso di oggetti e la dove ci sia gestione di memoria con il Garbage Collector.
 </p>
 </project>
 
@@ -417,6 +417,10 @@
    Mi stupisce sempre sentire di performance eccelse di strumenti quali ad esempio Node.js.
    Azzarderei a dire che le performance di sviluppo sono inversamente proporzionali alle prestazioni di runtime.
 </p>
+<p>
+   <b>Per un'analisi di differenza di normalizzazione in caso di un Document System Management, 
+   seguire questo <a href="dsm_normalization.html">link</a><b>
+</p>
 </project>
 
 <project title="10 piccole query">
@@ -446,6 +450,17 @@ Poi qualcuno ha detto che così non andava bene perché tra puntatori e chi mett
 Così ha inventato l'OOP e poi le interface. Rimane il problema che tra chi chiede, chi prende in carico e chi esegue, non devono conoscere per il principio di disaccoppiamento, al fine di mantenere gli oggetti riciclabili.
 Ad ognuno viene dato il set di informazioni limitato a ciò che lo interessa. Ad esempio chi salva un dato, non sa che è nel contesto di una copia carbone.
 Ed ecco che quel che è originato come un dato di tipo CopiaCarbone, finisce con un tipo SalvaRecord intermediato da un tipo SalvaConCopiaSorgente tutti in religioso rispetto dell'interfaccia comune.
+</p>
+</project>
+
+<project title="XLS">
+<p>
+<pre>"L'organizzazione di un'azienda è inversamente proporzionale al numero di fogli XLS che usa."</pre>
+Questa non è mia, ma la sottoscrivo. Se già rigide strutture possono contenere dati assurdi tramite campi sovradimensionati o note, 
+figuriamoci cosa può fare una cella Excel che può cambiare natura. Sfortunatamente in un periodo in cui molti individui
+sono quantitativamente troppo istruiti, dimentichiamo che una piccola differenza di qualità fa una grande differenza nel lungo periodo.
+</p><p>
+Una soluzione "smart" può sembrare frutto di genialità e creatività, ma potrebbe solo gestire il problema senza risolverlo.
 </p>
 </project>
 
@@ -993,6 +1008,57 @@ Mi limiterò a ricordarne l'aspetto tecnico-pratico.
 Sostanzialmente questa prende ad uno ad uno una serie di codici che rappresentano nomi, valori e operazioni.  
 Queste assegnano i valori ai nomi e operano dei confronti. Sulla base del risultato, si può assegnare un valore ad un nome speciale,
 il Contatore di Programma. Questo indica il punto successivo in cui la serie deve proseguire. Con ciò si ottiene una macchina universale.</p>
+</project>
+
+<project title="MVVM o MVC o Component?">
+
+<p>Classico esempio:</p>
+<pre>
+	vm = {
+		fname,lname: string
+		fullname => fname + ' ' + lname
+	}
+</pre>
+<p>Supponiamo di voler legare l'attivazione di lname alla valorizzazione di fname.
+Il legame non è più tra i membri del modello ma esce ed entra nel modello grafico, che è ciò che avviene automaticamente tra fullname e il suo controllo.</p>
+<pre>
+	fname.subscribe(
+		f(value) {
+			controlOf(lname).disabled = (value == "")
+		}
+	}
+</pre>
+<p>Altrimenti sarebbe stato:</p>
+<pre>
+	controlOf(fname).onCHANGE = f() {
+		controlOf(lname).disabled = ( controlOf(fname).value == "" )
+	}
+</pre>
+<p>Quale'è la differenza?
+Che il primo è legato allo stato, il secondo all'evento.
+Il primo caso, oltre a richiedere meno codice, funziona anche con:</p>
+<pre>
+	fname = ""
+</pre>
+<p>Mentre:</p>
+<pre>
+	controlOf(fname).value = ""
+</pre>
+<p>Non fa scattare l'evento keyPRESS a cui potrebbe essere legato l'onCHANGE.</p>
+<!--
+https://stackoverflow.com/questions/56860/what-is-an-example-of-the-liskov-substitution-principle
+https://stackoverflow.com/questions/36950582/angular2-mvc-mvvm-or-mv
+https://medium.com/javascript-scene/angular-2-vs-react-the-ultimate-dance-off-60e7dfbc379c
+-->
+</p>
+</project>
+
+<project title="Notazione ungara">
+<p>
+Oggi la n.u. non ha più senso perché gli IDE ci aiutano ad identificare il tipo di identificatore.
+In realtà forse non l'ha mai avuta perché le capacità mentali dei più sono limitate e il problema va necessariamente diviso in sottocontesti piccoli a sufficienza da consentire di chiamare le variabili i,k e n.<br>
+Eppure c'è chi ancora la usa quasi come se nella sua testa si parlasse in terza persona:"Lei adesso si trova in una variabile di tipo Classe" e quindi abbiamo "clsVar = new Class;".
+</p>
 </project>
 
 <p>
