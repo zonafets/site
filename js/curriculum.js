@@ -235,7 +235,7 @@ function buildFullList(body,fullList,colSpan) {
 	var tr
 	var td
 	tr = document.createElement("TR")
-	tr.className = "full-list tright"
+	tr.className = "full-list"
 	td = document.createElement("TD")
 	td.colSpan = colSpan
 	var html = fullList.text.replace("%link%",fullList.link)
@@ -516,7 +516,6 @@ function test(){
 function main() {
 	var language = (navigator.language || navigator.browserLanguage).split('-')[0]
 	if (language != "it" && language!="en") language = "en"
-	document.body.className = 'fade-in'
 
 	test()
 
@@ -529,4 +528,6 @@ function main() {
 	buildRoles()
 
 	translate(language)
+
+	document.body.className = 'fade-in'
 }

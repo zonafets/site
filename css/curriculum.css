@@ -90,6 +90,9 @@ p span
     roles table tbody tr td:first-child {
         white-space: nowrap;
     }
+    .full-list {
+        text-align: right;
+    }
     .xs-screen {
         display:none;
     }
@@ -115,6 +118,9 @@ p span
     }
     persona-info {
         width:100%;
+    }
+    .full-list {
+        text-align: center;
     }
     .normal-screen {
         display:none;
@@ -288,7 +294,6 @@ choice {
 }
 
 .full-list {
-    text-align: right;
     font-style: italic;   
 }
 
