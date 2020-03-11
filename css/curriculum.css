@@ -62,51 +62,72 @@ pictures {
     width: 100%;
 } 
 
-images {
-    width: 45%;
+p span 
+{
     display: inline-block;
-    text-align: center;
 }
 
 @media print {
     images {
         text-align: right;
     }
+    .xs-screen {
+        display:none;
+    }
+    personal-info {
+        min-width: 50%;
+        display: inline-block;
+        float:left;
+    }
+    images {
+        width: 50%;
+        display: inline-block;
+        text-align: center;
+    }
 }
 
-@media all and (min-width: 600px) {
-    game-developer, technician, expert {
-        display: inline-block;
-        width: 30%;
-    }
+@media screen and (min-width: 600px) {
     roles table tbody tr td:first-child {
         white-space: nowrap;
     }
     .xs-screen {
         display:none;
     }
-    .normal-screen {
-        display:inline-block;
+    personal-info {
+        min-width: 50%;
+        display: inline-block;
+        float:left;
+    }
+    images {
+        width: 50%;
+        display: inline-block;
+        text-align: center;
     }
 }
 
-@media all and (max-width: 599px) {
-    technician {
-        display: inline-block;
-        width: 60%;
-    }
-    game-developer, expert {
-        display: none;
-    }
+@media screen and (max-width: 599px) {
     roles table tbody tr td:first-child {
         text-align: center;
     }
-    .xs-screen {
-        display:inline-block;
+    header {
+        width: 100%;
+        text-align: center;
+    }
+    persona-info {
+        width:100%;
     }
     .normal-screen {
         display:none;
     }
+    images {
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+    }
+}
+
+header {
+    width: 100%;        
 }
 
 thead * {
@@ -120,7 +141,7 @@ table {
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
-    margin-top: 0px;
+    margin-top: 3px;
     margin-left: 0px;
     margin-bottom: 10px;
     margin-right: 0px;
@@ -189,44 +210,39 @@ contact-info {
     text-align: justify;
 }
 
-personal-info {
-    min-width: 50%;
-    display: inline-block;
-    float:left;
+personal-info span {
+    font-size: small;
 }
 
-personal-info table td:last-child {
-    width: 60%;
-    text-align: center;
+personal-info img {
+    width:1em;
 }
 
-personal-info > img {
-    width: 21ch;
-}
-
-private-info > img {
-    width: 20ch;
-} 
-
-images label {
-    display: block;
+/* recruiter */
+images button {
+    color: white;   
+    background-color: #607d8b;
+    outline:0;
+    border:0;
 }
 
 faces p {
     white-space: nowrap;
+    text-align: justify;
 }
 
 photo img {
     width:50%;
 }
 
-choice label {
-    display: inline-flex;
-}
-
 briefly {
     display: block;
     text-align: justify;
+}
+
+.today {
+    padding-bottom: 4px;
+    padding-top: : 4px;
 }
 
 experiences {
@@ -239,22 +255,28 @@ experiences p {
     display: inline-block;
 }
 
-experiences table tbody tr:first-child {
+.bglegend {
     background-color: #ddd;
-}
-
-roles table tbody tr:first-child {
-    background-color: #ddd;
+    font-weight: bold;
+    padding: 3px;
 }
 
 choice {
     display: inline-flex;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 .bbottom {
     border-bottom-color: #c7c7c7;
     border-bottom-style: solid;
     border-bottom-width: 1px;
+}
+
+.tleft {
+    text-align: left !important;
 }
 
 .tright {
@@ -270,14 +292,18 @@ choice {
     font-style: italic;   
 }
 
+.hidden {
+    display: none;
+}
+
 products, photo {
     text-align: center; /*left;*/
     padding: 4px;
 }
 
-products img {
+pictures img {
     display: inline-block;
-    width: 4ch;
+    height: 8em;
 }
 
 products p {
