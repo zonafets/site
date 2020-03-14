@@ -73,15 +73,14 @@
 <body style="margin:4px 5% 4px 5%;display:none;">
 <project title="COPYRIGHT">
 <p>
-   Se volete usare quanto segue, lo fate a rischio di
-   incartamento. Altrimenti citate la fonte.
+   Se volete, usare quanto segue, ma citate la fonte.
 </p>
 </project>
 
 <project title="Premessa">
 <p>
-	Il lettore perdonerà, spero, quel poco di sarcasmo e la forma poco chiara. 
-	Questo documento è ancora in evoluzione in quanto rappresenta sia un memoriale che un memorandum.
+	Il lettore perdonerà quel poco di sarcasmo e la forma poco elaborata. 
+	Questo documento è un memoriale per autoriflessione, quindi in evoluzione.
 </p>	
 </project>
 
@@ -93,43 +92,42 @@
    A scuola si studia che le idee di Hitler hanno causato una
    guerra di cinque anni e venti milioni di morti. Non si dice però che la
    genialità di uno dei padri dell'informatica ne ha ridotto la durata di due
-   anni, salvando quattordici milioni di vite, tra cui probabilmente il
-   nostro avo.
+   anni, salvando quattordici milioni di vite.
 </p>
 </project>
 
-<project title="L'evoluzione della civiltà">
+<project title="L'informatica è una missione sociale">
 <p>
-   L'informatica è una rivoluzione che non trova eguali nella pietra, nella pergamenta e nella carta.
-   Gli informatici hanno una missione sociale.
-   La storia non ci aiuta, a parte che sta diventando una babele di linguaggi e di cloni.
+   L'informatica è una rivoluzione che non trova eguali nella pietra, nella pergamena e nella carta 
+   e nella storia in generale. Le macchine possono pensare, anche se limitatamente ad uno specifico compito.
+   Svolgeranno quel compito con diligenza, senza lamentarsene, h24, preservando la stessa sensibilità.
+   Ricordiamoci che il cucciolo di animale è operativo in pochi mesi ma non sa pensare ed è difficile da addestrare.
+   L'uomo è capace di molto più di un animale e di un computer.
 </p>
 </project>
 
-<project title="E=MC^2">
+<project title="Breve storia dell'informatica">
 <p>
-	Ecco, ora che sappiamo la formula della relatività speciale, siamo tutti "in-formati".
-	Invece, quella formula è una semplificazione.
-	Noi informatici non dovremmo farci abbagliare troppo facilmente dall'ultimo articolo di giornale che parla dell'ultimo silver bullet,
-	la soluzione delle soluzioni. Nulla si crea e nulla si distrugge. 
+	Colossus, Eniac, Edvac, non ricordo bene quale venga prima dell'altro e quale fosse americano e quale inglese.
+	Ricordo che quello inglese aveva adottato il sistema binario perché meccanicamente era più facile da costruire e far scalare.
+	Del resto ogni problema è scomponibile in sottoproblemi fino alla forma che richiede 2 possibili soluzioni: vero o falso.
+	Il mondo non è solo bianco e nero ma la soluzione dei problemi a quanto pare si.
 </p>
 </project>
 
-<project title="Il principio di indeterminazione di Heisemberg">
+<project title="Il principio di indeterminazione di Heisemberg e la programmazione">
 <p>
-   Quando non possiamo provare o negare qualcosa, si crea una credenza basata sul piacere psicologico che più l'attrae.
-<p>
-   Heisemberg ha determinato che il valore di qualcosa e il suo cambiamento non sono
-   misurabili contemporaneamente. 
-</p>
-<p>
-	Ciò vale anche per la comprensione, soprattutto per il difetto della circolarità dei sistemi linguistici.
+   Heisemberg ha determinato che il valore di una particella e il suo cambiamento non sono
+   misurabili contemporaneamente. Anche se questa teoria pare non essere più del tutto vera,
+   non possiamo aspettarci di poter predirre il futuro ma solo di pianificarlo al meglio.
 </p>
 <p>
 	Personalmente ritengo che questa vada a braccetto con i teoremi di incompletezza di Gödel. 
-	Sostanzialmente essi dicono che la matematica da sola non basta a descrivere la realtà. 
+	Esso dice che la matematica da sola non basta a descrivere la realtà. 
 	Ci vorrà talvolta una descrizione letterale. Probabilmente è per questo che molti credono che la matematica sia un'opinione.
-	Altri credono che la realtà sia una convinzione collettiva.
+</p><p>
+	Tutto ciò, unitamente al difetto intrinseco della circolarità dei sistemi linguistici, ci dice che non esiste un 
+	linguaggio di programmazione migliore di un altro. <b>Quindi bisogna cercare e assumere programmatori e non esperti in un linguaggio</b>
 </p>
 </project>
 
@@ -150,32 +148,24 @@
 <project title="Evoluzione di Hello World!">
 <p><img src="../images/evolution.png"></p>
 <p>
-	<ul>
-	<li><pre>print(<com>"hello!"</com>)</pre></li>
-	<li><pre><b>const</b> greeting = <com>"hello!"</com>;<br>print(greeting)</pre></li>
-	<li><pre><b>var</b> dynamicGreeting <op>=</op> get(greeting);<br>print(dynamicGreeting)</pre></li>
-	<li><pre>console<op>.</op>print( dynamicGreeting )</pre></li>
-	<li><pre>greetingType dynamicGreeting( greeting);<br>console<op>.</op>print( dynamicGreeting<op>.</op>get() )</pre></li>
-	<li><pre>greetingType dynamicGreeting( greetings<op>.</op>hello );<br>console<op>.</op>print( dynamicGreeting.verb )</pre></li>
-	<li><pre>greetingType dynamicGreeting( greetings<op>.</op>hello, console );<br>dynamicGreeting<op>.</op>say()</pre></li>
-	<li><pre>print(<com>"hello Dr. Falken!"</com>)</pre></li>
-	</ul>
+	<pre>print <com>"hello!"</com></pre>
+	Quanti modi ci sono per scrivere un programma così semplice? Eppure questo programma può essere complicato a piacere.
+	Basta cercare i modelli alla base del comando e del contenuto e proseguire allo stesso modo per il risultato. 
+	La ricerca del tipo del tipo del tipo etc. ricorda la storia del millepiedi che smise di camminare quando cercò di capire 
+	come faceva. Questo non vuol dire che non si debba ricercare più finezza nell'analisi e nello sviluppo ma solo che 
+	la ricerca del modello perfetto porta alla perfetta irrealizzazione.
 </p>
 </project>
 
 <project title="L'astrazione">
 <p>
-   L'OOP (nata negli USA) ha diffuso l'idea che l'astrazione sia la madre delle soluzioni.
-   Sfortunatamente ne sappiamo tutti poco, tutt'al più conosciamo qualcuno che sa (il docente o l'articolo che ci hanno istruito).
-   La pratica ci ha dimostrato che l'astrazione non ha ridotto l'entropia del software come il type strict non riduce significativamente i bugs. 
-   Alla quarta review, un sistema di classi subisce uno sconvolgimento. Si salvano quelle più simili a dei tipi base.
-   Infatti la programmazione <b>Object Based</b> non è da eludere.
-   Ma ogni linguaggio di programmazione è pur sempre un linguaggio e per questo gravido degli stessi limiti.
-</p>
-<p>
-	Uno di questi è la circolarità. Possiamo infatti definire una variabile <b>white</b> di tipo <b>Color</b> e assegnarle valore <b>black</b>.
-	Non è invece possibile creare una variabile di nome <b>True</b> e assegnarle valore <b>False</b> (forse in smalltalk si può anche questo).
-	Se con la programmazione strutturata si poteva incappare nello spaghetti code, con l'OOP abbiamo il cipolla code. 
+   Ricordo quando mi fecero credere che l'OOP sarebbe stata la madre delle soluzioni. Poi divenne materia di studio dell'università.
+   Ad oggi non credo che nessuno l'abbia mai verificato. Siamo giunti invece alla conclusione che si debbano comunque creare 
+   ambienti di test. Tuttavia mi rende perplesso impiegare un linguaggio evoluto per definire delle interfacce per delle classi per
+   una libreria di funzioni (ORM) che culminano in una sola istruzione SQL. 
+</p><p>
+   Finalmente però si può partire da una classe ed generare una tabella. Non che prima non si potesse partira da una tabella e generare
+   una classe. Rigenerare la classe invalida il codice. Cambiare la classe non genera il codice di conversione. Le interfacce non ci aiutano.
 </p>
 </project>
 
@@ -198,39 +188,57 @@
 
 <project title="Paperless non è informatizzare">
 <p>
-   Il significato della parola "informatica" non è:"togliamo la carta", come è accaduto con pergamene e tavole di pietra.
-   Sebbene paperless riduca i costi a 1/10, aumentano i costi del processo.
-   I software di simulazione documentale come Word e Excel e le emails rappresentano un limite che il web supera.
+   L'apporto dell' informatica non comporta lo stesso meccanismo che è servito alla pergamena per sostituire le tavole di pietra 
+   e alla carta per sostituire la pergamena.
+   Sebbene la digitalizzazione riduca i costi a 1/10, aumentano i costi del processo.
+   I software per il lavoro documentale come Word e Excel sono oggi dispersivi e superati dal Web e ancor di più dal cloud.
 </p>
 </project>
+
+<project title="Gestione del team e della conoscenza">
+<p><img src="../images/the-three-logical-levels-of-effectiveness.png"></p>
+<p>
+	Per provare a fare un poco di tutto nel mio campo, ho rivestito diversi ruoli in diverse aziende.
+</p><p>
+	Ho notato troppo spesso la presenza di gelosia per le informazioni. I motivi erano diversi:
+	<ol>
+		<li>preservazione della propria importanza</li>
+		<li>difficoltà a trovare strumenti agili</li>
+		<li>mentalità gestionale di vecchio tipo</li>
+	</ol>
+	La mentalità ha prodotto leggi moderne che hanno collocato le risorse intellettuali al pari di quelle operative, riducendone il valore. 
+	Mentre è relativamente facile che l'operatore acquisisca "la testa" del suo responsabile, ciò è altamente improduttivo per la risorsa intellattuale.
+</p><p>
+	Questo perché si produrrà un processo di lavoro seriale più che parallelo. Si creeranno poi tutta una serie di ambiguità che, andando a braccetto con la 
+	nostra cultura catto-latina del senso di colpa, individuerà facili bersagli e capri espiatori.
+</p><p>
+	Sbagliando si impara perché ci si approssima alla verità. L'errore vero consiste nel ripetere gli stessi sbagli. Chi cercherà di cambiare lo status quo sarà facile bersaglio.
+</p><p>
+	Ciò porta al turn-over, con perdità del knowhow e degli sforzi per l'individuazione degli strumenti. Il che agevolerà la preservazione dell'importanza dei soliti.
+	Il cerchio si chiude e la storia si ripete fino a quando fattori esterni di enorme portata non produrranno un cambiamento forzato.
+</p>
+</project>
+
+<project title="Mindmaps">
+<p>
+Il cervello è il nostro socio. Lui guida l'automobile mentre noi pensiamo ad altro. 
+Lui pensa a quello che noi vogliamo dire. Non abbiamo il manuale. Non sappiamo ancora come funziona. 
+Sappiamo che se srotolato, occupa la distanza di A/R tra Terra e Luna. 
+Sappiamo che il computer più potente del mondo raggiunge il 4.5% della sua potenza.
+</p><p>
+Il seguente disegno è una mappa spontaneamente prodotta dal mio cervello relativamente ad una situazione. 
+Analizzandolo vi trovo un incredibile concentrato di informazioni relative al passato, presente e futuro. 
+</p>
+<p><img src="../images/mindmap.png"></p>
+<p>Se si trovasse il modo di poter creare una simile mappa cooperativamente, le potenzialità di un gruppo di lavoro
+aumenterebbero esponenzialmente.
+</p>
+</project>
+
 
 <project title="Il pair programming">
 <p>
 	Funziona. Dicono faccia risparmiare il 30%. Si, nel mondo "organizzato" anglosassone, nel mondo "italiano" latino, arriverà anche al 50%.
-</p>
-</project>
-
-<project title="Parliamo del sesso degli angeli">
-<p>
-	Come dicevo dell'OOP, parlare di "albero", "casa" è come parlare del sesso degli angeli. Non ha nulla di concreto.
-   Per altro, sempre di comunicazione si tratta, con tutti i vincoli. Tra questi c'è il problema del sesto livello di narrazione.
-   A questo livello, qualsiasi contenuto avesse l'origine, sarà completamente cambiato (n.d.p.: Angular già alla seconda versione).
-	Avere un disegno comune vuol dire avere un riferimento anche se (o perché) non è chiaro che senso dare alla freccia per rappresentare "A dipende da B".    
-</p>
-</project>
-
-<project title="Bugs e comunicazione: tutti i bugs sono implementazioni">
-<p>
-   Se non ci sono dubbi che "2+2=4", già ci vengono con:"4=2+2". Il primo dice che "causa->effetto". Non so gli arabi, ma per chi è abituato a leggere da sinistra a destra, questo è il processo che svolgerà il cervello in automatico.
-</p><p>
-   Il testo di un bug, redatto da un ex "tecnicamente competente" programmatore, si strutturava così:<br>
-   1. contesto del problema<br>
-   2. esempio di soluzione temporanea adottata<br>
-   3. nota tecnica di implementazione<br>
-   4. nota tecnica di altra implementazione analoga<br>
-   Il risultato è stato che, pure per un "esperto" come me, ho implementato i punti 2 e 4. Questo perché, voi per fretta, vuoi per sonnolenza, vuoi qualsiasi lecito motivo, ma non certo la volontà di creare danno o extra lavoro, il punto 2 era una ridondanza del punto 3.<br>
-   Un'implementazione non ne dovrebbe includere due e chiamarsi bug, ma mi adeguo.<br>
-   I bugs sono:"Non ho avuto/dedicato abbastanza tempo all'analisi/test". Meno tempo significa soldi non spesi. Poi ci può essere chi per esperienza, evita a priori di scrivere codice "aperto" alla nascita di bugs, ma questa è un'altra storia. 
 </p>
 </project>
 
@@ -419,7 +427,7 @@
 </p>
 <p>
    <b>Per un'analisi di differenza di normalizzazione in caso di un Document System Management, 
-   seguire questo <a href="dsm_normalization.html">link</a><b>
+   seguire questo <a href="dsm_normalization.html">link</a></b>
 </p>
 </project>
 
@@ -431,26 +439,19 @@
 
 <project title="DRY e normalizzazione">
 <p>
-   La <b>"normalizzazione"</b> è il principio DRY per i databases. Tuttavia la descrizione dell'articolo deve essere duplicata
-   nella bolla/fattura perche sono documenti ufficiali. Nel mondo noSQL la ridondanza dei dati fa anche bene alla distribuzione, per il
-   bilanciamento di carico etc. <br>
-   Ci sono anche casi in cui è bene duplicare il codice. Ad esempio, per chi si è imbattuto in ORM fai da te, 
-   che omettono tutta una serie di features degli engine DB tipo la gestione delle transazioni o 
-   la gestione delle dipendenze, eseguire un'operazione di copia con versionamento risulta in 4 operazioni di I/O anziché in una transazione unica.
-   Se l'ORM è stato scritto con tutti i crismi, le 4 operazioni risulteranno in un unica classe od oggetto riciclato 4 volte ma con problemi di gestione della concorrenza. 
-   Per farla breve è più utile ridondare il codice per ridurre la complessità (più chiarezza e semplicità) ed equalizzare la cultura del team.   
+	La seguente immagine rappresenta la classica scelta di relazione 1 a MOLTI per la gestione di un software 
+	documentale. Un record è legato a molti documenti. Ogni documento ha delle proprietà.
 </p>
-</project>
-
-<project title="By-Design">
+   <p><img src="../images/dms-normalization-1.png"></p>
 <p>
-Quando bisognava modificare un programma, 20 anni fa, si aggiungeva un parametro o un campo ad una struttura e poi il relativo codice.
-A volte poteva bastare aggiungere un ID ed espandere uno switch o appliare l'uso della parte variabile della struttura. Oppure in C c'erano le UNION, ma è acqua passata.
-Poi qualcuno ha detto che così non andava bene perché tra puntatori e chi metteva i campi in mezzo e il cast etc., insomma si spaccava tutto.
-Così ha inventato l'OOP e poi le interface. Rimane il problema che tra chi chiede, chi prende in carico e chi esegue, non devono conoscere per il principio di disaccoppiamento, al fine di mantenere gli oggetti riciclabili.
-Ad ognuno viene dato il set di informazioni limitato a ciò che lo interessa. Ad esempio chi salva un dato, non sa che è nel contesto di una copia carbone.
-Ed ecco che quel che è originato come un dato di tipo CopiaCarbone, finisce con un tipo SalvaRecord intermediato da un tipo SalvaConCopiaSorgente tutti in religioso rispetto dell'interfaccia comune.
+	La rappresentazione di questa struttura pone però i documenti in linea con il relativo record. 
+	Quindi se la verticalizzazione consente l'associazione di un numero infinito di documenti, nella pratica 
+	il numero impiegato è limitato.
+</p><p>
+	La seguente struttura sacrifica il principio di normalizzazione in nome di un uso pratico, ccontenuto,
+	non limitato, più performante e flessibile.
 </p>
+   <p><img src="../images/dms-normalization-2.png"></p>
 </project>
 
 <project title="XLS">
@@ -461,60 +462,6 @@ figuriamoci cosa può fare una cella Excel che può cambiare natura. Sfortunatam
 sono quantitativamente troppo istruiti, dimentichiamo che una piccola differenza di qualità fa una grande differenza nel lungo periodo.
 </p><p>
 Una soluzione "smart" può sembrare frutto di genialità e creatività, ma potrebbe solo gestire il problema senza risolverlo.
-</p>
-</project>
-
-<project title="JSON?">
-<p>
-   Adoro il formato JSON. Semplice da  scrivere, sempre elegante, comodo da
-   modificare, impossibile da ristrutturare, non supporta stringhe multi riga e consuma quanto l'XML. 
-   Ma è quanto di meglio c'è e lo possiamo far generare lato server.
-</p>
-<p>
-   JSON in SQL o noSQL? Un bel dilemma. Javascript era nato per rappresentare più che per trasformare. L'analisi richiede almeno 4 livelli di revisione.<br>
-</p>
-</project>
-
-<project title="E poi vennero Web e Cloud">
-<p>
-   Sento spesso lamentare del fatto che il browser web impegna la CPU al
-   100% o del timore delle applicazioni web, soprattutto SPA, per il consumo di memoria. 
-   Eppure le applicazioni
-   web, per la loro natura distribuita, dovrebbero ridurre questi problemi
-   rispetto alle vecchie applicazioni client/server.  Perché non è così?
-</p>
-<p>
-   Partiamo dalla CPU. Perché è lecito comprare una Ferrari che fa i
-   300Km/h quando i limiti di velocità sono inferiori, ma non va bene se
-   un'unità di calcolo viene sfruttata al massimo?
-</p>
-<p>
-   L'applicazione web gira in uno dei tab del browser che è
-   un'applicazione che gira nel sistema operativo assieme ai venti fogli
-   Excel o documenti Word aperti contemporaneamente. Quel che una vecchia
-   applicazione client nativa faceva senza dire niente a nessuno era
-   spesso impiegare tanti files temporanei senza poi pulire.
-</p>
-<p>
-   Con questo voglio solo concludere che per il principio di Heisemberg,
-   non si può fare un'applicazione a prova di utonto o webete.
-</p>
-<p>
-   O meglio, se lo chiedete a me, ve la posso fare, ma per onestà
-   intellettuale vi chiederei:
-</p>
-<p>
-   "Siete pronti a spendere più di quanto costerebbe scrivere due
-   documenti in croce e fare formazione, magari implementando CMS o
-   documentali o di knowledge sharing in genere?"
-</p>
-<p>
-   Certo bisogna assumere le persone giuste, soprattutto quelle che si
-   occupano dell'assunzione delle persone giuste.
-</p>
-<p>
-	Personalmente ho provato a fare una webapp molto semplice di cui conosco le performance su un vecchio PC x86 a 8Mhz con 1MB di RAM.
-	Girava in maniera accettabile su un iPhone3. Appena aggiunto il più semplice dei CSS, è diventata inaccettabile.
 </p>
 </project>
 
@@ -705,50 +652,6 @@ Una soluzione "smart" può sembrare frutto di genialità e creatività, ma potre
 </p>
 </project>
 
-<project title="Vedo il tuo bug e rilancio con un deadlock di classi">
-<p>
-   Qualsiasi linguaggio è un sistema circolare per natura poiché il "nome" non
-   è l'"oggetto". A parole, tutto può diventare il suo contrario. 
-   Nulla poteva e può impedirci di costruire una funzione A che chiama B che richiama A.
-   Non c'è astrazione che lo impedisca. <b>Nulla deve impedirci di creare dal nulla.</b>
-</p>
-<p>
-   Più aumenta la distanza tra le funzioni come il numero di livelli di astrazione, meno individuabile sarà il problema.
-   Gli errori semantici possono essere introvabili perché li abbiamo davanti agli occhi.
-   Se un sistema pubblico da gli stessi servizi in privato, c'è un conflitto logico.
-</p>
-<p>
-   Tutto parte da un individuo che fa una cosa. Un'altro lo vede e lo
-   replica variando qualcosa. Arriva l'osservatore che dice:"Hei, ci sono due entità
-   che adottano comportamenti comuni. Facciamone un modello!". Fatto il
-   modello, lo si applica in scala e diventa un disastro che starà in piedi
-   solo per inerzia.
-</p>
-<p>
-   Non bastano due gambe per tenere in piedi un tavolo
-</p>
-<p>
-   Per rispondere alla richiesta (originata ad un'opinione) di un Duca, i matematici hanno impiegato
-   600 anni per dimostrare che non era matematicamente possibile stivare meglio
-   le palle di cannone, di come i contadini facevano con le arance. Con più palle di cannone la nave poi sarebbe andata più lenta e quindi bah!
-</p>
-<p>
-   La tridimensionalità è una condizione minima per non
-   incappare in errori concettuali. E' una regola che applico
-   anche nell'UI design, ma questo è un altra questione.
-</p>
-</project>
-
-<project title="Team">
-<p>
-	Lavorare in team è meraviglioso. Se non ci credete, guardatevi Lego Movie.
-	Bisogna stare attenti però perché la distinzione tra team e pool è sottile.
-	Una volta dissi al membro del mio team di porre delle istruzioni sotto una procedura.
-	Il responsabile tecnico, nonché titolare dell'azienda (in italia una persona riveste più ruoli, tanto per incasinarsi ben bene),
-	lo vide e lo ammonì (sminuendo per altro il mio ruolo). La sera lo dovetti convincere a rimanere in azienda. Era il più dotato che avevamo.
-	Anni dopo criticava le mie proposte. Dopo che l'azienda decise di non avvalersi più delle mie, prestazioni anche lui e altri se ne andarono.
-</p>
-</project>
 
 <project title="George A. Miller e il magico numero 7+-2">
 <p>
@@ -757,21 +660,6 @@ Una soluzione "smart" può sembrare frutto di genialità e creatività, ma potre
 </p>
 </project>
 
-<project title="Autoelettriche ibride e LINQ" date="2019-10-16">
-<p>Personalmente, e non solo io, trovo la macchina elettrica ibrida uno spreco, anche se probabilmente è un passaggio necessario per far cassa da investire in innovazione.
-Credo che un'auto elettrica ibrida non dovrebbe essere un bimotore, bicircuito, etc. con il doppio della complessità. Sarebbe più utile e semplice una macchina totalmente elettrica, 
-con un piccolo motore a benzina che fa da generatore di riserva.</p>
-<p>Pensiamo a cosa fa un ORM. Partiamo da un engine DB. Esso viene scritto in un linguaggio a basso livello. 
-Definisce una struttura comune che si porta dietro i comandi CRUD da eseguire sui records. 
-Poi viene costruito un parser che trasforma costrutti SQL in istruzioni che popolano la struttura base con la finale chiamata alla funzione esecutrice.
-</p>
-<p>L'ORM usa il linguaggio di basso livello (JAVA,C#,etc.) come astrazione del linguaggio SQL, che è un'astrazione del linguaggio a basso livello.</p>
-<p>E' vero che riduce la complessità linguistica. LINQ riesce addirittura ad unificare le modalità di gestione dei dati, dimostrando, per altro, che i costrutti simil-SQL sono più comodi.
-E' possibile che se nessuno avesse creato un ORM, oggi LINQ sarebbe solo un'idea vaga. Però qualcuno lamenta problemi di performance. Personalmente 
-all'ORM avrei preferito dei templates, ossia una macro soluzione.</p>
-<p>Tuttavia ancora una volta il principio di indeterminazione di Heisemberg ci mostra che l'alternanza tra due soluzioni (CISC o RISC?) sarà eterna.
-L'HTML è fantastico ma troppo verboso quando infarcito di attributi per fargli fare qualcosa di diverso dalla sua natura.</p>
-</project>
 
 <project title="Kiss me the code">
 <p>
@@ -936,61 +824,6 @@ L'HTML è fantastico ma troppo verboso quando infarcito di attributi per fargli 
 </div>
 </project>
 
-<project title="Commenti e finezze da programmatore">
-<p>
-	Questo codice iniziava così:
-	<pre>
-		Public Overridable ReadOnly Property Outcome() As IResult.OutcomeCode Implements IResult.Outcome
-	</pre>
-	ed era very huge per quel che fa.
-	L'ho semplificato per lo scopo didattico:
-	<pre>
-		function OutCome
-			failure = 0, success = 0
-			
-			For Each result In Me
-				If result.Outcome = Success Then success += 1
-				If result.Outcome = Failure Then failure += 1
-
-			If failure = Count Then Return Failure
-			If success = Count Then Return Success
-			Return Partial
-	</pre>
-	La finezza consiste nel considerare che se Count è zero, il risultato sarà Failure. Ma è voluto o è una fortuita svista?
-	In questo caso un commento ci vorrebbe, ma ancora una volta quanto detto da Ritchie("Don't comment code, rewrite it") è valido:
-	<pre>
-		function OutCome
-			failure = 0, success = 0
-			if Count = 0 Then Return Failure
-			. . .
-	</pre>
-	Non solo toglie ogni dubbio, ottimizzando la lettura, ma risulta anche più veloce in esecuzione.
-</p>
-<p>
-	Questo esempio è interessante anche per vedere che il codice più prolisso, in termini di descrizione, non è necessariamente più corretto od ottimizzabile dal compilatore.
-	
-</p>
-</project>
-
-<project title="Reddito da lavoro, da eredita(rietà) e di cittadinanza">
-<p>
-Come nella vita, anche nella programmazione si vuol "ottimizzare" e lavorare meno.
-Quindi facciamo una classe in cui si prevede tutto. 
-Poi finisce che un dato va riacquisito dinamicamente dall'origine, quando viene usato.
-Per tagliar corto, quando un membro di un oggetto è valorizzato con quello di un altro, per ogni evenienza, bisognerebbe portarsi dietro tutto l'oggetto originale.
-Questo va fatto in cascata con tutti i membri di tutti gli oggetti. Non a caso risulterebbe in una cascata che risale.
-</p>
-</project>
-
-<project title="To OOP or not to OOP, this is the problem">
-<p>
-	Se organizzare il codice in classi, interfacce e namespaces sarà un bene, quando si è dentro una classe, rimangono i vecchi dilemmi di come strutturare il codice in e nei metodi.
-</p><p>
-	Ad esempio, nel caso di tre <b>login</b>: da utente dell'applicazione, da utente intranet/dominio e da internet/web, cosa facciamo? Un metodo <b>login(tipo)</b>? 
-	Tre metodi <b>LocalLogin, DomainLogin, WebLogin</b>? Questi nomi poi prenderanno forma OOPizzata: DoNormalAuthentication, DoDomainAuthentication, etc.
-	Oppure ne facciamo 3 classi con comune interfaccia o classe base con metodo virtuale o overridable o come diavolo lo chiama il linguaggio di turno?
-</p>
-</project>
 
 <project title="Tributo a Federico Faggin">
 <p>
@@ -1062,7 +895,6 @@ Eppure c'è chi ancora la usa quasi come se nella sua testa si parlasse in terza
 </project>
 
 <p>
-   Se volete, contattatemi <img src="../images/contact_info_email.jpg"><br><br>
    06.08.2018 Stefano Zaglio
 </p>
 <pre>
