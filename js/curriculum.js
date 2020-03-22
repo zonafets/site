@@ -364,7 +364,7 @@ function buildRoles() {
 			body.insertBefore(tr,null)
 		}
 
-		td("Years",span(exp.years,"bold"),"bbottom")
+		td("Years",span(exp.years,"bold bglegend"),"bbottom")
 		td("Roles",exp.summary)
 		td("Companies, HW, SW",exp.companies)
 	}
