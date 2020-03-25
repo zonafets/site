@@ -14,6 +14,7 @@ All rights reserved
 */
 
 var data = {
+	lang: "en",
 	em: ["§eSY306Q@.WXS56PY4S03QU64","§U30U2 ZW9W .6 @Z6b/Z0VW"], 
 	ph: ["§+IOQIJMQKOJOQFMI","§U30U2 ZW9W .6 @Z6b/Z0VW"], 
 	pi: ["§g695 65 kWT FG GOMH / rW990WV / H UZ03V9W5","§U30U2 ZW9W .6 @Z6b/Z0VW 7W9@65S3 05X6"],
@@ -72,6 +73,10 @@ var data = {
 /* for translations */
 function tr(txt) {
 	return txt;
+}
+
+function browser_language() {
+	return (navigator.language || navigator.browserLanguage).split('-')[0]
 }
 
 var Convert18 = function (txt) {
@@ -179,6 +184,10 @@ function toggle(sender) {
 				if (show) element.classList.remove("hidden")
 				else element.classList.add("hidden")
 			}
+			break
+			
+		case 'lang':
+		    translate()
 			break
 
 		default:
@@ -372,10 +381,15 @@ function buildRoles() {
 
 }
 
-// generate translation array if not defined or translate text nodes
 function translate(language) {
 
-	if (language == "en") return
+    // toggle or force language
+
+    language = language === undefined ? (data.lang == "en" ? "it" : "en") : language
+    img = document.getElementById("lang")
+	img.src = "../images/flag_" + language + ".png"
+	
+	if (language == data.lang) return
 
     var nodes = textNodesUnder(document.body)
 
@@ -384,54 +398,64 @@ function translate(language) {
     	var txt = nodes[i].data.trim()
 		txt = txt.replace(/\t+/g, ' ')
 		txt = txt.replace(/  +/g, ' ')
-		var found = false
-		if (window.translations === undefined) {
-			for (var j=0;j<txtDistinct.length;j++)
-				if (txtDistinct[j]===txt) {
-					found = true
+		var txts = txt.split("\n")
+		for (var k=0;k<txts.length;k++) {
+			var txt = txts[k].trim()
+			for (var j=0;j<translations.length;j++) {
+				var item = translations[j]
+				var curr = item[data.lang]
+				if (curr === txt) {
+					var trs = item[language]
+					nodes[i].data = nodes[i].data.replace(txt,trs)
 					break
-				}
-			if (!found) txtDistinct.push(txt)
-		} else {
-			var txts = txt.split("\n")
-			for (var k=0;k<txts.length;k++) {
-				var txt = txts[k].trim()
-				var id = crc32(txt)
-				for (var j=0;j<translations.length;j++) {
-					var tid = translations[j].id
-					if (tid === id) {
-						trs = translations[j][language]
-						nodes[i].data = nodes[i].data.replace(txt,trs)
-						break
-					}
 				}
 			}
 		}
     }
-	if (window.translations !== undefined) return
+    data.lang = language
+}
+
+function generateTranslation()
+{	
+    var nodes = textNodesUnder(document.body)
+
+    var txtDistinct=[]
+    for(var i=0;i<nodes.length;i++) {
+    	var txt = nodes[i].data.trim()
+		txt = txt.replace(/\t+/g, ' ')
+		txt = txt.replace(/  +/g, ' ')
+		var found = false
+		for (var j=0;j<txtDistinct.length;j++)
+			if (txtDistinct[j]===txt) {
+				found = true
+				break
+			}
+		if (!found) txtDistinct.push(txt)
+	}
 
     var txtDistinct = txtDistinct.sort()
-
-	var js = "var translations=["
+	var dictionary = window.translations;
+	var js = "var translations=[\n"
 	for (var i=0;i<txtDistinct.length;i++) {
 		txts = txtDistinct[i].split("\n")
 		for (var j=0;j<txts.length;j++) {
 			var txt = txts[j].trim()
 			var id = crc32(txt)
 			var it = ""
-			for (var k=0;k<dictionary.length;k++) 
-				if (txt===dictionary[k][0]) {
-					it = dictionary[k][1]
+			for (var k=0;k<dictionary.length;k++) {
+				item = dictionary[k]
+				if (id==item.id) {
+					it = item.ll
 					break
 				}
+			}
 			if (it === "") it=txt
-			js+="// "+txt+"\n"
-			js+='{id:'+id+',it:"'+it+'"},\n'
+			js+='  {\n    sys:"'+txt+'",\n    it:"'+it+'"\n  },\n'
 		}
 	}
 	js+=']'
 	console.log(js)
-}
+} // generateTranslations
 
 
 function test(){
@@ -511,10 +535,10 @@ function test(){
 			}
 		}
 	} // roles
-}
+} // test
 
 function main() {
-	var language = (navigator.language || navigator.browserLanguage).split('-')[0]
+	var language = browser_language()
 	if (language != "it" && language!="en") language = "en"
 
 	test()
@@ -527,6 +551,7 @@ function main() {
 
 	buildRoles()
 
+	// generateTranslations()
 	translate(language)
 
 	document.body.className = 'fade-in'

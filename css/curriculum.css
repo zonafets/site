@@ -132,6 +132,11 @@ p span
     }
 }
 
+#lang {
+	float: right;
+	height: 2ch;
+}
+
 header {
     width: 100%;        
 }
