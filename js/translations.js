@@ -48,12 +48,12 @@ var translations=[
     it:"Cliccare qui per"
   },
   {
-    en:"Click image many times to change photos of me in role",
-    it:"Click image many times to change photos of me in role"
+    en:"Click image many times to see photos of me in role",
+    it:"Clicca l'immagine più volte per vedere foto di me nel ruolo"
   },
   {
     en:"of firmware dev., game dev., technician, analyst, manager",
-    it:"of firmware dev., game dev., technician, analyst, manager"
+    it:"di firmware dev., game dev., technician, analyst, manager"
   },
   {
     en:"CompaQ, 3com, Windows NT, Novell, Nixdorf, Zetafax, Intermec, Clipper",
