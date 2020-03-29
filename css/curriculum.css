@@ -75,7 +75,7 @@ p span
         display:none;
     }
     personal-info {
-        min-width: 50%;
+        width: 50%;
         display: inline-block;
         float:left;
     }
@@ -97,7 +97,7 @@ p span
         display:none;
     }
     personal-info {
-        min-width: 50%;
+        width: 50%;
         display: inline-block;
         float:left;
     }
