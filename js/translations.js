@@ -40,16 +40,24 @@ var translations=[
     it:"Bootstrap, Razor/ASP.NET, Sqlite, MySQL,"
   },
   {
-    en:"Briefly",
+    en:"Personla profile",
     it:"Brevemente"
   },
   {
-    en:"Click here to",
-    it:"Cliccare qui per"
+    en:"click here to",
+    it:"cliccare qui per"
   },
   {
-    en:"Click image many times to see photos of me in role",
-    it:"Clicca l'immagine più volte per vedere foto di me nel ruolo"
+	en:"personal details before printing.",
+	it:"dettagli personali prima di stampare."
+  },
+  {
+	en:"Personal profile",
+	it:"Brevemente"
+  },
+  {
+    en:"click images to see pictures of me in roles such as",
+    it:"clicca le immagini più volte per vedere foto di me nei ruoli"
   },
   {
     en:"of firmware dev., game dev., technician, analyst, manager",
@@ -96,7 +104,7 @@ var translations=[
     it:"In conformità con il D.L. #196-30/06/2003 e GDPR"
   },
   {
-    en:"Industrial Engineer in Compurer Science",
+    en:"Industrial Engineer in Computer Science",
     it:"Perito Elettronico con Specializzazione in Informatica"
   },
   {
@@ -116,8 +124,8 @@ var translations=[
     it:"MSSQL, PostgreSQL, SVN, dotNET"
   },
   {
-    en:"Manteiner of DMS EVODOC",
-    it:"Manutentore del DMS EVODOC"
+    en:"Manteiner of DMS evoDOC",
+    it:"Manutentore del DMS evoDOC"
   },
   {
     en:"Micro ERP/CRM",
@@ -168,7 +176,7 @@ var translations=[
     it:"Tecnologie"
   },
   {
-    en:"To learn more, look at my",
+    en:"to learn more check out my",
     it:"Per sapere di più, guardare al mio"
   },
   {
@@ -176,7 +184,7 @@ var translations=[
     it:"Attualmente"
   },
   {
-    en:"Trekking, automated accounting, technician-customer relationship in HP, goals & results, studies on meta-learning, bw photography, comics drawing, modeling, cooking, tasting, site coordinator",
+    en:"Trekking, automated accounting, technical customer service in HP, goals & results, studies on meta-learning, bw photography, comics drawing, modeling, cooking, tasting, site manager",
     it:"Trekking, contabilità automatizzata, relazione tecnico-cliente in HP, obiettivi e risultati, studi sul meta-apprendimento, fotografia b/n, disegno di fumetti, modellistica, cucina, degustazione, coordinatore di cantiere"
   },
   {
@@ -188,12 +196,13 @@ var translations=[
     it:"Windows CE/NT, Linux, PDA, POS, C#, C++,"
   },
   {
-    en:"With first 10 years of experience as teacher, technician, developer, junior ICT manager and the last 10 as system integrator, analyst,",
-    it:"Con i primi 10 anni di esperienza come insegnante, tecnico, sviluppatore, junior ICT manager e gli ultimi 10 come system integrator, analista"
-  },
-  {
-    en:"senior developer and project manager, we can write together the future of this presentation.",
-    it:"sviluppatore senior e project manager, possiamo scrivere assieme il futuro di questa presentazione."
+	tag:"PersonalProfile",
+	en:"20 years of experience as teacher, technician, developer, analystm and junior manager, on differente platforms and industries. "+
+	   "I grown as a reliable, hardworking, flexible, dynamic and competent worker, strongly motivated to carry out a task or to deal with a situation in the best possible way. "+
+	   "Capable of finding solution to problems in a creative manner.",
+	it:"20 anni di esperienza come insegnante, tecnico, sviluppatore, junior manager, su piattaforme e settori diversi."+
+	   "Sono cresciuto come lavoratore affidabile, laborioso, flessibile, dinamico e competente, fortemente motivato a svolgere un compito o ad affrontare una situazione nel miglior modo possibile."+
+	   "Capace di trovare una soluzione ai problemi in modo creativo."
   },
   {
     en:"Zaglio (CV)",

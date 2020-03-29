@@ -17,15 +17,14 @@ var data = {
 	lang: "en",
 	em: ["§eSY306Q@.WXS56PY4S03QU64","§U30U2 ZW9W .6 @Z6b/Z0VW"], 
 	ph: ["§+IOQIJMQKOJOQFMI","§U30U2 ZW9W .6 @Z6b/Z0VW"], 
-	pi: ["§g695 65 kWT FG GOMH / rW990WV / H UZ03V9W5","§U30U2 ZW9W .6 @Z6b/Z0VW 7W9@65S3 05X6"],
+	pi: ["§g695 65 kWT FG GOMH / rS990WV / H UZ03V9W5","§U30U2 ZW9W .6 @Z6b/Z0VW 7W9@65S3 05X6"],
 	ad: ["§N.Z x69S.056 x.9WW., JLFJI hS@.0Y3065W&5T@7;i/x (n.S3d)","§U30U2 ZW9W .6 @Z6b/Z0VW SVV9W@@"], 
 	gh: ['§<S 5S4W="YZ" U3S@@=".6YY3W Z0VWR9WXW9W5UW@" Z9WX="Z..7@://Y0.Z-TQU64/e65SXW.@">Y0.Z-T/e65SXW.@</S>', "§U30U2 ZW9W .6 @Z6b/Z0VW"],
 	recruiter: {
 		recruiter:null,
-		content:"Click here to <b>hide</b> references before print."
+		content:"click here to <b>hide</b> personal details before printing."
 	},
 	cv: {
-		
 		lastExperiences: {
 			list:[{
 				years:"2014 - 2019",
@@ -389,8 +388,6 @@ function translate(language) {
     img = document.getElementById("lang")
 	img.src = "../images/flag_" + language + ".png"
 	
-	if (language == data.lang) return
-
     var nodes = textNodesUnder(document.body)
 
     var txtDistinct=[]
@@ -401,15 +398,19 @@ function translate(language) {
 		var txts = txt.split("\n")
 		for (var k=0;k<txts.length;k++) {
 			var txt = txts[k].trim()
+    		var tag = (txt.startsWith("{{")?txt.replace("{{","").replace("}}",""):"")
+			var found = false
 			for (var j=0;j<translations.length;j++) {
 				var item = translations[j]
 				var curr = item[data.lang]
-				if (curr === txt) {
+				if (curr === txt || (tag!="" && item["tag"] == tag)) {
 					var trs = item[language]
 					nodes[i].data = nodes[i].data.replace(txt,trs)
+					found = true
 					break
 				}
 			}
+			if (!found) console.log("Not found:'" + txt + "'")
 		}
     }
     data.lang = language
