@@ -80,16 +80,16 @@ var translations=[
     it:"Docuware connector"
   },
   {
-    en:"Extracurricular activities and workshops",
-    it:"Attività extracurricolari e seminari"
+    en:"Extracurricular interests or activities and workshops",
+    it:"Interessi, attività e seminari extracurricolari"
   },
   {
     en:"For a detailed list of projects & companies with videos visit:",
-    it:"Per un elenco completo di progetti e aziende con video visitare"
+    it:"Per un elenco completo di progetti e aziende con video visitare:"
   },
   {
     en:"For a detailed list with videos please visit:",
-    it:"Per un elenco completo con video, prego visitare"
+    it:"Per un elenco completo con video, prego visitare:"
   },
   {
     en:"I authorize to use my personal details",
@@ -184,8 +184,9 @@ var translations=[
     it:"Attualmente"
   },
   {
-    en:"Trekking, automated accounting, technical customer service in HP, goals & results, studies on meta-learning, bw photography, comics drawing, modeling, cooking, tasting, site manager",
-    it:"Trekking, contabilità automatizzata, relazione tecnico-cliente in HP, obiettivi e risultati, studi sul meta-apprendimento, fotografia b/n, disegno di fumetti, modellistica, cucina, degustazione, coordinatore di cantiere"
+	tag:"extra-activities",
+    en:"Trekking, automated accounting, technical customer service in HP, goals & results, TEDx&DIY videos, studies on meta-learning, bw photography, comics drawing, modeling, cooking, tasting, site manager",
+    it:"Trekking, contabilità automatizzata, relazione tecnico-cliente in HP, obiettivi e risultati, video TEDx&DIY, studi sul meta-apprendimento, fotografia b/n, disegno di fumetti, modellistica, cucina, degustazione, coordinatore di cantiere"
   },
   {
     en:"Video Game dev., Technician, PLC dev., technical teacher in high school",
@@ -196,11 +197,11 @@ var translations=[
     it:"Windows CE/NT, Linux, PDA, POS, C#, C++,"
   },
   {
-	tag:"PersonalProfile",
-	en:"20 years of experience as teacher, technician, developer, analystm and junior manager, on differente platforms and industries. "+
+	tag:"PersonalProfileDescription",  // briefly p
+	en:"20 years of experience as teacher, technician, developer, analyst and junior ICT manager, on differente platforms and industries. "+
 	   "I grown as a reliable, hardworking, flexible, dynamic and competent worker, strongly motivated to carry out a task or to deal with a situation in the best possible way. "+
 	   "Capable of finding solution to problems in a creative manner.",
-	it:"20 anni di esperienza come insegnante, tecnico, sviluppatore, junior manager, su piattaforme e settori diversi."+
+	it:"20 anni di esperienza come insegnante, tecnico, sviluppatore, junior manager, su piattaforme e in diversi settori."+
 	   "Sono cresciuto come lavoratore affidabile, laborioso, flessibile, dinamico e competente, fortemente motivato a svolgere un compito o ad affrontare una situazione nel miglior modo possibile."+
 	   "Capace di trovare una soluzione ai problemi in modo creativo."
   },
@@ -268,4 +269,8 @@ var translations=[
     en:"tiny.cc/ylc29y",
     it:"tiny.cc/ylc29y"
   },
+  {
+	 en:"Born on Feb 01 1972 / Married / 2 children",
+	 it:"Nato il 01/02/1972 / Sposato / 2 figli"
+  }
 ]

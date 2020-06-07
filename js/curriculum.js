@@ -71,7 +71,15 @@ var data = {
 
 /* for translations */
 function tr(txt) {
-	return txt;
+	if (data.lang != "en")
+		for (var j=0;j<translations.length;j++) {
+			var item = translations[j]
+			var curr = item["en"]
+			if (curr === txt) {
+				return item[data.lang]
+			}
+		}
+	return txt
 }
 
 function browser_language() {
@@ -164,8 +172,11 @@ function toggle(sender) {
 		case 'em':
 		case 'ph':
 		case 'gh':
-			var txt = Convert18(data[id][1])
-			element.innerHTML = (element.innerText == txt ? Convert18(data[id][0]) : txt)
+			var txt = Convert18(data[id][1])  // click here to show/hide ...
+			var val = Convert18(data[id][0])
+			txt = tr(txt);
+			val = tr(val) 
+			element.innerHTML = (element.innerText == txt ? val : txt)
 			break
 
 		case 'photo':

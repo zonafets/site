@@ -14,9 +14,11 @@ All rights reserved
 */
 @-ms-viewport { width: device-width; }
 
+@font-face { font-family: leggimi05; src: url('../fonts/leggimi05-Regular.otf'); } 
+
 * {
     font-size: medium;
-    font-family: Tahoma;
+    font-family: leggimi05;
     line-height: 140%;
 }
 

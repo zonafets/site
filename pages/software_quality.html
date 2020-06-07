@@ -159,22 +159,48 @@
 
 <project title="L'astrazione">
 <p>
-   Ricordo quando mi fecero credere che l'OOP sarebbe stata la madre delle soluzioni. Poi divenne materia di studio dell'università.
-   Ad oggi non credo che nessuno l'abbia mai verificato. Siamo giunti invece alla conclusione che si debbano comunque creare 
-   ambienti di test. Tuttavia mi rende perplesso impiegare un linguaggio evoluto per definire delle interfacce per delle classi per
-   una libreria di funzioni (ORM) che culminano in una sola istruzione SQL. 
+   L'idea di astrarre per meglio concretizzare, è paradossale ma piace psicologicamente.<br>
+   Sto scrivendo un memoriale sull'OOP, con dispiacere di chi mi conosce. Ma un assaggio degli effetti dell'astrazione 
+   si trovano anche nel paragrafo "jrVSsrVSjr".
+</p>
+</project>
+
+<project title="jr-VS-sr-VS-jr">
+<p>
+	Meglio Junior o Senior? Interno o esterno? Un antipatico competente o due simpatici mediocri? Tutti questi possono convivere. 
+	Ciò che non sta assieme è il volere il meglio con la minima spesa o, per dirla con saggezza popolare, la botte piena e la moglie ubriaca.
+</p>
+<p>
+	Le teorie dell'apprendimento dicono che servono almeno 3 esperienze dello stesso tipo per afferrare un concetto. 
+</p>
+<p><img src="../images/curve-learning.png"></p>
+<p>
+	La curva gialla indica verosimilmenta cosa dovrebbe accadere in condizioni ottimali. 
+	La curva viola è riferita ad un senior, che apprende lentamente con ponderatezza per poi partire a razzo, sempre che non gli vengano tarpate le ali. 
+	Ovviamente un senior che da 30'anni programma solo in RPG sullo stesso programma, non avrà quell'andatura. 
+	La curva arancio è riferita ad un junior che apprende rapidamente per poi stabilizzarsi. Questo accade perché subisce lo stesso tarpamento di ali, perché gli mancano le basi o perché 
+	è sovra strutturato da troppa istruzione nozionistica. Vediamo un caso pratico.
+</p>
+<p><img src="../images/jr-vs-sr-solution.png"></p>
+<p>
+	E' stato chiesto al giovane sviluppatore del modulo centrale di fornire al client informazioni d'esempio, per sopperire alla latenza dello sviluppo del server. 
 </p><p>
-   Finalmente però si può partire da una classe ed generare una tabella. Non che prima non si potesse partira da una tabella e generare
-   una classe. Rigenerare la classe invalida il codice. Cambiare la classe non genera il codice di conversione. Le interfacce non ci aiutano.
+	Essendo tale l'inprinting dei suoi docenti o di qualche documento di evangelizzione di una delle case informatiche dominanti, la soluzione è concettualmente corretta.
+	L'esecuzione lo è stata formalmente altrettanto. Al lato pratico però, una volta arrivato il server, è diventata sovra-strutturazione d'intralcio per gli immancabili cambiamenti. 
+</p><p>
+	Nel diagramma di destra c'è la soluzione che avrei proposto io. Avrei riciclato letteralmente, anziché astrattamente, il codice preesistente. 
+	La prima soluzione è efficacie. La seconda è efficiente. Quest'ultima è basata sul concetto del LoadBalancing ed è quindi fuori dallo schema concettuale. Irrazionale ma non irragionevole.
+</p><p>
+	Sono altre poi le osservazioni che si potrebbero fare sulla carenza progettuale l'assenza di retrospettiva.
 </p>
 </project>
 
 <project title="I commenti del codice">
 <p>
    Quante parole spese su questo tema. Certamente abbiamo capito che i giudizi sono da evitare. 
-   Si vuole un codice autoesplicante, chiamando anche le vecchie variabili "i" dei piccoli contesti con "FieldIndexOfSourceTable".
-   Eppure nessuno spiega come commentare codice da 2.000.000 di righe.
-   Si potrebbe cominciare considerando il 20% e ... (chiamatemi).
+   Non possiamo commentare 2.000.000 di righe di codice. Il codice è per sua natura (di linguaggio) auto-esplicante. 
+   Ma i nomi che vengono impiegati possono indurre in errore. Non ha senso chiamare una variabile "FieldIndexOfSourceTable" in un contesto di 10 righe di codice. 
+   Basterebbe "i" o "idx" ma i più blasonati manuali fanno venire voglia di programmare in COBOL, anziché scrivere una riga di commento per ogni riga di codice. 
 </p>
 </project>
 
