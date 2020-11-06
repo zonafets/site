@@ -124,8 +124,8 @@ var translations=[
     it:"MSSQL, PostgreSQL, SVN, dotNET"
   },
   {
-    en:"Manteiner of DMS evoDOC",
-    it:"Manutentore del DMS evoDOC"
+    en:"DMS maintenance and development",
+    it:"Manutenzione e sviluppo DMS"
   },
   {
     en:"Micro ERP/CRM",
@@ -198,12 +198,12 @@ var translations=[
   },
   {
 	tag:"PersonalProfileDescription",  // briefly p
-	en:"20 years of experience as teacher, technician, developer, analyst and junior ICT manager, on differente platforms and industries. "+
-	   "I grown as a reliable, hardworking, flexible, dynamic and competent worker, strongly motivated to carry out a task or to deal with a situation in the best possible way. "+
-	   "Capable of finding solution to problems in a creative manner.",
-	it:"20 anni di esperienza come insegnante, tecnico, sviluppatore, junior manager, su piattaforme e in diversi settori."+
-	   "Sono cresciuto come lavoratore affidabile, laborioso, flessibile, dinamico e competente, fortemente motivato a svolgere un compito o ad affrontare una situazione nel miglior modo possibile."+
-	   "Capace di trovare una soluzione ai problemi in modo creativo."
+	en: "Self-taught since the age of 13, I have experience as a teacher, technician, developer, coordinator, on various IT platforms and business realities. "+
+		"I grew up as a reliable, dynamic and competent worker. "+
+		"Strongly motivated to carry out a task or to face a situation effectively, learning from the process.",
+	it:"Autodidatta dall'età di 13 anni ho esperienza come docente, tecnico, sviluppatore, coordinatore, su varie piattaforme informatiche e realtà aziendali. "+
+	   "Sono cresciuto come lavoratore affidabile, dinamico e competente. "+
+	   "Fortemente motivato a svolgere un compito o ad affrontare una situazione efficaciemente, apprendendo dal processo, per evolvere senza stravolgere."
   },
   {
     en:"Zaglio (CV)",
