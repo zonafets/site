@@ -54,8 +54,8 @@ All rights reserved
 
 @media screen and (min-width: 1000px) {
     body {
-        margin-left: 10%;
-        margin-right: 10%;
+        margin-left: 20% !important;
+        margin-right: 20% !important;
     }
 }
 
@@ -64,23 +64,36 @@ pictures {
     width: 100%;
 } 
 
-p span 
+span 
 {
     display: inline-block;
 }
 
 @media print {
+
     images {
         text-align: right;
     }
+
     .xs-screen {
-        display:none;
+        display:none !important;
     }
+
     personal-info {
         width: 50%;
         display: inline-block;
         float:left;
     }
+
+    .full-list {
+		font-style:italic;font-size:smaller;
+        float: right;
+    }
+    .full-list * {
+        font-style:italic;font-size:smaller;
+        text-align: right;
+    }
+
     images {
         width: 50%;
         display: inline-block;
@@ -89,20 +102,30 @@ p span
 }
 
 @media screen and (min-width: 600px) {
+
+    .xs-screen {
+        display:none !important;
+    }
+
     roles table tbody tr td:first-child {
         white-space: nowrap;
     }
+
     .full-list {
+		font-style:italic;font-size:smaller;
+        float: right;
+    }
+    .full-list * {
+        font-style:italic;font-size:smaller;
         text-align: right;
     }
-    .xs-screen {
-        display:none;
-    }
+
     personal-info {
         width: 50%;
         display: inline-block;
         float:left;
     }
+
     images {
         width: 50%;
         display: inline-block;
@@ -111,22 +134,33 @@ p span
 }
 
 @media screen and (max-width: 599px) {
+
+    .normal-screen {
+        display:none !important;
+    }
+
     roles table tbody tr td:first-child {
         text-align: center;
     }
+
     header {
         width: 100%;
         text-align: center;
     }
+
     persona-info {
         width:100%;
     }
+
     .full-list {
+		font-style:italic;font-size:smaller;
         text-align: center;
     }
-    .normal-screen {
-        display:none;
+    .full-list * {
+        font-style:italic;font-size:smaller;
+        text-align: center;
     }
+
     images {
         width: 100%;
         display: inline-block;
@@ -151,6 +185,7 @@ thead * {
 }
 
 table {
+    display: table !important;
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
@@ -264,9 +299,6 @@ experiences {
     vertical-align: top;
 }
 
-experiences p {
-    display: inline-block;
-}
 
 .bglegend {
     background-color: #ddd;
@@ -298,10 +330,6 @@ choice {
 
 .tjustify {
     text-align: justify !important;
-}
-
-.full-list {
-    font-style: italic;   
 }
 
 .hidden {
@@ -360,3 +388,11 @@ acquired-skills {
 privacy {
     text-align: center;
 }
+
+on {
+	display:none
+}
+off {
+	display: inline-block;
+}
+

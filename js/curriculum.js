@@ -13,82 +13,15 @@ All rights reserved
 
 */
 
-var data = {
-	lang: "en",
-	em: ["§eSY306Q@.WXS56PY4S03QU64","§U30U2 ZW9W .6 @Z6b/Z0VW"], 
-	ph: ["§+IOQIJMQKOJOQFMI","§U30U2 ZW9W .6 @Z6b/Z0VW"], 
-	pi: ["§g695 65 kWT FG GOMH / rS990WV / H UZ03V9W5","§U30U2 ZW9W .6 @Z6b/Z0VW 7W9@65S3 05X6"],
-	ad: ["§N.Z x69S.056 x.9WW., JLFJI hS@.0Y3065W&5T@7;i/x (n.S3d)","§U30U2 ZW9W .6 @Z6b/Z0VW SVV9W@@"], 
-	gh: ['§<S 5S4W="YZ" U3S@@=".6YY3W Z0VWR9WXW9W5UW@" Z9WX="Z..7@://Y0.Z-TQU64/e65SXW.@">Y0.Z-T/e65SXW.@</S>', "§U30U2 ZW9W .6 @Z6b/Z0VW"],
-	recruiter: {
-		recruiter:null,
-		content:"click here to <b>hide</b> personal details before printing."
-	},
-	cv: {
-		lastExperiences: {
-			list:[{
-				years:"2014 - 2019",
-				summary:["Micro ERP/CRM<br>IOT facility","Docuware connector<br>(webapp)"],
-				technologies:"RaspberryPI, ESP8266, C#, KnockoutJS,<br> Bootstrap, Razor/ASP.NET, Sqlite, MySQL,<br> Python, Git"
-			},{
-				years: "2007 - 2014",
-				summary:["SAP Connector<br>(middleware)","Tavolinux<br>(hospitality)"],
-				technologies:"Windows CE/NT, Linux, PDA, POS, C#, C++,<br> MSSQL, PostgreSQL, SVN, dotNET"
-			}],
-			fullList:{
-				text:"For a detailed list of projects & companies with videos visit:"+
-				     "<b><a href=\"http://%link%\">%link%</a></b>",
-				link:"tiny.cc/ylc29y"
-			}
-		},
-
-		roles: {
-			list:[{
-				years:"2014 - 2019",
-				summary:"consultant, full-stack developer, technical support",
-				companies:"ZeroD Srl, SOL Group Spa, Alpac Srl"
-			},{
-				years:"2007 - 2014",
-				summary:"Project Manager, Team Leader, Senior Dev., ETL, Data Analisys&Integrator",
-				companies:"Seltris srl: PDA, Motorola, MS-Visio/Project/Word, SharePoint, MSSQL, VB.NET"
-			},{
-				years:"1998 - 2000",
-				summary:"Junior ICT Manager, System Engineer",
-				companies:"Copan Italia Spa: HP Proliant, Zyxel, MSAccess"
-			},{
-				years:"1986 - 1998",
-				summary:"Video Game dev., Technician, PLC dev., technical teacher in high school",
-				companies:"CompaQ, 3com, Windows NT, Novell, Nixdorf, Zetafax, Intermec, Clipper"
-			}],
-			fullList:{
-				text:"For a detailed list with videos please visit:"+
-				     "<b><a href=\"http://%link%\">%link%</a></b>",
-				link:"tiny.cc/dpc29y"
-			}
-		}
-	} // cv
-} // data
-
-/* for translations */
-function tr(txt) {
-	if (data.lang != "en")
-		for (var j=0;j<translations.length;j++) {
-			var item = translations[j]
-			var curr = item["en"]
-			if (curr === txt) {
-				return item[data.lang]
-			}
-		}
-	return txt
-}
+var data ={}
 
 function browser_language() {
 	return (navigator.language || navigator.browserLanguage).split('-')[0]
 }
 
 var Convert18 = function (txt) {
-  var AII = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@.-";
-  var C18 = "STUVWXYZ0123456789@.-abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQR";
+  var AII = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@.-<>";
+  var C18 = "STUVWXYZ0123456789@.-abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQR§ç";
   var decode = (txt.substr(0,1)=="§") 
   if (decode) {
   	alphabet = C18
@@ -159,6 +92,11 @@ var crc32 = function(str) {
     return (crc ^ (-1)) >>> 0;
 };
 
+function Normalize18(elem) {
+	if (elem.innerHTML.substr(0,1)=="§")
+		elem.innerHTML = Convert18(elem.innerHTML)
+}
+
 function toggle(sender) {
 	if (sender===undefined) sender=this
 	var element = sender.currentTarget 
@@ -166,18 +104,6 @@ function toggle(sender) {
 	var id = element.id || name // || element.tagName
 	var spec = ""
 	switch (id) {
-
-		case 'ad': 
-		case 'pi': 
-		case 'em':
-		case 'ph':
-		case 'gh':
-			var txt = Convert18(data[id][1])  // click here to show/hide ...
-			var val = Convert18(data[id][0])
-			txt = tr(txt);
-			val = tr(val) 
-			element.innerHTML = (element.innerText == txt ? val : txt)
-			break
 
 		case 'photo':
 			element.classList.add("hidden")
@@ -188,20 +114,42 @@ function toggle(sender) {
 
 		case 'recruiter':
 			var elements = document.querySelectorAll(".hide-references")
-			var show = updateRecruiter()
+			var show = undefined
 			for (var i=0;i<elements.length;i++) {
 				var element = elements[i]
+				if (show === undefined) {
+					if (element.classList.contains("hidden")) show = true; else show=false
+				}
 				if (show) element.classList.remove("hidden")
 				else element.classList.add("hidden")
 			}
 			break
 			
 		case 'lang':
-		    translate()
+		    change_lang()
 			break
 
 		default:
-			debugger
+			if (element.tagNAME="SWITCH") {
+				var on = element.querySelector("on")
+				var off = element.querySelector("off")
+				if (off.style.display == "none") {
+					on.style.display = "none"
+					off.style.display = "inline-block"
+				} else {
+					Normalize18(on)
+					if (on.childElementCount>0) {
+						for (var i = 0; i < on.children.length; i++) {
+							var elem = on.children[i]
+							Normalize18(elem)
+						}
+					}
+					on.style.display = "inline-block"
+					off.style.display = "none"
+				}
+			}
+			else
+				debugger
 	}
 }
 
@@ -214,20 +162,32 @@ function email2clipboard() {
     document.oncopy = undefined;
 }
 
-function updateRecruiter() {
-	var show = true
-	var showhide = [tr("show") , tr("hide")]
-	if (data.recruiter.element == null)
-		data.recruiter.element=document.querySelector("#recruiter span")
-	else {
-		show = data.recruiter.content.indexOf(showhide[0])>-1
-		current = show ? showhide[0] : showhide[1] 
-		target = show ? showhide[1] : showhide[0]
-		data.recruiter.content = data.recruiter.content.replace(current,target)
+
+function change_lang(language) {
+
+    // toggle or force language
+
+    language = language === undefined ? (data.lang == "en" ? "it" : "en") : language
+	var old_language = data.lang === undefined ? (language == "en" ? "it" : "en") : data.lang
+
+    img = document.getElementById("lang")
+	img.src = "../images/flag_" + language + ".png"
+	
+    data.lang = language
+
+	if (data.lang_sheet === undefined) {
+		data.lang_sheet = document.createElement('style')
+		document.body.appendChild(data.lang_sheet);	
 	}
-	data.recruiter.element.innerHTML = data.recruiter.content
-	return show
+
+	var lngTpl = "@ln {display: @display;font-size: inherit;}@ln > * {font-size: inherit;}"
+	var lngCss = lngTpl.replace("@ln",language).replace("@display","block-inline")
+			   + lngTpl.replace("@ln",old_language).replace("@display","none")
+
+	data.lang_sheet.innerHTML = lngCss
+
 }
+
 
 function activeElements() {
 	var elements = document.querySelectorAll(".hide-references.toggle")
@@ -243,328 +203,25 @@ function activeElements() {
 		element.style.cursor = "pointer"
 		element.addEventListener("click",toggle)
 	}
-}
-
-function span(content,className)
-{
-	return '<span class="'+className+'"">'+content+'</span>'
-}
-
-function buildFullList(body,fullList,colSpan) {
-	var tr
-	var td
-	tr = document.createElement("TR")
-	tr.className = "full-list"
-	td = document.createElement("TD")
-	td.colSpan = colSpan
-	var html = fullList.text.replace("%link%",fullList.link)
-	html = html.replace("%link%",fullList.link)
-	td.innerHTML = html
-	tr.appendChild(td)
-    body.insertBefore(tr,null)
-}
-
-function buildExperiences() {
-	var body = document.querySelector("experiences table[class='normal-screen'] tbody")
-	var last = body.lastElementChild
-	var tr
-	var td
-	for (var i=0;i<data.cv.lastExperiences.list.length;i++) {
-		var exp = data.cv.lastExperiences.list[i]
-		tr = document.createElement("TR")
-		tr.className = "bbottom"
-		td = document.createElement("TD")
-		td.innerHTML = exp.years
-		tr.appendChild(td)
-		for (var j=0;j<exp.summary.length;j++) {
-			var sum = exp.summary[j]
-			td = document.createElement("TD")
-			td.innerHTML = sum
-			tr.appendChild(td)
-		}
-		td = document.createElement("TD")
-		td.innerHTML = exp.technologies
-		td.className = "tright"
-		td.colSpan="3"
-		tr.appendChild(td)
-		body.insertBefore(tr,null)
-	}
-
-	body = document.querySelector("experiences table[class='xs-screen'] tbody")
-	last = body.lastElementChild
-	for (var i=0;i<data.cv.lastExperiences.list.length;i++) {
-		var exp = data.cv.lastExperiences.list[i]
-
-		tr = document.createElement("TR")
-		tr.className = "bbottom"
-		td = document.createElement("TD")
-		td.innerHTML = span(exp.years,"bglegend")
-		td.colSpan = "6"
-		tr.appendChild(td)
-		body.insertBefore(tr,null)
-
-		tr = document.createElement("TR")
-		for (var j=0;j<exp.summary.length;j++) {
-			var sum = exp.summary[j]
-			td = document.createElement("TD")
-			td.innerHTML = sum
-			tr.appendChild(td)
-		}
-		td = document.createElement("TD")
-		td.innerHTML = exp.technologies
-		td.className = "tright"
-		td.colSpan="3"
-		tr.appendChild(td)
-		body.insertBefore(tr,null)
-	}
-
-	buildFullList(body,data.cv.lastExperiences.fullList,"6")
-}
-
-function buildRoles() {
-	/*
-		<tr class="bbottom">
-			<td>2014 - 2019</td>
-			<td>consultant, full-stack developer, technical support</td>
-			<td class="tright">ZeroD Srl, SOL Group Spa, Alpac Srl</td>
-		</tr>
-	*/
-	var body = document.querySelector("roles table[class='normal-screen'] tbody")
-	var last = body.lastElementChild
-	var tr
-	var td 
-	for (var i=0;i<data.cv.roles.list.length;i++) {
-		var exp = data.cv.roles.list[i]
-		tr = document.createElement("TR")
-		tr.className = "bbottom"
-
-		td = document.createElement("TD")
-		td.innerHTML = exp.years
-		tr.appendChild(td)
-
-		td = document.createElement("TD")
-		td.innerHTML = exp.summary
-		td.className = "tleft"
-		tr.appendChild(td)
-
-		td = document.createElement("TD")
-		td.innerHTML = exp.companies
-		td.className = "tright"
-		tr.appendChild(td)
-
-		body.insertBefore(tr,null)
-	}
-	buildFullList(body,data.cv.roles.fullList,"3")
-
-	body = document.querySelector("roles table[class='xs-screen'] tbody")
-	last = body.lastElementChild
-	for (var i=0;i<data.cv.roles.list.length;i++) {
-		
-		var exp = data.cv.roles.list[i]
-		
-		var td = function(field,value,trClass) {
-			var td
-    		tr = document.createElement("TR")
-			tr.className = trClass
-			td = document.createElement("TD")
-			if (field == "Years") {
-	     		td.colSpan="2"
-				td.innerHTML = value // span(value,"bglegend")
-				td.className="tleft"
-			} else {
-    			td.className = "tleft"
-				td.innerHTML = field
-				tr.appendChild(td)
-				td = document.createElement("TD")
-				td.className = "tright"
-				td.innerHTML = value
-			}
-			tr.appendChild(td)
-			body.insertBefore(tr,null)
-		}
-
-		td("Years",span(exp.years,"bold bglegend"),"bbottom")
-		td("Roles",exp.summary)
-		td("Companies, HW, SW",exp.companies)
-	}
-	buildFullList(body,data.cv.roles.fullList,"3")
-
-}
-
-function translate(language) {
-
-    // toggle or force language
-
-    language = language === undefined ? (data.lang == "en" ? "it" : "en") : language
-    img = document.getElementById("lang")
-	img.src = "../images/flag_" + language + ".png"
 	
-    var nodes = textNodesUnder(document.body)
-
-    var txtDistinct=[]
-    for(var i=0;i<nodes.length;i++) {
-    	var txt = nodes[i].data.trim()
-		txt = txt.replace(/\t+/g, ' ')
-		txt = txt.replace(/  +/g, ' ')
-		var txts = txt.split("\n")
-		for (var k=0;k<txts.length;k++) {
-			var txt = txts[k].trim()
-    		var tag = (txt.startsWith("{{")?txt.replace("{{","").replace("}}",""):"")
-			var found = false
-			for (var j=0;j<translations.length;j++) {
-				var item = translations[j]
-				var curr = item[data.lang]
-				if (curr === txt || (tag!="" && item["tag"] == tag)) {
-					var trs = item[language]
-					nodes[i].data = nodes[i].data.replace(txt,trs)
-					found = true
-					break
-				}
-			}
-			if (!found) console.log("Not found:'" + txt + "'")
-		}
-    }
-    data.lang = language
+	var activeElements = document.querySelectorAll("switch")
+	for (var i=0;i<activeElements.length;i++) {
+		var element = activeElements[i]
+		element.style.cursor = "pointer"
+		element.addEventListener("click",toggle)
+		
+		var off = document.createElement("off")
+		off.innerHTML = "<en>Click here to show</en><it>Cliccare qui per mostrare</it>"
+		element.appendChild(off)
+	}
 }
 
-function generateTranslation()
-{	
-    var nodes = textNodesUnder(document.body)
-
-    var txtDistinct=[]
-    for(var i=0;i<nodes.length;i++) {
-    	var txt = nodes[i].data.trim()
-		txt = txt.replace(/\t+/g, ' ')
-		txt = txt.replace(/  +/g, ' ')
-		var found = false
-		for (var j=0;j<txtDistinct.length;j++)
-			if (txtDistinct[j]===txt) {
-				found = true
-				break
-			}
-		if (!found) txtDistinct.push(txt)
-	}
-
-    var txtDistinct = txtDistinct.sort()
-	var dictionary = window.translations;
-	var js = "var translations=[\n"
-	for (var i=0;i<txtDistinct.length;i++) {
-		txts = txtDistinct[i].split("\n")
-		for (var j=0;j<txts.length;j++) {
-			var txt = txts[j].trim()
-			var id = crc32(txt)
-			var it = ""
-			for (var k=0;k<dictionary.length;k++) {
-				item = dictionary[k]
-				if (id==item.id) {
-					it = item.ll
-					break
-				}
-			}
-			if (it === "") it=txt
-			js+='  {\n    sys:"'+txt+'",\n    it:"'+it+'"\n  },\n'
-		}
-	}
-	js+=']'
-	console.log(js)
-} // generateTranslations
-
-
-function test(){
-	/*
-		this are some examples and tests about a more simple way to 
-		build documents as this.
-	*/
-
-	/*
-		<roles>
-			<table class="xs-screen">
-				<tbody>
-					<years></years>
-					<summary></summary>
-					<company></company>
-					<details></details>
-				</tbody>
-			</table>
-		</roles>
-	*/
-
-	var roles_html_bind = {
-		"roles table[class='xs-screen']":{
-			tbody:{
-				_:data.cv.roles.list,
-				details:data.cv.roles.fullList.text.split("%link%").join(data.cv.roles.fullList.link)
-			}
-		}
-	}
-
-	var roles = {
-		xs_screen: {
-			tag:"table",
-			className:"xs-screen",
-			roles: {
-				tag:"tbody",
-				rows: {
-					_each: data.cv.roles.list,		
-					years:{						// tag:"tr" implicit
-						colSpan:"2",
-						td:{innerHTML:"{years}"}
-					},
-					summary:{
-						td:[
-							{innerHTML:"Role"},
-							{innerHTML:"{summary}", className:"tright"}
-						]
-					},
-					company:{
-						td:[
-							{innerHTML:"Companies, HW, SH", className:"tleft"},
-							{innerHTML:"{company}", className:"tleft"}
-						]
-					},
-				},
-				summary:{
-					td:{
-						innerHTML:"For a detailed list with videos please visit:tiny.cc/dpc29y",
-						colSpan:"2"
-					}
-				}
-			}
-		},
-		wide_screen: {
-			tag:"table",
-			className:"wide-screen",
-			roles: {
-				tag:"tbody",
-				header:{		
-					td:[{innertHTML:"Roles"},{innerHTML:"Companies, HW, SW",colSpan:"2"}]
-				},
-				rows:{
-					_each: data.cv.roles.list,
-					td:[{innertHTML:"{years}"},{innerHTML:"{summary}"},{innerHTML:"{companies}"}],
-				}
-
-			}
-		}
-	} // roles
-} // test
 
 function main() {
-	var language = browser_language()
-	if (language != "it" && language!="en") language = "en"
-
-	test()
-
+	
+	change_lang(browser_language())
+	
 	activeElements()
-
-	updateRecruiter()
-
-	buildExperiences()
-
-	buildRoles()
-
-	// generateTranslations()
-	translate(language)
 
 	document.body.className = 'fade-in'
 }

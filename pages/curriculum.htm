@@ -10,6 +10,7 @@ All rights reserved
 
 -- CHANGELOG --------------------------------------------------------------------------
 
+201109\s.zaglio: revision
 190718\s.zaglio: 1st draft
 
 -- TODO -------------------------------------------------------------------------------
@@ -34,17 +35,51 @@ All rights reserved
 </head>
 <body lang="en-US">
 	<content>
-		<legend>Stefano<span class="hide-references"> Zaglio (CV)</span><img id="lang" class="toggle noprint" src=""></legend>
+		<legend>Stefano <span class="hide-references">Zaglio (CV)</span><img id="lang" class="toggle noprint" src=""></legend>
 		<header>
 			<personal-info>
-				<address name="ad" class="toggle hide-references"></address>
-				<img src="../images/email.jpg"> <email name="em" class="toggle hide-references bold"></email>
-				<img src="../images/phone.png"> <phone name="ph" class="toggle hide-references"></phone><br>
-				<img src="../images/github.png"> <github name="gh" class="toggle hide-references"></github>
-				<a class="hide-references" href="https://youtu.be/mWDe1Axr6qc"><img src="../images/video.png"></a><br>
-				Industrial Engineer in Computer Science<br>
-				Intermediate english, français élémentaire<br>
-				<private-info name="pi" class="toggle hide-references"></private-info>
+				<div class="hide-references">
+					<switch name="ad">
+						<on>
+								<en>§JLFJI hS@.0Y3065W i/x rS5.6aS (n.S3d)</en>
+								<it>§A0S x69S.050 N, JLFJI hS@.0Y3065W i/x (rs)</it>
+						</on>
+					</switch>
+					<span>
+					<img src="../images/email.jpg"> 
+					<switch name="em" class="bold">
+						<on>§eSY306Q@.WXS56PY4S03QU64</on>
+					</switch>
+					</span>
+					<span>
+					<img src="../images/phone.png"> 
+					<switch name="ph">
+						<on>§+IOQIJMQKOJOQFMI</on>
+					</switch><br>
+					</span>
+					<span>
+					<img src="../images/github.png"> 
+					<switch name="gh">
+						<on>§§S 5S4W="YZ" U3S@@=".6YY3W Z0VWR9WXW9W5UW@" Z9WX="Z..7@://Y0.Z-TQU64/e65SXW.@"çY0.Z-T/e65SXW.@§/Sç</on>
+					</switch>
+					</span>
+					<span>
+					<a class="hide-references" href="https://youtu.be/mWDe1Axr6qc"><img src="../images/video.png"> mWDe1Axr6qc</a>
+					</span>
+				</div>
+				<br>
+				<en>Industrial Engineer in Computer Science</en>
+				<it>Perito Elettronico con Specializzazione in Informatica</it>
+				<br>
+				<en>Intermediate english, français élémentaire</en>
+				<it>Inglese intermedio, francese elementare</it>
+				<br>
+				<switch name="pi" class="hide-references">
+					<on>
+						<en>§g695 65 kWT FG GOMH / rS990WV / H UZ03V9W5</en>
+						<it>§sS.6 03 FG/FH/GOMH / x76@S.6 / H X0Y30</it>
+					</on>					
+				</switch>
 			</personal-info>
 			<images>
 				<pictures>
@@ -55,8 +90,14 @@ All rights reserved
 				</pictures>
 				<div class="noprint">
 					<p>
-						click images to see pictures of me in roles such as
+						<en>
+						click images to see pictures of me in roles such as<br>
 						of firmware dev., game dev., technician, analyst, manager
+						</en>
+						<it>
+							clicca le immagini più volte per vedere foto di me nei ruoli<br>
+							di firmware dev., game dev., technician, analyst, manager
+						</it>
 					</p>
 					<button id="recruiter" class="toggle">
 						<b>Recruiter?</b><br><span></span><br>
@@ -69,14 +110,29 @@ All rights reserved
 		<br>
 		
 		<div style="display:inline-block;width:100%">
-			<legend>Personal profile</legend>
+			<legend><en>Personal profile</en><it>Brevemente</it></legend>
 			<briefly>
-				<p>{{PersonalProfileDescription}}
-					<br>
-					<span style="float:right;font-style:italic;font-size:smaller;">
+				<p>
+					<en>
+						Self-taught since the age of 13, I have experience as a teacher, technician, developer, coordinator, on various IT platforms and business realities. 
+						I grew up as a reliable, dynamic and competent worker. 
+						Strongly motivated to carry out a task or to face a situation effectively, learning from the process.
+					</en>
+					<it>
+						Autodidatta dall'età di 13 anni ho esperienza come docente, tecnico, sviluppatore, coordinatore su varie piattaforme informatiche e realtà aziendali. 
+						Sono cresciuto come lavoratore affidabile, dinamico e competente. 
+		   				Fortemente motivato a svolgere un compito o ad affrontare una situazione apprendendo dal processo, per evolvere senza stravolgere.
+					</it>
+				</p>
+				<p class="full-list">
+					<en>
 						To learn more check out my <a href="software_quality.html">technical culture</a> or 
 						<a href="projects.html">ideas</a>
-					</span>
+					</en>
+					<it>
+						Per saperne di più clicca <a href="software_quality.html">cultura tecnica</a> o 
+						<a href="projects.html">idee</a>
+					</it>
 				</p>
 			</briefly>
 		</div>
@@ -85,10 +141,11 @@ All rights reserved
 			<tbody>
 				<tr class="bglegend">
 					<td>
-						Today
+						<en>Today</en><it>Oggi</it>
 					</td>
 					<td colspan="2">
-						DMS maintenance and development
+						<en>DMS maintenance and development as senior full-stack developer</en>
+						<it>Manutenzione e sviluppo DMS come sviluppatore senior full-stack</it>
 					</td>
 					<td class="tright" colspan="3">
 						ZeroD Srl
@@ -97,33 +154,140 @@ All rights reserved
 			</tbody>
 		</table>
 
+		<script>
+		var exp = [{
+				years:"2014 - 2019",
+				summary:["Micro ERP/CRM<br>IOT facility","Docuware connector<br>(webapp)"],
+				technologies:"RaspberryPI, ESP8266, C#, KnockoutJS,<br> Bootstrap, Razor/ASP.NET, Sqlite, MySQL,<br> Python, Git"
+			},{
+				years: "2007 - 2014",
+				summary:["SAP Connector<br>(middleware)","Tavolinux<br>(hospitality)"],
+				technologies:"Windows CE/NT, Linux, PDA, POS, C#, C++,<br> MSSQL, PostgreSQL, SVN, dotNET"
+			}]
+		</script>
+
+
+		<!-------------------------------------------------------------- EXPERIENCES -------------------------------------------------------------->
+
 		<experiences>
 			<table class="normal-screen">
 				<tbody>
-					<tr class="bglegend">
+					<tr class="bglegend" id="exp-title">
 						<td colspan="3">
-							<legend>Last relevant experiences</legend>
+							<legend>
+								<en>Last relevant experiences</en>
+								<it>Esperienze recenti di rilevanza</it>
+							</legend>
 						</td>
 						<td class="tright" colspan="3">
-							<legend class="tright">Technologies</legend>
+							<legend class="tright">
+								<en>Technologies</en>
+								<it>Tecnologie</it>
+							</legend>
 						</td>
 					</tr>
+					<tr class="bbottom">
+						<td>2014 - 2019</td>
+						<td>Micro ERP/CRM<br>IOT facility</td>
+						<td>Docuware connector<br>(webapp)</td>
+						<td class="tright" colspan="3">
+							RaspberryPI, ESP8266, C#, KnockoutJS,<br> Bootstrap, Razor/ASP.NET, Sqlite, MySQL,<br> Python, Git
+						</td>
+					</tr>
+					<tr class="bbottom">
+						<td>2007 - 2014</td>
+						<td>SAP Connector<br>(middleware)</td>
+						<td>Tavolinux<br>(hospitality)</td>
+						<td class="tright" colspan="3">
+							Windows CE/NT, Linux, PDA, POS, C#, C++,<br> MSSQL, PostgreSQL, SVN, dotNET</td>
+					</tr>
+					<tr>
+						<td colspan="4">
+							<p class="full-list">
+								<en>For a detailed list of projects &amp; companies with video demos visit: </en>
+								<it>Per una lista completa dei progetti e aziende con video demo visitare: </it>
+								<b><a href="http://tiny.cc/ylc29y">tiny.cc/ylc29y</a></b>
+							</p>
+						</td>
+					</tr>
+
 				</tbody>
 			</table>
+
 			<table class="xs-screen">
 				<tbody>
-					<tr class="bglegend">
+					<tr class="bglegend" clone="exp-title">
 						<td colspan="3">
-							<legend>Last relevant experiences</legend>
+							<legend>
+								<en>Last relevant experiences</en>
+								<it>Esperienze recenti di rilevanza</it>
+							</legend>
 						</td>
 						<td class="tright" colspan="3">
-							<legend class="tright">Technologies</legend>
+							<legend class="tright">
+								<en>Technologies</en>
+								<it>Tecnologie</it>
+							</legend>
+						</td>
+					</tr>
+					<!--
+					<template bind="exp"
+						<tr class="bbottom">
+							<td colspan="6">
+								<span class="bglegend">
+									{{years}}
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td>{{summary[0]}}</td>
+							<td>{{summary[1]}}</td>
+							<td class="tright" colspan="3">
+								{{technologies}}
+							</td>
+						</tr>
+					</template>
+					-->
+					<tr class="bbottom">
+						<td colspan="6"><span class="bglegend">2014 - 2019</span></td>
+					</tr>
+					<tr>
+						<td>Micro ERP/CRM<br>IOT facility</td>
+						<td>Docuware connector<br>(webapp)</td>
+						<td class="tright" colspan="3">
+							RaspberryPI, ESP8266, C#, KnockoutJS,<br> Bootstrap, Razor/ASP.NET, Sqlite, MySQL,<br> Python, Git
+						</td>
+					</tr>
+					<tr class="bbottom">
+						<td colspan="6"><span class="bglegend">2007 - 2014</span></td>
+					</tr>
+					<tr>
+						<td>SAP Connector<br>(middleware)</td>
+						<td>Tavolinux<br>(hospitality)</td>
+						<td class="tright" colspan="3">
+							Windows CE/NT, Linux, PDA, POS, C#, C++,<br> MSSQL, PostgreSQL, SVN, dotNET
+						</td>
+					</tr>
+					<tr>
+						<td colspan="6">
+							<p class="full-list">
+									<en>For a detailed list of projects &amp; companies </en>
+									<it>Per una lista completa dei progetti e aziende </it>
+								<span>
+									<en>with video demos visit:</en>
+									<it>con video demo visitare:</it>
+									<b><a href="http://tiny.cc/ylc29y">tiny.cc/ylc29y</a></b>
+								</span>
+							</p>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 		</experiences>
 		<br>
+
+		
+		<!-------------------------------------------------------------- ROLES -------------------------------------------------------------->
 
 		<roles>
 			<table class="normal-screen">
@@ -136,13 +300,115 @@ All rights reserved
 							<legend class="tright">Companies, HW, SW</legend>
 						</td>
 					</tr>
+					<tr class="bbottom">
+						<td>2014 - 2019</td>
+						<td class="tleft">consultant, full-stack developer, technical support</td>
+						<td class="tright">ZeroD Srl, SOL Group Spa, Alpac Srl</td>
+					</tr>
+					<tr class="bbottom">
+						<td>2007 - 2014</td>
+						<td class="tleft">
+							Project Manager, Team Leader, Senior Dev., ETL, Data Analisys&amp;Integrator
+						</td>
+						<td class="tright">
+							Seltris srl: PDA, Motorola, MS-Visio/Project/Word, SharePoint, MSSQL, VB.NET
+						</td>
+					</tr>
+					<tr class="bbottom">
+						<td>1998 - 2000</td>
+						<td class="tleft">Junior ICT Manager, System Engineer</td>
+						<td class="tright">Copan Italia Spa: HP Proliant, Zyxel, MSAccess</td>
+					</tr>
+					<tr class="bbottom">
+						<td>1986 - 1998</td>
+						<td class="tleft">Video Game dev., Technician, PLC dev., technical teacher in high school</td>
+						<td class="tright">CompaQ, 3com, Windows NT, Novell, Nixdorf, Zetafax, Intermec, Clipper</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<p class="full-list">
+								<en>For a detailed list with video demos please at:</en>
+								<it>Per una lista dettagliata con video demo visitare:</it>
+								<b><a href="http://tiny.cc/dpc29y">tiny.cc/dpc29y</a></b>
+							</p>
+						</td>
+					</tr>
 				</tbody>
 			</table>
 			<table class="xs-screen">
 				<tbody>
 					<tr class="bglegend">
-						<td colSpan="2">
+						<td colspan="2">
 							<legend>Roles experiences</legend>
+						</td>
+					</tr>
+					<tr class="bbottom">
+						<td colspan="2" class="tleft">
+							<span class="bold bglegend">2014 - 2019</span>
+						</td>
+					</tr>
+					<tr class="undefined">
+						<td class="tleft">Roles</td>
+						<td class="tright">consultant, full-stack developer, technical support</td>
+					</tr>
+					<tr class="undefined">
+						<td class="tleft">Companies, HW, SW</td>
+						<td class="tright">ZeroD Srl, SOL Group Spa, Alpac Srl</td>
+					</tr>
+					<tr class="bbottom">
+						<td colspan="2" class="tleft">
+							<span class="bold bglegend">2007 - 2014</span>
+						</td>
+					</tr>
+					<tr class="undefined">
+						<td class="tleft">Roles</td>
+						<td class="tright">
+							Project Manager, Team Leader, Senior Dev., ETL, Data Analisys&amp;Integrator
+						</td>
+					</tr>
+					<tr class="undefined">
+						<td class="tleft">Companies, HW, SW</td>
+						<td class="tright">
+							Seltris srl: PDA, Motorola, MS-Visio/Project/Word, SharePoint, MSSQL, VB.NET
+						</td>
+					</tr>
+					<tr class="bbottom">
+						<td colspan="2" class="tleft">
+							<span class="bold bglegend">1998 - 2000</span>
+						</td>
+					</tr>
+					<tr class="undefined">
+						<td class="tleft">Roles</td>
+						<td class="tright">Junior ICT Manager, System Engineer</td>
+					</tr>
+					<tr class="undefined">
+						<td class="tleft">Companies, HW, SW</td>
+						<td class="tright">Copan Italia Spa: HP Proliant, Zyxel, MSAccess</td>
+					</tr>
+					<tr class="bbottom">
+						<td colspan="2" class="tleft">
+							<span class="bold bglegend">1986 - 1998</span>
+						</td>
+					</tr>
+					<tr class="undefined">
+						<td class="tleft">Roles</td>
+						<td class="tright">
+							Video Game dev., Technician, PLC dev., technical teacher in high school
+						</td>
+					</tr>
+					<tr class="undefined">
+						<td class="tleft">Companies, HW, SW</td>
+						<td class="tright">
+							CompaQ, 3com, Windows NT, Novell, Nixdorf, Zetafax, Intermec, Clipper
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<p class="full-list">
+								<en>Detailed list with video demos at:</en>
+								<it>Lista dettagliata con video demo:</it>
+								<b><a href="http://tiny.cc/dpc29y">tiny.cc/dpc29y</a></b>
+							</p>
 						</td>
 					</tr>
 				</tbody>
@@ -151,21 +417,45 @@ All rights reserved
 		</roles>
 
 		<extra-activities>
-			<legend>Extracurricular interests or activities and workshops</legend>
-			<p>{{extra-activities}}</p>
+			<legend>
+				<en>Extracurricular interests or activities and workshops</en>
+				<it>Interessi, attività e seminari extracurricolari</it>
+			</legend>
+			<p>
+			    <en>
+			    	Trekking, automated accounting, technical customer service in HP, goals & results, TEDx&DIY videos, studies on meta-learning, bw photography, comics drawing, modeling, cooking, tasting, site manager"
+			    </en>
+			    <it>
+	    			Trekking, contabilità automatizzata, relazione tecnico-cliente in HP, obiettivi e risultati, video TEDx&DIY, studi sul meta-apprendimento, fotografia b/n, disegno di fumetti, modellistica, cucina, degustazione, coordinatore di cantiere
+	    		</it>
+			</p>
 		</extra-activities>
 
 		<acquired-skills class="bbottom">
-			<legend>Acquired extra skills</legend>
+			<legend>
+				<en>Acquired extra skills</en>
+				<it>Competenze extra</it>
+			</legend>
 			<p>
-				smart-learning, meta-analysis, budget analysis, objection management, goal setting, aspects of perceptions, cost benefit analysis with limited budget
+				<en>
+					smart-learning, meta-analysis, budget analysis, objection management, goal setting, aspects of perceptions, cost benefit analysis with limited budget
+				</en>
+				<it>
+					smart-learning, meta-analisi, analisi di budget, gestione obiezioni, impostazione obiettivi, aspetti della percezione, analisi costi/benefici con budget limitato
+				</it>
 			</p>
 		</acquired-skills>	
 
 		<privacy>
 			<p>
-				<span>In compliance with the Italian D.L. #196-30/06/2003 and GDPR,</span>
-		        <span>I authorize to use my personal details</span>
+				<en>
+					<span>In compliance with the Italian D.L. #196-30/06/2003 and GDPR,</span>
+			        <span>I authorize to use my personal details</span>
+			    </en>
+			    <it>
+			    	<span>In conformità con il D.L. #196-30/06/2003 e GDPR</span>
+			    	<span>Autorizzo all'uso dei dati personali</span>
+			    </it>
 		    </p>
 		</privacy>
 
