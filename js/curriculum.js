@@ -39,60 +39,6 @@ var Convert18 = function (txt) {
   }).join("");
 };
 
-function getDifference(a, b)
-{
-    var i = 0;
-    var j = 0;
-    var result = "";
-
-    while (j < b.length)
-    {
-        if (a[i] != b[j] || i == a.length)
-            result += b[j];
-        else
-            i++;
-        j++;
-    }
-    return result;
-}
-
-// collect text nodes excluding empty strings
-function textNodesUnder(el){
-  var n, a=[], walk=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false);
-  while(n=walk.nextNode()) {
-  	var txt = n.data.trim().replace(/\s\s+/g, ' ')
-  	if (txt=="" || txt=="\n") continue;
-  	// console.log(txt)
-  	// if (txt.startsWith("Briefly")) debugger;
-  	a.push(n);
-	}
-  return a;
-}
-
-var makeCRCTable = function(){
-    var c;
-    var crcTable = [];
-    for(var n =0; n < 256; n++){
-        c = n;
-        for(var k =0; k < 8; k++){
-            c = ((c&1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1));
-        }
-        crcTable[n] = c;
-    }
-    return crcTable;
-}
-
-var crc32 = function(str) {
-    var crcTable = window.crcTable || (window.crcTable = makeCRCTable());
-    var crc = 0 ^ (-1);
-
-    for (var i = 0; i < str.length; i++ ) {
-        crc = (crc >>> 8) ^ crcTable[(crc ^ str.charCodeAt(i)) & 0xFF];
-    }
-
-    return (crc ^ (-1)) >>> 0;
-};
-
 function Normalize18(elem) {
 	if (elem.innerHTML.substr(0,1)=="§")
 		elem.innerHTML = Convert18(elem.innerHTML)
@@ -156,7 +102,7 @@ function toggle(sender) {
 
 function email2clipboard() {
     document.oncopy = function(event) {
-        event.clipboardData.setData("Text", Convert18(data.em[0]));
+        event.clipboardData.setData("Text", Convert18("§eSY306Q@.WXS56PY4S03QU64"));
         event.preventDefault();
     }
     document.execCommand("Copy");
@@ -215,6 +161,10 @@ function activeElements() {
 		off.innerHTML = "<en>Click here to show</en><it>Cliccare qui per mostrare</it>"
 		element.appendChild(off)
 	}
+	
+	var em = document.getElementById("em-img")
+	em.title="Click to copy to clipboard"
+	em.addEventListener("click",email2clipboard)
 }
 
 
